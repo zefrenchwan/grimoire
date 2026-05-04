@@ -1,0 +1,370 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[french]{babel}   
+\usepackage{float}
+\usepackage[skip=0.5cm]{parskip}
+\usepackage{amsmath,amssymb,amsfonts}
+
+\newtheorem{definition}{Définition}[section]
+\newtheorem{theorem}{Théorème}[section]
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{corollary}{Corollaire}[theorem]
+\newtheorem{lemma}[theorem]{Lemme}
+
+\author{Jean BAYLON}
+\title{Proposition de modèle de propagation}
+\date{Version du \today{}}
+
+\begin{document}
+	\maketitle
+	
+	\begin{abstract}
+		Ce document vise à proposer un paradigme pour ancrer la sociologie de la propagation dans un modèle informatique exploitable. Nous postulons que les acteurs communiquent dans un champ informationnel qui n'est pas neutre : ses propriétés dictent la mise en relation ou l'isolement des acteurs, constituant ainsi la clé de la compréhension de la propagation des messages. Au sein de ce champ, la capacité d'attention des acteurs constitue une limite indépassable, inhérente à notre condition humaine. Ce constat fondamental permet d'expliquer mécaniquement les travers des plateformes numériques comme des conséquences inévitables de leur modèle économique.  
+		
+		Après avoir démontré la pertinence de ce modèle dans des cas connus comme le marketing digital, nous l'exploitons dans le contexte critique de la guerre informationnelle. En effet, ces dynamiques structurelles sont aujourd'hui dévoyées pour diffuser de la désinformation ou provoquer une saturation cognitive rapide par des techniques de slopaganda. Si ce document détaille ces méthodes offensives, c'est dans le but de proposer une nouvelle approche de détection sous un angle cinétique. En définissant la désinformation comme une série de transformations anormales subies par le champ informationnel , notre formalisme donne un sens mathématique précis à cette intuition pour aboutir à une caractérisation de la guerre informationnelle comme déformation anormale du champ informationnel. En tant que chercheur indépendant, nous n'avons pas de proposition concrète de mise en place. Cependant, nous proposons de sortir de l'angle social pour reformuler la question comme pure problématique algorithmique ou de gestion de la donnée. 
+	\end{abstract}
+	\clearpage
+	\tableofcontents
+	\clearpage
+	
+	\section{Pourquoi la question de la propagation ?}
+	
+		De par leur importance, les réseaux sociaux nous informent, parfois plus que les supports officiels d'actualité. Les premiers furent des réplications de notre sphère sociale réelle, alors que de plus en plus, ils s'organisent par centre d'intérêt ou communautés. Dès lors, l'intermédiation, c'est à dire la faculté de trouver des utilisateurs comparables, devient une nécessité économique structurante. La propagation s'entend alors comme la diffusion de contenu dans un champ informationnel. Ce peut être un espace sans particularité notoire, comme une boite mail de petite entreprise, une application de rencontres dont le coeur de modèle reste la capacité à trouver \og{}le bon profil\fg{} ou des grands réseaux sociaux revendiquant des millions d'utilisateurs. Dans son ouvrage, \textit{Propagations, 2023}, Dominique Boullier nous livre une analyse très poussée de la propagation. Il commence par établir une analyse détaillée de ses nombreux domaines d'applications, des virus aux rumeurs en passant par des objets. La problématique dépasse largement le cadre de l'analyse de l'application sociale. Si les concepts mis en avant sont extrêmement pertinents, l'ouvrage reste un livre de sociologie. Nous nous proposons de réinterpréter ces concepts sous l'angle de la physique des champs pour l'enrichir d'une formalisation exploitable algorithmiquement. 
+	
+	\section{Observer les champs}
+	
+		Nous visons à dégager un modèle unique, d'inspiration physique, adressant aussi les questions sociales. Le vocabulaire commun nous permettra de poser des questions sociales en s'appuyant sur une description plus mathématique. Au delà de l'exercice de modélisation, il s'agit de rendre les concepts calculables, donc exploitables avec des outils informatiques. C'est un risque que nous prenons, tout en gardant en tête que le social ne se laisse pas enfermer dans une série d'équations, si élaborées soient elles. Poser la question de l'observation implique de dégager les concepts clés et leurs interactions, de se placer du point de vue de l'utilisateur du modèle en expliquant les outils que nous proposons, puis de s'assurer que la proposition permet a minima de retrouver des résultats connus. 
+		
+		\subsection{Les concepts : champs, acteur, événement}
+		
+		
+		Nous proposons de la penser en terme de champs, événements et acteurs : 
+		\begin{enumerate}
+			\item les acteurs sont les entités qu'on observe, et pour lesquelles on souhaite modéliser le comportement. 
+			\item les événements sont des observables qui s'échangent entre les acteurs. Ce peut être un courrier, un message, un médiateur
+			\item le champ est ce qui permet la propagation. En physique, c'est souvent un milieu neutre et isotrope. Un réseau social est un champ qui organise si et comment les acteurs peuvent se voir ou communiquer les uns avec les autres.
+		\end{enumerate}
+		
+		Donnons en deux exemples. 
+		\paragraph{Le champ physique. } Dans un tel champ, l'acteur est un objet, ce qui est observé et décrit. Le champ peut être gravitationnel ou magnétique, par exemple, formalisant que la logique qui fait changer un acteur de position dans le champ s'explique par la force en question. L'événement se trouve être de type : tel objet est soumis à telle force avec telle intensité, dans telle direction. La description de cet événement entraine la prédiction du mouvement à venir, car le lien entre l'événement ($\vec{F}$) et le mouvement ($\vec{P}$) suit une loi physique connue (en l'occurrence $\vec{F} = \frac{d\vec{P}}{dt}$). 
+		
+		\paragraph{Le champ social. } Dans un tel champ, l'acteur est un programme informatique (bot) ou un humain. Il reçoit de l'information (sous forme de messages qu'on formalise par des événements). L'information reçue n'est pas nécessairement pertinente, donc pas forcément traitée. Elle peut modifier le comportement de l'acteur. Par exemple, il reçoit une publicité et décide de cliquer dessus, voire d'acheter le bien qui lui a été proposé. Il peut recevoir un mail l'informant qu'il est l'heureux gagnant d'un obscur concours, ce qu'il assimilera à du spam. La description est loin de fournir une prédiction du mouvement à venir, contrairement à l'objet physique. 
+		
+
+		
+		\subsection{Les outils descriptifs de l'observateur}	
+		
+			Nous nous plaçons du point de vue d'un observateur décrivant un phénomène de propagation. Boullier, dans son ouvrage, développe l'idée que la société est un milieu traversé par des ondes. Elle n'est plus vue comme des classes ou institutions imposant des règles aux individus. Elle n'est plus une somme de choix rationnels ou de préférences des individus. L'acteur reçoit des vibrations, et il peut répliquer ou modifier celle-ci. Leur description, et leur étude, impose la notion de trace, comme résidu matériel d'une interaction. L'acteur devient un canal à travers lequel les propagations tentent de survivre et se répliquer. 
+			
+			Nous proposons une description fidèle à ce résumé bien trop rapide pour rendre compte de toute la portée de l'œuvre. Avoir des outils de description signifie : 
+			\begin{enumerate}
+				\item savoir se doter d'un \textbf{référentiel} pour situer dans l'espace et le temps les acteurs et les événements
+				\item utiliser ce référentiel pour quantifier la présence de l'acteur et la portée des événements
+				\item mettre en place une formalisation de l'interaction entre l'acteur et l'événement
+			\end{enumerate}
+			
+			Le référentiel $\mathcal{R}$ intègre deux dimensions : le temps qui est inévitable pour décrire le changement, et l'espace étudié. Dans le cas d'un objet physique, ce peut être $\mathbb{R}^3$. Dans le cas social, on prendra $\mathcal{C}$ l'ensemble des comptes puisque c'est l'observable directement. La question de qui se trouve derrière le compte a un moment donné est hors sujet dans le modèle. Ainsi, si un compte $c$ poste un message au temps $t$, l'observateur aura comme point correspondant dans son référentiel $(c,t)$. Réciproquement, quand on note $r \in \mathcal{R}$, on veut en réalité dire $r = (c,t)$, avec $c$ un compte et $t$ le temps. En pratique, la définition du champ est toujours explicite et il n'y a pas d'ambiguïté sur le temps et l'espace en question. 
+			
+			\paragraph{Toutes les régions du référentiel sont elles pertinentes ?} Si l'on prend le temps sous la forme de $\mathbb{R}_+$, on sent deux difficultés : la mesure à des précisions inédites, et la sémantique à attribuer à la différence entre deux temps très proches. Si on prend pour la dimension spatiale les comptes de messagerie, on comprend qu'on n'a pas accès à toute l'information. Difficile par exemple de parler des adresses mail privées d'un ministère qu'on observe de l'extérieur. On aura plutôt tendance à utiliser les techniques de probabilités : combien d'événements dans telle zone, dans telle partie $p \subset \mathcal{R}$ ? L'idée est de définir les zones que l'on sait observer et s'y restreindre. En pratique, à moins d'être administrateur du système numérique considéré, on comprend qu'on n'observera pas tout.  Nous reviendrons sur la définition formelle et ce qu'elle nécessite comme axiomes de notre modèle, mais le point de vue de \og{}tel événement a eu lieu dans telle zone\fg{} est une bonne modélisation. 
+			
+			\begin{definition}
+				On considère un référentiel d'observation $\mathcal{R}$. Il permet de décrire la position exacte, dans le temps et l'espace, de la présence d'un acteur ou la trace d'un événement. C'est la grille de mesure de l'observateur : il sait positionner ce qu'il observe dans ce référentiel. 
+			\end{definition}
+			
+			
+			\vspace{0.5cm}
+			Nous appellerons élément du champ un acteur ou un événement. Les deux se caractérisent par une existence dans le champ. On pourrait dire qu'il suffit de les positionner dans le référentiel pour adresser la question. Certes, mais ce qu'on appelle existence va nécessiter un peu de réflexion. Notre modélisation va consister à prendre une existence comme un point du référentiel et une intensité, pas juste un binaire \og{}présent / absent\fg{}. Plusieurs raisons nous y poussent : 
+			\begin{itemize}
+				\item l'analogie avec les ondes au sens physique nous invite à prendre une forme de type $e : \mathcal{R} \rightarrow \mathbb{R}_+$. Interpréter des valeurs négatives ne nous semble pas intuitif, mais la logique de présence comme valeur réelle positive a l'avantage de porter l'information de l'intensité. 
+				\item la présence d'un acteur dans un champ peut être partielle. Poser une logique en terme de valeurs prises entre $0$ (totalement absent) et $1$ (totalement présent) est plus permissif
+			\end{itemize}
+			
+			Finalement, nous postulons que la mesure pertinente d'un événement $e$ dans un champ assimilé au référentiel $\mathcal{R}$ est en fait une fonction $\bar{e} : \mathcal{R} \mapsto \mathbb{R}_+$ qui indique qu'au point $r$, l'intensité de l'événement était $\bar{e}(r) \ge 0$. De même, la présence en $\mathcal{R}$ de l'acteur $a$ est assimilée à une fonction $\bar{a} : \mathcal{R} \rightarrow \mathbb{R}_+$, de sorte que la présence de $a$ en $r$ soit un nombre $\bar{a}(r) \ge 0$. Quelle interprétation en donner ? Dans un champ informationnel, l'événement $e$ peut être plus ou moins mis en avant par la plateforme, pas juste visible ou absent. Ce peut être la position dans la page, un encart publicitaire, par exemple. Quant à l'acteur, il n'a pas nécessairement la possibilité ou l'envie d'être pleinement concentré et interagissant avec l'outil. Plutôt que de dire qu'il est connecté ou non, il peut être plus ou moins concentré. 
+			\begin{table}[H]
+				\centering
+				\begin{tabular}{|l|l|}
+					\hline 
+					Nom & Description \\
+					\hline 
+					$\mathcal{A}$ & Ensemble des acteurs existants ou à venir \\
+					\hline 
+					$\mathcal{E}$ & Ensemble des événements existants ou à venir \\
+					\hline 
+					$\mathcal{R}$ & Grille dans laquelle positionner les éléments du champ \\
+					\hline 
+					$e \mapsto \bar{e}$ & Fonction associant à un événement $e$ sa trace \\
+					& dans le champ sous forme d'une intensité positive ou nulle \\
+					\hline 
+					$a \mapsto \bar{a}$ & Fonction associant à un acteur $a$ sa présence \\
+					& dans le champ sous forme d'une capacité positive ou nulle \\
+					\hline 
+				\end{tabular}
+				\caption{Définitions et notations des outils à disposition de l'observateur}
+			\end{table}
+			
+			On notera plus formellement $\rho : \mathcal{R} \times \mathcal{A} \rightarrow \mathbb{R}_+$ la fonction associant à un point $r$ et un agent $a$ le nombre $\bar{a}(r)$. De même, la fonction $\sigma : \mathcal{R} \times \mathcal{E} \rightarrow \mathbb{R}_+$   la fonction associant à un point $r$ et un événement $e$ le nombre $\bar{e}(r)$. La notation $x \mapsto \bar{x}$ a l'avantage de décrire le point de vue de l'élément du champ, là où $\sigma$ et $\rho$ portent le point de vue global, du champ. 
+			
+			\begin{definition}
+				Un champ est assimilé à un référentiel $\mathcal{R}$. Des acteurs et des événements y évoluent et parfois interagissent. Soient $\mathcal{A}$ et $\mathcal{E}$ l'ensemble des acteurs et événements. En un point $r \in mathcal{R}$ du champ, un acteur $a$ est plus ou moins présent, à un niveau $\rho(r,a) \in \mathbb{R}_+$ et un événement $e$ laisse une trace $\sigma(r,e) \in \mathbb{R}_+$. 
+			\end{definition}
+		
+		\subsection{L'interaction entre l'événement et l'acteur}
+		
+			A ce stade, nous avons un champ qu'on mathématise comme un référentiel, des acteurs et des événements évoluant dans le champ. Or, Boullier a clairement établi que le champ n'est pas neutre, qu'il joue un rôle clé dans la propagation de l'information. Dès lors, on ne peut pas se contenter d'une modélisation par graphe dans lequel les messages transitent par les liens jusqu'aux acteurs. Il faut répondre à plusieurs questions : 
+			\begin{itemize}
+				\item Tous les acteurs peuvent ils interagir librement les uns avec les autres ? Comment formaliser qu'il soit en pratique impossible de voir les événements de tel ou tel, alors que d'autres contenus submergent la plateforme ? Finalement, comment rendre compte de la visibilité dans le champ ? 
+				\item En l'état, on sait simplement dire que les acteurs et événements sont situés dans le champ. Que veut dire qu'un événement est capté par un acteur ? Le traitera t'il forcément ? 
+				\item la description que nous avons donné permet aux événements d'être partout, de se propager sans contrainte. Il y a en pratique un certain nombre d'hypothèses à formuler, comme la causalité, c'est à dire que la réaction à un événement aura lieu après qu'il soit émis. 
+			\end{itemize}
+		
+			\subsubsection*{Introduire la causalité}
+			
+				La problématique consiste à interdire aux événements de voyager dans le temps. Intuitivement, il n'est pas possible qu'un acteur capte un événement avant que celui ci ne soit émis. Pour cela, nous proposons une relation simple entre les points du référentiel : un lien $\leadsto$ existe de $a \in \mathcal{R}$ vers $b \in \mathcal{R}$ si le champ permet à un événement fictif partant de $a$ d'aller en $b$. Par exemple, imaginons que l'on traite le cas d'une messagerie d'entreprise dans laquelle tout le monde peut écrire à tous. Dès lors, le seul frein est la latence du réseau informatique. Le référentiel devient $\mathcal{R} = \mathcal{M} \times \mathbb{R}_+$ avec $\mathcal{M}$ l'ensemble des adresses mail valides du domaine. Si on se donne deux adresses mail $m_1$ et $m_2$, un message émis depuis $m_1$ en $t$ ne peut pas atteindre $m_2$ en $t+\Delta t$ si $\Delta t < 0$ (il remonterait dans le temps). Si la latence incompressible du réseau est $\Delta L$ (disons 500ms), un chemin de $(m_1,t)$ à $(m_2,t+\Delta t)$ n'est possible que si $\Delta t \ge \Delta L > 0$. Ainsi, de manière plus générale, on se donne une relation $\leadsto$ de causalité qui exprime cette possibilité. 
+				
+				\begin{definition}
+					On munit $\mathcal{R}$ d'une relation $\leadsto$ qui exprime qu'un événement partant de $a \in \mathcal{R}$ peut aller en $b \in \mathcal{R}$ en respectant les contraintes du champ. La causalité en découle : le fait qu'on ne puisse pas remonter dans le temps impose des contraintes à $\leadsto$. 
+				\end{definition}
+			
+			\subsubsection*{La visibilité dans le champ}
+			
+				Il existe une autre contrainte que la causalité qui s'impose à $\leadsto$ : la visibilité dans le champ. Notre exemple de mails est un cas particulier : toutes les boites mails sont accessibles pour un acteur disposant d'une adresse dans ce domaine. La réalité d'un réseau social est différente : un compte peut voir du contenu, mais pas en poster, ou un compte ne peut pas écrire de commentaire ou de réaction. Il y a d'autres mécanismes, tels que le \og{}shadow ban\fg{} : la production d'un acteur est de fait invisible dans le champ, même s'il est en théorie possible d'y accéder depuis sa page. Aussi, nous introduisons le concept de voisinage : étant donné un point du référentiel, que peut il percevoir ? A cet instant là, quels sont les comptes avec lesquels tel acteur peut il communiquer ? La contrainte existe dans le monde physique : votre interlocuteur peut être loin de vous, et vous n'avez pas la possibilité de l'appeler. La chaine de suivi de l'information en découle, avec des cas très concrets : tel acteur n'a pu donner une information clé à tel autre que des jours après avoir voulu le faire. Tel décisionnaire a donc pris une décision sans avoir une information clé, ce qui peut être clé dans un audit organisationnel. 
+				
+				\begin{definition}
+					On appelle voisinage d'un point $r \in \mathcal{R}$ l'ensemble $\mathcal{V}(r)$ des points qu'il peut percevoir et avec lesquels il peut agir effectivement. 
+				\end{definition}
+			
+			\subsubsection*{Mesurer l'interaction}
+			
+				Le champ reste le cœur du sujet, ce sont ses propriétés qui amènent ou non des acteurs à se rencontrer et interagir. Si on prend un acteur $a$ et un événement $e$, il parait nécessaire, mais pas suffisant, qu'il existe $r \in \mathcal{R}$ tel que $\bar{e}(r)\bar{a}(r) > 0$. En le formulant ainsi, on a une dépendance claire avec le champ :  c'est lui qui organise la propagation de l'événement jusqu'à ce qu'il atteigne l'acteur. Nous visons à définir un score d'interaction qui serait $$I(a,e) = \int_{\mathcal{R}}\rho(r,a)\sigma(r,e)d\mu(r)$$ avec $\mu$ une mesure donnée. Cependant, dans le cas précis des réseaux sociaux, l'expression a une implémentation pratique tout à fait acceptable, et ne nécessitant pas un détour vers la théorie de l'intégration de Lebesgue. Les observations qu'on a réalisé sur l'acteur $a$ pour l'événement $e$ nous fournissent un ensemble de points $r_1,\ldots r_n$ pour lesquels on a mesuré $\bar{e}_1, \ldots \bar{e}_n$ et $\bar{a}_1,\ldots,\bar{e}_n$ : 
+				\begin{table}[H]
+					\centering
+					\begin{tabular}{|l|l|l|l|}
+						\hline 
+						Temps & Présence de & Intensité du & Interaction \\
+						&  l'acteur $a$ & message $e$ & mesurée \\
+						\hline 
+						$t_1$ & $\bar{a}_1$ & $\bar{e}_1$ & $\bar{a}_1 \cdot \bar{e}_1$ \\
+						\hline 
+						$t_2$ & $\bar{a}_2$ & $\bar{e}_2$ & $\bar{a}_2 \cdot \bar{e}_2$ \\
+						\hline 
+						$\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ \\
+						\hline 
+						$t_n$ & $\bar{a}_n$ & $\bar{e}_n$ & $\bar{a}_n \cdot \bar{e}_n$ \\
+						\hline 
+					\end{tabular}
+					\caption{Mesure pratique de l'intensité de l'exposition de l'acteur $a$ à l'événement $e$}
+				\end{table}
+				
+				Ainsi, sur la période $p = t_n - t_1$, l'acteur $a$ a été exposé à l'événement $e$ sous la forme de $n$ occurrences pour un total de $$I_p(a,e) = \sum_{i=1}^n \bar{e}_i \cdot \bar{a}_i$$
+			
+		\subsection{Synthèse des outils}
+		
+			La proposition consiste finalement à prendre la logique de la physique newtonienne et la porter dans l'étude de la propagation : 
+			\begin{itemize}
+				\item en définissant un référentiel qui permet de se repérer dans l'espace et le temps.
+				\item en mesurant l'existence dans le champ, donc en permettant d'explorer les trajectoires des éléments. Cette existence s'exprime comme une intensité sur une région du référentiel
+				\item en contraignant ces trajectoires pour les rendre réalistes. Elles sont contraintes par les principes de causalité et de visibilité. \textbf{Le point clé est que le champ n'est pas un milieu isotrope, la définition de la visibilité est l'enjeu clé de l'intermédiation algorithmique.}
+				\item en définissant quand et comment il y a interaction entre un acteur et un événement de manière mesurable, au delà de la simple réception de contenu
+			\end{itemize}
+	
+	\section{Mesurer dans les champs}
+		
+		Le vocabulaire est posé : nous savons nous repérer dans le champ, décrire ce que signifie la propagation, et comment on mesure s'il y a eu interaction. Or, cette approche ne dit rien quant à l'état des acteurs et la sémantique des messages échangés. Nous montrerons dans cette partie que des outils d'IA générative ont une réelle valeur ajoutée, mais ne permettront pas pour autant de prédire les états des acteurs. 
+		
+		\subsection{Qualifier la sémantique des événements}
+		
+			Dans le cas particulier d'événements qu'on peut numériser, du texte ou des images, il est possible d'utiliser des outils pour interpréter les contenus de manière automatique. L'observateur a la possibilité de définir ses axes d'analyse, par exemple peur, rancœur, espoir et confiance dans une offre de marque ou une proposition politique. L'outil évalue tous les contenus qui lui sont soumis en fonction de ces axes. La pratique cependant se heurte à quelques difficultés techniques, telles que la non stricte reproductibilité des résultats ou pratiques, telles que le cout de l'industrialisation du processus sur de très gros volumes de données. Ce sont des questions importantes, mais relevant de la technique pure, pas de la possibilité théorique. Aussi, nous retiendrons qu'il est possible de mettre en œuvre des outils d'IA à même de vectoriser du contenu suivant des axes d'analyse fixés par l'observateur. 
+			
+			\subsection{Lier sémantique des événements et état des acteurs}
+			
+			La question est subtile et mérite des précisions. 
+			
+			\paragraph{Le niveau d'analyse. } La difficulté et l'outillage technique ne sont pas les mêmes si l'on observe un système, un groupe relativement homogène ou un individu. 
+			\begin{itemize}
+				\item \textbf{l'analyse globale :} la recherche de tendances dispose de méthodes solides et connues, telles que les techniques de sondage, l'application de modèles tels que SIR, etc. L'imprévisibilité individuelle est lissée statistiquement. 
+				\item \textbf{les évaluations par voisinage :} De Groot a proposé un modèle de consensus, mais il ne rend pas compte de l'état initial des individus. Il a depuis été amélioré. Ainsi, le modèle de Hegselmann-Krause tient compte du fait qu'on choisit des proches qui pensent déjà un peu comme nous, ce qui donne des explications claires aux notions telles que les chambres d'écho. 
+				\item \textbf{au niveau individuel :} les techniques relèvent d'avantage de la psychologie appliquée. La personnalité se prête particulièrement bien à l'exercice, puisque par définition, elle est la signature long terme d'un individu. Des modèles d'évaluation existent, le plus connu outre Atlantique étant le modèle OCEAN. 
+			\end{itemize}
+			Ainsi, ce domaine de recherche a permis d'isoler des modèles dont la capacité explicative est suffisante à but donné, bien qu'imparfaite par essence. Ce constat mitigé nous amène à penser que sur un temps court, sur une problématique ciblée, l'usage de ces techniques est a priori envisageable au niveau individuel. 
+			
+			\paragraph{Les difficultés pratiques et légales. } La question présente des difficultés légales dont il nous faut parler. En Europe, et plus spécifiquement en France, deux lois clés encadrent la pratique. 
+			\begin{itemize}
+				\item \textbf{le RGPD} implique une protection stricte contre le profilage automatisé sans consentement explicite. L'article 9 interdit notamment le traitement des données sensibles (opinions politiques, convictions religieuses ou philosophiques) sauf exceptions très limitées. Prédire l'état d'un acteur à partir de sa sémantique revient souvent à manipuler ces données sensibles par déduction, ce qui place l'observateur dans une zone de forte insécurité juridique.
+				\item \textbf{l'IA Act} vient durcir ce cadre en classant comme « à risque élevé », voire en interdisant, certains systèmes d'inférence des émotions ou de notation sociale. La tentative de lier automatiquement sémantique et état psychologique pour influencer le comportement est désormais strictement encadrée, visant à prévenir toute forme de manipulation à grande échelle ou de surveillance intrusive.
+			\end{itemize}
+			Au delà de l'aspect juridique, dont les groupes criminels n'ont que faire, se pose la question de la pratique de la collecte. Les techniques d'OSINT ont progressé, des outils open source permettent une collecte automatique sur certaines plateformes. Les fuites de données sont également une piste sérieuse de collecte. Au delà de la récupération du contenu en lui même, la question de l'automatisation pose des questions pratiques telles que la désambiguisation face aux homonymes lier des pseudonymes à des acteurs, ou une interprétation fine de la nature des messages (vocabulaire spécifique à des communautés par exemple). 
+
+	
+
+		\subsection{Le cas du marketing digital}
+			
+			L'adage qui résume la finalité est le suivant : \og{}le bon message, à la bonne personne, sur le bon canal, au bon moment\fg{}. Ces mécanismes de ciblage et diffusion sont automatisés pour des raisons de cout et de pertinence. Toute une chaine de traitement y concourt, allant de la prise de contact avec des diffuseurs potentiellement intéressés, un mécanisme d'enchère automatique (RTB), un suivi des clics et de l'attention accordée à la publicité en question, et plus généralement pour tout le suivi de campagne. Les principaux indicateurs sont les suivants : 
+			
+			\begin{table}[H]
+				\centering
+				\begin{tabular}{|l|l|}
+					\hline 
+					\textbf{Indicateur} & \textbf{Description} \\
+					\hline 
+					Impressions & Nombre total de fois où le message a été affiché sur un écran, \\   & indépendamment des répétitions sur une même personne. \\
+					\hline 
+					Couverture  & Nombre d'utilisateurs (ou comptes) uniques exposés au message \\  (Reach) & au moins une fois lors de la campagne. \\
+					\hline 
+					Répétition  & Nombre moyen de fois qu'un même utilisateur a été exposé 	\\ 
+					(Frequency) & au message (Impressions / Couverture). \\
+					\hline 
+					Taux de clic  & Pourcentage de personnes ayant cliqué sur le message \\
+					(CTR) &  par rapport au nombre total d'impressions.  \\
+					\hline 
+					Coûts  & Indicateurs financiers mesurant le coût d'achat pour 1000  \\
+					(CPM / CPC) & affichages (CPM) ou le coût pour chaque clic effectif (CPC). \\
+					\hline 
+					Taux de & Pourcentage d'utilisateurs accomplissant l'action finale souhaitée \\ conversion & (achat, inscription) après avoir interagi avec le message. \\
+					\hline 
+				\end{tabular}
+				\caption{Principaux indicateurs de performance en marketing digital}
+			\end{table}
+			
+			
+			\vspace{0.5cm}
+			Une fois ces définitions usuelles posées, la pertinence de notre modèle de champ se révèle dans sa capacité à les formaliser mathématiquement. Plutôt que de recourir à des intégrales continues sur l'ensemble du référentiel $\mathcal{R}$, nous restons fidèles à la réalité observationnelle : l'observateur (la plateforme publicitaire) ne capte qu'un ensemble discret de points $r_i = (c_i, t_i)$. Soit $e$ un événement (le message publicitaire) diffusé sur une période $p$, et $\mathcal{R}_p = \{r_1, \ldots, r_k\}$ l'ensemble des points du référentiel où cet événement a été tracé par la plateforme.
+			
+			\paragraph{Les Impressions.} Elles se détachent de l'acteur pour se concentrer sur l'existence de l'événement dans le champ. L'impression totale est la somme des intensités avec lesquelles l'événement a été poussé dans les différents voisinages du réseau :
+			$$Imp(e) = \sum_{r \in \mathcal{R}_p} \bar{e}(r)$$
+			
+			\paragraph{La Couverture (Reach).} Elle nécessite de croiser l'événement avec les acteurs. En reprenant l'interaction mesurée $$I_p(a,e) = \sum_{i} \bar{e}_i \cdot \bar{a}_i$$ la couverture est simplement le cardinal de l'ensemble des acteurs pour lesquels cette interaction n'est pas nulle sur la période $p$ :
+			$$Reach(e) = \text{Card} \left( \left\{ a \in \mathcal{A} \mid I_p(a,e) > 0 \right\} \right)$$
+			
+			\paragraph{Le Clic ou l'Engagement.} Le clic n'est pas une simple trace, c'est la confirmation qu'une forte intensité de message $\bar{e}_i$ a rencontré une forte disponibilité ou attention de l'acteur $\bar{a}_i$. L'engagement global d'un acteur $a$ face à la campagne $e$ est donc exactement notre score d'interaction :
+			$$Engagement(a,e) = I_p(a,e) = \sum_{i=1}^n \bar{e}_i \cdot \bar{a}_i$$
+			À l'échelle d'une campagne, le taux de clic (CTR) global devient alors le rapport entre la somme des interactions de tous les acteurs touchés et le volume total d'impressions générées par le champ :
+			$$CTR(e) = \frac{\sum_{a \in \mathcal{A}} I_p(a,e)}{Imp(e)}$$
+			
+			\textbf{Cette formalisation illustre que le marketing digital est fondamentalement une manipulation du champ (ciblage algorithmique) visant à maximiser $I_p(a,e)$ sous une contrainte de budget.}
+			
+	
+		\subsection{L'étalonnage du modèle}
+	
+			Si la modélisation sous forme de fonctions $\rho$ et $\sigma$ à valeurs dans $\mathbb{R}_+$ offre un cadre théorique robuste, son application informatique nécessite un protocole d'étalonnage. Il s'agit de relier les concepts abstraits d'« intensité » d'un événement et de « présence » d'un acteur aux données brutes (les traces) récoltées par les plateformes.
+			
+			\paragraph{1. Étalonnage du référentiel $\mathcal{R}$.}
+			Le référentiel $\mathcal{R}$ est la grille de mesure discrète de l'observateur. En pratique, un point $r = (c,t)$ correspond à une ligne de log serveur où $c$ est l'identifiant de la session (le compte) et $t$ l'horodatage exact de l'affichage. 
+			
+			\paragraph{2. Étalonnage de l'intensité de l'événement $\sigma(r,e)$.}
+			L'intensité $\bar{e}(r)$ d'un événement au point $r$ n'est pas un simple booléen de présence. Elle doit quantifier la proéminence du contenu dans le champ visuel ou cognitif du référentiel. On peut l'étalonner par une combinaison linéaire de variables mesurables :
+			\begin{itemize}
+				\item \textbf{La surface d'affichage :} Le ratio de pixels occupés par l'événement par rapport à la taille totale de l'écran.
+				\item \textbf{La position spatiale :} Un score pondéré selon que l'événement apparaît en haut de page (\textit{above the fold}) ou nécessite de faire défiler l'écran (ce qui réduit sa visibilité potentielle).
+				\item \textbf{Le format :} Un coefficient multiplicateur selon la nature du média (ex : texte $= 1$, image $= 1.5$, vidéo en lecture automatique $= 3$).
+			\end{itemize}
+			
+			\paragraph{3. Étalonnage de la présence de l'acteur $\rho(r,a)$.}
+			La fonction $\bar{a}(r)$ modélise la capacité d'attention de l'acteur à un instant donné. Bien que l'état interne de l'acteur soit incalculable, son attention externe (sa trace matérielle) est approximable par des signaux comportementaux :
+			\begin{itemize}
+				\item \textbf{Le temps d'exposition (\textit{Dwell time}) :} La durée en millisecondes pendant laquelle l'événement est techniquement affiché à l'écran de l'acteur.
+				\item \textbf{L'activité cinétique :} La vitesse de défilement (\textit{scroll speed}). Une vitesse excessive implique un balayage visuel, diminuant $\bar{a}(r)$, tandis qu'un arrêt sur l'écran maximise la probabilité d'attention.
+				\item \textbf{Le focus de l'interface :} Le statut de l'onglet du navigateur (actif vs en arrière-plan).
+			\end{itemize}
+			
+			\paragraph{4. Normalisation et Machine Learning.}
+			Pour que le produit d'interaction $I(a,e) = \bar{e} \cdot \bar{a}$ soit cohérent, il est nécessaire d'étalonner ces proxys sur une échelle normalisée, par exemple $[0, 1]$. L'utilisation de données historiques permet d'ajuster les pondérations de ces critères. Par exemple, une régression logistique entraînée sur des millions d'interactions passées (clics, achats) permet de calibrer la formule définissant $\bar{a}$ et $\bar{e}$ pour que le score $I(a,e)$ soit statistiquement le meilleur prédicteur du taux de clic mesuré empiriquement.
+	
+	
+	\section{La capacité d'attention : le nerf de la guerre}
+	
+		Le formalisme étant posé, nous allons étudier le champ informationnel en partant du constat (qu'on retrouve également chez Boullier) : \textbf{la capacité d'attention d'un acteur humain est fondamentalement bornée et très petite par rapport au contenu qui est proposé à cet acteur.} Nous soulignons d'abord que cette logique d'attention s'applique aux réseaux sociaux, bien évidemment, mais également à des contextes d'entreprises ou politiques. Un décideur ne pouvant traiter l'ensemble des décisions d'une structure trop large, la solution usuelle est de créer des échelons de hiérarchie visant à régler une question à un niveau raisonnable, pour préserver le haut de la hiérarchie des décisions purement techniques ou à moindre intérêt. Ce que ces situations ont en commun se résume ainsi : 
+		\begin{itemize}
+			\item \textbf{l'offre informationnelle est largement supérieure à la demande}. L'information en tant que telle n'est plus importante intrinsèquement, elle doit rentrer dans le voisinage attentionnel de son audience. Par exemple, elle est reformulée en exagérant son importance ou sa charge émotionnelle, en jouant sur nos biais cognitifs, pour ne citer que ces options. 
+			\item la compétition pour attirer cette attention est un jeu à somme nulle au sens économique : si un acteur accorde son attention à un événement $e$, c'est au détriment de tous les autres. Un événement qui aura su passer ce premier filtre va tenter de conserver ce lien en réduisant au maximum la friction vers les mécanismes décisionnels de l'audience. 
+		\end{itemize}
+		
+		Mathématiquement, sur une période $p$ donnée, disons la journée ou la semaine, il n'est pas biologiquement possible qu'un acteur humain $a$ soit en mesure de traiter trop d'événements. Il existe donc, pour chaque acteur $a$, sur une période $p$, une limite $K_{ap}$ telle que $$\sum_{e \in \mathcal{R}_p} I_p(a,e) \le K_{ap}$$ La somme est réalisée sur $\mathcal{R}_p$, le référentiel observé sur la période $p$. Nous proposons cette typologie pour rendre compte des acteurs présents sur le champ informationnel et quelles sont leur problématique : 
+		
+		\begin{table}[H]
+			\centering
+			\begin{tabular}{|p{3cm}|p{4.5cm}|p{4.5cm}|}
+				\hline 
+				\textbf{Catégorie d'acteurs} & \textbf{Objectif principal} & \textbf{Interprétation dans le modèle} \\
+				\hline 
+				\textbf{Les Architectes} \newline (Plateformes) & Maximiser le temps passé et l'engagement global pour monétiser l'inventaire. & Pousser la somme totale des interactions $\sum I_p(a,e)$ le plus près possible de la limite absolue $\sum K_{ap}$. \\
+				\hline 
+				\textbf{Les Émetteurs} \newline (Annonceurs, ONG) & Faire pénétrer un événement précis dans le voisinage attentionnel d'une cible. & Pour un événement $e$, maximiser l'interaction $I_p(a,e)$ en optimisant le ciblage. \\
+				\hline 
+				\textbf{Les Attaquants} \newline (Fermes à trolls) & Manipuler l'algorithme de visibilité ou saturer l'attention de la cible. & Créer de faux acteurs pour gonfler les impressions $\bar{e}(r)$, ou saturer le $K_{ap}$ adverse avec du bruit. \\
+				\hline 
+				\textbf{Les Cibles} \newline (Décideurs, Humains) & Traiter l'information pertinente tout en se protégeant de la surcharge cognitive. & Filtrer son voisinage $\mathcal{V}(r)$ pour préserver son $K_{ap}$ et l'allouer aux événements à forte valeur. \\
+				\hline 
+			\end{tabular}
+			\caption{Problématiques autour de l'attention en fonction de la typologie d'acteurs}
+		\end{table}
+		
+		
+		Notre modélisation permet de démontrer que les phénomènes souvent qualifiés de dérives sociologiques (polarisation, agressivité, enfermement) ne sont pas de simples anomalies comportementales, mais des conséquences mathématiques inévitables des axiomes de notre champ. Dès lors que la ressource attentionnelle $K_{ap}$ est finie et que l'offre événementielle est surabondante, la physique du champ social engendre mécaniquement trois déformations majeures.
+		
+		\paragraph{1. La polarisation comme nécessité mécanique (Le Darwinisme des contenus).}
+		Le champ informationnel est structurellement saturé. La somme des interactions potentielles dépasse de loin la capacité de traitement de l'acteur $a$. Pour qu'un événement $e$ parvienne à exister — c'est-à-dire que son interaction $I_p(a,e) = \sum_{i} \bar{e}_i \cdot \bar{a}_i$ soit effectivement perçue avant que l'acteur n'atteigne sa limite $K_{ap}$ —, il doit percer le bruit ambiant.
+		La conséquence directe est que l'intensité intrinsèque du message, $\bar{e}_i$, doit être artificiellement maximisée par l'émetteur. Dans le domaine social, un $\bar{e}_i$ très élevé correspond systématiquement à une forte charge émotionnelle (indignation, peur, clivage). À l'inverse, le discours nuancé ou complexe possède par nature un $\bar{e}_i$ trop faible pour survivre dans ce champ compétitif ; il est mécaniquement éliminé et ne génère aucune trace.
+		
+		\paragraph{2. La déformation topologique et l'enfermement algorithmique.}
+		L'Architecte (la plateforme) a pour objectif de maximiser la somme totale des interactions afin de monétiser l'attention. Or, un acteur confronté à une trop forte dissonance cognitive subit une friction qui fait chuter drastiquement sa disponibilité $\bar{a}_i$ (il ferme l'application).
+		Pour maintenir un $\bar{a}_i$ toujours optimal, l'algorithme de recommandation agit en déformant la topologie du champ. Si l'acteur interagit de manière répétée avec un certain narratif, la plateforme restreint artificiellement son voisinage $\mathcal{V}(r)$. Mathématiquement, la relation de causalité $\leadsto$ est modifiée de sorte que les événements contraires $e_{adv}$ se voient attribuer une portée $\bar{e}_{adv}(r) = 0$ dans la zone de l'acteur. L'accessibilité directe à l'altérité est coupée. L'acteur est alors isolé dans une sous-région du référentiel $\mathcal{R}$ : c'est la naissance de la bulle de filtre.
+		
+		\paragraph{3. Les chambres d'écho et le parasitage de l'attention.}
+		Une fois confiné dans ce voisinage restreint, l'acteur baigne exclusivement dans un flux d'événements à fort $\bar{e}_i$ qui valident ses biais. Son budget attentionnel $K_{ap}$ étant colonisé en continu et sans aucune friction, un basculement s'opère. L'acteur cesse d'être un simple récepteur (caractérisé par sa seule présence $\bar{a}$) : il devient un vecteur de réplication. Il dépense sa propre énergie pour partager, commenter et valider le contenu, devenant lui-même l'émetteur d'une nouvelle onde qui se propagera à son tour aux autres acteurs confinés dans le même voisinage topologique.
+	
+	\section{Les attaques sur le champ : la guerre informationnelle}
+	
+		\paragraph{Cet article n'est pas un mode d'emploi offensif.} Avant tout, nous tenons à condamner les attaques sur un champ informationnel sans ambiguïté. La finalité de l'article est de proposer des contre-mesures pour se défendre, pas de donner un guide pour apprenti ingénieur du chaos. 
+	
+		\subsection{les manipulations du champ}
+		
+			Manipuler un champ informationnel implique une combinaison d'actions : 
+			\begin{itemize}
+				\item \textbf{sur les acteurs du champ}. Une collecte organisée de l'information (OSINT ou solution spécifique) permet ensuite de mener des campagnes visant à décrédibiliser la cible ou son environnement, diffuser de l'information privée ou des fausses informations
+				\item \textbf{sur la capacité d'attention}. Les techniques dites de slopanganda consistent en la production de masse, sans intervention humaine, de contenu sans autre intérêt que de saturer la capacité d'attention de la cible et noyer l'information pertinente ou utile. Le temps d'écran est déporté vers du contenu sans pertinence, juste conçu pour passer le temps
+				\item \textbf{sur la présence des acteurs}. La méthode consiste à remonter aux plateformes des anomalies sur les comptes cibles. La dénonciation calomnieuse et massive permet la fermeture temporaire du compte
+				\item \textbf{sur l'intensité des événements}. L'intensité peut être modifiée soit en saturant l'espace d'autres messages, soit en simulant au contraire un vif intérêt pour le message en question. Les méthodes dites d'astroturfing visent à donner l'impression qu'un événement est majeur alors qu'il a été amplifié artificiellement. 
+				\item \textbf{sur la topologie du champ (la relation $\leadsto$)}. Manipuler la règle de visibilité revient à déformer artificiellement les chemins de propagation. L'attaquant cherche à forcer l'existence d'un lien $\leadsto$ entre un événement (souvent marginal ou malveillant) et le voisinage $\mathcal{V}(r)$ d'une cible, là où le champ ne l'aurait naturellement pas permis. Cela s'opère par l'infiltration préalable de communautés (création de comptes "dormants" pour établir un pont topologique) ou par le détournement des algorithmes de recommandation (utiliser des mots-clés ou des formats spécifiques pour que la plateforme élargisse d'elle-même la portée $\leadsto$). À l'inverse, l'attaque peut viser le confinement topologique d'un adversaire, en générant des signaux négatifs qui indiqueront à l'algorithme de restreindre drastiquement les points $b$ tels que $a \leadsto b$, enfermant la cible dans un espace de visibilité nul.
+			\end{itemize}
+			
+			\paragraph{L'exemple de la slopaganda.} Nous avons rappelé la définition du terme plus haut, mais nous allons détailler comment son usage découle du modèle que nous proposons. Si nous prenons $A$ un ensemble d'acteurs du champ informationnel, disons les utilisateurs d'un réseau social dans un pays cible, leur capacité d'attention sur une période $p$ est en moyenne $\bar{K}_{Ap}$ et il s'agit pour l'attaquant de l'exploiter. Plusieurs options se présentent : 
+			\begin{itemize}
+				\item \textbf{la viralité classique} : produire les événements les plus à même de capter l'attention. A n'avoir qu'un certain \og{}temps de cerveau disponible\fg{}, l'attaquant espère capter le plus fort possible l'attention de chaque acteur $a$ par un nombre réduit mais efficace d'événements $\{e_1,\ldots,e_n\}$, pour ne pas lui laisser la possibilité de s'intéresser à autre chose. Il vise à avoir rapidement $\sum I_p(a,e_i) \approx K_{ap}$. On peut le comparer à une attaque de type virus informatique : cher, ciblé. 
+				\item \textbf{la slopaganda} : pour arriver à capter l'essentiel de l'attention et avoir $\sum I_p(a,e_i) \approx K_{ap}$, l'idée n'est pas d'avoir peu d'événements extrêmement viraux qui capteraient l'attention plus que les autres, mais de submerger la plateforme ciblée par du contenu médiocre et facile à produire, pour que ne reste que ce seul choix. L'objectif est d'atteindre la saturation de l'acteur par un cumul de charge. On peut le comparer à une attaque par DDos cognitif.
+			\end{itemize}
+			
+			\vspace{0.5cm}
+			
+			\begin{table}[H]
+				\centering
+				\begin{tabular}{|l|l|l|}
+					\hline 
+					 & \textbf{Propaganda} & \textbf{Slopaganda} \\
+					\hline 
+					Volume & Faible & Énorme \\
+					\hline 
+					Cout unitaire & Fort & Faible \\
+					\hline 
+					Producteur & souvent humain  & IA générative \\
+					\hline 
+					Diffusion & Ciblée & En flot continu \\
+					\hline 
+				\end{tabular}
+				\caption{Comparaison entre propaganda et slopaganda}
+			\end{table}
+
+			
+		\subsection{La détection des manipulations}
+		
+			Si les outils de manipulation sont de plus en plus faciles d'accès, nous pensons qu'il est possible de détecter des comportements du champ qui sont très probablement des tentatives de manipulation. La seule détection de la montée brutale d'une émotion ou d'une catégorie d'événements n'est pas en soi un critère suffisant : des événements organiques peuvent l'expliquer. Nous postulons que \textbf{la détection d'une volonté hostile se caractérise par la montée d'une catégorie spécifique d'événements combinée à des chemins de propagation qui ne sont pas normaux au sens statistique. C'est à dire à la fois une manipulation de la topologie du champ et de son contenu.} 
+			
+	\section{Conclusion}
+	
+		Ce document a posé les jalons d'une modélisation formelle de la propagation de l'information, en s'éloignant des simples approches par graphes de relations pour embrasser une physique des champs sociaux. 
+		
+		Nous développons l'idée que la capacité d'attention est la clé de l'explication des dérives de notre espace numérique. C'est cette limite biologique, confrontée à l'infinité de la production événementielle algorithmique, qui explique mécaniquement ce que nous avons jusqu'alors considéré comme une manipulation intentionnelle. La polarisation, l'enfermement algorithmique et les chambres d'écho ne sont pas des anomalies comportementales, mais les déformations topologiques logiques d'un champ sous tension, façonné par les plateformes pour maximiser la rétention. C'est précisément dans les failles de cette architecture que s'engouffre la guerre informationnelle moderne. En remplaçant la persuasion ciblée et coûteuse par la submersion cognitive (slopaganda), les attaquants exploitent les axiomes mêmes de ces champs pour saturer l'attention des cibles. La démocratisation des IA génératives abaisse drastiquement le coût de ces attaques par déni de service cognitif (DDoS cognitif) et par distorsion de la topologie du champ. La modélisation du champ informationnel par ses caractéristiques physiques, la méthode des champs, donne une complémentarité aux considérations sociales ou géopolitiques. Elle propose une définition du \og{}comment\fg{} sans rentrer dans le \og{}pourquoi\fg{}. 
+	
+\end{document}
