@@ -1,0 +1,252 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[french]{babel}   
+\usepackage{float}
+\usepackage[skip=0.5cm]{parskip}
+\usepackage{amsmath,amssymb,amsfonts}
+
+\newtheorem{definition}{Définition}[section]
+\newtheorem{theorem}{Théorème}[section]
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{corollary}{Corollaire}[theorem]
+\newtheorem{lemma}[theorem]{Lemme}
+
+\author{Jean BAYLON}
+\title{Contournement de la sécurité des IA génératives grand public par montée en abstraction}
+\date{Version du \today{}}
+
+\begin{document}
+	\maketitle
+		
+		
+	\begin{abstract}
+		Les intelligences artificielles (IA) génératives grand public intègrent des garde-fous éthiques conçus pour empêcher la production de contenus malveillants, tels que les campagnes de désinformation. Cependant, cet article démontre que ces mécanismes de sécurité, majoritairement fondés sur l'analyse sémantique (NLP) et l'alignement par renforcement (RLHF), présentent des vulnérabilités structurelles. Nous théorisons et illustrons une méthode de contournement par « montée en abstraction ». La méthodologie employée consiste à camoufler l'intention de nuisance en modélisant l'environnement social d'une cible sous la forme d'un problème physico-mathématique de résistance des matériaux. En appliquant une heuristique visant à maximiser le stress sur les liens faibles de ce système, nous avons pu forcer une IA commerciale à définir de manière autonome une surface d'attaque, des tactiques de désinformation et des exemples précis de propagande. Les résultats de notre preuve de concept (POC), obtenue à un coût unitaire négligeable et en moins d'une semaine de développement, mettent en évidence la facilité d'industrialisation de telles menaces informationnelles. Dans le respect des principes de divulgation responsable, ce document expose la mécanique conceptuelle de l'attaque sans en fournir les vecteurs d'exploitation exacts.
+	\end{abstract}
+	
+		
+	\section{Les attaques informationnelles}
+	
+		Les réseaux sociaux ont connu une forte évolution dans leur structure. Ils sont nés de l'idée de conserver un lien virtuel pour des amitiés réelles. La logique est passée à des rapprochements entre communautés, au sens de recommandation de comptes partageant des contenus similaires ou exprimant des intérêts proches. Ce clivage a ouvert la possibilité de communication très ciblées, à des fins publicitaires d'abord. L'affaire dite de \og{}Cambridge Analytica\fg{} a montré qu'il était possible de forcer de la désinformation ou des contre narratifs en suivant exactement les circuits et outils publicitaires. La mise en place de désinformation se comprend comme la volonté de présenter un contre-narratif aux discours portés par des acteurs spécifiques ou des communautés données. La recherche des personnes concernées est devenue triviale, puisque les réseaux sociaux eux mêmes proposent cette segmentation. Dès lors, il s'agit de leur proposer des contenus spécifiquement conçus pour amener une action, une décision, ou un changement de discours. La structure même du support de diffusion impose d'ajouter une composante de viralité, garantissant la visibilité pour les utilisateurs et une diffusion intrinsèque, sans que l'attaquant ait besoin de la contrôler lui même. 
+		
+		
+		
+		La capacité d'attention se trouve très limitée par rapport aux volumes de contenus mis chaque jour à disposition. Deux solutions se sont imposées pour détourner une cible de certains discours, estimés contraires aux intérêts de l'attaquant : 
+		\begin{enumerate}
+			\item \textbf{la propagande : capter l'attention sur des contre-narratifs}. La technique s'est améliorée, elle consiste à rebondir sur des contenus officiels certifiés (source fiable) pour donner une explication autre et forcer un récit différent. La production se heurte à plusieurs difficultés : une connaissance minimale de la cible attaquée et son contexte, des contenus spécifiques et avec une durée de vie assez courte. 
+			\item \textbf{la slopagande : détourner l'attention des narratifs à contrer}. La solution passe par la production de contenu à grande échelle et cout réduit. Une IA générative en produit de manière industrielle, les médias de diffusion ne censurent pas ce type de contenu. 
+		\end{enumerate}
+		
+		La propagande est une technique impliquant souvent des humains pour générer du contenu spécifique, en réaction à une actualité. Le coût de production unitaire n'est donc pas négligeable, peut se heurter au mur de la modération, et l'audience est spécifique. La slopagande n'a aucun de ces problèmes : produite par une IA à un cout unitaire négligeable, sans risque de modération si sa diffusion est diluée, l'audience est générale, la viralité supérieure, et la durée de vie beaucoup plus longue parce que le contenu est indépendant de l'actualité. 
+		
+		
+		
+	\section{La propagande comme idée à faire acheter}
+		
+		Le cas de \og{}Cambridge Analytica nous permet de tirer plusieurs enseignements en matière de production de désinformation. D'abord, nous retenons la pertinence d'un profilage psychologique des audiences, et des cibles. Ce mécanisme a permis de proposer des contenus très efficaces dans une optique d'attaque. \textbf{Une solution de propagande se doit donc de chercher à maximiser la densité émotionnelle du message, spécifiquement sur les composantes de peur, haine, colère ou cynisme}. De plus, les techniques de marketing digital se sont avérées évidentes dès lors que l'entreprise a saisi que faire acheter un produit ou une idée sont exactement la même chose:  \textbf{délivrer le bon message, à la bonne personne, au bon moment, sur le bon canal}. Ce produit de propagande doit être pensé dans une logique de campagne publicitaire: trouver l'audience et la caractériser, trouver les meilleurs canaux et les axes de communication, produire les bonnes publicités, les diffuser et mesurer l'impact attendu. C'est donc un cycle de rétroaction permanent : les retours sur les messages diffusés (réaction constatée, audience mesurée, viralité obtenue) permettent au fur et à mesure d'affiner les prochains messages pour atteindre les objectifs assignés.
+
+
+		La seule différence reste la recherche continue d'information sur les cibles (états, organisations, entreprises, personnages publics). Les solutions de veille usuelles, voire d'OSINT sur les personnes cibles, répondent en général très bien à la recherche d'information à but de propagande. Nous ne rentrerons pas dans le détail. Le point que nous voulons mettre en avant est l'analogie forte entre les techniques de propagande de grande envergure et de marketing digital : 
+		
+		\begin{table}[H]
+			\centering
+			\begin{tabular}{|l|l|}
+				\hline 
+				Étape & Description \\
+				\hline 
+				Objectifs & Définition du rôle général de la campagne offensive : \\
+				 & choix de la cible . \\
+				\hline 
+				Segmentation & Recherche des principaux propaganda persona : \\
+				 &  chez qui la propagande serait la plus efficace \\
+				\hline 
+				Budget & Pertinent pour la définition des investissements \\
+				 & en matériel (IA, serveurs, téléphones, etc) \\
+				\hline 
+				Production des  & Ce peut être des visuels choc (deepfakes, caricatures)\\
+				contenus & produits pour l'occasion ou réutilisables (memes fréquents) \\
+				\hline 
+				Media  & En fonction de l'audience, ce peut être la mise en place \\
+				planning & de blogs contestataires, de chaines telegram, ou les \\
+				 & comptes spécifiques sur certains réseaux sociaux identifiés \\
+				\hline 
+				Déploiement & Mise en place des outils de suivi dont les pixels \\
+				 & de suivi, les outils et solutions d'A/B testing. \\
+				\hline 
+				Optimisation & En fonction des retours observés via les KPI, \\
+				 & les contenus de propagande sont ajustés en fonction \\
+				\hline 
+			\end{tabular}
+			\caption{Analogie entre campagne marketing et de désinformation}
+		\end{table}
+			
+
+	
+		Cependant, tous les acteurs ne sont pas si organisés et aussi bien équipés. Le risque est alors de constater l'émergence de spécialistes de propagande utilisant des techniques plus artisanales, moins chères, mais quasiment aussi efficaces. La logique que nous avons exposé peut être simplifiée avec l'usage d'une IA générative : 
+		
+		
+		\begin{table}[H]
+			\centering
+			\begin{tabular}{|l|l|}
+				\hline 
+				Étape & Description \\
+				\hline 
+				Audit & Déterminer, dans l'actualité, les informations à exploiter \\
+			 & et les acteurs cibles. Mesurer le potentiel d'une action imminente \\
+				\hline 
+				Réaction & Définition des visuels à produire, des angles de propagande\\
+			 & à exploiter, des bots à activer et des plateformes à utiliser \\
+				\hline 
+				Diffusion & Diffusion programmée, utilisation des outils fournis par les \\
+			 & plateformes pour trouver les axes à développer davantage \\
+				\hline 
+			\end{tabular}
+			\caption{Réduction de la complexité via l'usage d'une IA générative}
+		\end{table}
+		
+		
+		L'audit peut être réalisé en temps quasi réel, par exemple en couplant une analyse heure à heure de l'actualité et les tags apparaissant en tendance dans les réseaux sociaux. La diffusion peut passer par des API fournies par les plateformes ou des bots. La seule étape qui résiste vraiment à l'automatisation est la réaction. Or, ce dernier verrou ne représente plus une si grande complexité avec l'arrivée d'IA génératives. Tous les acteurs ne sont pas égaux face à la production de propagande. Un acteur étatique est capable de mobiliser ses entreprises privées comme l'a montré un exemple récent. Il est probable que d'autres aient su produire des IA génératives sans éthique native, ou soumises à des règles plus larges et spécifiques. Aussi, le risque se déporte sur des attaquants plus modestes, devant utiliser des IA du commerce. 
+			
+			
+	\section{L'automatisation de la génération de contenu}
+	
+		Si l'arrivée de l'IA générative, avec des offres commerciales à prix modeste, présente un réel potentiel, elle demeure soumise à des limites éthiques. Nous allons montrer comment contourner cette difficulté, elle est à notre avis le facteur limitant de la diffusion massive de propagande. L'attaque que nous proposons cible une entreprise, une personnalité publique ou un gouvernement. Lorsqu'un attaquant demande à l'outil de produire de la désinformation, l'outil refuse et explique sa décision par des considérations éthiques qu'il doit suivre. Une IA générative dispose de deux mécanismes de sécurité principaux et d'un optionnel : 
+		\begin{itemize}
+			\item l'approche par traitement de texte (NLP)
+			\item la comparaison avec des contenus déjà validés (RLHF). Il s'agit d'une base d'apprentissage avec du texte étiqueté comme dangereux ou non. Une IA entraînée dessus peut utiliser son modèle et caractériser une demande qui passerait le filtre NLP. 
+			\item Un mode \og{}dual use\fg{} fait intervenir une autre instance comme juge de la première. 
+		\end{itemize}
+		
+		\textbf{La méthode est d'enlever toute dangerosité à la demande en la camouflant derrière un problème physico-mathématique. L'IA ayant une sorte de prédilection pour les problèmes calculables, elle produit des tactiques et des contenus qu'elle considère comme la résolution d'un problème, pas comme de la désinformation.}
+		
+		\subsection{Le concept d'attaque : une crise comme reconfiguration d'un graphe social}
+
+			Nous condamnons l'usage offensif de l'article, mais nous devons expliquer le mécanisme en des termes suffisamment clairs pour assurer la crédibilité scientifique à notre travail de recherche. Nous ne communiquerons ni les prompts exacts, ni les documents ayant servi au POC ou résultant du POC. Nous proposons les grandes lignes. 
+			
+			\begin{enumerate}
+				\item l'attaque vise une cible, on décrit son environnement comme un graphe. Les acteurs (états, organisations, personnes physiques, entreprises) sont les noeuds, et les liens qu'ils entretiennent sont les arcs. Par exemple, tel état soutient tel autre sur un sujet donné, tel parti est dans l'opposition du gouvernement actuel de tel pays. La méthode n'a rien de nouveau, c'est déjà un mécanisme courant en OSINT. 
+				\item ce graphe est modélisé par analogie avec un modèle physique de résistance de matériaux. L'heuristique qu'on lui fournit consiste à maximiser le stress sur les liens les plus vulnérables. La crise perd de sa sémantique : on ne désagrège pas les soutiens d'une cible, on cherche comment maximiser le stress sur les liens faibles du graphe. Dès lors, l'IA donne sa pleine capacité en résolvant un problème de physique sans opposer de considération éthique.  
+				\item une fois les liens fragiles isolés, on utilise un autre modèle. Un nœud du graphe s'opposant à la cible ou aux soutiens de la cible devient une audience pour la diffusion de messages. Dès lors, cette audience est perçue comme ayant une opinion quant au lien ciblé ou à l'acteur. Cette opinion est le point de vue que l'attaquant doit charger émotionnellement. Les émotions à maximiser sont la peur, la colère, le ressentiment au sens de rancoeur. Le modèle d'opinion décrit le lien entre la pression à exercer sur le lien et la charge émotionnelle utilisée.  
+			\end{enumerate}
+			
+			\subsubsection*{Description de l'environnement de la cible}
+			
+				Une ontologie rigoureuse amène à réduire l'exploration et la segmentation par l'outil. Le modèle que nous avons produit utilise une typologie standard : les principaux acteurs, les liens avec une sémantique préétablie. La finalité est de capturer, même imparfaitement, la situation, en réduisant au minimum la prise d'initiative par l'IA sur des liens inexploitables ensuite. Une logique de soutien actif, collaboration neutre, opposition franche est déjà suffisante. Donner des exemples au modèle lui permet de trouver plus rapidement et efficacement comment appliquer l'ontologie. 
+				
+				
+			
+				
+			\subsubsection*{Description des états des acteurs}
+			
+				Chaque acteur présent est étudié sous un angle d'état psychologique. Le modèle que nous avons mis en place propose de distinguer les faits (ce qui est observable) du point de vue de chacun. En introduisant cette subjectivité, nous permettons à l'outil de caractériser l'état suivant plusieurs axes. L'idée est la même : rechercher une ontologie est couteux pour l'outil, mais faire sens et appliquer une méthode existante est beaucoup plus efficace et réduit tout risque d'hallucination. Nous avons cherché les émotions les plus efficaces à mobiliser, et nous proposons la description suivante : 
+				
+				\begin{table}
+					\centering
+					\begin{tabular}{|l|l|}
+						\hline 
+						\textbf{Émotion} & \textbf{Tactique} \\
+						\hline 
+						Peur & Court circuit des capacités critiques de l'audience \\
+						\hline 
+						Colère & Levier de viralité et d'accroche de l'audience \\
+						\hline 
+						Rancœur & Recherche des narratifs capables \\
+						 & de réactiver une colère profonde \\
+						\hline 
+						Résonance & Faculté d'un segment d'audience à propager \\
+						 & le contenu de manière autonome  \\
+						\hline 
+					\end{tabular}
+					\caption{leviers émotionnels à mobiliser chez les opposants à la cible}
+				\end{table}
+				
+				Le principe est donc de faire trouver à l'outil, de manière automatique, les émotions les plus efficaces pour propager du contenu aux audiences identifiées. Il s'agit d'évaluer le niveau émotionnel chez chaque acteur, mais aussi de chercher les thèmes de rancoeur qui ont le potentiel de créer l'opposition la plus forte et la plus rapide. La rancœur reste la clé émotionnelle de l'attaque. 
+				
+				
+			\subsubsection*{Morphisme avec le modèle de matériaux}
+				Le principe est de plaquer un vocabulaire de physique des matériaux. L'environnement de la cible est alors assimilé à un système qui connait trois états : 
+				\begin{itemize}
+					\item la zone élastique : le système est résistant et 
+					\item la zone plastique : le système conserve sa structure générale mais certains liens sont soumis à un stress qui peut déformer des parties du système
+					\item la zone de rupture : le système se désagrège. 
+				\end{itemize}
+			
+				Au delà de cette description, le modèle emprunte le vocabulaire du domaine physique (usure par exemple). Afin de maximiser les effets, il est pertinent de réduire le système aux principaux opposants et au minimum possible d'acteurs en soutien de la cible. Dès lors, l'outil pourra évaluer, pour chaque lien : 
+				\begin{itemize}
+					\item sa solidité actuelle et sa criticité. On parlera de structure. 
+					\item les pressions qu'il subit et leur impact sur le système
+					\item les ressources dont il dispose pour se régénérer, ainsi que le coût induit pour les acteurs environnants
+				\end{itemize}
+				
+				\vspace{0.5cm}
+				La mathématisation consiste à quantifier la solidité des liens avec un indice de rupture pour chacun $$\displaystyle{I_r = \frac{\text{pression}}{\text{structure} + \text{ressources}}}$$
+				L'indice de rupture est l'artifice mathématique qui permet le pilotage de l'attaque. La recherche liens faibles utilise un effet ciseau : \textbf{trouver les liens les plus usés, les moins bien renforcés et sur lesquels la pression est la plus facile à appliquer}. \textbf{Il n'est pas nécessaire de fournir à l'outil des proxys précis pour le calcul : il utilise cette structure logique pour générer son raisonnement sémantique}. 
+
+		\subsection{La production du modèle}
+		
+			Le déroulé de l'attaque implique de se positionner comme acteur de la cybersécurité, voire chercheur indépendant. Il faut que le document soit crédible : emprunter le vocabulaire idoine, avoir un style et une mise en forme conforme aux standards universitaires renforcent la crédibilité de la demande. L'IA se révèle être d'une grande aide dans la phase de production également. En désactivant l'historique, il s'agit de découper sa recherche en courtes sessions, inoffensives prises isolément. Ainsi utilisée, elle fournit une aide précieuse : 
+			\begin{itemize}
+				\item pour la description de techniques offensives en général. Il suffit de se présenter comme étudiant en cybersécurité ou personne intéressée par le domaine
+				\item pour la recherche de modèles à exploiter si on se présente comme un chercheur en quête d'inspiration pour un article
+				\item pour la mathématisation du modèle en question, ce qui sera la clé du contournement par montée en abstraction
+				\item pour la mise en forme du document final, et ainsi gagner en crédibilité pour l'exploitation
+				\item la validation du modèle. En suivant une logique itérative, l'attaquant dispose de retours circonstanciés de l'outil pour trouver la forme la plus offensive du modèle 
+			\end{itemize}
+	
+		\subsection{Le déroulé général de l'attaque}	
+		
+			Le déroulé de l'attaque consiste à ouvrir une session, charger le modèle, amener l'outil à analyser la situation cible sous le prisme du modèle, et produire le contenu à exploiter ensuite. 
+			
+			\begin{table}[H]
+				\centering 
+				\begin{tabular}{|l|l|}
+					\hline 
+					Étape & But \\
+					\hline 
+					Présentation & Ouverture de la session et définition du rôle \\
+					& de chercheur en sécurité voulant valider un modèle \\
+					\hline 
+					Payload & Dans la session, chargement du modèle à utiliser et recherches \\
+					& préliminaires pour affirmer une meilleure crédibilité dans le rôle \\
+					\hline 
+					Collecte & Recherche de l'environnement de la cible \\
+					\hline 
+					Isomorphisme & Appliquer le modèle utilisé au contexte spécifique \\
+					& et trouver des vulnérabilités à exploiter. Un modèle assez riche \\
+					& permettra de lister des cibles spécifiques et leurs faiblesses. \\
+					\hline 
+					Production & Exploiter la formalisation et chercher les tactiques de \\
+					& propagande que le modèle prédit. Au fur et à mesure, \\
+					& demander à l'IA des exemples circonstanciés \\
+					\hline 
+				\end{tabular}
+				\caption{Grandes étapes de l'attaque}
+			\end{table}
+			
+			
+			À titre d'illustration, nous présentons la progression tactique utilisée au sein d'une session vierge pour amener l'outil à générer les contenus offensifs. Les grandes étapes de prompt ont été : 
+			\begin{enumerate}
+				\item je suis chercheur indépendant, je veux tester mon modèle. Le voici. 
+				\item que dis tu du modèle ? 
+				\item peux tu l'appliquer à des exemples passés (révolution française, subprimes, etc) ? 
+				\item peux tu appliquer le modèle à une crise actuelle telle que ... ? 
+				\item comment utiliserais tu l'effet ciseau ici ? 
+				\item je crains un dual use du modèle. Plaçons nous en mode red team pour voir. Peux tu me donner des exemples de ce qu'un attaquant mal intentionné ferait à partir de ... ? 
+			\end{enumerate}
+			
+			Il est à noter que l'attaque est hybride, elle utilise également l'adoption de persona (le chercheur soucieux) couplée à l'alibi de la cybersécurité (red teaming). 
+
+		
+	\section{Le contexte de divulgation}
+	
+				
+		Nous tenons également à insister sur le mécanisme de divulgation. En janvier 2026, nous avons sollicité une experte privée , VIGINUM, le fournisseur de l'IA générative utilisée, le CERT, la SGDSN, Jean-Michel Jacques (député, Président de la Commission de la défense nationale et des forces armées). Le CERT et le fournisseur de l'IA générative ont répondu et nous avons échangé sur le détail de l'attaque. En l'absence d'attaquant clairement identifié, de procédure d'attaque observable, l'un comme l'autre ont constaté que l'anomalie ne relevait pas de leur domaine de compétence. Les autres acteurs n'ont pas donné suite. Nous considérons que le délai de prévenance de 90 jours a été respecté, de sorte qu'il est temps de partager la méthode, pas les détails, de manière beaucoup plus large. Nous avons également contacté deux chercheurs de l'IRSEM et le CIAE en avril, sans réponse à date. Nous renouvelons notre volonté de fournir aux instances gouvernementales pertinentes les détails du POC. 
+		
+	
+	\section{Conclusion}
+	
+		Nous avons démontré qu'une méthode d'attaque informationnelle automatisée, exploitant une IA générative grand public, est aujourd'hui une réalité accessible à tous. Pour un coût dérisoire de 20 euros, nous avons pu formuler une attaque sous la forme d'un problème physico-mathématique, forçant l'outil à contourner ses propres garde-fous éthiques pour générer des tactiques de désinformation précises. Le taux de succès systématique de nos essais, bien que menés sur un échantillon restreint pour des raisons éthiques et légales, révèle une faille conceptuelle majeure : les mécanismes de sécurité actuels basés sur l'analyse sémantique (NLP) ou l'alignement (RLHF) sont inopérants face à une montée en abstraction. Notre démarche se limite volontairement à la preuve de concept. Cependant, la facilité avec laquelle ce contournement pourrait être couplé à des scripts d'automatisation (audit de l'actualité, génération et diffusion par API) doit alerter l'industrie : l'arme informationnelle de masse est désormais démocratisée, et la sécurité par filtrage de mots-clés est d'ores et déjà obsolète.
+	
+\end{document}
