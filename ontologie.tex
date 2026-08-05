@@ -8,150 +8,80 @@
 \usepackage[skip=0.5cm]{parskip}
 \usepackage{amsmath,amssymb,amsfonts}
 
-\newtheorem{definition}{Définition}[section]
-\newtheorem{theorem}{Théorème}[section]
-\newtheorem{proposition}{Proposition}[section]
-\newtheorem{corollary}{Corollaire}[theorem]
-\newtheorem{lemma}[theorem]{Lemme}
-
 \author{Jean BAYLON}
-\title{Une grille d'analyse générique : champs, éléments, interactions}
+\title{Une grille d'analyse générique : éléments, structures, et causalité}
 \date{Version du \today{}}
 
 \begin{document}
 	\maketitle
-	\abstract{Les modèles sont notre grille d'analyse du réel. Ils sont donc, structurellement, imparfaits, on leur demande simplement d'être suffisants. L'exercice de trouver ce qu'ils ont en commun est ardu : il exige une expérience pratique forte pour être pertinent, et de solides bases dans des domaines allant de la physique à la sociologie en passant par la systémique. Nous nous y risquons toutefois, et la proposition doit être prise pour ce qu'elle est : une tentative, la rédaction d'une intuition plus qu'un travail de qualité universitaire. \\ Notre travail postule qu'un méta-modèle général comprend ce qu'on observe et comment ces objets interagissent. La relation de causalité définit comment passer d'un état au suivant. C'est donc une ontologie d'inspiration relationnelle traitant de processus de transformation. Nous développons surtout un cas particulier : une causalité locale. Nous expliquons alors qu'il est nécessaire de séparer champ et élément, système et objet. Dès lors, les explications locales émergent de changements locaux. C'est toute la problématique de ces modèles, d'ailleurs. }	
+	\abstract{La mise en place d'un modèle est une tâche complexe : peu de concepts, indépendants, avec un pouvoir explicatif ou prédictif élevé. La description de méta modèles est, à l'évidence, d'autant plus exigeante qu'elle exige une forme d'exhaustivité. Nous proposons une formalisation se basant sur trois notions : les éléments sont dans des structures évoluant par causalité. Notre travail est issu d'une recherche personnelle. Nous le mettons en ligne dans l'espoir d'être utile.}
 	
-\section{Les modèles généraux}
-
-
-Notre ontologie postule deux concepts pour analyser un système complexe : 
-\begin{enumerate}
-	\item ce qui est : les éléments, entités ou objets. Leur observation est supposée possible
-	\item ce qui constitue la clé du changement : les interactions, par le mécanisme de causalité. 
-\end{enumerate}
+	\section{Le modèle général}
+	
+	Dans sa forme la plus générale, notre modèle postule simplement qu'il existe des entités qui évoluent par une logique de causalité pour un observateur. Si la mesure précise du temps n'est pas forcément nécessaire, il est par contre indispensable de savoir situer l'avant de l'après. L'introduction de la causalité répond à cette problématique. Formellement, elle ordonne la succession, pour un observateur, des observations suivant une logique implacable : personne ne peut constater l'effet avant la cause. 
+	
+	\subsection{États et interactions}
+	
+	Le concept de causalité permet de déduire deux nouvelles notions : 
+	\begin{itemize}
+		\item dans sa dimension statique, la causalité caractérise l'état, la configuration 
+		\item dans sa dimension dynamique, elle décrit comment des interactions modifient le système
+	\end{itemize}
+	
+	\paragraph{Entité et interactions sont interdépendantes.} Finalement, le lien entre entité et interaction est fort: 
+	\begin{enumerate}
+		\item une entité est transformée par les interactions qu'elle subit
+		\item la présence de l'entité ou sa transformation peut émettre en retour des interactions
+	\end{enumerate}
 	
 	
-	\subsection{La relation de causalité remplace le temps}
-La première observation porte sur le rôle du temps : il perd son côté intrinsèque au profit de la causalité : 
-\begin{itemize}
-	\item l'état est l'aspect statique, observable, de la causalité
-	\item l'interaction en constitue la dynamique 
-\end{itemize}
-
-Ce changement de paradigme permet d'adresser la problématique des temps différents en fonction de l'échelle d'un système observé. Par exemple, notre corps change plus vite que nous, mais nous conservons notre identité. Une société a un temps plus long que ses membres, car un changement d'état implique la synchronisation de nombreux éléments (opportunités sociales, faiblesse de la structure existante, volonté interne ou externe de changement). On peut donc considérer une unité de temps fondamentale, une sorte de \textit{tick} comme un changement perceptible dans l'état du système observé. Ce tick peut être, chez une personne, un mariage, un nouvel emploi, une étape clé de sa vie. Au niveau d'une société, ce peut être une nouvelle constitution, une rupture de politique générale ayant des effets observables. Mais dans tous les cas, le temps n'est pas uniforme, le temps n'est pas un concept primordial. Bien évidemment, les concepts sont très fortement intriqués : parler de transition implique un temps, ce qui amène à des débats très pointus que nous esquivons ici. 
-
-\subsection{Les interactions sont la mécanique de changement d'état}
-
-Détaillons à présent la logique de passage d'un état à un autre, c'est à dire la transition par les interactions. La causalité est donc une relation d'accessibilité : peut on passer de cet état à celui-ci ? 
-Cependant, le mécanisme n'a rien d'automatique ou de déterministe, on choisira la relation la plus adaptée parmi : 
-\begin{itemize}
-	\item une causalité directe, qu'on retrouve dans les systèmes physiques à notre échelle. Sa forme la plus canonique est par exemple $\vec{F} = m\vec{a}$. 
-	\item une causalité probabiliste, qu'on retrouve en mécanique quantique. On sait que l'état suivant sera pris parmi ceux là, avec une distribution de probabilité. 
-	\item une causalité tendancielle, qu'on retrouve plus souvent dans les sciences sociales, comme des comportements préférentiellement choisis. Par exemple, le mécanisme d'analogie historique revient souvent en diplomatie. 
-\end{itemize}
-
-D'un point de vue pratique, on sait distinguer des objets spécifiques. Nous parlerons d'identifiables, au sens de toute chose qui a une traçabilité ininterrompue de son historique causal. Dit autrement, un identifiable est un objet qu'on sait reconnaitre parmi les autres car on sait (en théorie en tous cas) retrouver la chaine de transformations qui explique son état. En résumé, à ce stade, \textbf{une interaction transforme un état en un autre}. 
-
-\subsection{Le rôle clé de l'observateur}
-
-Fondamentalement, il s'agit de répondre à la question de comment un système, dans un état initial donné, évolue suivant une relation de causalité plus ou moins complexe. Il est impératif de se rappeler que l'observateur fait partie du modèle, c'est lui qui caractérise ces états et qui cherche une relation de causalité. Il n'y a donc pas d'état initial, au sens d'une réalité ontologique de l'univers. C'est bien une coupure arbitraire décidée par l'observateur. En pratique, c'est l'analyste du système qui décrète qu'il commence son observation en ce point là d'espace temps. \textbf{L'état initial est donc toujours un état hérité, que l'on choisit de figer pour commencer le calcul ou l'étude.} 
-
-
-\section{Les modèles à interactions locales}
-
-Il faut alors distinguer le cas particulier, essentiel des systèmes à interactions locales. Ils s'utilisent lorsqu'il devient nécessaire d'exprimer les changements globaux par des réactions locales aux interactions. Dit autrement, on observe des changements sur les parties du système uniquement, et on veut remonter au comportement global. Les interactions locales se comprennent au sens d'interactions de proche en proche, sans action instantanée d'un bout à l'autre du système. La formalisation mathématique typique est celle d'une distance entre entités et d'une vitesse maximale d'interaction (disons la vitesse de la lumière). La séparation élément, objet / champ, système est un découpage logique si on garde les responsabilités suivantes : 
-\begin{itemize}
-	\item le champ : il contient les entités et achemine les interactions. C'est ce qu'on observe, le cadre global 
-	\item les éléments : ce qui subit les interactions à proprement parler, et qu'il faut étudier
-\end{itemize}
-  
-On prendra garde à ne pas considérer le champ comme un cadre vide : 
-\begin{enumerate}
-	\item il est un sujet d'étude en soi : l'émergence d'un comportement global peut ne pas se réduire aux actions de ses éléments. C'est le cas notamment de la formation de comportements intelligents dans les réseaux de neurones non assignables directement à tel ou tel neurone
-	\item il n'est pas un support de transmission neutre : les réseaux sociaux mettent en avant certains contenus, et en rendent d'autres invisibles de fait. L'intermédiation algorithmique est précisément l'application d'entreprise et la source de monétisation de ces autoroutes de l'information
-	\item il n'est pas passif : il existe des cas où les propriétés des éléments modifient le champ. L'exemple typique est physique : en relativité générale, la matière courbe l'espace qui oriente en retour la matière
-\end{enumerate}
-
-\subsection{Le concept d'entité}
-
-
-Une \textbf{entité} est un élément stable du champ, distinct des autres. Il se définit comme une histoire locale, c'est à dire les événements qui ont amené à son état. Si l'on reprend notre définition, on peut dire qu'il est identifiable : on sait définir la chaine d'interactions qui le constitue, qui explique son état. Sa définition est donc récursive : 
-\begin{enumerate}
-	\item il existe avec un état initial dans le champ
-	\item s'il existe, l'interaction qu'il subit ensuite (causalité locale) définit son nouvel état 	
-\end{enumerate}
-
-Il est par ailleurs évident, et les exemples abondent, que les entités peuvent avoir une durée de vie ou engendrer d'autres entités. Moins évident, mais essentiel également : la qualification des comportements des entités varie avec le temps, l'observateur utilise des pré-requis, un vocabulaire, des notions qui ont évolué au fil du temps. 
-
-\subsection{Causalité, localité et interaction}
-
-Une interaction est une unité de causalité. Elle est également identifiable. Par définition, si on se restreint à un modèle local, elle s'applique à une entité, et découle d'une interaction précédente. Ce chainage est d'ailleurs la définition de la causalité. \textbf{L'interaction 
-transforme alors l'état d'une entité en un autre état}, et on peut assister à des phénomènes d'action réciproque. 
-
-
-La même logique récursive s'applique : 
-\begin{enumerate}
-	\item il a existé une interaction primordiale sur un objet dans un état initial 
-	\item la chaine de causalité à partir d'une interaction donnée se concrétise par une cause à une interaction. 
-\end{enumerate}
-
-Dès lors, il n'y a pas besoin d'horloge, il suffit d'avoir, pour une interaction, la capacité de remonter à sa cause directe. 
-
-
-\paragraph{Entité et interactions sont interdépendantes.} Finalement, le lien entre entité est interaction est fort: 
-\begin{enumerate}
-	\item une entité est transformée par les interactions qu'elle subit
-	\item la présence de l'entité ou sa transformation peut émettre en retour des interactions
-\end{enumerate}
-Le cas des médiateurs en physique est notoirement intéressant : des particules sont les moteurs des interactions.  
-
-
-\subsection{Les champs}
-
-Les interactions ne passent pas d'une entité à l'autre directement, c'est le champ qui les achemine. Structurellement, le champ devient l'infrastructure de transmission des interactions. 
-Quand un changement d'état (ou un état spécifique) se manifeste dans le champ, il peut engendrer une interaction. Elle se propage (localité) à des entités du champ. Elle peut modifier la structure même du champ, donc champ et contenu (entités et interactions) peuvent être codépendants. 
-
-
-\subsection{Principales notions utilisées}
-
-En guise de conclusion, nous pensons nécessaire de mentionner les concepts que nous avons utilisé, assortis d'une définition synthétique pour en comprendre le sens. 
-
-\begin{table}[H]
-	\centering 
-	\begin{tabular}{|l|l|}
-		\hline 
-		Nom & Description \\
-		\hline 
-		Entité & change d'état en fonction des interactions \\
-		 &  et peut causer des interactions \\
-		\hline 
-		Etat & obtenu depuis son état initial et \\
-		d'une entité & l'application des interactions qu'elle a subi  \\
-		\hline 
-		Interaction & produite par une entité, \\
-		 & que ce soit du fait d'un état ou d'une variation d'état \\
-		\hline 
-		Champ & quand une interaction est émise, \\
-		 & définit les entités qu'elle impacte 	\\
-		\hline 
-		Causalité & entre deux systèmes, formalise le passage du premier au second. \\
-		 & Ce qui rend cette transition possible est un ensemble d'interactions. \\
-		\hline 
-		Localité & Les interactions n'ont d'effet notoire que sur les entités \\
-		 & proches selon une structure de champ à définir. \\
-		\hline 
-	\end{tabular}
-	\caption{Définition des notions}
-\end{table}
-
-\section{Conclusion}
-
-Bien évidemment, le modèle que nous proposons ici est extrêmement général. Il est d'inspiration physique, qui constitue un parti pris chez nous. Cependant, nous pensons que le vocabulaire et les notions sont suffisamment généraux pour être pertinents dans une analyse sociale. Le cadre d'analyse nous permet de poser des questions qui, à notre sens, semblent particulièrement prometteuses. Par exemple : 
-\begin{itemize}
-	\item une analyse tendancielle des indicateurs économiques permettrait-elle de détecter, voire d'anticiper, des changements politiques majeurs ? Peut-on anticiper des ruptures nettes dans le champ en fonction de certaines actions spécifiques de groupes d'acteurs identifiés ? 
-	\item quelles applications aux réseaux sociaux sont possibles ? Comment le champ peut-il contrebalancer des tentatives d'ingérence étrangère ou de désinformation ? Peut-on détecter des changements de topologie des réseaux sociaux tels que l'astroturfing ? 
-\end{itemize}
-
-
+	\subsection{Le temps n'est pas un concept premier}
+	Le temps n'est plus un concept premier, il donne une solution numérique, mesurable, à des phénomènes d'observations coordonnées (avant / après / simultanément). Ce changement de paradigme permet d'adresser la problématique des temps différents en fonction de l'échelle d'un système observé. Par exemple, notre corps change plus vite que nous, mais nous conservons notre identité. Une société a un temps plus long que ses membres, car un changement d'état implique la synchronisation de nombreux éléments (opportunités sociales, faiblesse de la structure existante, volonté interne ou externe de changement). On peut donc considérer une unité de temps fondamentale, une sorte de \textit{tick} comme un changement perceptible dans l'état du système observé. Ce tick peut être, chez une personne, un mariage, un nouvel emploi, une étape clé de sa vie. Au niveau d'une société, ce peut être une nouvelle constitution, une rupture de politique générale ayant des effets observables. Mais dans tous les cas, le temps n'est pas uniforme, le temps n'est pas un concept primordial. Bien évidemment, les concepts sont très fortement intriqués : parler de transition implique un temps, ce qui amène à des débats très pointus que nous esquivons ici. 
+	
+	\subsection{Les relations causales ne sont pas toutes déterministes}
+	
+	Détaillons à présent la logique de passage d'un état à un autre, c'est à dire la transition par les interactions. La causalité est donc une relation d'accessibilité : peut on passer de cet état à celui-ci ? 
+	Cependant, le mécanisme n'a rien d'automatique ou de déterministe, on choisira la relation la plus adaptée parmi : 
+	\begin{itemize}
+		\item une causalité directe, qu'on retrouve dans les systèmes physiques à notre échelle. Sa forme la plus canonique est par exemple $\vec{F} = m\vec{a}$. 
+		\item une causalité probabiliste, qu'on retrouve en mécanique quantique. On sait que l'état suivant sera pris parmi ceux là, avec une distribution de probabilité. 
+		\item une causalité tendancielle, qu'on retrouve plus souvent dans les sciences sociales, comme des comportements préférentiellement choisis. Par exemple, le mécanisme d'analogie historique revient souvent en diplomatie. 
+	\end{itemize}
+	
+	\subsection{Le rôle clé de l'observateur}
+	
+	Fondamentalement, il s'agit de répondre à la question de comment un système, dans un état initial donné, évolue suivant une relation de causalité plus ou moins complexe. Il est impératif de se rappeler que l'observateur fait partie du modèle, c'est lui qui caractérise ces états et qui cherche à les lier entre eux. Il n'y a donc pas d'état initial, au sens d'une réalité ontologique de l'univers. C'est bien une coupure arbitraire décidée par l'observateur. En pratique, c'est l'analyste du système qui décrète qu'il commence son observation en ce point là d'espace temps. \textbf{L'état initial est donc toujours un état hérité, que l'on choisit de figer pour commencer le calcul ou l'étude.} 
+	
+	
+	
+	\section{Distinguer le tout de la partie}
+	
+	Un observateur tente de décrire et modéliser un système mais son niveau d'observation est local : il n'a la possibilité que de décrire des parties, voire ses éléments séparément. Le concept même n'est pas irréprochable : il dépend des outils de l'observateur, de ce qu'il peut capter, ou de l'échelle à laquelle il observe une situation. Mais s'il est confronté au besoin d'établir une hiérarchie d'échelle, l'entité devient un concept insuffisant en pratique, à moins de tout qualifier comme tel. Il est plus pertinent de séparer la structure des éléments, le tout de la partie. Dès lors, on peut poser des questions subtiles de comportements émergents, c'est à dire non réductibles aux actions individuelles. Par exemple, les mécanismes de telle pensée spécifique ne sont pas réductibles, à date, à l'action locale de tel ou tel neurone. 
+	
+	
+	
+	\subsection{Les éléments sont identifiables : on sait les distinguer}
+	
+	Ce qui caractérise un élément, malgré l'évolution de son état, est fondamentalement la cohérence de son historique au sens de toute chose qui possède une \textbf{traçabilité ininterrompue de son historique causal}. En théorie, on sait retrouver la chaîne de transformations qui explique son état. En pratique, on sait le distinguer de tous les autres, l'identifier. Certains modèles, cependant, ont une logique inverse : c'est l'état global qui est connu, de sorte que l'on souhaite l'expliquer ou la déduire de la configuration des éléments les uns par rapport aux autres. 
+	
+	
+	\subsection{Les propriétés de la structure : un cadre non neutre}
+	
+	Considérer la structure comme un simple support physique ou un cadre vide pour les éléments est trop réducteur. Souvent, elle s'adapte dynamiquement à ce qu'elle contient et influence activement les éléments :
+	\begin{enumerate}
+		\item \textbf{L'émergence :} la structure est un sujet d'étude en soi. L'émergence d'un comportement global peut ne pas se réduire aux actions de ses éléments (ex: la formation de comportements intelligents dans les réseaux de neurones).
+		\item \textbf{La co-évolution :} il existe des cas où les propriétés des éléments modifient la structure. L'exemple typique est physique : la matière courbe l'espace-temps, qui, en retour, oriente les déplacements de la matière.
+		\item \textbf{Le filtre actif :} la structure n'est pas un support de transmission neutre. Sur les réseaux sociaux, par exemple, l'intermédiation algorithmique met en avant certains contenus et en rend d'autres invisibles. L'algorithme est précisément l'application d'entreprise et la source de monétisation de ces autoroutes de l'information.
+	\end{enumerate}
+	
+	
+	
+	\section{Conclusion} 
+	
+	Bien évidemment, le modèle que nous proposons ici est extrêmement général. Si notre inspiration physique initiale est claire, nous pensons que ce vocabulaire est suffisamment abstrait pour être pertinent dans un cadre d'analyse sociologique ou systémique. Ce cadre formalisé permet en effet de poser des questions qui, à notre sens, semblent particulièrement prometteuses. Par exemple :
+	\begin{itemize}
+		\item Une analyse tendancielle des indicateurs économiques permettrait-elle de détecter, voire d'anticiper, des changements politiques majeurs ? Peut-on anticiper des ruptures nettes dans la structure sociale en fonction de certaines actions spécifiques de groupes d'acteurs identifiés ?
+		\item Quelles applications aux réseaux sociaux sont possibles ? Comment la structure (l'algorithme) peut-elle contrebalancer des tentatives d'ingérence étrangère ou de désinformation ? Peut-on détecter mathématiquement des changements de topologie de réseau caractéristiques de pratiques de manipulation comme l'\textit{astroturfing} ?
+	\end{itemize} 
+	
 \end{document}
