@@ -8,125 +8,180 @@
 \usepackage[skip=0.5cm]{parskip}
 \usepackage{amsmath,amssymb,amsfonts}
 
+\newtheorem{definition}{Définition}[section]
+\newtheorem{theorem}{Théorème}[section]
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{corollary}{Corollaire}[theorem]
+\newtheorem{lemma}[theorem]{Lemme}
+
 \author{Jean BAYLON}
-\title{Une grille d'analyse générique : entités, structures, et causalité}
+\title{Une grille d'analyse générique}
 \date{Version du \today{}}
 
 \begin{document}
 	\maketitle
-	\abstract{La mise en place d'un modèle est une tâche complexe : peu de concepts, indépendants, avec un pouvoir explicatif ou prédictif élevé. La description de méta modèles est, à l'évidence, d'autant plus exigeante qu'elle exige une forme d'exhaustivité. Nous proposons une formalisation se basant sur trois notions : \textbf{les entités s'organisent en structures qui évoluent par causalité}. Notre travail est issu d'une recherche personnelle. Nous le mettons en ligne dans l'espoir d'être utile.}
 	
-	\section{Le modèle général}
+	\begin{abstract}
+		Notre travail répond à une problématique simple : \og{}quels sont les concepts les plus essentiels pour bâtir une ontologie ?\fg{}. Autrement dit, si nous devions proposer une méthode pour appréhender un problème en général de description d'un système, quelle serait la démarche ? Nous proposons alors deux concepts seulement : l'entité et la transformation. L'entité est le constituant de ce qu'on observe, et la transformation explique que les entités se transforment ou évoluent. Si ce modèle a l'avantage de la concision, il demeure d'usage difficile car il lui manque les concepts qui nous sont chers : la distinction système / élément, la causalité, le rôle de l'observateur. Nous poursuivons avec une version plus pratique, plus directement opérationnelle, en intégrant ces concepts. Après avoir donné une méthode d'analyse, nous concluons en proposant notre cadre sur des questions sociales inhérentes à l'information dans les réseaux sociaux. Ainsi, ce que nous proposons se veut un cadre interdisciplinaire d'analyse, qui donnera son plein potentiel dans les problématiques sociales. 
+	\end{abstract}
 	
-		Dans sa forme la plus générale, notre modèle postule simplement qu'il existe des entités qui évoluent par une logique de causalité pour un observateur. Si la mesure précise du temps n'est pas forcément nécessaire, il est par contre indispensable de savoir situer l'avant de l'après. L'introduction de la causalité répond à cette problématique. Formellement, elle ordonne la succession, pour un observateur, des observations suivant une logique implacable : personne ne peut constater l'effet avant la cause. 
-		
-		\begin{table}[H]
-			\centering
-			\begin{tabular}{|l|l|}
-				\hline 
-				Nom & Description \\
-				\hline 
-				Entité & Ce qui est observable, caractérisé par une chaine d'événements \\
-				\hline 
-				Structure & Le réseau invariant (pour les entités) et persistent \\
-				\hline 
-				Causalité & La dynamique \\
-				\hline 
-			\end{tabular}
-			\caption{Résumé du modèle}
-		\end{table}
-		
-		
-		\subsection{États et interactions : le concept clé d'événement}
-		
-			Le concept de causalité permet de déduire deux nouvelles notions : 
-			\begin{itemize}
-				\item dans sa dimension statique, la causalité caractérise l'état, la configuration 
-				\item dans sa dimension dynamique, elle décrit comment des interactions modifient le système
-			\end{itemize}
-			
-			
-			\vspace{0.5cm}
-			
-			Finalement, le lien entre entité et interaction est fort: 
-			\begin{enumerate}
-				\item une entité est transformée par les interactions qu'elle subit
-				\item la présence de l'entité ou sa transformation peut émettre en retour des interactions
-			\end{enumerate}
-		
-		
-			Cette vue qu'on pourrait qualifier d'immédiate, de \og{}bon sens\fg{} est souvent suffisante, et nous en faisons l'expérience immédiate. On sait décrire telle ou telle caractéristique de la chose observée. Une telle approche, cependant, connait des limites fortes, très tôt dans son usage : 
-			\begin{enumerate}
-				\item elle ne résiste pas au temps, au changement qu'il imprime sur l'entité. Ce n'est pas l'état qui nous permet de reconnaitre une entité, mais notre capacité à l'identifier au delà de ses caractéristiques immédiates. Autrement dit, l'état passe, mais c'est l'identité qui reste. 
-				\item un changement de comportement intrinsèque, une restructuration interne, sont par essence des changements propres au système étudié. De fait, ils ne sauraient constituer une interaction en l'absence de déclencheur externe. La notion clé est l'événement, dont les interactions sont une facette. 
-			\end{enumerate}
-			
-			Ainsi, fondamentalement, ce qui caractérise une entité, ou un système, ou tout observable, est sa chaine causale : 
-			\begin{enumerate}
-				\item l'identité a été acquise à sa création, ce qui constitue son événement fondateur
-				\item ses états s'enchainent, ce qui constitue son historique causal. 
-				\item la fin de l'entité est un événement également
-			\end{enumerate}
-			
-			En traitant d'abord les événements, les entités sont des observables temporaires. Qu'ils soient individuellement présents ou non ne marque ni le début ni la fin de l'étude ou de l'observation. \textbf{Une entité a alors une identité propre quand elle reste une chaine causale d'événements ininterrompue : on sait l'expliquer et la reconnaitre}. 
-		
-		\subsection{Le temps n'est pas un concept premier}
-		
-			Le temps n'est plus un concept premier, il donne une solution numérique, mesurable, à des phénomènes d'observations coordonnées (avant / après / simultanément). Ce changement de paradigme permet d'adresser la problématique des temps différents en fonction de l'échelle d'un système observé. Par exemple, notre corps change plus vite que nous, mais nous conservons notre identité. Une société a un temps plus long que ses membres, car un changement d'état implique la synchronisation de nombreux éléments (opportunités sociales, faiblesse de la structure existante, volonté interne ou externe de changement). On peut donc considérer une unité de temps fondamentale, une sorte de \textit{tick} comme un changement perceptible dans l'état du système observé. Ce tick peut être, chez une personne, un mariage, un nouvel emploi, une étape clé de sa vie. Au niveau d'une société, ce peut être une nouvelle constitution, une rupture de politique générale ayant des effets observables. Mais dans tous les cas, le temps n'est pas uniforme, le temps n'est pas un concept primordial. Bien évidemment, les concepts sont très fortement intriqués : parler de transition implique un temps, ce qui amène à des débats très pointus que nous esquivons ici. 
-		
-		\subsection{Les relations causales ne sont pas toutes déterministes}
-		
-			Détaillons à présent la logique de passage d'un état à un autre, c'est à dire la transition par les interactions. La causalité est donc une relation d'accessibilité : peut on passer de cet état à celui-ci ? 
-			Cependant, le mécanisme n'a rien d'automatique ou de déterministe, on choisira la relation la plus adaptée parmi : 
-			\begin{itemize}
-				\item une causalité directe, qu'on retrouve dans les systèmes physiques à notre échelle. Sa forme la plus canonique est par exemple $\vec{F} = m\vec{a}$. 
-				\item une causalité probabiliste, qu'on retrouve en mécanique quantique. On sait que l'état suivant sera pris parmi ceux là, avec une distribution de probabilité. 
-				\item une causalité tendancielle, qu'on retrouve plus souvent dans les sciences sociales, comme des comportements préférentiellement choisis. Par exemple, le mécanisme d'analogie historique revient souvent en diplomatie. 
-			\end{itemize}
-		
-		\subsection{Le rôle clé de l'observateur}
-		
-			Fondamentalement, il s'agit de répondre à la question de comment un système, dans un état initial donné, évolue suivant une relation de causalité plus ou moins complexe. Il est impératif de se rappeler que l'observateur fait partie du modèle, c'est lui qui caractérise ces états et qui cherche à les lier entre eux. Il n'y a donc pas d'état initial, au sens d'une réalité ontologique de l'univers. C'est bien une coupure arbitraire décidée par l'observateur. En pratique, c'est l'analyste du système qui décrète qu'il commence son observation en ce point là d'espace temps. \textbf{L'état initial est donc toujours un état hérité, que l'on choisit de figer pour commencer le calcul ou l'étude.} 
-			
-		
+	\section{La problématique abordée}
 	
-	\section{Distinguer le tout de la partie}
+	Si un modèle formalise un domaine spécifique, un méta-modèle décrit ce qu'un modèle utilise. Par exemple, le méta-modèle objet développe des notions telles que des classes et attributs, des relations de composition ou d'héritage. Celles ci se combinent et forment tout un pan de l'industrie informatique. Nous ne visons pas un méta-modèle, nous visons une description ontologique, c'est à dire trouver une grille de lecture, la plus universelle possible, pour décrire ce qui est. Nos descriptions du monde physique sont nombreuses, en fonction de l'histoire de cette science et de l'échelle à laquelle nous nous plaçons. Newton décrivait la gravité par des forces et des masses, Einstein répond à la même problématique par des considérations géométriques de l'espace temps, façonné par la matière qu'il contient. Les sciences sociales utilisent aussi des modèles dont la portée est immense parce qu'ils ont cette dimension ontologique. Citons par exemple le modèle d'acteur-réseau de Latour mettant en avant les logiques de relation et de diffusion de connaissances au travers des acteurs. Nous proposons un modèle ontologique, dans le sens suivant : 
+	\begin{itemize}
+		\item nous cherchons des concepts suffisamment puissants pour décrire des situations variées, allant de la physique à la sociologie, en passant par l'informatique. 
+		\item ces concepts doivent s'agencer sans redondance, dans un nombre le plus restreint possible. 
+		\item la logique du modèle proposé doit permettre de dériver des concepts connus, établis, et dont la pertinence fait consensus. Il s'agit donc de trouver ce qu'ils ont en commun. 
+	\end{itemize}
 	
-		Ce que l'observateur veut comprendre n'est pas nécessairement ce qu'il peut observer directement. Par exemple, un sociologue décrit une société en observant un nombre réduit de ses membres. Un physicien spécialiste de physique quantique se retrouve à utiliser un bagage théorique notoirement contre-intuitif à notre échelle. Pour adresser ces questions, le paradigme élément - système ou entité - structure s'est montré efficace. Cette section en détaille certains aspects. Mais remarquons d'abord qu'on peut tout à fait l'appliquer plusieurs fois, pour avoir une hiérarchie à différents niveaux, comme par exemple monde, société, communautés, individus.
+	\vspace{0.5cm}
+	Nous procèderons en deux étapes. D'abord, nous proposerons un modèle théorique économe en concepts et, nous le pensons, avec un pouvoir explicatif majeur. Il aura l'inconvénient logique de ces vertus : difficilement utilisable en pratique. Il nous faudra fournir alors une version beaucoup plus proche de nos intuitions, en incluant notamment les concepts d'observateur et de causalité. Nous listerons les principaux axes de vigilance méthodologiques que cette approche implique. 
 	
-					
-		\subsection{La constitution de la structure : un réseau avant tout}
-		
-			La structure porte en elle une information clé : elle reste organisée quand ses entités changent une à une. Très simplement, une entreprise se maintient quand ses employés la quittent, notre corps se renouvelle mais nous restons nous même. C'est donc, au delà de chaque entité spécifique, le réseau des relations qu'elles entretiennent qui nous éclaire sur ce qu'est la structure, sur comment elle marche. Ce sont les propriétés des éléments, les natures des relations qu'ils tissent, qui constituent l'essence de la structure. Nous invitons tout utilisateur du modèle à se rappeler que nous n'avons pas imposé de nature spécifique à notre notion d'entité : ce peut être de la matière, de l'information, une relation, etc.
-		
-		\subsection{Les propriétés de la structure : un cadre non neutre}
-		
-			Considérer la structure comme un simple support physique ou un cadre vide pour les éléments est trop réducteur. Souvent, elle s'adapte dynamiquement à ce qu'elle contient et influence activement les éléments :
-			\begin{enumerate}
-				\item \textbf{L'émergence :} la structure est un sujet d'étude en soi. L'émergence d'un comportement global peut ne pas se réduire aux actions de ses éléments (ex: la formation de comportements intelligents dans les réseaux de neurones).
-				\item \textbf{La co-évolution :} il existe des cas où les propriétés des éléments modifient la structure. L'exemple typique est physique : la matière courbe l'espace-temps, qui, en retour, oriente les déplacements de la matière.
-				\item \textbf{Le filtre actif :} la structure n'est pas un support de transmission neutre. Sur les réseaux sociaux, par exemple, l'intermédiation algorithmique met en avant certains contenus et en rend d'autres invisibles. L'algorithme est précisément l'application d'entreprise et la source de monétisation de ces autoroutes de l'information.
-			\end{enumerate}
-			
-		
-			
 	
-	\section{Conclusion} 
-			
-		Bien évidemment, le modèle que nous proposons ici est extrêmement général. Si notre inspiration physique initiale est claire, nous pensons que ce vocabulaire est suffisamment abstrait pour être pertinent dans un cadre d'analyse sociologique ou systémique. Sur le plan pratique, l'application de cette grille de lecture requiert une méthode stricte, consistant à identifier :
-		
-		\begin{enumerate}
-			\item \textbf{La finalité et le cadre de référence} : expliciter les objectifs du modèle et les biais de l'analyste qui pourraient impacter les conclusions. La coupure arbitraire de l'état initial gagne souvent à être enrichie d'une contextualisation permettant de saisir pourquoi ce moment serait clé dans l'étude proposée. 
-			\item \textbf{La cartographie du système} : isoler les observables fondamentaux pour déterminer ce qui relève de l'entité, ce qui constitue la structure, et la nature des relations qui les unissent. 
-			\item \textbf{La qualification des chaînes causales} : définir les critères permettant de distinguer deux états successifs et caractériser la nature des interactions (déterministes, probabilistes ou tendancielles). Cette analyse peut s'appuyer sur des outils statistiques permettant de mesurer, même dans la définition de tendances, des indicateurs dits \og{}proxy\fg{} et proposer une validation des éléments constatés (donc, après les avoir observés). 
-		\end{enumerate}
-		
-				
-		Une fois cette méthodologie posée, ce cadre formalisé permet de soulever des questions particulièrement prometteuses. Par exemple :
-		\begin{itemize}
-			\item Une analyse tendancielle des indicateurs économiques permettrait-elle d'anticiper des ruptures nettes dans la structure sociale, en fonction des interactions d'acteurs clés ?
-			\item Quelles applications sont possibles dans l'étude des réseaux sociaux ? Comment la structure (l'algorithme) peut-elle être modélisée pour contrer l'ingérence, et peut-on détecter mathématiquement des changements topologiques caractéristiques de manipulations comme l'astroturfing ?
-		\end{itemize}
-		
+	\section{Le modèle théorique}
+	
+	Nous avons besoin d'un premier concept : l'entité. Par là, nous entendons la définition la plus large possible, à savoir que si une chose peut être nommée et identifiée, c'est une entité. Ainsi une information, une entreprise, un bien matériel, une personne sont cette brique de base indiscutable de notre modèle. Les entités entretiennent entre elles des liens plus ou moins complexes. Ainsi, une relation amoureuse est elle même une entité, que l'on sait qualifier, dater ou encore utiliser dans des assemblages d'entités tels que \og{}X sait que Y aime Z\fg{}. Dès lors, la combinaison d'entités suivant des liens, des relations, constitue une entité. On en déduit une structure en système et sous-système, ensemble et élément. 
+	
+	\begin{definition}
+		Une entité est un élément du modèle que l'on sait nommer et identifier. Des entités peuvent créer des relations avec d'autres entités pour former un système plus complexe. Ce système forme lui même une entité. 
+	\end{definition}		
+	
+	
+	Notre définition utilise un mécanisme si évident qu'il en est passé inaperçu : il nous faut une forme de dynamique. Quand une structure change, quand une relation se crée ou se détruit, quand une entité cesse d'exister, il y a une transformation. Celle-ci permet de dire que telle structure provient de celle-là parce qu'une action a eu lieu, transformant l'une en l'autre. 
+	
+	\begin{definition}
+		Le mécanisme expliquant le changement d'un système à un autre, d'une entité à une autre, ou d'un état d'entité à un autre, est une transformation. Sans transformation, le système serait figé. Un événement est la transformation la plus élémentaire : création ou suppression d'entités ou des liens et relations entre entités. 
+	\end{definition}		
+	
+	
+	Finalement, les concepts que nous formulons sont au nombre de deux : 
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{|l|l|l|}
+			\hline 
+			\textbf{Nom} & \textbf{Vision} & \textbf{Définition} \\
+			\hline 
+			Entité & Ontologique & Ce qui est, constituant fondamental du système. \\
+			& & Les liens et relations entre entités sont aussi des entités. \\
+			\hline 
+			Transformation & Dynamique & Mécanisme par lequel le système évolue. \\
+			& & Un événement est la transformation la plus élémentaire. \\
+			\hline 
+		\end{tabular}
+		\caption{Résumé des concepts utilisés}
+	\end{table}
+	
+	Si nous devions formaliser absolument notre outillage technique, nous obtendrions ceci : 
+	\begin{itemize}
+		\item une entité se rapproche, formellement, d'une notion de graphe : des noeuds et des liens entre les noeuds. 
+		\item  La notion de transformation formalise d'avantage qu'il existe un morphisme entre deux graphes. 
+	\end{itemize}
+	
+	\subsection*{Les entités ont une identité indépendante de leur état}
+	
+	Utiliser abondamment la notion d'état n'est pas sans risque. D'abord, un état n'est pas une caractéristique intrinsèque de l'entité : c'est l'observateur qui la fige, avec le vocabulaire et les outils dont il dispose. Ensuite, l'entité existe et va connaitre différents états. Fondamentalement, c'est bien l'identité de l'entité au fil des transformations qui est l'invariant fondamental. Ainsi, fondamentalement, ce qui caractérise une entité, ou un système, ou tout observable, est la chaine des transformations qui l'impactent : 
+	\begin{enumerate}
+		\item l'identité a été acquise à sa création, ce qui constitue son événement fondateur
+		\item ses états s'enchainent, ce qui constitue son historique. L'identité de l'entité est invariante tout au long de son historique : on sait la reconnaitre, la distinguer des autres. 
+		\item la fin de l'entité est un événement également
+	\end{enumerate}
+	
+	En traitant d'abord les événements, les entités sont des constituants temporaires au sein d'un système plus vaste. Qu'ils soient individuellement présents ou non ne marque ni le début ni la fin du système global. \textbf{L'identité est donc l'invariant fondamental qui permet de reconnaître une entité au travers du flux continu de ses transformations.}
+	
+	
+	\subsection*{Comment utiliser le modèle théorique ?}
+	
+	Donnons à présent une heuristique d'usage du modèle. A ce stade, il reste très abstrait, ce qui constitue le prix à payer pour sa généralité. Cependant, pour le rendre plus accessible, il s'agit de procéder en plusieurs temps : 
+	\begin{enumerate}
+		\item Quel est la chose modélisée ? Qu'attend t'on du modèle ? 
+		\item Quelles sont les composantes de base de ce système ? Si l'on choisit des entités trop microscopiques, le passage du local au global sera des plus difficiles à décrire. De quels types sont ces entités ? Est ce de l'information ? Est ce des personnes ? Des rôles ? Des organisations ? Des sociétés ? 
+		\item Quels sont les liens possibles entre les entités ? Quelles relations sont les plus fréquentes ? 
+		\item Quelles sont les transformations globales possibles ? Peut on passer de telle structure à telle autre ? Et si oui, à quel cout ? Comment ces transformations se déclinent elles en événements de base ? 
+	\end{enumerate}
+	
+	\section{Le modèle pratique}
+	
+	Le modèle théorique répond à l'exercice de l'économie des notions. Le rendre directement opérable implique d'intégrer deux éléments pratiques : 
+	\begin{itemize}
+		\item \textbf{l'observateur} : c'est lui qui définit les entités qui sont à sa portée, les relations qu'il sait identifier, les systèmes qu'il observe. C'est lui qui applique une logique d'état à ce qu'il constate, et qui décrit les variations d'état comme des événements. Il n'y a donc pas de réalité intrinsèque, mais un observateur qui capte un existant et sa dynamique. 
+		\item \textbf{la causalité} : elle s'impose à toute analyse à notre niveau. Fondamentalement, la cause précède l'effet. La logique de l'analyse est donc d'établir et d'expliquer des liens de causalité. Contrairement aux transformations qui sont réversibles en général, la causalité est orientée depuis la cause vers la conséquence. 
+	\end{itemize}
+	
+	\vspace{0.5cm}
+	
+	Si le modèle théorique s'applique à la grande majorité des systèmes, le fait qu'il soit décrit et exploité par un observateur change totalement la grille de lecture. Notre modèle théorique doit alors être affiné suivant plusieurs axes : 
+	\begin{enumerate}
+		\item \textbf{La logique système - partie est plus intuitive qu'un graphe d'entités}. La description humaine des phénomènes observés passe par nos mécanismes cognitifs. Il faut alors tenir compte des tendances fortes que nous avons, en particulier quant à vouloir raisonner sur des échelles différentes. Par exemple, nous pensons en monde, sociétés, communautés, groupes, individus plus qu'en réseaux sociaux en sens large. 
+		\item \textbf{la causalité dépend de l'échelle de l'observateur}. Il n'y a pas de transformation mesurable en soi, il y a des échelles rendant possibles la description des transformations. Par exemple, une société se transforme beaucoup plus lentement que ses membres. 
+		\item \textbf{l'observateur décrit une logique causale de transformations. Il choisit de partir d'un état particulier}. Ce choix est donc un élément qui doit être expliqué, en tous cas défendu. 
+		\item \textbf{La méthode d'observation est un différenciant majeur du modèle}. Il dispose d'outils détectant ou non des événements. Le rôle du modèle est de lier les observations, mais la qualité et la pertinence de celles-ci sont un sujet en soi. 
+		\item \textbf{les liens causaux ne sont pas nécessairement calculables, voire formalisables}. Le compromis entre explicabilité des prédictions et adéquation au réel implique de trouver d'autres méthodes que la sophistication mathématique. Nous développons l'idée de causalité tendancielle, capturant des logiques de comportement plus que la numérisation précise de leur probabilité. 
+	\end{enumerate}
+	
+	\subsection{Le tout et ses parties} 
+	
+	Remarquons notre tendance à considérer une chose comme un tout et comme liée à ses éléments. Cette dualité \og{}tout et ses parties\fg{} peut d'ailleurs s'opérer à plusieurs niveaux, comme nous le mentionnions en divisant société en communautés, communautés en groupes locaux, groupes en individus, etc. 
+	
+	\subsubsection*{La constitution de la structure : un réseau avant tout}
+	
+	La structure porte en elle une information clé : elle reste organisée quand ses entités changent une à une. Très simplement, une entreprise se maintient quand ses employés la quittent, notre corps se renouvelle mais nous restons nous même. C'est donc, au delà de chaque entité spécifique, le réseau des relations qu'elles entretiennent qui nous éclaire sur ce qu'est la structure, sur comment elle marche. Ce sont les propriétés des éléments, les natures des relations qu'ils tissent, qui constituent l'essence de la structure. Nous invitons tout utilisateur du modèle à se rappeler que nous n'avons pas imposé de nature spécifique à notre notion d'entité : ce peut être de la matière, de l'information, une relation, etc.
+	
+	\subsubsection*{Les propriétés de la structure : un cadre non neutre}
+	
+	Considérer la structure comme un simple support physique ou un cadre vide pour les éléments est trop réducteur. Souvent, elle s'adapte dynamiquement à ce qu'elle contient et influence activement les éléments :
+	\begin{enumerate}
+		\item \textbf{L'émergence :} la structure est un sujet d'étude en soi. L'émergence d'un comportement global peut ne pas se réduire aux actions de ses éléments (ex: la formation de comportements intelligents dans les réseaux de neurones).
+		\item \textbf{La co-évolution :} il existe des cas où les propriétés des éléments modifient la structure. L'exemple typique est physique : la matière courbe l'espace-temps, qui, en retour, oriente les déplacements de la matière.
+		\item \textbf{Le filtre actif :} la structure n'est pas un support de transmission neutre. Sur les réseaux sociaux, par exemple, l'intermédiation algorithmique met en avant certains contenus et en rend d'autres invisibles. L'algorithme est précisément l'application d'entreprise et la source de monétisation de ces autoroutes de l'information.
+	\end{enumerate}
+	
+	
+	\subsection{La causalité est plus efficace qu'une approche numérique du temps}
+	
+	La mesure brute du temps de changement est rassurante par son caractère exact, mais, fondamentalement, elle traite de l'antériorité d'événements du point de vue l'observateur. \textbf{Notre approche utilise plutôt la causalité.  Ce changement de paradigme permet d'adresser la problématique des temps différents en fonction de l'échelle d'un système observé}. Par exemple, notre corps change plus vite que nous, mais nous conservons notre identité. Une société a un temps plus long que ses membres, car un changement d'état implique la synchronisation de nombreux éléments (opportunités sociales, faiblesse de la structure existante, volonté interne ou externe de changement). On peut donc considérer une unité de temps fondamentale, une sorte de \textit{tick} comme un changement perceptible dans l'état du système observé. Ce tick peut être, chez une personne, un mariage, un nouvel emploi, une étape clé de sa vie. Au niveau d'une société, ce peut être une nouvelle constitution, une rupture de politique générale ayant des effets observables. Mais dans tous les cas, le temps n'est pas uniforme, le temps n'est pas un concept primordial. Bien évidemment, les concepts sont très fortement intriqués : parler de transition implique un temps, ce qui amène à des débats très pointus que nous esquivons ici. 
+	
+	\subsection{La notion d'état initial n'a aucun sens intrinsèque}	
+	
+	Fondamentalement, il s'agit de répondre à la question de comment un système, dans un état initial donné, évolue suivant une relation de causalité plus ou moins complexe. Il est impératif de se rappeler que l'observateur fait partie du modèle, c'est lui qui caractérise ces états et qui cherche à les lier entre eux. Il n'y a donc pas d'état initial, au sens d'une réalité ontologique de l'univers. C'est bien une coupure arbitraire décidée par l'observateur. En pratique, c'est l'analyste du système qui décrète qu'il commence son observation en ce point là d'espace temps. \textbf{L'état initial est donc toujours un état hérité, que l'on choisit de figer pour commencer le calcul ou l'étude.} 
+	
+	
+	\subsection{L'observateur capte ce que ses outils savent reconnaitre}
+	
+	La chose parait évidente, mais elle a des conséquences profondes. Un système n'est accessible, à notre échelle, que par des observations. Elles portent sur les états (aspect statique) ou les événements et interactions (aspect dynamique). L'observateur fait partie du modèle, il a des liens avec ce qu'il observe, il ne décrit que ce qu'il arrive à percevoir. Il n'y a donc pas de vérité ontologique, la description qui est faite des systèmes induit la qualité de leur description et le pouvoir prédictif qu'on prête au dit modèle. 
+	
+	
+	\subsection{Les relations causales ne sont pas toutes déterministes}
+	
+	Détaillons à présent la logique de passage d'un état à un autre, c'est à dire la transition par les interactions. La causalité est donc une relation d'accessibilité : peut on passer de cet état à celui-ci ? 
+	Cependant, le mécanisme n'a rien d'automatique ou de déterministe, on choisira la relation la plus adaptée parmi : 
+	\begin{itemize}
+		\item une causalité directe, qu'on retrouve dans les systèmes physiques à notre échelle. Sa forme la plus canonique est par exemple $\vec{F} = m\vec{a}$. 
+		\item une causalité probabiliste, qu'on retrouve en mécanique quantique. On sait que l'état suivant sera pris parmi ceux là, avec une distribution de probabilité. 
+		\item une causalité tendancielle, qu'on retrouve plus souvent dans les sciences sociales, comme des comportements préférentiellement choisis. Par exemple, le mécanisme d'analogie historique revient souvent en diplomatie. 
+	\end{itemize}
+	
+	
+	
+	
+	
+	
+	\section{Conclusion}
+	
+	Bien évidemment, le modèle que nous proposons ici est extrêmement général. Si notre inspiration physique initiale est claire, nous pensons que ce vocabulaire est suffisamment abstrait pour être pertinent dans un cadre d'analyse sociologique ou systémique. Sur le plan pratique, l'application de cette grille de lecture requiert une méthode stricte, consistant à identifier :
+	
+	\begin{enumerate}
+		\item \textbf{La finalité et le cadre de référence} : expliciter les objectifs du modèle et les biais de l'analyste qui pourraient impacter les conclusions. La coupure arbitraire de l'état initial gagne souvent à être enrichie d'une contextualisation permettant de saisir pourquoi ce moment serait clé dans l'étude proposée. 
+		\item \textbf{La cartographie du système} : isoler les observables fondamentaux pour déterminer ce qui relève de l'entité, ce qui constitue la structure, et la nature des relations qui les unissent. 
+		\item \textbf{La qualification des chaînes causales} : définir les critères permettant de distinguer deux états successifs et caractériser la nature des interactions (déterministes, probabilistes ou tendancielles). Cette analyse peut s'appuyer sur des outils statistiques permettant de mesurer, même dans la définition de tendances, des indicateurs dits \og{}proxy\fg{} et proposer une validation des éléments constatés (donc, après les avoir observés). 
+	\end{enumerate}
+	
+	
+	Une fois cette méthodologie posée, ce cadre formalisé permet de soulever des questions particulièrement prometteuses. Par exemple :
+	\begin{itemize}
+		\item Une analyse tendancielle des indicateurs économiques permettrait-elle d'anticiper des ruptures nettes dans la structure sociale, en fonction des interactions d'acteurs clés ?
+		\item Quelles applications sont possibles dans l'étude des réseaux sociaux ? Comment la structure (l'algorithme) peut-elle être modélisée pour contrer l'ingérence, et peut-on détecter mathématiquement des changements topologiques caractéristiques de manipulations comme l'astroturfing ?
+	\end{itemize}
+	
+	
 	
 \end{document}
