@@ -71,26 +71,17 @@
 		\caption{Résumé des concepts utilisés}
 	\end{table}
 	
-	Si nous devions formaliser absolument notre outillage technique, nous obtendrions ceci : 
-	\begin{itemize}
-		\item une entité se rapproche, formellement, d'une notion de graphe : des noeuds et des liens entre les noeuds. 
-		\item  La notion de transformation formalise d'avantage qu'il existe un morphisme entre deux graphes. 
-	\end{itemize}
 	
-	\subsection*{Les entités ont une identité indépendante de leur état}
-	
-	Utiliser abondamment la notion d'état n'est pas sans risque. D'abord, un état n'est pas une caractéristique intrinsèque de l'entité : c'est l'observateur qui la fige, avec le vocabulaire et les outils dont il dispose. Ensuite, l'entité existe et va connaitre différents états. Fondamentalement, c'est bien l'identité de l'entité au fil des transformations qui est l'invariant fondamental. Ainsi, fondamentalement, ce qui caractérise une entité, ou un système, ou tout observable, est la chaine des transformations qui l'impactent : 
-	\begin{enumerate}
-		\item l'identité a été acquise à sa création, ce qui constitue son événement fondateur
-		\item ses états s'enchainent, ce qui constitue son historique. L'identité de l'entité est invariante tout au long de son historique : on sait la reconnaitre, la distinguer des autres. 
-		\item la fin de l'entité est un événement également
-	\end{enumerate}
-	
-	En traitant d'abord les événements, les entités sont des constituants temporaires au sein d'un système plus vaste. Qu'ils soient individuellement présents ou non ne marque ni le début ni la fin du système global. \textbf{L'identité est donc l'invariant fondamental qui permet de reconnaître une entité au travers du flux continu de ses transformations.}
 	
 	\subsection*{La notion d'accessibilité}
 	
-	Prenons une configuration spécifique des entités. Certaines transformations sont possibles, d'autres non. Il y a, dans les systèmes physiques, des lois contraignant les transformations possibles, donc les configurations accessibles depuis une configuration donnée. C'est ce que nous qualifions d'accessibilité. Cette relation d'accessibilité suit donc une logique. On peut attacher aux transformations une mécanique de coût : telle transformation coute tant, la rendant impossible si les entités impliquées n'ont pas la ressource nécessaire. Notons qu'il n'est pas nécessaire de savoir quantifier le cout en question, il suffit de savoir comparer un cout à une ressource, ou décider si telle transformation exige plus que telle autre. Ainsi, la notion d'accessibilité peut s'expliquer par une logique de ressources et de couts de transformations. C'est le cas en physique avec une logique énergétique et un principe de moindre action. 
+	Prenons une configuration spécifique des entités. Certaines transformations sont possibles, d'autres non. Il y a, dans les systèmes physiques, des lois contraignant les transformations possibles, donc les configurations accessibles depuis une configuration donnée. C'est ce que nous qualifions d'accessibilité. 
+	
+	\begin{definition}
+		Étant données deux configurations d'entités, si l'on peut arriver de la première à la seconde par une transformation, on dira que la seconde est accessible depuis la première. Cette première distinction peut être affinée par des couts en ressources ( par exemple de l'énergie) et des transformations partielles en fonction des ressources investies. 
+	\end{definition}
+	
+	Cette relation d'accessibilité suit donc une logique. On peut attacher aux transformations une mécanique de coût : telle transformation coute tant, la rendant impossible si les entités impliquées n'ont pas la ressource nécessaire. Notons qu'il n'est pas nécessaire de savoir quantifier le cout en question, il suffit de savoir comparer un cout à une ressource, ou décider si telle transformation exige plus que telle autre. Ainsi, la notion d'accessibilité peut s'expliquer par une logique de ressources et de couts de transformations. C'est le cas en physique avec une logique énergétique et un principe de moindre action. 
 	
 	
 	\subsection*{Comment utiliser le modèle théorique ?}
@@ -115,12 +106,25 @@
 	
 	Si le modèle théorique s'applique à la grande majorité des systèmes, le fait qu'il soit décrit et exploité par un observateur change totalement la grille de lecture. Notre modèle théorique doit alors être affiné suivant plusieurs axes : 
 	\begin{enumerate}
+		\item \textbf{la notion d'état est insuffisante}. Une identité d'entité garantit qu'on observer la même chose, indépendamment de la succession de ses états. Mais même cette notion d'identifiant stable au cours du temps est une logique d'observation, une continuité dans les événements. Attribuer une identité dépend de l'observateur, ce n'est pas un phénomène intrinsèque. 
 		\item \textbf{La logique système - partie est plus intuitive qu'un graphe d'entités}. La description humaine des phénomènes observés passe par nos mécanismes cognitifs. Il faut alors tenir compte des tendances fortes que nous avons, en particulier quant à vouloir raisonner sur des échelles différentes. Par exemple, nous pensons en monde, sociétés, communautés, groupes, individus plus qu'en réseaux sociaux en sens large. 
 		\item \textbf{la causalité dépend de l'échelle de l'observateur}. Il n'y a pas de transformation mesurable en soi, il y a des échelles rendant possibles la description des transformations. Par exemple, une société se transforme beaucoup plus lentement que ses membres. 
 		\item \textbf{l'observateur décrit une logique causale de transformations. Il choisit de partir d'un état particulier}. Ce choix est donc un élément qui doit être expliqué, en tous cas défendu. 
 		\item \textbf{La méthode d'observation est un différenciant majeur du modèle}. Il dispose d'outils détectant ou non des événements. Le rôle du modèle est de lier les observations, mais la qualité et la pertinence de celles-ci sont un sujet en soi. 
 		\item \textbf{les liens causaux ne sont pas nécessairement calculables, voire formalisables}. Le compromis entre explicabilité des prédictions et adéquation au réel implique de trouver d'autres méthodes que la sophistication mathématique. Nous développons l'idée de causalité tendancielle, capturant des logiques de comportement plus que la numérisation précise de leur probabilité. 
 	\end{enumerate}
+	
+	\subsection{Les entités ont une identité indépendante de leur état}
+	
+	Utiliser abondamment la notion d'état n'est pas sans risque. D'abord, un état n'est pas une caractéristique intrinsèque de l'entité : c'est l'observateur qui la fige, avec le vocabulaire et les outils dont il dispose. Ensuite, l'entité existe et va connaitre différents états. Fondamentalement, c'est bien l'identité de l'entité au fil des transformations qui est l'invariant fondamental. Ainsi, fondamentalement, ce qui caractérise une entité, ou un système, ou tout observable, est la chaine des transformations qui l'impactent : 
+	\begin{enumerate}
+		\item l'identité a été acquise à sa création, ce qui constitue son événement fondateur
+		\item ses états s'enchainent, ce qui constitue son historique. L'identité de l'entité est invariante tout au long de son historique : on sait la reconnaitre, la distinguer des autres. 
+		\item la fin de l'entité est un événement également
+	\end{enumerate}
+	
+	En traitant d'abord les événements, les entités sont des constituants temporaires au sein d'un système plus vaste. Qu'ils soient individuellement présents ou non ne marque ni le début ni la fin du système global. \textbf{L'identité est donc l'invariant fondamental qui permet de reconnaître une entité au travers du flux continu de ses transformations.}
+	
 	
 	\subsection{Le tout et ses parties} 
 	
