@@ -40,7 +40,8 @@
 	
 	\section{Le modèle théorique}
 	
-	Nous avons besoin d'un premier concept : l'entité. Par là, nous entendons la définition la plus large possible, à savoir que si une chose peut être nommée et identifiée, c'est une entité. Ainsi une information, une entreprise, un bien matériel, une personne sont cette brique de base indiscutable de notre modèle. Les entités entretiennent entre elles des liens plus ou moins complexes. Ainsi, une relation amoureuse est elle même une entité, que l'on sait qualifier, dater ou encore utiliser dans des assemblages d'entités tels que \og{}X sait que Y aime Z\fg{}. Dès lors, la combinaison d'entités suivant des liens, des relations, constitue une entité. On en déduit une structure en système et sous-système, ensemble et élément. 
+	Nous avons besoin d'un premier concept : l'entité. Par là, nous entendons la définition la plus large possible, à savoir que si une chose peut être nommée et identifiée, c'est une entité. Ainsi une information, une entreprise, un bien matériel, une personne sont cette brique de base indiscutable de notre modèle. Les entités entretiennent entre elles des liens plus ou moins complexes. Ainsi, une relation amoureuse est elle même une entité, que l'on sait qualifier, dater ou encore utiliser dans des assemblages d'entités tels que \og{}X sait que Y aime Z\fg{}. Il est important de noter que même les propriétés des entités sont de nature relationnelle. Quand on dit qu'un atome a une masse, il s'agit d'une relation liant un atome à une valeur. Dès lors, la combinaison d'entités suivant des liens, des relations, constitue une entité. On en déduit une structure en système et sous-système, ensemble et élément. 
+	
 	
 	\begin{definition}
 		Une entité est un élément du modèle que l'on sait nommer et identifier. Des entités peuvent créer des relations avec d'autres entités pour former un système plus complexe. Ce système forme lui même une entité. 
@@ -72,13 +73,9 @@
 	\end{table}
 	
 	
-	\subsection*{Les propriétés des entités}
-	
-	Si l'on prend le monde physique, on constate que les objets de même type ont les mêmes propriétés intrinsèques, telles que la masse, par exemple. Cette valeur ne dépend pas de l'observateur, contrairement aux méthodes de mesure ou aux unités employées. On peut donc considérer que \textbf{la modélisation de l'entité comprend ses relations avec les autres et ses caractéristiques intrinsèques (ou propriétés)}. 
-	
 	\subsection*{La notion d'accessibilité}
 	
-	Prenons une configuration spécifique des entités, c'est à dire à la fois leurs propriétés intrinsèques et les liens qui les unissent. Certaines transformations sont possibles, d'autres non. Il y a, dans les systèmes physiques, des lois contraignant les transformations possibles, donc les configurations accessibles depuis une configuration donnée. C'est ce que nous qualifions d'accessibilité. 
+	Prenons une configuration spécifique des entités, c'est à dire à la fois les entités présentes et les liens qui les unissent. Certaines transformations sont possibles, d'autres non. Il y a, dans les systèmes physiques, des lois contraignant les transformations possibles, donc les configurations accessibles depuis une configuration donnée. C'est ce que nous qualifions d'accessibilité. 
 	
 	\begin{definition}
 		Étant données deux configurations d'entités, si l'on peut arriver de la première à la seconde par une transformation, on dira que la seconde est accessible depuis la première. Cette première distinction peut être affinée par des couts en ressources ( par exemple de l'énergie) et des transformations partielles en fonction des ressources investies. 
@@ -92,7 +89,7 @@
 	Donnons à présent une heuristique d'usage du modèle. A ce stade, il reste très abstrait, ce qui constitue le prix à payer pour sa généralité. Cependant, pour le rendre plus accessible, il s'agit de procéder en plusieurs temps : 
 	\begin{enumerate}
 		\item Quel est la chose modélisée ? Qu'attend t'on du modèle ? 
-		\item Quelles sont les composantes de base de ce système ? Si l'on choisit des entités trop microscopiques, le passage du local au global sera des plus difficiles à décrire. De quels types sont ces entités ? Est ce de l'information ? Est ce des personnes ? Des rôles ? Des organisations ? Des sociétés ? Quelles sont leurs propriétés intrinsèques ? 
+		\item Quelles sont les composantes de base de ce système ? Si l'on choisit des entités trop microscopiques, le passage du local au global sera des plus difficiles à décrire. De quels types sont ces entités ? Est ce de l'information ? Est ce des personnes ? Des rôles ? Des organisations ? Des sociétés ? 
 		\item Quels sont les liens possibles entre les entités ? Quelles relations sont les plus fréquentes ? Ces relations contraignent elles les entités ? Si oui, comment ? 
 		\item Quelles sont les transformations globales possibles ? Peut on passer de telle structure à telle autre ? Et si oui, à quel cout ? Comment ces transformations se déclinent elles en événements de base ? 
 	\end{enumerate}
@@ -101,7 +98,7 @@
 	
 	Le modèle théorique répond à l'exercice de l'économie des notions. Le rendre directement opérable implique d'intégrer deux éléments pratiques : 
 	\begin{itemize}
-		\item \textbf{l'observateur} : c'est lui qui définit les entités qui sont à sa portée, les relations qu'il sait identifier, les systèmes qu'il observe. C'est lui qui applique une logique d'état à ce qu'il constate, et qui décrit les variations d'état comme des événements. Sa prise en compte dans le modèle est capitale : ses méthodes impactent ses descriptions, donc ses résultats. 
+		\item \textbf{l'observateur} : c'est lui qui définit les entités qui sont à sa portée, les relations qu'il sait identifier, les systèmes qu'il observe. C'est lui qui applique une logique d'état à ce qu'il constate, et qui décrit les variations d'état comme des événements. Sa prise en compte dans le modèle est capitale : ses méthodes impactent ses descriptions, donc ses résultats. Par contre, il constitue lui même une entité. Nous verrons que la prise en compte de sa position est un élément clé du modèle pour comprendre ses conclusions comme des éléments qui lui sont propres et pas une vérité absolue. 
 		\item \textbf{la causalité} : elle s'impose à toute analyse à notre niveau. Fondamentalement, la cause précède l'effet. Attention, cependant, à prendre en compte des notions d'interdépendance. Les phénomènes complexes peuvent se lier : l'effet sur l'un devient la cause du changement de l'autre. La logique de l'analyse est donc d'établir ces relations de cause à effet et d'expliquer des liens entre ses observables. 
 	\end{itemize}
 	
@@ -109,7 +106,7 @@
 	
 	Si le modèle théorique s'applique à la grande majorité des systèmes, le fait qu'il soit décrit et exploité par un observateur change totalement la grille de lecture. Notre modèle théorique doit alors être affiné suivant plusieurs axes : 
 	\begin{enumerate}
-		\item \textbf{la notion d'état est insuffisante}. Une identité d'entité garantit qu'on observer la même chose, indépendamment de la succession de ses états. Mais même cette notion d'identifiant stable au cours du temps est une logique d'observation, une continuité dans les événements. Attribuer une identité dépend de l'observateur, ce n'est pas un phénomène intrinsèque. 
+		\item \textbf{la notion d'état est insuffisante}. Une identité d'entité garantit qu'on observe la même chose, indépendamment de la succession de ses états. Mais même cette notion d'identifiant stable au cours du temps est une logique d'observation, une continuité dans les événements. Attribuer une identité dépend de l'observateur, ce n'est pas un phénomène intrinsèque. 
 		\item \textbf{La méthode d'observation est un différenciant majeur du modèle}. Notre observateur dispose d'outils détectant ou non des phénomènes. Le rôle du modèle est de lier les observations, mais la qualité et la pertinence de celles-ci sont un sujet en soi. 
 		\item \textbf{La logique système - partie est plus intuitive qu'un graphe d'entités}. La description humaine des phénomènes observés passe par nos mécanismes cognitifs. Il faut alors tenir compte des tendances fortes que nous avons, en particulier quant à vouloir raisonner sur des échelles différentes. Par exemple, nous pensons en monde, sociétés, communautés, groupes, individus plus qu'en réseaux sociaux en sens large. 
 		\item \textbf{la causalité dépend de l'échelle de l'observateur}. Il n'y a pas de transformation mesurable en soi, il y a des échelles rendant possibles la description des transformations. Par exemple, une société se transforme beaucoup plus lentement que ses membres. 
@@ -121,16 +118,16 @@
 	
 	Un état n'est pas une caractéristique intrinsèque de l'entité, ne serait ce que parce que l'observation se fait à un moment spécifique, avec des aspects qualitatifs, le vocabulaire et les outils dont l'observateur dispose. Ainsi, \textbf{fondamentalement, ce qui caractérise une entité, ou un système, ou tout observable, est la chaine des transformations qui l'impactent} : 
 	\begin{enumerate}
-		\item l'identité a été acquise à sa création, ce qui constitue son événement fondateur
-		\item ses états s'enchainent, ce qui définit au fur et à mesure son historique. L'identité de l'entité est invariante tout au long de son historique : on sait la reconnaitre, la distinguer des autres. 
-		\item la fin de l'entité est un événement également
+		\item l'identité est une heuristique cognitive de l'observateur. C'est lui qui la fixe dans ce qu'il considère comme la création de l'entité. 
+		\item ses états s'enchainent, ce qui définit au fur et à mesure son historique. L'identité de l'entité que l'observateur a fixé est invariante tout au long de son historique. Tant que l'observateur sait distinguer l'entité des autres, il sait lui attacher les événements qui l'impactent. 
+		\item la fin de l'entité est un événement également. Elle signifie la fin de la cohérence de l'entité comme objet en soi. 
 	\end{enumerate}
 	
 	L'état d'une entité à un instant donné est plutôt le résultat (tel une photographie) du déroulé des événements qui l'ont impactée jusque-là. C'est une information statique, là où l'enchainement des événements caractérise la dynamique de l'entité. Finalement, quand on observe le système, c'est son identité au travers des états qui importe, et ses éléments spécifiques comptent d'avantage par leur rôle. Dès lors, l'identité est un outil pertinent quand le rôle n'est plus un critère suffisant. 
 
 	\subsection{L'observateur capte ce que ses outils savent reconnaitre}
 	
-	La chose parait évidente, mais elle a des conséquences profondes. Un système n'est accessible, à notre échelle, que par des observations décrivant des phénomènes. Il n'est pas, a priori, évident de lier les propriétés intrinsèques des entités aux résultats des mesures effectuées ou aux descriptions qu'un vocabulaire contraint. L'observateur fait partie du modèle, il a des liens avec ce qu'il observe, il ne décrit que ce qu'il arrive à percevoir. Si les propriétés des entités ont une vérité intrinsèque, la façon de les mesurer et de les lier dépend de l'observateur. 
+	La chose parait évidente, mais elle a des conséquences profondes. Un système n'est accessible, à notre échelle, que par des observations décrivant des phénomènes. Il n'est pas, a priori, évident de lier les propriétés réelles des entités aux résultats des mesures effectuées ou aux descriptions qu'un vocabulaire contraint. L'observateur fait partie du modèle, il a des liens avec ce qu'il observe, il ne décrit que ce qu'il arrive à percevoir. Si les propriétés des entités ont une vérité intrinsèque, la façon de les mesurer et de les lier dépend de l'observateur. 
 	
 	
 	\subsection{Le tout et ses parties} 
@@ -181,7 +178,7 @@
 	
 	\begin{enumerate}
 		\item \textbf{La finalité et le cadre de référence} : expliciter les objectifs du modèle et les biais de l'analyste qui pourraient impacter les conclusions. La coupure arbitraire de l'état initial gagne souvent à être enrichie d'une contextualisation permettant de saisir pourquoi ce moment serait clé dans l'étude proposée. 
-		\item \textbf{La cartographie du système} : isoler les observables fondamentaux pour déterminer ce qui relève de l'entité, ce qui constitue la structure, et la nature des relations qui les unissent. On prendra garde de bien distinguer ce qui relève de la réalité (entités, liens, propriétés intrinsèques) et de la modélisation (structures, systèmes et parties, observables statiques et dynamiques). 
+		\item \textbf{La cartographie du système} : isoler les observables fondamentaux pour déterminer ce qui relève de l'entité, ce qui constitue la structure, et la nature des relations qui les unissent. On prendra garde de bien distinguer ce qui relève de la réalité (entités présentes et leurs liens) et de la modélisation (structures, systèmes et parties, observables statiques et dynamiques). 
 		\item \textbf{La qualification des chaînes causales} : définir les critères permettant de distinguer deux états successifs et caractériser la nature des interactions (déterministes, probabilistes ou tendancielles). Cette analyse peut s'appuyer sur des outils statistiques permettant de mesurer, même dans la définition de tendances, des indicateurs dits \og{}proxy\fg{} et proposer une validation des éléments constatés (donc, après les avoir observés). 
 	\end{enumerate}
 	
