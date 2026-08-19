@@ -40,7 +40,7 @@
 	
 	\section{Le modèle théorique}
 	
-	Nous avons besoin d'un premier concept : l'entité. Par là, nous entendons la définition la plus large possible, à savoir que si une chose peut être nommée et identifiée, c'est une entité. Ainsi une information, une entreprise, un bien matériel, une personne sont cette brique de base indiscutable de notre modèle. Les entités entretiennent entre elles des liens plus ou moins complexes. Ainsi, une relation amoureuse est elle même une entité, que l'on sait qualifier, dater ou encore utiliser dans des assemblages d'entités tels que \og{}X sait que Y aime Z\fg{}. Il est important de noter que même les propriétés des entités sont de nature relationnelle. Quand on dit qu'un atome a une masse, il s'agit d'une relation liant un atome à une valeur. Dès lors, la combinaison d'entités suivant des liens, des relations, constitue une entité. On en déduit une structure en système et sous-système, ensemble et élément. 
+	Axiomatiquement, on comprend qu'il existe quelque chose plutôt que rien, et que cette chose change. On pourrait postuler une logique d'états transitions : la configuration du système observé évolue par transformations successives. Ce serait la forme la plus simple d'une ontologie minimale. Dès lors, la configuration est décrite comme état, la transformation comme transition, la dynamique du système. Mais on comprend qu'il existe un invariant entre deux transformations : l'entité. L'entité est la base ontologique, ce qui demeure invariant par les transformations. Sa définition reste la plus large possible, à savoir que si une chose peut être nommée et identifiée, c'est une entité. Ainsi une information, une entreprise, un bien matériel, une personne sont cette brique de base indiscutable de notre modèle. Les entités entretiennent entre elles des liens plus ou moins complexes. Ainsi, une relation amoureuse est elle même une entité, que l'on sait qualifier, dater ou encore utiliser dans des assemblages d'entités tels que \og{}X sait que Y aime Z\fg{}. Il est important de noter que même les propriétés des entités sont de nature relationnelle. Quand on dit qu'un atome a une masse, il s'agit d'une relation liant un atome à une valeur. Dès lors, la combinaison d'entités suivant des liens, des relations, constitue une entité. On en déduit une structure en système et sous-système, ensemble et élément. 
 	
 	
 	\begin{definition}
@@ -48,7 +48,7 @@
 	\end{definition}		
 	
 	
-	Notre définition utilise un pré-requis : il nous faut une forme de dynamique. Quand une structure change, quand une relation se crée ou se détruit, quand une entité cesse d'exister, il y a une transformation. Celle-ci permet de dire que telle structure provient de celle-là parce qu'une action a eu lieu, transformant l'une en l'autre. 
+	Nous postulons l'existence d'une grammaire des transformations. Il n'est pas nécessaire de conceptualiser toutes celles possibles, ou celles admissibles. Il suffit de trouver les transformations de base, les formes les plus élémentaires, qui engendrent toutes les autres. 
 	
 	\begin{definition}
 		Le mécanisme expliquant le changement d'un système à un autre, d'une entité à une autre, ou d'un état d'entité à un autre, est une transformation. Sans transformation, le système serait figé. Un événement est la transformation la plus élémentaire : création ou suppression d'entités ou des liens et relations entre entités. 
@@ -63,6 +63,7 @@
 			\textbf{Nom} & \textbf{Vision} & \textbf{Définition} \\
 			\hline 
 			Entité & Ontologique & Ce qui est, constituant fondamental du système. \\
+			& & Invariant qui persiste face au changement. \\
 			& & Les liens et relations entre entités sont aussi des entités. \\
 			\hline 
 			Transformation & Dynamique & Mécanisme par lequel le système évolue. \\
