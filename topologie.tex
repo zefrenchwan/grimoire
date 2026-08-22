@@ -175,5 +175,60 @@
 			\end{enumerate}
 			
 			Dans cette ontologie, il n'existe donc aucun décor fixe et passif dans lequel s'agiteraient des composants autonomes. Les entités et la configuration globale ne font pas qu'évoluer en parallèle : elles \textbf{co-évoluent} intrinsèquement.
+			
+		\section{Cas pratique : les réseaux sociaux}
+		
+			
+			Afin de donner un usage pratique de l'ontologie que nous proposons, nous allons l'appliquer à la modélisation d'un réseau social. Nous supposons disposer des droits d'un administrateur dudit réseau social (nous rendant omniscients sur la configuration). Notre but est de répondre à une question d'apparence algorithmique ou éditoriale : les tentatives de manipulation.
+			
+			\paragraph{La problématique de la manipulation des contenus.} La question se pose en ces termes : du contenu est artificiellement mis en avant pour faire taire des voix dissidentes ou donner à une cause une audience bien au-delà de ce qu'elle atteindrait organiquement. Des fermes de faux comptes génèrent des interactions en masse pour donner à un contenu une importance indue. 
+			
+			\vspace{0.5cm}
+			Au lieu de chercher des comportements statistiques suspects, nous allons modéliser ce problème comme une \textbf{anomalie topologique}. Voici la traduction du système dans notre formalisme : 
+			
+			\begin{table}[H]
+				\centering
+				\begin{tabular}{|p{3cm}|p{3cm}|p{6cm}|}
+					\hline 
+					\textbf{Concept observé} & \textbf{Statut} & \textbf{Définition dans le modèle} \\ 
+					 & \textbf{ontologique} & \\
+					\hline 
+					Compte & Entité (Objet) & Nécessaire à l'attribution. Stable au fil du temps. \\
+					\hline 
+					Contenu (Post) & Entité (Objet) & Résultat d'un événement de création, devenant un composant autonome. \\
+					\hline 
+					Score  & Entité (Propriété) & État (poids ou pertinence) associé au contenu, qui perdure et influence les transformations futures. \\
+					\hline 
+					Visibilité (Feed ou \newline Recommandation) & Entité (Lien) & Sans ce lien, l'événement \og{}consulter le post\fg{} est a priori inaccessible. \\
+					\hline 
+					Publication & Événement & Création d'une entité \og{}Contenu\fg{} (objet) et d'un lien vers le compte auteur. \\
+					\hline 
+					Interaction (Like, Vue) & Événement & Modifie instantanément les entités-propriétés (scores) ou crée de nouveaux liens. \\
+					\hline 
+				\end{tabular}
+				\caption{Traduction du réseau social dans l'ontologie}
+			\end{table}
+			
+			Cette lecture met en évidence l'essence de la plateforme. L'algorithme de recommandation n'est rien d'autre que le gestionnaire des règles d'accessibilité. 
+			
+			\paragraph{La co-évolution : le mécanisme central pour capter l'attention.} Un réseau social monétise certains contenus. Il a donc besoin de maximiser les audiences et leur temps de présence devant l'écran. Dès lors, les retours sur les contenus (temps de consultation, interactions) sont des éléments essentiels pour maximiser la rétention en proposant les contenus les plus intéressants pour chaque utilisateur. Donc, un réseau social est l'incarnation d'une boucle de co-évolution ininterrompue :
+			\begin{enumerate}
+				\item \textbf{La configuration contraint la dynamique :} À chaque instant, l'algorithme choisit ce qui est plus ou moins visible par l'utilisateur. Ces liens de visibilité définissent l'espace des possibles de cet utilisateur à cet instant. Même s'il est parfois possible de lancer une nouvelle recherche, l'intermédiation algorithmique lui interdit de fait l'accès à certains contenus et lui en impose d'autres. Les seuls événements possibles pour l'utilisateur sont ceux permis dans ce voisinage local.
+				\item \textbf{La dynamique modifie la configuration :} L'utilisateur interagit (événement de type \og{}like\fg{}). Cet événement modifie les propriétés des entités (le score du contenu augmente). Immédiatement, le système ingère cette altération et recalcule les règles globales : de nouveaux liens de visibilité se créent vers d'autres utilisateurs.
+			\end{enumerate}
+			
+			\paragraph{La manipulation comme attaque topologique.} 
+			Sous cet angle, qu'est-ce qu'une campagne de manipulation artificielle (bots, \textit{slopaganda}) ? Ce n'est pas qu'une question sémantique : c'est le forçage volontaire de la boucle de co-évolution.
+			
+			L'attaquant injecte massivement de fausses entités et génère des événements factices. Son but n'est pas d'influencer ses propres bots, mais de modifier artificiellement les propriétés du contenu manipulé (son score). L'algorithme du réseau social réagit alors de manière prévisible : croyant à un intérêt organique, il crée de nouveaux \textbf{liens de visibilité} pointant vers ce contenu pour des milliers d'utilisateurs réels. 
+			
+			L'attaquant a ainsi \og{}tordu\fg{} l'espace des possibles pour forcer l'accessibilité de son contenu. L'accès à une information nuancée devient un état inatteignable car l'espace topologique local de la victime est saturé. Une fois que ce contenu infecte la topologie organique et s'auto-entretient, le phénomène devient une \textbf{entité émergente} à part entière (la fameuse \og{}chambre d'écho\fg{}).
+			
+			\paragraph{Les limites du modèle discret : le saut vers le continu.}
+			Jusqu'ici, notre ontologie décrit parfaitement la mécanique réelle du réseau. Cependant, ce premier niveau d'analyse pose une mécanique strictement discrète et structurelle (nœud par nœud, événement par événement). 
+			
+			Or, dès lors que l'on s'intéresse à la viralité d'un contenu à l'échelle de millions d'entités, ou que l'on souhaite intégrer les limites biologiques des acteurs (leur capacité d'attention finie face à un flux infini), la description discrète atteint ses limites combinatoires. Tenter de décrire une vague de propagation en calculant chaque lien de visibilité éphémère devient conceptuellement et mathématiquement insoluble. Pour saisir la dynamique globale de ces propagations de masse, il devient nécessaire de procéder à un changement d'échelle : lisser cette topologie discrète pour l'appréhender de manière macroscopique. L'espace des liens devient un milieu continu, soumis à des densités, des ondes et des intensités : c'est ce que nous appellerons le \textbf{champ informationnel}. Nous y reviendrons.
+			
+			
 
 \end{document}
