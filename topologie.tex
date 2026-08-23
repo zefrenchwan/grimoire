@@ -22,217 +22,235 @@
 	
 	\chapter{L'ontologie de base}
 	
-		Si l'on revient aux observations les plus fondamentales, \textit{il existe quelque chose plutôt que rien} et \textit{ce qui existe change}. La notion la plus proche est celle d'état transitions : ce qui existe est dans une configuration donnée qui évolue suivant des transformations, lui donnant une dynamique. La configuration capture l'ensemble des caractéristiques du système, que ce soit son arrangement, ses éléments, les liens. Dès lors, il n'y a pas d'élément tacitement partagé ou utilisé hors de la configuration. De même, la notion de transformation capture l'intégralité du processus, y compris si elle dépend d'une forme d'état quelconque. 
-		
-		\begin{table}[H]
-			\centering
-			\begin{tabular}{|l|l|l|}
-				\hline 
-				\textbf{Nom} & \textbf{Niveau} & \textbf{Description} \\
-				\hline 
-				Configuration & Ontologique & Organisation intrinsèque du système. \\
-				 & & Etat factuel, réel, du système. \\
-				\hline 
-				Transformation & Dynamique & Facteur explicatif des changements du système. \\
-				 & & Raison fondamentale des changements de configurations. \\
-				\hline 
-			\end{tabular}
-			\caption{Les notions principales du modèle}
-		\end{table}
+	Si l'on revient aux observations les plus fondamentales, \textit{il existe quelque chose plutôt que rien} et \textit{ce qui existe change}. La notion la plus proche est celle d'état transitions : ce qui existe est dans une configuration donnée qui évolue suivant des transformations, lui donnant une dynamique. La configuration capture l'ensemble des caractéristiques du système, que ce soit son arrangement, ses éléments, les liens. Dès lors, il n'y a pas d'élément tacitement partagé ou utilisé hors de la configuration. De même, la notion de transformation capture l'intégralité du processus, y compris si elle dépend d'une forme d'état quelconque. 
 	
-		Notons qu'il ne s'agit pas de l'explication fournie par un modèle, d'une approche phénoménologique, mais bien de ce qui est considéré comme une réalité s'imposant à nous. Ainsi, il ne s'agit pas de dérouler une logique d'observation et de corrélation des faits avec des lois, mais vraiment de ce qui est, dans sa dimension la plus fondamentale. 
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{|l|l|l|}
+			\hline 
+			\textbf{Nom} & \textbf{Niveau} & \textbf{Description} \\
+			\hline 
+			Configuration & Ontologique & Organisation intrinsèque du système. \\
+			& & Etat factuel, réel, du système. \\
+			\hline 
+			Transformation & Dynamique & Facteur explicatif des changements du système. \\
+			& & Raison fondamentale des changements de configurations. \\
+			\hline 
+		\end{tabular}
+		\caption{Les notions principales du modèle}
+	\end{table}
+	
+	Notons qu'il ne s'agit pas de l'explication fournie par un modèle, d'une approche phénoménologique, mais bien de ce qui est considéré comme une réalité s'imposant à nous. Ainsi, il ne s'agit pas de dérouler une logique d'observation et de corrélation des faits avec des lois, mais vraiment de ce qui est, dans sa dimension la plus fondamentale. 
+	
+	\section{La notion d'invariant}
+	
+	Prenons une transformation évidente : une entreprise change de dirigeant. Il y a donc, avant comme après, le même cadre : les mêmes entreprises, les mêmes personnes, simplement deux rôles qui ont changé. L'un n'est plus dirigeant, l'autre le devient. On voit donc apparaitre des invariants entre deux transformations, des éléments qui sont partagés. Même si nous y reviendrons en détail, on comprend que cette notion d'invariant permet de considérer des éléments de la configuration. Certains changent, des liens se créent, d'autres disparaissent, des éléments apparaissent, d'autres non. Aussi, ce qui est invariant entre deux transformations peut être considéré comme un élément à part entière du système. 
+	
+	\section{La notion d'accessibilité}
+	
+	Donnons nous deux configurations, disons $c_0$ et $c_1$. Si l'on peut passer, par une transformation, de $c_0$ à $c_1$, on dira que $c_1$ est accessible depuis $c_0$. N'importe quel système physique a des règles : les objets ne se téléportent pas, on ne remonte pas dans le temps. Il y a donc une première notion de ce qui est possible et impossible. Pour ce qui est possible, il n'est pas évident d'en connaitre le moyen effectif. C'est le sens de la définition suivante : 
+	
+	\begin{definition}
+		Deux configurations $a$ et $b$ étant données, on dira que $b$ est accessible depuis $a$ s'il existe une transformation au moins permettant de passer de $a$ à $b$. 
+	\end{definition}
+	
+	
+	
+	\section{La notion de famille engendrée}
+	
+	Si nous avions à définir toutes les transformations possibles, nous nous heurterions à deux difficultés : 
+	\begin{enumerate}
+		\item d'une part la combinatoire, le nombre potentiellement infini de transformations entre deux configurations. La description d'un tel ensemble ne serait ni possible, ni probablement pertinente
+		\item d'autre part, la redite : dès qu'on trouve une nouvelle forme de changement, il nous faut la combiner avec toutes celles connues
+	\end{enumerate}
+	
+	Nous postulons qu'il existe un certain nombre d'entités élémentaires, de transformations de base, qui engendrent toutes les configurations connues, et les transformations possibles. Si tel est le cas, nous dirons que les transformations de base engendrent les transformations, et que les entités élémentaires engendrent les configurations. Dit autrement, nous cherchons à décomposer au maximum les configurations et les transformations en éléments de base, qui ne peuvent plus se décomposer. 
+	
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{|l|l|}
+			\hline 
+			\textbf{Concept parent} & \textbf{Comme combinaison structurée de} \\
+			\hline 
+			Configuration & Une \textbf{entité} est le composant fondamental d'une configuration. \\
+			& Le concept d'entité est aussi un invariant de transformations \\
+			\hline 
+			Transformation & Les transformations sont des combinaisons d'\textbf{événements}. \\
+			& Un événement modifie des entités ou leur agencement.  \\
+			\hline 
+		\end{tabular}
+		\caption{Lien entre concept et concept fils}
+	\end{table}
+	
+	
+	Cependant, la notion d'entité mérite qu'on s'y attarde. Si nous nous contentons de ce qui est, d'en établir l'inventaire comme une simple collection d'objets isolés, nous perdons toute la richesse des relations. Devons-nous alors postuler l'existence d'une \textit{structure} fondamentale, extérieure et de nature différente aux entités elles-mêmes, ou considérer que les relations sont elles-mêmes des entités ? Si nous appliquons rigoureusement notre définition de l'entité comme \textit{invariant d'une transformation}, la réponse s'impose. Considérons un lien qui unit deux composants (un contrat, une force physique, une alliance politique). Si ces composants subissent des transformations internes, mais que leur lien perdure, ce lien se comporte alors comme un invariant. Dès lors, ontologiquement, une relation possède elle-même le statut d'entité. Très pragmatiquement, nous reformulons de la manière suivante : \textbf{si la chose peut changer le résultat d'une transformation, c'est une entité}. Ainsi, elle peut être un pur objet, une relation, ou les deux. 
+	
+	\section{Les notions de base}
+	
+	Une ontologie fondationnelle décrit le monde tel qu'il est, à savoir qu'\textbf{il existe quelque chose qui continue de changer}. Dès lors, nous structurons cette information de la manière suivante : 
+	
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{|l|l|l|}
+			\hline 
+			\textbf{Nom} & \textbf{Niveau} & \textbf{Description} \\
+			\hline 
+			Configuration & Global & État réel du système, indépendant de son observation \\
+			\hline 
+			Entité & Constituant & Composant autonome du système \\
+			\hline 
+			Transformation & Global & Mécanique de transition entre deux états \\
+			\hline 
+			Événement & Constituant & Changement minimal affectant une configuration \\
+			\hline 
+		\end{tabular}
+	\end{table}
+	
+	\section{Comment utiliser cette ontologie ?} 
+	
+		Nous avons tenté d'appliquer la logique du rasoir d'Ockam pour mettre en œuvre le nombre le plus réduit de concepts. Reste la question de l'usage pratique, de la prise en main de notre ontologie. Cette section se propose de reformuler nos concepts pour en donner une définition plus applicable, en tous cas, nous l'espérons, plus intuitive. Nous revenons donc sur les constituants de notre approche : les entités et les événements. 
 		
-		\section{La notion d'invariant}
 		
-			Prenons une transformation évidente : une entreprise change de dirigeant. Il y a donc, avant comme après, le même cadre : les mêmes entreprises, les mêmes personnes, simplement deux rôles qui ont changé. L'un n'est plus dirigeant, l'autre le devient. On voit donc apparaitre des invariants entre deux transformations, des éléments qui sont partagés. Même si nous y reviendrons en détail, on comprend que cette notion d'invariant permet de considérer des éléments de la configuration. Certains changent, des liens se créent, d'autres disparaissent, des éléments apparaissent, d'autres non. Aussi, ce qui est invariant entre deux transformations peut être considéré comme un élément à part entière du système. 
+		\subsection*{Une définition pratique des entités}
 		
-		\section{La notion d'accessibilité}
-		
-			Donnons nous deux configurations, disons $c_0$ et $c_1$. Si l'on peut passer, par une transformation, de $c_0$ à $c_1$, on dira que $c_1$ est accessible depuis $c_0$. N'importe quel système physique a des règles : les objets ne se téléportent pas, on ne remonte pas dans le temps. Il y a donc une première notion de ce qui est possible et impossible. Pour ce qui est possible, il n'est pas évident d'en connaitre le moyen effectif. C'est le sens de la définition suivante : 
+			Nous sommes habitués aux modèles de graphes, qui séparent les entités et les liens. Par exemple, le mariage est un lien entre deux personnes. Si le modèle a ses avantages, il n'est pas pertinent à ce stade, il est trop centré sur une représentation mentale utile à l'analyse. Fondamentalement, une entité est définie comme un invariant de transformations. Dès lors, ce qui agrège des entités en configurations se comprend sous l'angle des événements. Sans aucune contrainte, n'importe quelle configuration est possible depuis une autre puisque toute transformation est permise. Ce n'est pas ce qu'on observe. Tout lien entre entités va imposer des contraintes sur les événements possibles. Donc, \textbf{tout lien est une limitation des futurs possibles}. Il a des préconditions : on ne peut pas appliquer une force à une idée. Il implique, par sa présence ou son absence, une contrainte au réseau global, à la configuration. Elle est celle-ci et pas une autre. En résumé, si des entités se lient, elles perdent la capacité d'évoluer de manière totalement indépendante. Leurs devenirs sont intriqués. Le lien n'est que la loi locale qui interdit certaines transformations. Il n'a aucune sémantique.
+			
+			
+			
+			Nous allons à présent montrer qu'une propriété d'une entité est aussi une entité. Revenons en au cœur de notre postulat : l'entité est ce qui constitue un système et qui résiste à certaines transformations, et ces transformations changent ce système. Un lien peut se maintenir entre deux transformations, ce qui nous a amené précédemment à voir un lien comme une entité. Prenons à présent les caractéristiques des entités. Par exemple, une masse ou une charge électrique, un genre pour une personne, un solde de compte. Notre définition s'applique également : une propriété est une entité parce qu'elle est aussi un invariant transformationnel. Par exemple, un déplacement ne modifie pas une masse, un solde se conserve si l'on change de banque. 
+			
+			
+			A présent, assemblons les résultats intermédiaires. Nous obtenons une version plus pratique de la notion d'entité : 
 			
 			\begin{definition}
-				Deux configurations $a$ et $b$ étant données, on dira que $b$ est accessible depuis $a$ s'il existe une transformation au moins permettant de passer de $a$ à $b$. 
+				Une entité est soit un constituant du système, soit un lien entre entités, soit une propriété des constituants du système. 
+			\end{definition}
+		
+		\subsection*{Une définition pratique des événements}
+		
+			Toute la question de la transformation est portée par la notion d'accessibilité, ce qu'un système accepte comme possibles changements. Notre définition des entités nous amène à une caractérisation pratique des événements. 
+			
+			\begin{definition}
+				Un événement est la création ou la suppression d'une entité, nommément : 
+				\begin{itemize}
+					\item la création ou la suppression d'une entité comme objet
+					\item la création ou la suppression de liens entre entités
+					\item la création ou la suppression des propriétés des entités (dont la composition forme un changement de propriétés de l'entité). Notons que ces logiques de propriétés s'appliquent aussi aux liens. 
+				\end{itemize}
 			\end{definition}
 			
-
-		
-		\section{La notion de famille engendrée}
-		
-			Si nous avions à définir toutes les transformations possibles, nous nous heurterions à deux difficultés : 
-			\begin{enumerate}
-				\item d'une part la combinatoire, le nombre potentiellement infini de transformations entre deux configurations. La description d'un tel ensemble ne serait ni possible, ni probablement pertinente
-				\item d'autre part, la redite : dès qu'on trouve une nouvelle forme de changement, il nous faut la combiner avec toutes celles connues
-			\end{enumerate}
-			
-			Nous postulons qu'il existe un certain nombre d'entités élémentaires, de transformations de base, qui engendrent toutes les configurations connues, et les transformations possibles. Si tel est le cas, nous dirons que les transformations de base engendrent les transformations, et que les entités élémentaires engendrent les configurations. Dit autrement, nous cherchons à décomposer au maximum les configurations et les transformations en éléments de base, qui ne peuvent plus se décomposer. 
-		
-			\begin{table}[H]
-				\centering
-				\begin{tabular}{|l|l|}
-					\hline 
-					\textbf{Concept parent} & \textbf{Comme combinaison structurée de} \\
-					\hline 
-					Configuration & Une \textbf{entité} est le composant fondamental d'une configuration. \\
-					& Le concept d'entité est aussi un invariant de transformations \\
-					\hline 
-					Transformation & Les transformations sont des combinaisons d'\textbf{événements}. \\
-					& Un événement modifie des entités ou leur agencement.  \\
-					\hline 
-				\end{tabular}
-				\caption{Lien entre concept et concept fils}
-			\end{table}
-			
-		
-			Cependant, la notion d'entité mérite qu'on s'y attarde. Si nous nous contentons de ce qui est, d'en établir l'inventaire comme une simple collection d'objets isolés, nous perdons toute la richesse des relations. Devons-nous alors postuler l'existence d'une \textit{structure} fondamentale, extérieure et de nature différente aux entités elles-mêmes, ou considérer que les relations sont elles-mêmes des entités ? Si nous appliquons rigoureusement notre définition de l'entité comme \textit{invariant d'une transformation}, la réponse s'impose. Considérons un lien qui unit deux composants (un contrat, une force physique, une alliance politique). Si ces composants subissent des transformations internes, mais que leur lien perdure, ce lien se comporte alors comme un invariant. Dès lors, ontologiquement, une relation possède elle-même le statut d'entité. Très pragmatiquement, nous reformulons de la manière suivante : \textbf{si la chose peut changer le résultat d'une transformation, c'est une entité}. Ainsi, elle peut être un pur objet, une relation, ou les deux. 
-		
-		\section{Les notions de base}
-		
-			Une ontologie fondationnelle décrit le monde tel qu'il est, à savoir qu'\textbf{il existe quelque chose qui continue de changer}. Dès lors, nous structurons cette information de la manière suivante : 
-			
-			\begin{table}[H]
-				\centering
-				\begin{tabular}{|l|l|l|}
-					\hline 
-					\textbf{Nom} & \textbf{Niveau} & \textbf{Description} \\
-					\hline 
-					Configuration & Global & État réel du système, indépendant de son observation \\
-					\hline 
-					Entité & Constituant & Composant autonome du système \\
-					\hline 
-					Transformation & Global & Mécanique de transition entre deux états \\
-					\hline 
-					Événement & Constituant & Changement minimal affectant une configuration \\
-					\hline 
-				\end{tabular}
-			\end{table}
-			
-		\section{Comment utiliser cette ontologie ?} 
-		
-			Nous avons tenté d'appliquer la logique du rasoir d'Ockam pour mettre en œuvre le nombre le plus réduit de concepts. Reste la question de l'usage pratique, de la prise en main de notre ontologie. Cette section se propose de reformuler nos concepts pour en donner une définition plus applicable, en tous cas, nous l'espérons, plus intuitive. Nous revenons donc sur les constituants de notre approche : les entités et les événements. 
-			
-			
-			\subsection*{Une définition pratique des entités}
-			
-				Nous sommes habitués aux modèles de graphes, qui séparent les entités et les liens. Par exemple, le mariage est un lien entre deux personnes. Si le modèle a ses avantages, il n'est pas pertinent à ce stade, il est trop centré sur une représentation mentale utile à l'analyse. Fondamentalement, une entité est définie comme un invariant de transformations. Dès lors, ce qui agrège des entités en configurations se comprend sous l'angle des événements. Sans aucune contrainte, n'importe quelle configuration est possible depuis une autre puisque toute transformation est permise. Ce n'est pas ce qu'on observe. Tout lien entre entités va imposer des contraintes sur les événements possibles. Donc, \textbf{tout lien est une limitation des futurs possibles}. Il a des préconditions : on ne peut pas appliquer une force à une idée. Il implique, par sa présence ou son absence, une contrainte au réseau global, à la configuration. Elle est celle-ci et pas une autre. En résumé, si des entités se lient, elles perdent la capacité d'évoluer de manière totalement indépendante. Leurs devenirs sont intriqués. Le lien n'est que la loi locale qui interdit certaines transformations. Il n'a aucune sémantique.
-				
-				
-				
-				Nous allons à présent montrer qu'une propriété d'une entité est aussi une entité. Revenons en au cœur de notre postulat : l'entité est ce qui constitue un système et qui résiste à certaines transformations, et ces transformations changent ce système. Un lien peut se maintenir entre deux transformations, ce qui nous a amené précédemment à voir un lien comme une entité. Prenons à présent les caractéristiques des entités. Par exemple, une masse ou une charge électrique, un genre pour une personne, un solde de compte. Notre définition s'applique également : une propriété est une entité parce qu'elle est aussi un invariant transformationnel. Par exemple, un déplacement ne modifie pas une masse, un solde se conserve si l'on change de banque. 
-			
-			
-				A présent, assemblons les résultats intermédiaires. Nous obtenons une version plus pratique de la notion d'entité : 
-			
-				\begin{definition}
-					Une entité est soit un constituant du système, soit un lien entre entités, soit une propriété des constituants du système. 
-				\end{definition}
-			
-			\subsection*{Une définition pratique des événements}
-			
-				Toute la question de la transformation est portée par la notion d'accessibilité, ce qu'un système accepte comme possibles changements. Notre définition des entités nous amène à une caractérisation pratique des événements. 
-				
-				\begin{definition}
-					Un événement est la création ou la suppression d'une entité, nommément : 
-					\begin{itemize}
-						\item la création ou la suppression d'une entité comme objet
-						\item la création ou la suppression de liens entre entités
-						\item la création ou la suppression des propriétés des entités (dont la composition forme un changement de propriétés de l'entité). Notons que ces logiques de propriétés s'appliquent aussi aux liens. 
-					\end{itemize}
-				\end{definition}
-				
-				
-			
+	
+	
 	
 	\chapter{Les propriétés de l'ontologie de base}
 	
-		Notre réflexion nous amène au point suivant : \textbf{des entités sont organisées en configurations. Or, il en existe plusieurs, de sorte qu'une configuration se transforme en une autre en combinant des événements compatibles avec la configuration actuelle}. Dans ce chapitre, nous parlerons de deux propriétés découlant des définitions : 
+	Notre réflexion nous amène au point suivant : \textbf{des entités sont organisées en configurations. Or, il en existe plusieurs, de sorte qu'une configuration se transforme en une autre en combinant des événements compatibles avec la configuration actuelle}. Dans ce chapitre, nous parlerons de deux propriétés découlant des définitions : 
+	\begin{enumerate}
+		\item l'émergence d'entités comme événement. 
+		\item les impacts croisés entre les configurations et les dynamiques de transformation. 
+	\end{enumerate}
+	
+	\section{L'émergence}
+	
+		Imaginons la situation suivante : un embouteillage se forme sur une autoroute, les voitures ralentissent et passent au compte goutte. C'est un phénomène émergent. En effet, l'embouteillage n'est pas constitué des voitures en elles mêmes car elles se renouvellent. C'est une entité à part ayant un impact réel sur les voitures présentes à ce moment là. L'entité existe, elle ne se réduit pas à ses constituants, elle a un impact réel sur les états possibles. 
+		
+		\begin{definition}
+			Une entité est dite émergente lorsqu'elle impacte les transformations du système, et que cette capacité d'action demeure invariante face au renouvellement de ses constituants.
+		\end{definition}
+		
+		On ne peut exiger moins : sans voiture, pas d'embouteillage. Le facteur explicatif n'est ni l'identité des composants, ni ces composants pris isolément. C'est la présence des composants dans leur globalité qui créé le phénomène. 
+	
+	
+	\section{La co-évolution : une nécessité structurelle}
+	
+		Imaginons une situation dans laquelle les configurations s'enchaînent selon des lois fixes et immuables. Il n'y a alors pas de co-évolution, mais simplement l'application continue de transformations unilatérales. C'est, par exemple, le paradigme de la mécanique newtonienne : telle loi implique telle conséquence sur le système, dans un cadre absolu. 
+		
+		Ce n'est en revanche pas le cas en relativité générale : la matière dicte à la géométrie de l'espace-temps comment se courber, et la géométrie de l'espace-temps dicte à la matière comment se mouvoir. De même, de manière plus prosaïque, on observe une dynamique de co-évolution au sein d'une entreprise : la direction définit une stratégie, cette stratégie donne lieu à des actions et à des retours du terrain, qui sont à leur tour intégrés pour redéfinir la stratégie. 
+		
+		\begin{definition}
+			La co-évolution caractérise l'interdépendance profonde entre la dynamique et la configuration d'un système. Elle apparaît lorsque la configuration dicte aux entités quelles transformations sont possibles, et que la réalisation effective de ces transformations réorganise, en retour, ladite configuration. 
+		\end{definition}
+		
+		Or, il s'avère que notre ontologie ne postule pas cette propriété \textit{a priori} : elle la fait émerger naturellement comme la conséquence logique et directe de nos définitions fondamentales : 
+		
 		\begin{enumerate}
-			\item l'émergence d'entités comme événement. 
-			\item les impacts croisés entre les configurations et les dynamiques de transformation. 
+			\item Nous avons établi que \textbf{tout lien est une limitation des futurs possibles}. À un instant donné, la configuration (l'agencement des entités, incluant leurs liens) sculpte donc l'espace des événements \textit{accessibles}. En d'autres termes, \textbf{la configuration contraint la dynamique.}
+			\item À l'inverse, lorsqu'une transformation se réalise, elle consiste précisément en une série d'événements, c'est-à-dire en la création ou en la suppression d'entités (objets, propriétés, liens). Dès lors, \textbf{la dynamique modifie la configuration.}
 		\end{enumerate}
 		
-		\section{L'émergence}
+		Dans cette ontologie, il n'existe donc aucun décor fixe et passif dans lequel s'agiteraient des composants autonomes. Les entités et la configuration globale ne font pas qu'évoluer en parallèle : elles \textbf{co-évoluent} intrinsèquement.
 		
-			Imaginons la situation suivante : un embouteillage se forme sur une autoroute, les voitures ralentissent et passent au compte goutte. C'est un phénomène émergent. En effet, l'embouteillage n'est pas constitué des voitures en elles mêmes car elles se renouvellent. C'est une entité à part ayant un impact réel sur les voitures présentes à ce moment là. L'entité existe, elle ne se réduit pas à ses constituants, elle a un impact réel sur les états possibles. 
-			
-			\begin{definition}
-				Une entité est dite émergente lorsqu'elle impacte les transformations du système, et que cette capacité d'action demeure invariante face au renouvellement de ses constituants.
-			\end{definition}
-			
-			On ne peut exiger moins : sans voiture, pas d'embouteillage. Le facteur explicatif n'est ni l'identité des composants, ni ces composants pris isolément. C'est la présence des composants dans leur globalité qui créé le phénomène. 
+	\section{Cas pratique : les réseaux sociaux}
 		
+		
+		Afin de donner un usage pratique de l'ontologie que nous proposons, nous allons l'appliquer à la modélisation d'un réseau social. Nous supposons disposer des droits d'un administrateur dudit réseau social (nous rendant omniscients sur la configuration). Notre but est de répondre à une question d'apparence algorithmique ou éditoriale : les tentatives de manipulation.
+		
+		\paragraph{La problématique de la manipulation des contenus.} La question se pose en ces termes : du contenu est artificiellement mis en avant pour faire taire des voix dissidentes ou donner à une cause une audience bien au-delà de ce qu'elle atteindrait organiquement. Des fermes de faux comptes génèrent des interactions en masse pour donner à un contenu une importance indue. 
+		
+		\vspace{0.5cm}
+		Au lieu de chercher des comportements statistiques suspects, nous allons modéliser ce problème comme une \textbf{anomalie topologique}. Voici la traduction du système dans notre formalisme : 
+		
+		\begin{table}[H]
+			\centering
+			\begin{tabular}{|p{3cm}|p{3cm}|p{6cm}|}
+				\hline 
+				\textbf{Concept observé} & \textbf{Statut} & \textbf{Définition dans le modèle} \\ 
+				& \textbf{ontologique} & \\
+				\hline 
+				Compte & Entité (Objet) & Nécessaire à l'attribution. Stable au fil du temps. \\
+				\hline 
+				Contenu (Post) & Entité (Objet) & Résultat d'un événement de création, devenant un composant autonome. \\
+				\hline 
+				Score  & Entité (Propriété) & État (poids ou pertinence) associé au contenu, qui perdure et influence les transformations futures. \\
+				\hline 
+				Visibilité (Feed ou \newline Recommandation) & Entité (Lien) & Sans ce lien, l'événement \og{}consulter le post\fg{} est a priori inaccessible. \\
+				\hline 
+				Publication & Événement & Création d'une entité \og{}Contenu\fg{} (objet) et d'un lien vers le compte auteur. \\
+				\hline 
+				Interaction (Like, Vue) & Événement & Modifie instantanément les entités-propriétés (scores) ou crée de nouveaux liens. \\
+				\hline 
+			\end{tabular}
+			\caption{Traduction du réseau social dans l'ontologie}
+		\end{table}
+		
+		Cette lecture met en évidence l'essence de la plateforme. L'algorithme de recommandation n'est rien d'autre que le gestionnaire des règles d'accessibilité. 
+		
+		\paragraph{La co-évolution : le mécanisme central pour capter l'attention.} Un réseau social monétise certains contenus. Il a donc besoin de maximiser les audiences et leur temps de présence devant l'écran. Dès lors, les retours sur les contenus (temps de consultation, interactions) sont des éléments essentiels pour maximiser la rétention en proposant les contenus les plus intéressants pour chaque utilisateur. Donc, un réseau social est l'incarnation d'une boucle de co-évolution ininterrompue :
+		\begin{enumerate}
+			\item \textbf{La configuration contraint la dynamique :} À chaque instant, l'algorithme choisit ce qui est plus ou moins visible par l'utilisateur. Ces liens de visibilité définissent l'espace des possibles de cet utilisateur à cet instant. Même s'il est parfois possible de lancer une nouvelle recherche, l'intermédiation algorithmique lui interdit de fait l'accès à certains contenus et lui en impose d'autres. Les seuls événements possibles pour l'utilisateur sont ceux permis dans ce voisinage local.
+			\item \textbf{La dynamique modifie la configuration :} L'utilisateur interagit (événement de type \og{}like\fg{}). Cet événement modifie les propriétés des entités (le score du contenu augmente). Immédiatement, le système ingère cette altération et recalcule les règles globales : de nouveaux liens de visibilité se créent vers d'autres utilisateurs.
+		\end{enumerate}
+		
+		\paragraph{La manipulation comme attaque topologique.} 
+		Sous cet angle, qu'est-ce qu'une campagne de manipulation artificielle (bots, \textit{slopaganda}) ? Ce n'est pas qu'une question sémantique : c'est le forçage volontaire de la boucle de co-évolution.
+		
+		L'attaquant injecte massivement de fausses entités et génère des événements factices. Son but n'est pas d'influencer ses propres bots, mais de modifier artificiellement les propriétés du contenu manipulé (son score). L'algorithme du réseau social réagit alors de manière prévisible : croyant à un intérêt organique, il crée de nouveaux \textbf{liens de visibilité} pointant vers ce contenu pour des milliers d'utilisateurs réels. 
+		
+		L'attaquant a ainsi \og{}tordu\fg{} l'espace des possibles pour forcer l'accessibilité de son contenu. L'accès à une information nuancée devient un état inatteignable car l'espace topologique local de la victime est saturé. Une fois que ce contenu infecte la topologie organique et s'auto-entretient, le phénomène devient une \textbf{entité émergente} à part entière (la fameuse \og{}chambre d'écho\fg{}).
+		
+		\paragraph{Les limites du modèle discret : le saut vers le continu.}
+		Jusqu'ici, notre ontologie décrit parfaitement la mécanique réelle du réseau. Cependant, ce premier niveau d'analyse pose une mécanique strictement discrète et structurelle (nœud par nœud, événement par événement). 
+		
+		Or, dès lors que l'on s'intéresse à la viralité d'un contenu à l'échelle de millions d'entités, ou que l'on souhaite intégrer les limites biologiques des acteurs (leur capacité d'attention finie face à un flux infini), la description discrète atteint ses limites combinatoires. Tenter de décrire une vague de propagation en calculant chaque lien de visibilité éphémère devient conceptuellement et mathématiquement insoluble. Pour saisir la dynamique globale de ces propagations de masse, il devient nécessaire de procéder à un changement d'échelle : lisser cette topologie discrète pour l'appréhender de manière macroscopique. L'espace des liens devient un milieu continu, soumis à des densités, des ondes et des intensités : c'est ce que nous appellerons le \textbf{champ informationnel}. Nous y reviendrons.
 	
-		\section{La co-évolution : une nécessité structurelle}
-		
-			Imaginons une situation dans laquelle les configurations s'enchaînent selon des lois fixes et immuables. Il n'y a alors pas de co-évolution, mais simplement l'application continue de transformations unilatérales. C'est, par exemple, le paradigme de la mécanique newtonienne : telle loi implique telle conséquence sur le système, dans un cadre absolu. 
-			
-			Ce n'est en revanche pas le cas en relativité générale : la matière dicte à la géométrie de l'espace-temps comment se courber, et la géométrie de l'espace-temps dicte à la matière comment se mouvoir. De même, de manière plus prosaïque, on observe une dynamique de co-évolution au sein d'une entreprise : la direction définit une stratégie, cette stratégie donne lieu à des actions et à des retours du terrain, qui sont à leur tour intégrés pour redéfinir la stratégie. 
-			
-			\begin{definition}
-				La co-évolution caractérise l'interdépendance profonde entre la dynamique et la configuration d'un système. Elle apparaît lorsque la configuration dicte aux entités quelles transformations sont possibles, et que la réalisation effective de ces transformations réorganise, en retour, ladite configuration. 
-			\end{definition}
-			
-			Or, il s'avère que notre ontologie ne postule pas cette propriété \textit{a priori} : elle la fait émerger naturellement comme la conséquence logique et directe de nos définitions fondamentales : 
-			
-			\begin{enumerate}
-				\item Nous avons établi que \textbf{tout lien est une limitation des futurs possibles}. À un instant donné, la configuration (l'agencement des entités, incluant leurs liens) sculpte donc l'espace des événements \textit{accessibles}. En d'autres termes, \textbf{la configuration contraint la dynamique.}
-				\item À l'inverse, lorsqu'une transformation se réalise, elle consiste précisément en une série d'événements, c'est-à-dire en la création ou en la suppression d'entités (objets, propriétés, liens). Dès lors, \textbf{la dynamique modifie la configuration.}
-			\end{enumerate}
-			
-			Dans cette ontologie, il n'existe donc aucun décor fixe et passif dans lequel s'agiteraient des composants autonomes. Les entités et la configuration globale ne font pas qu'évoluer en parallèle : elles \textbf{co-évoluent} intrinsèquement.
-			
-		\section{Cas pratique : les réseaux sociaux}
-		
-			
-			Afin de donner un usage pratique de l'ontologie que nous proposons, nous allons l'appliquer à la modélisation d'un réseau social. Nous supposons disposer des droits d'un administrateur dudit réseau social (nous rendant omniscients sur la configuration). Notre but est de répondre à une question d'apparence algorithmique ou éditoriale : les tentatives de manipulation.
-			
-			\paragraph{La problématique de la manipulation des contenus.} La question se pose en ces termes : du contenu est artificiellement mis en avant pour faire taire des voix dissidentes ou donner à une cause une audience bien au-delà de ce qu'elle atteindrait organiquement. Des fermes de faux comptes génèrent des interactions en masse pour donner à un contenu une importance indue. 
-			
-			\vspace{0.5cm}
-			Au lieu de chercher des comportements statistiques suspects, nous allons modéliser ce problème comme une \textbf{anomalie topologique}. Voici la traduction du système dans notre formalisme : 
-			
-			\begin{table}[H]
-				\centering
-				\begin{tabular}{|p{3cm}|p{3cm}|p{6cm}|}
-					\hline 
-					\textbf{Concept observé} & \textbf{Statut} & \textbf{Définition dans le modèle} \\ 
-					 & \textbf{ontologique} & \\
-					\hline 
-					Compte & Entité (Objet) & Nécessaire à l'attribution. Stable au fil du temps. \\
-					\hline 
-					Contenu (Post) & Entité (Objet) & Résultat d'un événement de création, devenant un composant autonome. \\
-					\hline 
-					Score  & Entité (Propriété) & État (poids ou pertinence) associé au contenu, qui perdure et influence les transformations futures. \\
-					\hline 
-					Visibilité (Feed ou \newline Recommandation) & Entité (Lien) & Sans ce lien, l'événement \og{}consulter le post\fg{} est a priori inaccessible. \\
-					\hline 
-					Publication & Événement & Création d'une entité \og{}Contenu\fg{} (objet) et d'un lien vers le compte auteur. \\
-					\hline 
-					Interaction (Like, Vue) & Événement & Modifie instantanément les entités-propriétés (scores) ou crée de nouveaux liens. \\
-					\hline 
-				\end{tabular}
-				\caption{Traduction du réseau social dans l'ontologie}
-			\end{table}
-			
-			Cette lecture met en évidence l'essence de la plateforme. L'algorithme de recommandation n'est rien d'autre que le gestionnaire des règles d'accessibilité. 
-			
-			\paragraph{La co-évolution : le mécanisme central pour capter l'attention.} Un réseau social monétise certains contenus. Il a donc besoin de maximiser les audiences et leur temps de présence devant l'écran. Dès lors, les retours sur les contenus (temps de consultation, interactions) sont des éléments essentiels pour maximiser la rétention en proposant les contenus les plus intéressants pour chaque utilisateur. Donc, un réseau social est l'incarnation d'une boucle de co-évolution ininterrompue :
-			\begin{enumerate}
-				\item \textbf{La configuration contraint la dynamique :} À chaque instant, l'algorithme choisit ce qui est plus ou moins visible par l'utilisateur. Ces liens de visibilité définissent l'espace des possibles de cet utilisateur à cet instant. Même s'il est parfois possible de lancer une nouvelle recherche, l'intermédiation algorithmique lui interdit de fait l'accès à certains contenus et lui en impose d'autres. Les seuls événements possibles pour l'utilisateur sont ceux permis dans ce voisinage local.
-				\item \textbf{La dynamique modifie la configuration :} L'utilisateur interagit (événement de type \og{}like\fg{}). Cet événement modifie les propriétés des entités (le score du contenu augmente). Immédiatement, le système ingère cette altération et recalcule les règles globales : de nouveaux liens de visibilité se créent vers d'autres utilisateurs.
-			\end{enumerate}
-			
-			\paragraph{La manipulation comme attaque topologique.} 
-			Sous cet angle, qu'est-ce qu'une campagne de manipulation artificielle (bots, \textit{slopaganda}) ? Ce n'est pas qu'une question sémantique : c'est le forçage volontaire de la boucle de co-évolution.
-			
-			L'attaquant injecte massivement de fausses entités et génère des événements factices. Son but n'est pas d'influencer ses propres bots, mais de modifier artificiellement les propriétés du contenu manipulé (son score). L'algorithme du réseau social réagit alors de manière prévisible : croyant à un intérêt organique, il crée de nouveaux \textbf{liens de visibilité} pointant vers ce contenu pour des milliers d'utilisateurs réels. 
-			
-			L'attaquant a ainsi \og{}tordu\fg{} l'espace des possibles pour forcer l'accessibilité de son contenu. L'accès à une information nuancée devient un état inatteignable car l'espace topologique local de la victime est saturé. Une fois que ce contenu infecte la topologie organique et s'auto-entretient, le phénomène devient une \textbf{entité émergente} à part entière (la fameuse \og{}chambre d'écho\fg{}).
-			
-			\paragraph{Les limites du modèle discret : le saut vers le continu.}
-			Jusqu'ici, notre ontologie décrit parfaitement la mécanique réelle du réseau. Cependant, ce premier niveau d'analyse pose une mécanique strictement discrète et structurelle (nœud par nœud, événement par événement). 
-			
-			Or, dès lors que l'on s'intéresse à la viralité d'un contenu à l'échelle de millions d'entités, ou que l'on souhaite intégrer les limites biologiques des acteurs (leur capacité d'attention finie face à un flux infini), la description discrète atteint ses limites combinatoires. Tenter de décrire une vague de propagation en calculant chaque lien de visibilité éphémère devient conceptuellement et mathématiquement insoluble. Pour saisir la dynamique globale de ces propagations de masse, il devient nécessaire de procéder à un changement d'échelle : lisser cette topologie discrète pour l'appréhender de manière macroscopique. L'espace des liens devient un milieu continu, soumis à des densités, des ondes et des intensités : c'est ce que nous appellerons le \textbf{champ informationnel}. Nous y reviendrons.
-			
-			
 
+	\chapter{La dépendance causale}
+	
+		
+		Imaginons une configuration impliquant trois personnes : Paul, sa femme Laure, et leur fille Lisa. Comparons deux événements : \og{}Paul demande le divorce\fg{} et \og{}Paul donne un peu d'argent à Lisa pour s'acheter une boisson fraîche\fg{}. 
+		
+		Dans une ontologie strictement plate, ces deux événements semblent de même nature : ils constituent l'un comme l'autre une simple création ou suppression locale de liens. Pourtant, nous percevons intuitivement qu'ils ne sont pas équivalents quant à leurs conséquences. 
+		
+		Pour caractériser objectivement le fait qu'un lien soit plus \og{}structurant\fg{} qu'un autre sans recourir à un jugement de valeur externe, nous pouvons évaluer le \og{}poids topologique\fg{} de l'événement qui le modifie. Deux mesures, intimement liées, s'offrent à nous : 
+		\begin{enumerate}
+			\item \textbf{La profondeur causale (impact dynamique)} : le nombre total d'événements induits en cascade par la modification initiale, se propageant de proche en proche. L'onde de choc de la rupture conjugale provoque une vaste réorganisation (déménagements, séparation des biens) pour que le système retrouve une stabilité, tandis que l'achat de la boisson s'amortit immédiatement.
+			\item \textbf{La variation de l'espace des possibles (impact topologique)} : la variation brute du nombre de configurations globalement accessibles au système avant et après l'événement. La disparition d'un lien fortement structurant condamne massivement des trajectoires de futurs (une baisse de l'entropie des possibles associés à ce lien) et en ouvre de nouvelles, redessinant instantanément le paysage des accessibilités. Le don d'une pièce de monnaie laisse, à l'inverse, l'horizon des possibles quasiment intact.
+		\end{enumerate}
+		
+		
+		\paragraph{Le relief causal et le principe de moindre action.} Si l'on reformule la dynamique du système en termes de réseau, il n'est pas nécessaire d'invoquer une \og{}énergie\fg{} abstraite pour expliquer pourquoi certaines transformations résistent. L'effort se mesure directement dans l'impact topologique : atteindre certaines configurations exige de briser des entités-liens structurantes et d'absorber une vaste cascade d'événements induits. Le \og{}coût\fg{} est en réalité une quantité de réécritures locales du graphe. La structure du système forme ainsi un véritable \og{}paysage\fg{}. Ses \og{}montagnes\fg{} correspondent aux zones où toute transformation exige une restructuration massive de l'espace des possibles. Ses \og{}vallées\fg{} correspondent aux transformations faciles, où il suffit de glisser le long des entités-liens préexistantes. Face à l'infinité des trajectoires théoriques, il s'impose alors un \textbf{principe de moindre action topologique} :
+		
+		\textit{La grande majorité du temps, la grande majorité des entités prend la pente et pas la montée. Elles empruntent les trajectoires qui minimisent la quantité d'événements restructurants.}
+		
+		Les trajectoires offrant le moins de résistance géométrique deviennent de véritables \og{}autoroutes causales\fg{}. Ce que l'observateur humain nomme parfois une \og{}tendance comportementale\fg{}, un biais de \og{}moindre effort\fg{} ou un choix, n'est bien souvent que l'observation statistique d'entités coulant le long des pentes de ce relief sous-jacent.
 \end{document}
