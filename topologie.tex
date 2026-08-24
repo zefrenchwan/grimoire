@@ -42,18 +42,20 @@
 	
 	Notons qu'il ne s'agit pas de l'explication fournie par un modèle, d'une approche phénoménologique, mais bien de ce qui est considéré comme une réalité s'imposant à nous. Ainsi, il ne s'agit pas de dérouler une logique d'observation et de corrélation des faits avec des lois, mais vraiment de ce qui est, dans sa dimension la plus fondamentale. 
 	
+	
 	\section{La notion d'invariant}
 	
 	Prenons une transformation évidente : une entreprise change de dirigeant. Il y a donc, avant comme après, le même cadre : les mêmes entreprises, les mêmes personnes, simplement deux rôles qui ont changé. L'un n'est plus dirigeant, l'autre le devient. On voit donc apparaitre des invariants entre deux transformations, des éléments qui sont partagés. Même si nous y reviendrons en détail, on comprend que cette notion d'invariant permet de considérer des éléments de la configuration. Certains changent, des liens se créent, d'autres disparaissent, des éléments apparaissent, d'autres non. Aussi, ce qui est invariant entre deux transformations peut être considéré comme un élément à part entière du système. 
 	
 	\section{La notion d'accessibilité}
 	
-	Donnons nous deux configurations, disons $c_0$ et $c_1$. Si l'on peut passer, par une transformation, de $c_0$ à $c_1$, on dira que $c_1$ est accessible depuis $c_0$. N'importe quel système physique a des règles : les objets ne se téléportent pas, on ne remonte pas dans le temps. Il y a donc une première notion de ce qui est possible et impossible. Pour ce qui est possible, il n'est pas évident d'en connaitre le moyen effectif. C'est le sens de la définition suivante : 
+	Prenons deux villes, distantes de 800km, et reliées en train. Si la vitesse maximale que peut atteindre le train est de 400km/h, il n'est pas possible de mettre moins de deux heures pour relier les deux villes. Il n'est pas nécessaire de disposer de détail complémentaire, il ne peut exister de transformation menant à l'arrivée du train en moins de deux heures.  Ainsi, une configuration étant donnée, l'ensemble des configurations qu'il est possible d'atteindre depuis celle-ci est restreint par les transformations qu'on peut appliquer. Et réciproquement, une configuration ne permet pas, du fait même de sa structure, d'appliquer toutes les transformations. 
 	
 	\begin{definition}
 		Deux configurations $a$ et $b$ étant données, on dira que $b$ est accessible depuis $a$ s'il existe une transformation au moins permettant de passer de $a$ à $b$. 
 	\end{definition}
 	
+	La raison de cette définition est de ne pas nécessiter d'expliciter la transformation requise, l'information de son existence suffit. 
 	
 	
 	\section{La notion de famille engendrée}
@@ -140,6 +142,24 @@
 			\end{definition}
 			
 	
+	\section{La notion de causalité}
+	
+		Prenons un exemple introductif : un chauffeur imprudent jette un mégot par la fenêtre, et celui-ci provoque un incendie de forêt très étendu. La chaine causale est claire : le mégot a déclenché un feu, le feu s'est propagé partout où la sécheresse des arbres permettait la propagation des flammes, jusqu'à disparaitre faute de ressources ou de zones favorables à proximité. Ainsi, une transformation a amorcé l'incendie depuis une configuration favorable, et il s'est propagé de proche en proche, parce que l'entité feu trouvait à proximité des arbres pour s'étendre. 
+		
+		
+		Quel est, au delà de l'exemple, le mécanisme à l'œuvre pour qu'une entité soit présente dans une configuration ? Pour qu'un lien existe, il faut que les entités reliées soient présentes, c'est nécessaire. Pour qu'une entité soit présente et puisse tisser des liens avec d'autres, il faut que son voisinage soit déjà en place. Cette remarque induit une notion de causalité par propagation locale d'événements. 
+	
+		
+		
+		\begin{definition}
+			Une précondition est une condition nécessaire pour qu'une entité soit présente dans une configuration. La \textbf{chaîne causale} initiée par un événement est la séquence ininterrompue d'événements induits, de proche en proche, par toute apparition ou disparition en cascade de préconditions.
+		\end{definition}
+		
+		
+		
+	\section{Résumé}
+	
+		Des objets ayant des propriétés tissent des liens entre eux, nous parlons d'entités. Ces entités évoluent parce que leur état s'agence avec ceux de leurs voisins pour entrainer un événement spécifique. Cet événement va changer localement l'état des entités, qui peuvent, à leur tour, provoquer de nouveaux événements. Voilà l'ontologie que nous proposons : entités, localité, interdépendance état - événement. 
 	
 	
 	\chapter{Les propriétés de l'ontologie de base}
@@ -179,6 +199,7 @@
 		\end{enumerate}
 		
 		Dans cette ontologie, il n'existe donc aucun décor fixe et passif dans lequel s'agiteraient des composants autonomes. Les entités et la configuration globale ne font pas qu'évoluer en parallèle : elles \textbf{co-évoluent} intrinsèquement.
+
 		
 	\section{Cas pratique : les réseaux sociaux}
 		
@@ -235,17 +256,22 @@
 	
 
 	\chapter{La dépendance causale}
-	
+
+	Dans une lecture superficielle de notre ontologie, tous les événements semblent de même nature : la simple création ou suppression locale d'une entité, d'un lien ou d'une propriété. Pourtant, nous observons empiriquement que certaines transformations s'amortissent immédiatement tandis que d'autres forcent le système à se réorganiser massivement de proche en proche.
+
+	Pour comprendre cette asymétrie sans recourir à un jugement de valeur externe (comme des lois physiques ou des nécessités sociales), il faut revenir à l'impact de la configuration sur la dynamique. Les entités, et tout particulièrement les liens, possèdent des \textbf{préconditions d'existence}. Un lien n'est maintenu que si la configuration locale — c'est-à-dire les entités qu'il connecte et leurs propriétés — le permet.
+
 		
-		Imaginons une configuration impliquant trois personnes : Paul, sa femme Laure, et leur fille Lisa. Comparons deux événements : \og{}Paul demande le divorce\fg{} et \og{}Paul donne un peu d'argent à Lisa pour s'acheter une boisson fraîche\fg{}. Dans une ontologie strictement plate, ces deux événements semblent de même nature : ils constituent l'un comme l'autre une simple création ou suppression locale de liens. Pourtant, nous percevons intuitivement qu'ils ne sont pas équivalents quant à leurs conséquences une fois tous les événements induits passés. Par exemple, la signature d'un divorce déclenche mécaniquement une série de nécessités légales et matérielles. L'un des ex-conjoints devra probablement déménager ; même s'il peut choisir son nouvel appartement parmi cinq options, cette obligation de relogement reste une conséquence directe de la rupture initiale. Ainsi, imposer que la chaîne causale détermine totalement et de manière unique toutes les configurations suivantes n'est pas la bonne approche. Il reste un système qui se réorganise, parfois avec une ambiguïté sur les détails, mais toujours sous la conséquence directe de la transformation initiale. 
+		\section{Le poids topologique d'un événement}
 		
-		\begin{definition}
-			La chaine causale d'une transformation $t$ est l'ensemble des événements qui engendrent $t$ ou qui sont la conséquence directe d'un événement précédemment dans cette même chaine causale. Dit autrement, pour une transformation $t$, sa chaine causale dure tant qu'il existe une contrainte forte sur l'espace des possibles. Elle dure tant que l'événement initial force le système à se réorganiser pour absorber l'anomalie topologique locale, et ce même s'il y a des bifurcations locales de choix. 
-		\end{definition}
+		C'est à la lumière de ce mécanisme formel que nous pouvons relire les dynamiques macroscopiques. Imaginons une configuration impliquant trois personnes : Paul, sa femme Laure, et leur fille Lisa. Comparons deux événements : \og{}Paul demande le divorce\fg{} et \og{}Paul donne une pièce à Lisa pour s'acheter une boisson\fg{}.
 		
-		Finalement, un lien a des préconditions d'application. Quand les entités changent autour de lui, ses préconditions sautent, le lien se supprime. Ailleurs, une précondition devient vraie : un lien se créé, ou une entité apparait. La chaine causale ne fait que traduire cette propagation d'impacts locaux qui peuvent, en fonction des entités impactées, rester sans effet notoire ou au contraire impacter drastiquement les configurations accessibles. Pour caractériser objectivement le fait qu'un lien soit plus \og{}structurant\fg{} qu'un autre sans recourir à un jugement de valeur externe, nous pouvons évaluer le \og{}poids topologique\fg{} de l'événement qui le modifie. Deux mesures, intimement liées, s'offrent à nous : 
+		Topologiquement, le lien \og{}mariage\fg{} est un nœud massivement intriqué : il sert de précondition à de très nombreux autres liens (domicile commun, autorité parentale conjointe, comptes bancaires partagés, etc.). Sa rupture invalide instantanément un pan entier de la configuration locale. L'obligation de retrouver un équilibre force une gigantesque cascade d'événements induits (déménager, séparer les biens). À l'inverse, l'événement \og{}donner une pièce\fg{} modifie une propriété locale (un solde) qui ne sert de précondition stricte à presque rien dans ce voisinage immédiat ; l'onde de choc s'amortit dès le premier événement.
+		
+		Pour caractériser objectivement le fait qu'un lien soit plus \og{}structurant\fg{} qu'un autre sans recourir à un jugement humain, nous pouvons évaluer le \og{}poids topologique\fg{} de l'événement qui le modifie. Deux mesures, intimement liées, s'offrent à nous : 
+		
 		\begin{enumerate}
-			\item \textbf{La profondeur causale (impact dynamique)} : le nombre total d'événements induits en cascade par la modification initiale, se propageant de proche en proche. L'onde de choc de la rupture conjugale provoque une vaste réorganisation (déménagements, séparation des biens) pour que le système retrouve une stabilité, tandis que l'achat de la boisson s'amortit immédiatement.
+			\item \textbf{La profondeur causale (impact dynamique)} : le nombre total d'événements induits en cascade par l'invalidation initiale, se propageant de proche en proche. L'onde de choc de la rupture conjugale provoque une vaste réorganisation (déménagements, séparation des biens) pour que le système retrouve une stabilité, tandis que l'achat de la boisson s'amortit immédiatement.
 			\item \textbf{La variation de l'espace des possibles (impact topologique)} : la variation brute du nombre de configurations globalement accessibles au système avant et après l'événement. La disparition d'un lien fortement structurant condamne massivement des trajectoires de futurs (une baisse de l'entropie des possibles associés à ce lien) et en ouvre de nouvelles, redessinant instantanément le paysage des accessibilités. Le don d'une pièce de monnaie laisse, à l'inverse, l'horizon des possibles quasiment intact.
 		\end{enumerate}
 		
