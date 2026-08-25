@@ -142,20 +142,18 @@
 			\end{definition}
 			
 	
-	\section{La notion de causalité}
-	
-		Prenons un exemple introductif : un chauffeur imprudent jette un mégot par la fenêtre, et celui-ci provoque un incendie de forêt très étendu. La chaine causale est claire : le mégot a déclenché un feu, le feu s'est propagé partout où la sécheresse des arbres permettait la propagation des flammes, jusqu'à disparaitre faute de ressources ou de zones favorables à proximité. Ainsi, une transformation a amorcé l'incendie depuis une configuration favorable, et il s'est propagé de proche en proche, parce que l'entité feu trouvait à proximité des arbres pour s'étendre. 
+		\section{La notion de causalité : la dépendance structurelle}
 		
+		Prenons un exemple introductif : un chauffeur imprudent jette un mégot par la fenêtre, et celui-ci provoque un incendie de forêt très étendu. La chaîne causale est claire : le mégot a déclenché un feu, le feu s'est propagé partout où la sécheresse des arbres permettait la propagation des flammes, jusqu'à disparaître faute de ressources ou de zones favorables à proximité. Ainsi, une transformation a amorcé l'incendie depuis une configuration favorable, et il s'est propagé de proche en proche. 
 		
-		Quel est, au delà de l'exemple, le mécanisme à l'œuvre pour qu'une entité soit présente dans une configuration ? Pour qu'un lien existe, il faut que les entités reliées soient présentes, c'est nécessaire. Pour qu'une entité soit présente et puisse tisser des liens avec d'autres, il faut que son voisinage soit déjà en place. Cette remarque induit une notion de causalité par propagation locale d'événements. 
-	
-		
+		Quel est, au-delà de l'exemple, le mécanisme formel à l'œuvre pour qu'une entité se maintienne dans une configuration ? Nous avons établi qu'une entité peut être un objet, un lien ou une propriété. Or, un lien ne peut exister sans les entités qu'il connecte. Si l'un des objets disparaît, le lien n'a plus de point d'ancrage. De même, une propriété n'existe que rattachée à son objet. La disparition de l'ancrage d'une entité entraine mécaniquement l'effondrement de l'entité. Il n'y a donc pas  de loi extérieure qui autoriserait ou interdirait la présence d'une entité, cette nécessité dicte une causalité purement topologique. C'est ce que nous appellerons la \textbf{dépendance structurelle}.
 		
 		\begin{definition}
-			Une précondition est une condition nécessaire pour qu'une entité soit présente dans une configuration. La \textbf{chaîne causale} initiée par un événement est la séquence ininterrompue d'événements induits, de proche en proche, par toute apparition ou disparition en cascade de préconditions.
+			Une \textbf{dépendance structurelle} est la relation de nécessité existentielle entre deux entités. L'existence d'une entité $B$ dépend structurellement d'une entité $A$ si la présence de $B$ requiert intrinsèquement celle de $A$ dans la configuration.
+			
+			La \textbf{chaîne causale} initiée par un événement est la séquence ininterrompue d'événements (créations ou suppressions) induits mécaniquement et de proche en proche par la résolution de ces dépendances structurelles. Le cas de l'effondrement en cascade par perte d'ancrage en est un cas particulier.
 		\end{definition}
-		
-		
+				
 		
 	\section{Résumé}
 	
@@ -255,40 +253,43 @@
 		Or, dès lors que l'on s'intéresse à la viralité d'un contenu à l'échelle de millions d'entités, ou que l'on souhaite intégrer les limites biologiques des acteurs (leur capacité d'attention finie face à un flux infini), la description discrète atteint ses limites combinatoires. Tenter de décrire une vague de propagation en calculant chaque lien de visibilité éphémère devient conceptuellement et mathématiquement insoluble. Pour saisir la dynamique globale de ces propagations de masse, il devient nécessaire de procéder à un changement d'échelle : lisser cette topologie discrète pour l'appréhender de manière macroscopique. L'espace des liens devient un milieu continu, soumis à des densités, des ondes et des intensités : c'est ce que nous appellerons le \textbf{champ informationnel}. Nous y reviendrons.
 	
 
+
+
 \chapter{La géométrie causale intrinsèque}
 
 Dans une lecture superficielle de notre ontologie, tous les événements semblent de même nature : la simple création ou suppression locale d'une entité, d'un lien ou d'une propriété. Pourtant, nous observons empiriquement que certaines transformations s'amortissent immédiatement tandis que d'autres forcent le système à se réorganiser massivement de proche en proche.
 
 Pour comprendre cette asymétrie, la tentation naturelle est d'emprunter des métaphores géographiques : le système chercherait à minimiser son effort en glissant le long des \og{}pentes\fg{} d'un \og{}relief\fg{} préexistant. Or, invoquer un paysage extérieur ou une volonté métaphorique viole nos postulats fondateurs. 
 
-À l'instar de la relativité générale d'Einstein et des approches relationnelles de la gravité quantique (telles que théorisées par Carlo Rovelli), \textbf{notre système ne se déploie pas \textit{dans} un espace : le réseau des relations \textit{est} l'espace}. Sa géométrie doit émerger intrinsèquement de ses propres constituants et de leurs interdépendances causales.
+À l'instar de la relativité générale d'Einstein et des approches relationnelles de la gravité quantique (telles que théorisées par Carlo Rovelli), \textbf{notre système ne se déploie pas \textit{dans} un espace : le réseau des relations \textit{est} l'espace}. Sa géométrie doit émerger intrinsèquement de ses propres constituants et, plus particulièrement, de l'architecture de leurs dépendances structurelles.
 
 \section{Métrique événementielle et inertie topologique}
 
 S'il n'y a pas de contenant spatial ou temporel absolu, comment évaluer la \og{}distance\fg{} entre deux configurations ? Dans notre modèle, le temps et l'espace n'existent pas en tant que fond de scène ; seul existe le quantum de changement qu'est l'événement.
 
 \begin{definition}
-	La \textbf{distance causale} (ou métrique topologique) entre deux configurations $a$ et $b$ correspond au \textbf{coût événementiel minimal}, c'est-à-dire au nombre total d'événements (initiés et induits en cascade) nécessaires pour transformer $a$ en $b$ tout en respectant la viabilité des préconditions à chaque étape.
+	La \textbf{distance causale} (ou métrique topologique) entre deux configurations $a$ et $b$ correspond au \textbf{coût événementiel minimal}, c'est-à-dire au nombre total d'événements (initiés et induits en cascade) nécessaires pour transformer $a$ en $b$ tout en maintenant une structure topologiquement valide.
 \end{definition}
 
-Cependant, toutes les entités ne sont pas égales face à cette métrique, car elles possèdent des préconditions d'existence et servent elles-mêmes de préconditions à d'autres.
+Cependant, toutes les entités ne sont pas égales face à cette métrique, car le réseau des dépendances structurelles est hétérogène.
 
 Imaginons une configuration impliquant trois personnes : Paul, sa femme Laure, et leur fille Lisa. Comparons deux événements : \og{}Paul donne une pièce à Lisa\fg{} et \og{}Paul demande le divorce\fg{}.
 
-L'événement \og{}donner une pièce\fg{} modifie une propriété locale (un solde) qui ne sert de précondition stricte à presque rien dans ce voisinage immédiat ; l'onde de choc s'amortit dès le premier événement. La distance causale pour absorber cette transformation est minimale.
-À l'inverse, topologiquement, le lien \og{}mariage\fg{} est un nœud massivement intriqué : il sert de précondition à de très nombreux autres liens (domicile commun, autorité parentale conjointe, comptes bancaires partagés). Sa rupture invalide instantanément un pan entier de la configuration locale. L'obligation de retrouver un équilibre force une gigantesque cascade d'événements induits (déménagements, séparation des biens, etc.).
+L'événement \og{}donner une pièce\fg{} modifie une propriété locale (un solde). Cette entité-propriété est une extrémité du graphe : aucune autre entité ne dépend structurellement d'elle dans ce voisinage immédiat ; l'onde de choc s'amortit dès le premier événement. La distance causale pour absorber cette transformation est minimale.
+
+À l'inverse, topologiquement, le lien \og{}mariage\fg{} est un nœud massivement intriqué : il sert d'ancrage à de très nombreuses autres entités (domicile commun, autorité parentale conjointe, comptes bancaires partagés). Sa suppression détruit le socle dont dépendaient ces entités, les invalidant instantanément. L'obligation de retrouver un équilibre topologique force une gigantesque cascade d'événements induits (déménagements, séparation des biens, etc.).
 
 Nous pouvons ainsi définir l'équivalent topologique de la masse en physique :
 
 \begin{definition}
-	L'\textbf{inertie topologique} d'une entité (objet, propriété ou lien) est proportionnelle à l'étendue des chaînes causales dont elle constitue une précondition stricte. Elle caractérise la quantité d'événements qui seraient inévitablement induits par sa suppression ou son altération.
+	L'\textbf{inertie topologique} d'une entité (objet, propriété ou lien) est proportionnelle au volume de son \textbf{sous-graphe de dépendances}. Elle caractérise la quantité d'événements qui seraient inévitablement et mécaniquement induits par sa suppression ou son altération.
 \end{definition}
 
 \section{La courbure de l'espace des possibles}
 
 En relativité générale, la masse (ou l'énergie-impulsion) dicte à l'espace-temps comment se courber. Dans notre ontologie, l'inertie topologique courbe l'espace des possibles.
 
-Une entité ou un sous-graphe doté d'une très forte inertie topologique (une institution, un lien structurant, une norme tenace) agit comme une singularité ou un \og{}puits gravitationnel\fg{} causal. Parce que sa modification exigerait une cascade titanesque d'événements induits, la distance causale vers toute configuration alternative qui ne la contiendrait pas se trouve considérablement \og{}dilatée\fg{}. 
+Une entité ou un sous-graphe doté d'une très forte inertie topologique (une institution, un lien structurant, une norme tenace) agit comme une singularité ou un \og{}puits gravitationnel\fg{} causal. Parce que sa modification exigerait une cascade titanesque d'événements induits (pour purger ou réorganiser toutes les entités qui en dépendent), la distance causale vers toute configuration alternative qui ne la contiendrait pas se trouve considérablement \og{}dilatée\fg{}. 
 
 L'espace des trajectoires accessibles se referme ainsi autour des structures les plus intriquées. Le système est géométriquement contraint : les configurations nécessitant la rupture de liens à forte inertie deviennent topologiquement \og{}très éloignées\fg{}, tandis que celles qui préservent ces invariants majeurs restent proches.
 
@@ -296,15 +297,16 @@ L'espace des trajectoires accessibles se referme ainsi autour des structures les
 
 Face à cette géométrie intrinsèque en réseaux, comment s'orientent les trajectoires du système ?
 
-Il est crucial de ne prêter aucune intentionnalité, téléologie ou biais de \og{}fainéantise\fg{} au système. La mécanique à l'œuvre est purement combinatoire. Pour franchir une zone à forte inertie (une \og{}montagne\fg{} causale), il faudrait que les conditions de la configuration locale permettent l'occurrence parfaitement coordonnée de milliers d'événements induits afin de restaurer de nouvelles préconditions stables. La probabilité combinatoire que le graphe offre spontanément une telle piste d'accessibilité est infime. 
+Il est crucial de ne prêter aucune intentionnalité, téléologie ou biais de \og{}fainéantise\fg{} au système. La mécanique à l'œuvre est purement combinatoire et probabiliste. Pour franchir une zone à forte inertie (une \og{}montagne\fg{} causale), il faudrait que les conditions de la configuration locale permettent l'occurrence parfaitement coordonnée de milliers d'événements de rééquilibrage afin de restaurer de nouvelles dépendances stables. La probabilité que le graphe offre spontanément une telle orchestration est infime. 
 
-À l'inverse, un chemin préservant les fortes inerties et ne modifiant que des propriétés périphériques requiert très peu d'alignements causaux. Le glissement vers cette dynamique s'impose alors par nécessité statistique, nous offrant l'équivalent exact du principe de moindre action de Maupertuis ou de la mécanique lagrangienne :
+À l'inverse, un chemin préservant les fortes inerties et ne modifiant que des propriétés périphériques requiert très peu d'alignements causaux. Le glissement vers cette dynamique s'impose alors par stricte nécessité statistique, nous offrant l'équivalent exact du principe de moindre action de Maupertuis ou de la mécanique lagrangienne :
 
 \begin{theorem}[Principe de moindre action causale]
-	Étant donné une configuration et ses futurs accessibles, la dynamique du système s'écoule spontanément le long des trajectoires qui minimisent la distance causale (le nombre total d'événements initiés et induits). Les entités suivent les \textbf{géodésiques} du graphe, c'est-à-dire les séquences d'événements générant le minimum de ruptures de préconditions.
+	Étant donné une configuration et ses futurs accessibles, la dynamique du système s'écoule spontanément le long des trajectoires qui minimisent la distance causale (le nombre total d'événements initiés et induits). Les entités suivent les \textbf{géodésiques} du graphe, c'est-à-dire les séquences d'événements générant le minimum de ruptures de dépendances structurelles.
 \end{theorem}
 
-Ce principe unifie élégamment la topologie structurelle et la dynamique des entités. L'intuition selon laquelle \textit{\og{}la plupart des entités prennent le chemin le plus court dans une métrique liée aux impacts\fg{}} trouve ici sa pleine justification formelle. Les entités s'écoulent mécaniquement dans les sillons creusés par leur propre complexité intriquée. 
+Ce principe unifie élégamment la topologie structurelle et la dynamique des entités. L'intuition selon laquelle \textit{\og{}la plupart des entités prennent le chemin le plus court dans une métrique liée aux impacts\fg{}} trouve ici sa pleine justification formelle. Les entités s'écoulent mécaniquement dans les sillons creusés par le poids de leur propre complexité intriquée. 
 
-Ce que l'observateur humain nomme de l'extérieur une \og{}tendance systémique\fg{}, une \og{}inertie institutionnelle\fg{}, une \og{}résistance au changement\fg{} ou un comportement de \og{}moindre effort\fg{}, n'est rien d'autre que l'expression géométrique de ce théorème : le constat d'un système en \textbf{chute libre causale} continue, glissant le long des géodésiques d'un espace des possibles courbé par le réseau de ses propres interdépendances.
+Ce que l'observateur humain nomme de l'extérieur une \og{}tendance systémique\fg{}, une \og{}inertie institutionnelle\fg{}, une \og{}résistance au changement\fg{} ou un comportement de \og{}moindre effort\fg{}, n'est rien d'autre que l'expression géométrique de ce théorème : le constat d'un système en \textbf{chute libre causale} continue, glissant le long des géodésiques d'un espace des possibles courbé par le réseau de ses propres dépendances.
+
 \end{document}
