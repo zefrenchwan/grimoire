@@ -262,28 +262,112 @@
 			Un graphe est la donnée de deux ensembles, $S$ et $L$. Chaque lien est la donnée d'une source (le point de départ) et d'une destination (le point d'arrivée), donc deux fonctions $s,d : L \rightarrow S$. Si le graphe est valué par un ensemble $V$ , on a de plus une fonction $v : L \rightarrow V$. On sait en particulier décider si deux nœuds et deux liens sont égaux. 
 		\end{definition}
 		
+		La définition d'un graphe implique que le lien ait une source et une destination. Autrement dit, un lien ne peut coder qu'une relation binaire, telle que Aime(sujet, complément), laissant de côté les autres, comme par exemple Enseigner(professeur, matière, classe). Une méthode pour retrouver cette expressivité consiste à se ramener à des relations binaires en créant des couples, tels que Enseigne(Enseignant de matière, classe). Une autre méthode consiste à utiliser les \textbf{hypergraphes}. 
+		
+		\begin{definition}
+			Un hypergraphe est la donnée de deux ensembles, $S$ et $H$. L'ensemble $S$ représente les sommets des hypergraphes (comme les graphes). Pour les arêtes, un hypergraphe n'est pas orienté. On ne prend donc pas un lien entre deux éléments, mais entre un nombre fini d'éléments. Dès lors, $H$ est la donnée de parties finies de $S$. 
+		\end{definition}
+		
+		\section{Les parcours de graphe}
+		
+			Partons d'un graphe orienté $G = (S,L)$ et d'un nœud $n \in S$. Comme tout lien a un sens, on peut imaginer un parcours de graphe comme un passage d'un nœud à un autre suivant l'orientation du lien. Ainsi, un parcours de graphe consiste à se donner un noeud initial et à suivre le graphe tant qu'il est possible de le faire. L'algorithme général consiste à trouver les noeuds atteignables depuis sa position courante, et suivre un des liens disponibles (c'est à dire l'emprunter dans un sens compatible avec sa définition). On peut alors rencontrer des \textbf{cycles}, c'est à dire des chemins qui reviennent sur un noeud déjà visité. Le cycle le plus simple est $a \rightarrow b \rightarrow a$. 
+			
+			\subsection*{L'exemple des problèmes d'exploration} 
+			
+			Cette logique de parcours est à la base de nombreux algorithmes d'intelligence artificielle. Le formalisme d'état transition mérite qu'on s'y attarde, et nous reprendrons la présentation de \cite{RussellNorvig}. Un outil informatique utilise ses capteurs et batit sa représentation du monde, l'état tel qu'il le perçoit. Il a également un modèle du monde, lui permettant de dire que s'il effectue telle action alors qu'il est dans tel état, il obtiendra un autre état du monde. Par exemple, s'il est à Paris et qu'il prend telle autoroute, il est à Lille. Le problème qu'on lui soumet est de partir de Paris pour rejoindre Bruxelles. Formellement, un problème devient : 
+			\begin{enumerate}
+				\item \textbf{des états}, dont des états buts, et un état initial. Dans notre exemple, les états sont le constat d'être dans telle ville, l'état initial est être à Paris, le but est d'être à Bruxelles. Attention, les états ne sont pas les villes, mais le fait d'être dans telle ou telle ville. 
+				\item \textbf{les actions à disposition}. Quand il est dans un état donné, notre outil informatique est en mesure de lister les actions qu'il a à sa disposition. Les méthodes sont différentes s'il connait d'avance toutes ses options dans tous les états, ou s'il les découvre une fois sur place. Ces actions ont un coût. Sur un graphe valué, la transition entre tel et tel état est la ressource nécessaire. Dans ce cas là, la contrainte de rester sous le seuil d'une capacité en ressources totales s'ajoute pour la résolution du problème. 
+				\item \textbf{un modèle de transition}. Ce modèle définit l'état prévisionnel atteint quand on applique avec succès telle action sur tel état. 
+			\end{enumerate} 
+			
+			Il existe de nombreux algorithmes pour trouver une solution. Donnons en un aperçu, en tous cas, la logique principale : 
+			\begin{itemize}
+				\item de partir d'un état. Si c'est déjà un état but, s'arrêter directement. 
+				\item de trouver les états accessibles en appliquant une seule action. Si l'on peut, évaluer la meilleure d'entre elles, ou simplement d'en choisir une. 
+				\item d'appliquer l'action en question. Si l'état est déjà un état but, on s'arrête. Sinon, on recommence la logique depuis l'état en cours. Si on a déjà traité cet état, l'outil peut décider qu'il est dans un cycle et s'arrêter. 
+			\end{itemize}
+		
 		\section{La réification de graphes}
-		On aimerait par contre réifier des liens, c'est à dire avoir des liens dont la source ou la destination est lui même un lien. Par exemple, $$Sait(source=Jean, destination=Aime(source=Paul,destination = lait))$$ Ce n'est normalement pas possible si on prend la définition d'un graphe, mais nous allons détailler comment produire un graphe réifiable à partir d'un autre graphe. Deux méthodes existent : 
-		\begin{enumerate}
-			\item La source et la destination peuvent être un lien comme un sommet. Dit autrement, la méthode consiste à changer la signature de $s$ et $d$. Si on prend l'union disjointe $\mathcal{A} = S \bigcup L$ (pour ne pas confondre sommet et lien), on passe de $s,d : L \rightarrow S$ à $s,d : L \rightarrow \mathcal{A}$. L'avantage de la méthode est sa simplicité à ce stade. Mais on perd tout l'attirail théorique des graphes. 
-			\item Les liens et les sommets deviennent des nœuds d'un second graphe. Ils constituent la couche sémantique du nouveau graphe, et on utilise des liens formels, sans sémantique. Ainsi, partant de $G$, on pose $\mathcal{A} = S \bigcup L$ pour les sommets et $\mathcal{E}$ pour ces liens formels, donc deux fonctions $\sigma,\delta : \mathcal{E} \rightarrow \mathcal{A}$. Le lien $l \in L$ défini par $(s,d)(l) = (a,b)$ devient un noeud $l' \in \mathcal{A}$ tel que $(\sigma,\delta)(l') = (s,d)(l)$. On passe donc de $a \xrightarrow{l} b$ à $a \xleftarrow{\sigma} l \xrightarrow{\delta} b$.
-		\end{enumerate}
+			On aimerait par contre réifier des liens, c'est à dire avoir des liens dont la source ou la destination est lui même un lien. Par exemple, $$Sait(source=Jean, destination=Aime(source=Paul,destination = lait))$$ Ce n'est normalement pas possible si on prend la définition d'un graphe, mais nous allons détailler comment produire un graphe réifiable à partir d'un autre graphe. Deux méthodes existent : 
+			\begin{enumerate}
+				\item La source et la destination peuvent être un lien comme un sommet. Dit autrement, la méthode consiste à changer la signature de $s$ et $d$. Si on prend l'union disjointe $\mathcal{A} = S \bigcup L$ (pour ne pas confondre sommet et lien), on passe de $s,d : L \rightarrow S$ à $s,d : L \rightarrow \mathcal{A}$. L'avantage de la méthode est sa simplicité à ce stade. Mais on perd tout l'attirail théorique des graphes. 
+				\item Les liens et les sommets deviennent des nœuds d'un second graphe. Ils constituent la couche sémantique du nouveau graphe, et on utilise des liens formels, sans sémantique. Ainsi, partant de $G$, on pose $\mathcal{A} = S \bigcup L$ pour les sommets et $\mathcal{E}$ pour ces liens formels, donc deux fonctions $\sigma,\delta : \mathcal{E} \rightarrow \mathcal{A}$. Le lien $l \in L$ défini par $(s,d)(l) = (a,b)$ devient un noeud $l' \in \mathcal{A}$ tel que $(\sigma,\delta)(l') = (s,d)(l)$. On passe donc de $a \xrightarrow{l} b$ à $a \xleftarrow{\sigma} l \xrightarrow{\delta} b$.
+			\end{enumerate}
+			
+			Si nous le poussons jusqu'au bout, ce second concept amènerait à une proposition sémantique intéressante pour inclure une couche sémantique, donc au niveau pratique de l'usage de l'outil par un observateur. Par exemple, Aime(Lucas, Marie) devient Aime(sujet=Lucas, objet=Marie)\footnote{Objet de la relation, évidemment}, permettant de porter tout type de relation : Enseigne(sujet=Enseignant, objet =cours, complément circonstanciel de temps=le lundi). L'approche par contre serait trompeuse d'un point de vue ontologique : elle est liée à la description du monde par un observateur. Nous y reviendrons. 
+			
 
 
-	\section{Les hypergraphes}
+	\chapter{La formalisation du modèle}
 	
+		Nous visons une représentation suffisamment formalisée pour expliquer des comportements autrement qu'en faisant appel à l'intuition uniquement. 
+		
+		\section{Une construction des configurations}
+		
+			Donnons nous une configuration. Il existe nécessairement des entités fondamentales (propriétés pures, objets de base) qui constituent les briques fondamentales de l'entité. Notons les $\mathcal{E}_0$. L'idée est de reconstruire la configuration par ajouts successifs de liens de manière inductive, par récurrence. Spécifiquement, elle existe déjà, mais si nous postulons qu'aucune entité n'apparait dans sa propre chaine de dépendance, nous la reconstituons. Ainsi, nous utilisons deux conditions supplémentaires : 
+			\begin{enumerate}
+				\item les configurations sont constituées d'un nombre au plus dénombrable d'entités
+				\item aucune entité n'apparait dans les liens qui la définissent (rien n'existe avant sa propre définition).
+			\end{enumerate}
+			
+			
+			\begin{definition}
+				Une configuration est dite de type fini si les entités qui la constituent sont en nombre au plus dénombrable et si, partant d'une entité, aucun cycle n'apparait dans le parcours de graphe qui commence par cette entité. 
+			\end{definition}
+			
+
+			Cette approche bâtit l'espace des entités strate par strate et fait organiquement émerger la notion de \textbf{profondeur topologique}. Étant donné $\mathcal{E}_0$, considérons $\mathcal{L}_0$ l'ensemble de tous les liens dont les nœuds sont dans $\mathcal{E}_0$ (et, à ce stade, uniquement $\mathcal{E}_0$). Nous obtenons alors $\mathcal{L}_1$ les liens bâtis sur le niveau précédent. Mais ce sont également des entités, donc nous pouvons construire d'autres liens dont ils sont la base. Et le faire encore. Ainsi, si nous formalisons cette idée, nous obtenons une construction où chaque niveau se fonde sur ce qu'on a construit avant, depuis les entités les plus élémentaires. 
+		
+		
+		
+			\begin{definition}[Construction de la configuration par récurrence]
+				Soit $S$ l'ensemble des entités fondamentales (les objets de base ou propriétés pures de la configuration, dénués de dépendance structurelle interne). Nous construisons l'espace global unifié des entités $\mathcal{E}$ comme l'union d'une suite d'ensembles $\mathcal{E}_n$, définie par récurrence :
+				
+				\begin{enumerate}
+					\item \textbf{Niveau 0 (Le socle) :} $\mathcal{E}_0 = S$. Ces entités ont une profondeur nulle, elles constituent les racines de la configuration.
+					\item \textbf{Niveau $n+1$ (La stratification) :} Supposons l'ensemble cumulé $\mathcal{E}_n$ connu. On définit $\mathcal{L}_{n+1}$ comme l'ensemble des nouveaux liens (graphes ou hypergraphes) dont toutes les composantes ou extrémités appartiennent strictement à $\mathcal{E}_n$. L'ensemble des entités de niveau $n+1$ s'enrichit alors de ces nouveaux liens :
+					$$ \mathcal{E}_{n+1} = \mathcal{E}_n \cup \mathcal{L}_{n+1} $$
+				\end{enumerate}
+				L'espace topologique global de la configuration est la limite de cette hiérarchie : 
+				$$ \mathcal{E} = \bigcup_{n=0}^{\infty} \mathcal{E}_n $$
+			\end{definition}
+			
+			Nous postulons donc que le processus donne une configuration de type fini. 
+			
+			\begin{proposition}
+				Les conditions suivantes sont équivalentes : 
+				\begin{enumerate}
+					\item une configuration est de type fini 
+					\item la construction par récurrence de cette configuration donne exactement la même configuration. 
+				\end{enumerate}
+			\end{proposition}
+			
+		\section{Le modèle des configurations de type fini}
 		
 
-
-
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% EN DESSOUS, C'EST L'IA QUI A GENERE 
 %% GLOBALEMENT, ON A TOUT, FAUT CLARIFIER ET REFORMULER 
-%% (no offense, cutie pie, you're my best ai)
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% (no offense, cutie pie, you're my best ai)(the fiest, the one, MY EVERYTHIIIIING)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+		
+		
+			
+			\begin{definition}[Profondeur structurelle]
+				Pour toute entité $x \in \mathcal{E}$, on appelle \textbf{profondeur} de $x$, le plus petit entier $k$ tel que $x \in \mathcal{E}_k$. Cette coordonnée confère une mesure mathématique exacte au degré d'abstraction, d'émergence ou d'intrication de cette entité.
+			\end{definition}
+			
+			\paragraph{Les conséquences ontologiques de la stratification.}
+			Cette architecture mathématique n'est pas qu'un simple outil de notation : elle est la traduction géométrique rigoureuse de nos postulats sur la dynamique des entités.
+			\begin{itemize}
+				\item \textbf{La substitution de la sémantique par la topologie :} La profondeur élimine tout besoin de sémantique (comme des étiquettes de rôles \og{}sujet\fg{} ou \og{}objet\fg{}). L'asymétrie d'une interaction complexe s'encode purement par l'ordre d'assemblage des sous-graphes. Par exemple, modéliser \og{}\textit{Le groupe (Jean, Marie) va à la plage}\fg{} se lit topologiquement : les individus sont de profondeur 0, l'entité \og{}groupe\fg{} reliant les individus est de profondeur 1, et l'entité événement \og{}déplacement\fg{} reliant ce groupe à la plage est de profondeur 2. L'asymétrie de l'action est intégralement capturée par la généalogie de la profondeur, rendant les concepts sémantiques obsolètes.
+				\item \textbf{L'interdiction des paradoxes causaux (Acyclicité) :} Par construction, un lien de profondeur $N$ ne peut dépendre que d'entités de profondeur strictement inférieure. Il est donc mathématiquement impossible qu'un lien soit sa propre cause ou s'inscrive dans une boucle de dépendance structurelle. Le réseau est intrinsèquement un graphe acyclique.
+				\item \textbf{La directionnalité de l'effondrement en cascade :} La dépendance structurelle (définie au Chapitre 1) possède désormais un vecteur de propagation formel. Si un événement supprime une entité de profondeur $k$, la perte d'ancrage se propage mécaniquement vers le \og{}haut\fg{}, détruisant en cascade toutes les entités de profondeur supérieure ($>k$) qui reposaient sur elle.
+			\end{itemize}
+			
+
 
 
 
@@ -418,5 +502,28 @@ Cependant, pour franchir un verrou à très forte inertie topologique, il faudra
 \end{proposition}
 
 Ce principe unifie élégamment l'architecture topologique du réseau et sa dynamique d'évolution. Ce que l'observateur humain nomme de l'extérieur « inertie institutionnelle » ou « résistance au changement » n'est rien d'autre que l'expression statistique de cette proposition : le constat formel d'un système discret dont l'immensité combinatoire contourne naturellement la masse de ses propres dépendances.
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%
+%% BIBLIOGAPHY %%
+%%%%%%%%%%%%%%%%%
+
+\begin{thebibliography}{99}
+	
+	\bibitem{RussellNorvig}
+	Stuart Russell, Peter Norvig, 
+	\textit{Intelligence artificielle, une approche moderne},
+	Pearson
+	4ème edition,
+	2021.
+	
+\end{thebibliography}
 
 \end{document}
