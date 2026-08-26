@@ -270,23 +270,12 @@
 		
 		\section{Les parcours de graphe}
 		
-			Partons d'un graphe orienté $G = (S,L)$ et d'un nœud $n \in S$. Comme tout lien a un sens, on peut imaginer un parcours de graphe comme un passage d'un nœud à un autre suivant l'orientation du lien. Ainsi, un parcours de graphe consiste à se donner un noeud initial et à suivre le graphe tant qu'il est possible de le faire. L'algorithme général consiste à trouver les noeuds atteignables depuis sa position courante, et suivre un des liens disponibles (c'est à dire l'emprunter dans un sens compatible avec sa définition). On peut alors rencontrer des \textbf{cycles}, c'est à dire des chemins qui reviennent sur un noeud déjà visité. Le cycle le plus simple est $a \rightarrow b \rightarrow a$. 
+			Partons d'un graphe orienté $G = (S,L)$ et d'un nœud $n \in S$. Comme tout lien a un sens, on peut imaginer un parcours de graphe comme un passage d'un nœud à un autre suivant l'orientation du lien. Ainsi, un parcours de graphe consiste à se donner un noeud initial et à suivre le graphe tant qu'il est possible de le faire. L'algorithme général consiste à trouver les noeuds atteignables depuis sa position courante, et suivre un des liens disponibles (c'est à dire l'emprunter dans un sens compatible avec sa définition). On peut alors rencontrer des \textbf{cycles}, c'est à dire des chemins qui reviennent sur un nœud déjà visité. Le cycle le plus simple est $a \rightarrow b \rightarrow a$. 
 			
-			\subsection*{L'exemple des problèmes d'exploration} 
 			
-			Cette logique de parcours est à la base de nombreux algorithmes d'intelligence artificielle. Le formalisme d'état transition mérite qu'on s'y attarde, et nous reprendrons la présentation de \cite{RussellNorvig}. Un outil informatique utilise ses capteurs et batit sa représentation du monde, l'état tel qu'il le perçoit. Il a également un modèle du monde, lui permettant de dire que s'il effectue telle action alors qu'il est dans tel état, il obtiendra un autre état du monde. Par exemple, s'il est à Paris et qu'il prend telle autoroute, il est à Lille. Le problème qu'on lui soumet est de partir de Paris pour rejoindre Bruxelles. Formellement, un problème devient : 
-			\begin{enumerate}
-				\item \textbf{des états}, dont des états buts, et un état initial. Dans notre exemple, les états sont le constat d'être dans telle ville, l'état initial est être à Paris, le but est d'être à Bruxelles. Attention, les états ne sont pas les villes, mais le fait d'être dans telle ou telle ville. 
-				\item \textbf{les actions à disposition}. Quand il est dans un état donné, notre outil informatique est en mesure de lister les actions qu'il a à sa disposition. Les méthodes sont différentes s'il connait d'avance toutes ses options dans tous les états, ou s'il les découvre une fois sur place. Ces actions ont un coût. Sur un graphe valué, la transition entre tel et tel état est la ressource nécessaire. Dans ce cas là, la contrainte de rester sous le seuil d'une capacité en ressources totales s'ajoute pour la résolution du problème. 
-				\item \textbf{un modèle de transition}. Ce modèle définit l'état prévisionnel atteint quand on applique avec succès telle action sur tel état. 
-			\end{enumerate} 
-			
-			Il existe de nombreux algorithmes pour trouver une solution. Donnons en un aperçu, en tous cas, la logique principale : 
-			\begin{itemize}
-				\item de partir d'un état. Si c'est déjà un état but, s'arrêter directement. 
-				\item de trouver les états accessibles en appliquant une seule action. Si l'on peut, évaluer la meilleure d'entre elles, ou simplement d'en choisir une. 
-				\item d'appliquer l'action en question. Si l'état est déjà un état but, on s'arrête. Sinon, on recommence la logique depuis l'état en cours. Si on a déjà traité cet état, l'outil peut décider qu'il est dans un cycle et s'arrêter. 
-			\end{itemize}
+		\section{Les DAG}
+		
+			Prenons un graphe orienté sans cycle. C'est par définition un DAG : directed acyclic graph. Pour un nœud $a$, sa composante fortement connexe est l'ensemble des nœuds qu'on peut parcourir depuis ce nœud. S'il existe un parcours allant d'un nœud $a$ au nœud $b$, on peut compter le nombre de liens parcourus (et attention, il peut exister plusieurs chemins). Dans l'absolu, la hauteur d'un nœud est la longueur du plus long chemin arrivant à un noeud terminal (dont il ne part aucun lien). 
 		
 		\section{La réification de graphes}
 			On aimerait par contre réifier des liens, c'est à dire avoir des liens dont la source ou la destination est lui même un lien. Par exemple, $$Sait(source=Jean, destination=Aime(source=Paul,destination = lait))$$ Ce n'est normalement pas possible si on prend la définition d'un graphe, mais nous allons détailler comment produire un graphe réifiable à partir d'un autre graphe. Deux méthodes existent : 
@@ -307,15 +296,16 @@
 		
 			Donnons nous une configuration. Il existe nécessairement des entités fondamentales (propriétés pures, objets de base) qui constituent les briques fondamentales de l'entité. Notons les $\mathcal{E}_0$. L'idée est de reconstruire la configuration par ajouts successifs de liens de manière inductive, par récurrence. Spécifiquement, elle existe déjà, mais si nous postulons qu'aucune entité n'apparait dans sa propre chaine de dépendance, nous la reconstituons. Ainsi, nous utilisons deux conditions supplémentaires : 
 			\begin{enumerate}
-				\item les configurations sont constituées d'un nombre au plus dénombrable d'entités
-				\item aucune entité n'apparait dans les liens qui la définissent (rien n'existe avant sa propre définition).
+				\item les configurations sont constituées d'un nombre fini d'entités
+				\item aucune entité n'apparait dans les liens qui la définissent (rien n'existe avant sa propre définition). Attention à ne pas confondre l'absence de cycles dans la dépendance structurelle, qui fige la structure à un instant donné, avec les boucles de rétroaction temporelles générées par la dynamique de co-évolution. L'une est structurelle, l'autre temporelle. 
 			\end{enumerate}
+			
+			Un cas notoire est le DAG : les sommets forment un ensemble fini, il est acyclique par définition. Le cas général n'est pas un DAG, puisque les liens ne sont pas nécessairement binaires. 
 			
 			
 			\begin{definition}
-				Une configuration est dite de type fini si les entités qui la constituent sont en nombre au plus dénombrable et si, partant d'une entité, aucun cycle n'apparait dans le parcours de graphe qui commence par cette entité. 
-			\end{definition}
-			
+				Une configuration est dite de type fini si les entités qui la constituent sont en nombre fini et si, partant d'une entité, aucun cycle n'apparait dans le parcours de graphe qui commence par cette entité. 
+			\end{definition}	
 
 			Cette approche bâtit l'espace des entités strate par strate et fait organiquement émerger la notion de \textbf{profondeur topologique}. Étant donné $\mathcal{E}_0$, considérons $\mathcal{L}_0$ l'ensemble de tous les liens dont les nœuds sont dans $\mathcal{E}_0$ (et, à ce stade, uniquement $\mathcal{E}_0$). Nous obtenons alors $\mathcal{L}_1$ les liens bâtis sur le niveau précédent. Mais ce sont également des entités, donc nous pouvons construire d'autres liens dont ils sont la base. Et le faire encore. Ainsi, si nous formalisons cette idée, nous obtenons une construction où chaque niveau se fonde sur ce qu'on a construit avant, depuis les entités les plus élémentaires. 
 		
@@ -329,7 +319,7 @@
 					\item \textbf{Niveau $n+1$ (La stratification) :} Supposons l'ensemble cumulé $\mathcal{E}_n$ connu. On définit $\mathcal{L}_{n+1}$ comme l'ensemble des nouveaux liens (graphes ou hypergraphes) dont toutes les composantes ou extrémités appartiennent strictement à $\mathcal{E}_n$. L'ensemble des entités de niveau $n+1$ s'enrichit alors de ces nouveaux liens :
 					$$ \mathcal{E}_{n+1} = \mathcal{E}_n \cup \mathcal{L}_{n+1} $$
 				\end{enumerate}
-				L'espace topologique global de la configuration est la limite de cette hiérarchie : 
+				La structure global de la configuration est la limite de cette hiérarchie : 
 				$$ \mathcal{E} = \bigcup_{n=0}^{\infty} \mathcal{E}_n $$
 			\end{definition}
 			
@@ -342,10 +332,60 @@
 					\item la construction par récurrence de cette configuration donne exactement la même configuration. 
 				\end{enumerate}
 			\end{proposition}
+
+			Dans le cas d'un DAG, la construction est bien équivalente.	Nous définissons alors une condition suffisante pour n'avoir à traiter que des configurations de type fini. Nous doutons, en toute franchise, qu'il en existe d'autres. 
 			
-		\section{Le modèle des configurations de type fini}
+			\begin{definition}
+				Un système est de type fini si toutes les configurations qu'il traverse sont de type fini. Autrement dit, pour toute configuration du système, la configuration est de type fini. 
+			\end{definition}
+			
+		\section{Les propriétés des configurations de type fini}
+
+			Cette partie, un peu technique, pose les bases nécessaires pour les propriétés du modèle. Avant tout, prenons deux entités $a$ et $b$. Remarquons que l'absence de cycle rend possible trois situations et trois seulement (elles s'excluent mutuellement) : 
+			\begin{enumerate}
+				\item les deux entités n'ont pas de chemin commun
+				\item il existe un chemin de $a$ vers $b$
+				\item il existe un chemin de $b$ vers $a$
+			\end{enumerate}
+			
+			\begin{definition}
+				Pour une configuration donnée de type fini, l'ensemble des entités $E$ est muni d'un ordre partiel. S'il existe un chemin allant de $a$ vers $b$ (ou si $a = b$), on notera $a \preceq b$. En particulier, on posera, pour $a \in S$, $$<a> = \{ \ z \in S \ | \ a \preceq b \ \}$$
+			\end{definition}
+			
+			Cette notion en particulier sera clé pour réinterpréter le concept de dépendance structurelle. Fixons deux entités $a$ et $b$ d'une configuration de type fini. Les deux notions suivantes sont équivalentes : 
+			\begin{itemize}
+				\item $a \preceq b$
+				\item $b$ est une dépendance structurelle de $a$
+			\end{itemize}
+			
+			Dès lors, la suppression de $b$ va impliquer en cascade la suppression de $a$. Pour toute entité $x \in \mathcal{E}$, on appelle \textbf{profondeur} de $x$, le plus petit entier $k$ tel que $x \in \mathcal{E}_k$. Si un événement supprime une entité de profondeur $k$, la perte d'ancrage se propage mécaniquement vers le \og{}haut\fg{}, détruisant en cascade toutes les entités de profondeur supérieure ($>k$) qui reposaient sur elle.
+			
+			\begin{theorem}
+				Dans une configuration de type fini, soient deux entités $a$ et $b$ telles que $a \preceq b$. Tout événement supprimant $b$ finira par provoquer la suppression de $a$. 
+			\end{theorem}
+			
+			
+
 		
 
+
+		\section{Le modèle des systèmes de type fini}
+		
+			On se donne un système de type fini. Nous allons combiner deux concepts : 
+			\begin{enumerate}
+				\item le fait que toute configuration soit de type fini, donc qu'on puisse parler de profondeur d'une entité et mesurer les conséquences de sa disparition 
+				\item le fait que les événements engendrent les transformations, donc que toute transformation soit la conséquence d'une modification locale
+			\end{enumerate}
+			
+			
+			Pour formaliser la notion d'évolution et de co-évolution, nous devons pouvoir mesurer mathématiquement l'écart topologique entre deux états du système, c'est-à-dire entre deux configurations valides. Dans un espace discret, il suffit de compter le nombre d'opérations combinatoires nécessaires pour basculer d'une structure à une autre. Puisque dans notre modèle réifié, tout (objet, lien, propriété) est un nœud de l'ensemble $\mathcal{E}$, une opération d'édition correspond strictement à un \textit{événement} de création ou de suppression. 
+			
+			\begin{definition}[Distance d'édition]
+				La \textbf{distance d'édition} est une métrique qui calcule le nombre minimal d'opérations unitaires requises pour transformer une configuration $C_1$ en une autre $C_2$. Ces opérations sont précisément l'insertion et la suppression d'entités.
+			\end{definition}
+			
+			
+			
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% EN DESSOUS, C'EST L'IA QUI A GENERE 
 %% GLOBALEMENT, ON A TOUT, FAUT CLARIFIER ET REFORMULER 
@@ -355,89 +395,15 @@
 		
 		
 			
-			\begin{definition}[Profondeur structurelle]
-				Pour toute entité $x \in \mathcal{E}$, on appelle \textbf{profondeur} de $x$, le plus petit entier $k$ tel que $x \in \mathcal{E}_k$. Cette coordonnée confère une mesure mathématique exacte au degré d'abstraction, d'émergence ou d'intrication de cette entité.
-			\end{definition}
 			
 			\paragraph{Les conséquences ontologiques de la stratification.}
 			Cette architecture mathématique n'est pas qu'un simple outil de notation : elle est la traduction géométrique rigoureuse de nos postulats sur la dynamique des entités.
 			\begin{itemize}
 				\item \textbf{La substitution de la sémantique par la topologie :} La profondeur élimine tout besoin de sémantique (comme des étiquettes de rôles \og{}sujet\fg{} ou \og{}objet\fg{}). L'asymétrie d'une interaction complexe s'encode purement par l'ordre d'assemblage des sous-graphes. Par exemple, modéliser \og{}\textit{Le groupe (Jean, Marie) va à la plage}\fg{} se lit topologiquement : les individus sont de profondeur 0, l'entité \og{}groupe\fg{} reliant les individus est de profondeur 1, et l'entité événement \og{}déplacement\fg{} reliant ce groupe à la plage est de profondeur 2. L'asymétrie de l'action est intégralement capturée par la généalogie de la profondeur, rendant les concepts sémantiques obsolètes.
-				\item \textbf{L'interdiction des paradoxes causaux (Acyclicité) :} Par construction, un lien de profondeur $N$ ne peut dépendre que d'entités de profondeur strictement inférieure. Il est donc mathématiquement impossible qu'un lien soit sa propre cause ou s'inscrive dans une boucle de dépendance structurelle. Le réseau est intrinsèquement un graphe acyclique.
-				\item \textbf{La directionnalité de l'effondrement en cascade :} La dépendance structurelle (définie au Chapitre 1) possède désormais un vecteur de propagation formel. Si un événement supprime une entité de profondeur $k$, la perte d'ancrage se propage mécaniquement vers le \og{}haut\fg{}, détruisant en cascade toutes les entités de profondeur supérieure ($>k$) qui reposaient sur elle.
 			\end{itemize}
 			
 
 
-
-
-
-\chapter{Interlude : les mathématiques des graphes}
-
-Un graphe est la donnée d'un ensemble de sommets ($S$) reliés par des liens ($L$). Les graphes non orientés ne distinguent pas le lien $a \rightarrow b$ de $b \rightarrow a$, alors que les graphes orientés oui. Les graphes valués ajoutent une information sur chaque lien. Par exemple, la distance entre les villes complète les liens. Les définitions varient, mais nous retenons celle-ci : 
-
-\begin{definition}
-	Un graphe est la donnée de deux ensembles, $S$ et $L$. Chaque lien est la donnée d'une source (le point de départ) et d'une destination (le point d'arrivée), donc deux fonctions $s,d : L \rightarrow S$. Si le graphe est valué par un ensemble $V$, on a de plus une fonction $v : L \rightarrow V$. On sait en particulier décider si deux nœuds et deux liens sont égaux. 
-\end{definition}
-
-On aimerait par contre réifier des liens, c'est-à-dire avoir des liens dont la source ou la destination est lui-même un lien. Par exemple : $$Sait(source=Jean, destination=Aime(source=Paul,destination = lait))$$ Ce n'est normalement pas possible si l'on prend la définition classique d'un graphe limitant les extrémités aux seuls sommets, mais nous allons détailler comment produire un tel graphe à partir de nos définitions.
-
-\section{La réification : l'unification des entités}
-
-Pour que notre formalisme mathématique reflète fidèlement notre ontologie (où les objets, les liens et les propriétés sont tous des entités à part entière), nous devons lever la restriction qui limite les extrémités d'un lien aux seuls sommets.
-
-\begin{definition}[Graphe d'ordre supérieur]
-	Un graphe réifié étend la définition classique en élargissant le codomaine des fonctions de source et de destination. Si $S$ est l'ensemble des sommets purs et $L$ l'ensemble des liens, les fonctions $s$ et $d$ pointent désormais vers l'union disjointe $S \sqcup L$ :
-	$$s, d : L \rightarrow S \sqcup L$$
-\end{definition}
-
-Grâce à cette extension, n'importe quel lien peut avoir pour source ou destination un autre lien. Mathématiquement, la distinction de nature entre un sommet et un lien s'estompe. Nous pouvons donc regrouper tous ces éléments sous un seul et même concept formel : l'ensemble global des \textbf{entités}, noté $\mathcal{E}$ (avec $\mathcal{E} = S \sqcup L$). 
-
-Toute configuration du système se modélise alors comme un graphe dont les nœuds sont les entités de $\mathcal{E}$, et dont les arcs orientés représentent exclusivement leurs relations de \textbf{dépendance structurelle}.
-
-\section{Chemins, cycles et graphes acycliques (DAG)}
-
-Une fois les entités unifiées, l'étude de leur dynamique requiert de comprendre comment elles s'articulent de proche en proche. Si l'entité $B$ dépend de $A$, et que $C$ dépend de $B$, l'ancrage se propage à travers le réseau.
-
-\begin{definition}[Chemin orienté]
-	Un \textbf{chemin orienté} allant d'une entité $A$ à une entité $Z$ est une séquence finie d'entités reliées consécutivement par des arcs dirigés dans le même sens (la destination d'un arc étant la source du suivant).
-\end{definition}
-
-Ce concept soulève une contrainte topologique majeure. Si une entité $A$ dépend de $B$ pour exister, et que $B$ dépend de $C$, que se passerait-il si $C$ dépendait à son tour de $A$ ? Nous ferions face à une boucle d'auto-fondation, un paradoxe causal interdisant l'existence même de ces entités.
-
-\begin{definition}[Acyclicité]
-	Un \textbf{cycle} est un chemin orienté dont le point de départ et le point d'arrivée sont identiques. Un graphe orienté dépourvu de tout cycle est appelé un \textbf{DAG} (\textit{Directed Acyclic Graph}, ou graphe orienté acyclique). 
-\end{definition}
-
-Pour qu'une configuration soit ontologiquement valide, son réseau de dépendances structurelles doit impérativement être un DAG. Cette stricte hiérarchie garantit qu'un effondrement en cascade possède toujours une fin, s'amortissant inexorablement sur des entités fondamentales.
-
-\section{Sous-graphes et fermeture transitive}
-
-Au sein de ce réseau asymétrique, il est indispensable de pouvoir isoler des portions de la configuration, soit pour en vérifier la viabilité intrinsèque, soit pour mesurer l'empreinte d'une entité spécifique.
-
-\begin{definition}[Sous-graphe valide]
-	Un \textbf{sous-graphe} est une portion du graphe global (un sous-ensemble de ses entités et de leurs relations). Un sous-graphe est dit \textbf{clos (ou valide)} vis-à-vis des dépendances si, pour toute entité qu'il contient, toutes les entités nécessaires à son ancrage sont également incluses.
-\end{definition}
-
-À l'inverse, si l'on souhaite anticiper la suppression d'une entité $E$, il faut identifier la totalité du sous-graphe qui repose sur elle et qui s'effondrerait avec elle.
-
-\begin{definition}[Fermeture transitive]
-	La \textbf{fermeture transitive} d'une entité $E$ est le sous-graphe exact regroupant l'entité $E$ ainsi que l'ensemble de toutes les entités qu'il est possible d'atteindre depuis $E$ en suivant des chemins orientés.
-\end{definition}
-
-Mathématiquement, la fermeture transitive permet de circonscrire précisément l'arborescence complète des dépendants (directs et indirects) d'une entité donnée. La taille de ce sous-graphe (sa \textbf{cardinalité}) fournit la mesure exacte du poids structurel de cette entité.
-
-\section{Métrique : la distance d'édition de graphe}
-
-Enfin, pour formaliser la notion d'évolution et de co-évolution, nous devons pouvoir mesurer mathématiquement l'écart topologique entre deux états du système, c'est-à-dire entre deux configurations valides.
-
-Dans un espace discret, cette mesure ne s'effectue pas avec une règle continue, mais en comptant le nombre d'opérations combinatoires nécessaires pour basculer d'une topologie à une autre.
-
-\begin{definition}[Distance d'édition]
-	La \textbf{distance d'édition de graphe} (\textit{Graph Edit Distance}) est une métrique qui calcule le nombre minimal d'opérations unitaires requises pour transformer un graphe $G_1$ en un graphe $G_2$. Ces opérations sont précisément l'insertion et la suppression de nœuds ou d'arcs.
-\end{definition}
-
-Puisque dans notre modèle réifié, tout (objet, lien, propriété) est un nœud de l'ensemble $\mathcal{E}$, une opération d'édition correspond strictement à un \textit{événement} de création ou de suppression. Cette métrique standard fournit l'outil mathématique idéal pour quantifier le coût événementiel de toute trajectoire au sein de l'espace des possibles.
 
 \chapter{La topologie causale intrinsèque}
 
