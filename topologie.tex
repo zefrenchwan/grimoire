@@ -339,6 +339,12 @@
 				Un système est de type fini si toutes les configurations qu'il traverse sont de type fini. Autrement dit, pour toute configuration du système, la configuration est de type fini. 
 			\end{definition}
 			
+			Nous utiliserons cette construction en permanence car elle induit une notion de dépendance. En particulier, toute la configuration s'appuie sur ses entités de niveau $0$. 
+			
+			\begin{definition}
+				Pour une configuration de type fini, les entités de niveau $0$ forment la base de la configuration. Elle est unique : c'est l'ensemble des entités sans dépendance. 
+			\end{definition}
+			
 		\section{Les propriétés des configurations de type fini}
 
 			Cette partie, un peu technique, pose les bases nécessaires pour les propriétés du modèle. Avant tout, prenons deux entités $a$ et $b$. Remarquons que l'absence de cycle rend possible trois situations et trois seulement (elles s'excluent mutuellement) : 
@@ -348,8 +354,10 @@
 				\item il existe un chemin de $b$ vers $a$
 			\end{enumerate}
 			
+			La relation est évidemment transitive, ce qui munit l'ensemble des entités d'une configuration d'une relation de pré-ordre. 
+			
 			\begin{definition}
-				Pour une configuration donnée de type fini, l'ensemble des entités $E$ est muni d'un ordre partiel. S'il existe un chemin allant de $a$ vers $b$ (ou si $a = b$), on notera $a \preceq b$. En particulier, on posera, pour $a \in S$, $$<a> = \{ \ z \in S \ | \ a \preceq b \ \}$$
+				Pour une configuration donnée de type fini, l'ensemble des entités $E$ est muni d'un ordre partiel. S'il existe un chemin allant de $a$ vers $b$ (ou si $a = b$), on notera $a \preceq b$. En particulier, on posera, pour $a \in S$, $$<a> = \{ \ z \in S \ | \ a \preceq b \ \}$$ La définition s'étend à une partie finie des entités de la configuration. Si $F$ est une partie finie des entités de la configuration, $$<F> = \{ \ z \in S \ | \ \exists a \in F \  a \preceq b \ \}$$
 			\end{definition}
 			
 			Cette notion en particulier sera clé pour réinterpréter le concept de dépendance structurelle. Fixons deux entités $a$ et $b$ d'une configuration de type fini. Les deux notions suivantes sont équivalentes : 
@@ -363,10 +371,8 @@
 			\begin{theorem}
 				Dans une configuration de type fini, soient deux entités $a$ et $b$ telles que $a \preceq b$. Tout événement supprimant $b$ finira par provoquer la suppression de $a$. 
 			\end{theorem}
-			
-			
 
-		
+			Reformulons ce théorème, et fixons $a$. Si une entité $b$ apparait dans un chemin liant $a$ à la base de la configuration, $a$ dépende de $b$. \textbf{Donc $<a>$ représente les entités nécessaires à $a$, ses dépendances structurelles}. 
 
 
 		\section{Le modèle des systèmes de type fini}
@@ -393,15 +399,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 		
-		
-			
-			
-			\paragraph{Les conséquences ontologiques de la stratification.}
-			Cette architecture mathématique n'est pas qu'un simple outil de notation : elle est la traduction géométrique rigoureuse de nos postulats sur la dynamique des entités.
-			\begin{itemize}
-				\item \textbf{La substitution de la sémantique par la topologie :} La profondeur élimine tout besoin de sémantique (comme des étiquettes de rôles \og{}sujet\fg{} ou \og{}objet\fg{}). L'asymétrie d'une interaction complexe s'encode purement par l'ordre d'assemblage des sous-graphes. Par exemple, modéliser \og{}\textit{Le groupe (Jean, Marie) va à la plage}\fg{} se lit topologiquement : les individus sont de profondeur 0, l'entité \og{}groupe\fg{} reliant les individus est de profondeur 1, et l'entité événement \og{}déplacement\fg{} reliant ce groupe à la plage est de profondeur 2. L'asymétrie de l'action est intégralement capturée par la généalogie de la profondeur, rendant les concepts sémantiques obsolètes.
-			\end{itemize}
-			
 
 
 
