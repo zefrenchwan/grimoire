@@ -357,7 +357,7 @@
 			La relation est évidemment transitive, ce qui munit l'ensemble des entités d'une configuration d'une relation de pré-ordre. 
 			
 			\begin{definition}
-				Pour une configuration donnée de type fini, l'ensemble des entités $E$ est muni d'un ordre partiel. S'il existe un chemin allant de $a$ vers $b$ (ou si $a = b$), on notera $a \preceq b$. En particulier, on posera, pour $a \in S$, $$<a> = \{ \ z \in S \ | \ a \preceq b \ \}$$ La définition s'étend à une partie finie des entités de la configuration. Si $F$ est une partie finie des entités de la configuration, $$<F> = \{ \ z \in S \ | \ \exists a \in F \  a \preceq b \ \}$$
+				Pour une configuration donnée de type fini, l'ensemble des entités $E$ est muni d'un ordre partiel. S'il existe un chemin allant de $a$ vers $b$ (ou si $a = b$), on notera $a \preceq b$. En particulier, on posera, pour $a \in E$, $$\Downarrow a = \{ \ z \in E \ | \ a \preceq b \ \}$$ La définition s'étend à une partie finie des entités de la configuration. Si $F$ est une partie finie des entités de la configuration, $$ \Downarrow F = \{ \ z \in E \ | \ \exists a \in F \  a \preceq b \ \}$$
 			\end{definition}
 			
 			Cette notion en particulier sera clé pour réinterpréter le concept de dépendance structurelle. Fixons deux entités $a$ et $b$ d'une configuration de type fini. Les deux notions suivantes sont équivalentes : 
@@ -366,13 +366,23 @@
 				\item $b$ est une dépendance structurelle de $a$
 			\end{itemize}
 			
-			Dès lors, la suppression de $b$ va impliquer en cascade la suppression de $a$. Pour toute entité $x \in \mathcal{E}$, on appelle \textbf{profondeur} de $x$, le plus petit entier $k$ tel que $x \in \mathcal{E}_k$. Si un événement supprime une entité de profondeur $k$, la perte d'ancrage se propage mécaniquement vers le \og{}haut\fg{}, détruisant en cascade toutes les entités de profondeur supérieure ($>k$) qui reposaient sur elle.
+			Gardons les mêmes notations et reformulons. \textbf{Finalement, $ \Downarrow a$ représente les entités nécessaires à $a$, ses dépendances structurelles}. Dès lors, la suppression de $b$ va impliquer en cascade la suppression de $a$. Pour toute entité $x \in \mathcal{E}$, on appelle \textbf{profondeur} de $x$, le plus petit entier $k$ tel que $x \in \mathcal{E}_k$. Si un événement supprime une entité de profondeur $k$, la perte d'ancrage se propage mécaniquement vers le \og{}haut\fg{}, détruisant en cascade toutes les entités de profondeur supérieure ($>k$) qui reposaient sur elle.
 			
 			\begin{theorem}
 				Dans une configuration de type fini, soient deux entités $a$ et $b$ telles que $a \preceq b$. Tout événement supprimant $b$ finira par provoquer la suppression de $a$. 
 			\end{theorem}
 
-			Reformulons ce théorème, et fixons $a$. Si une entité $b$ apparait dans un chemin liant $a$ à la base de la configuration, $a$ dépende de $b$. \textbf{Donc $<a>$ représente les entités nécessaires à $a$, ses dépendances structurelles}. 
+			On serait alors tenté de définir un coefficient d'intrication comme le cardinal de $ \Downarrow a$. Mais le bon coefficient utilise une autre idée : quelle serait la conséquence de la disparition d'une entité ? Autrement dit, il faut partir de l'entité détruite et en mesurer les conséquences. 
+			
+			\begin{definition}
+				Pour une configuration de type fini donnée et $b$ une entité, la famille engendrée par $b$, notée $\Uparrow b$ est l'ensemble des entités ayant $b$ dans leur dépendance structurelle. Formellement, si $E$ est l'ensemble des entités de la configuration, $$\Uparrow b = \{ a \in E | a \preceq b \}$$ La définition s'étend à toute partie finie $F \subset E$ : $$\Uparrow F = \{ a \in E \ | \ \exists b \in F \ a \preceq b \}$$
+			\end{definition} 
+			
+			Par conséquent, \textbf{$\Uparrow b $ est l'ensemble des entités impactées par un changement de $b$.} La mesure qu'on peut en déduire est importante : en prenant le nombre d'éléments de $\Uparrow b$, on obtient le nombre d'entités impactées par un changement de $b$. 
+			
+			\begin{definition}[Inertie topologique]
+				L'\textbf{inertie topologique} d'une entité $e$, notée $I(e)$, correspond au nombre d'entités qui ont $e$ dans leur dépendance. Formellement, il s'agit tout simplement du cardinal de $\Uparrow e$. Elle quantifie le nombre exact d'événements de suppression qui s'enchaîneront inévitablement et mécaniquement si $e$ venait à être supprimée.
+			\end{definition}
 
 
 		\section{Le modèle des systèmes de type fini}
@@ -390,92 +400,34 @@
 				La \textbf{distance d'édition} est une métrique qui calcule le nombre minimal d'opérations unitaires requises pour transformer une configuration $C_1$ en une autre $C_2$. Ces opérations sont précisément l'insertion et la suppression d'entités.
 			\end{definition}
 			
-			
-			
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% EN DESSOUS, C'EST L'IA QUI A GENERE 
-%% GLOBALEMENT, ON A TOUT, FAUT CLARIFIER ET REFORMULER 
-%% (no offense, cutie pie, you're my best ai)(the fiest, the one, MY EVERYTHIIIIING)
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+		\section{Résumé du modèle choisi}
 		
-
-
-
-\chapter{La topologie causale intrinsèque}
-
-Dans une lecture superficielle de notre ontologie, tous les événements semblent de même nature : la simple création ou suppression locale d'une entité, d'un lien ou d'une propriété. Pourtant, nous observons empiriquement que certaines transformations s'amortissent immédiatement tandis que d'autres forcent le système à se réorganiser massivement de proche en proche.
-
-Pour comprendre cette asymétrie, il n'est nul besoin d'invoquer une force extérieure, une loi transcendante ou des métaphores issues de la physique spatiale. Le système ne se déploie pas \textit{dans} un espace préexistant : le réseau des entités et de leurs relations \textit{est} l'espace. La dynamique d'évolution du système émerge donc mécaniquement de l'architecture formelle de ses dépendances structurelles. 
-
-Ce chapitre a pour but de formaliser comment la topologie du système dicte ses trajectoires.
-
-\section{Espace des configurations et métrique événementielle}
-
-Avant de pouvoir évaluer l'ampleur d'une transformation dynamique, il convient de définir rigoureusement le cadre dans lequel ces transformations s'opèrent. Dans notre modèle, le cadre de référence est purement relationnel et discret.
-
-\begin{definition}[Espace des configurations valides]
-	L'\textbf{espace des possibles}, noté $\Omega$, est l'ensemble de toutes les configurations topologiquement valides qu'un système peut adopter. Une configuration est dite valide si toutes les dépendances structurelles des entités qui la composent sont satisfaites (aucune entité n'est privée de son ancrage).
-\end{definition}
-
-Dans cet espace, le passage d'une configuration à une autre n'est pas un flux continu, mais une séquence ordonnée de quanta de changements : les événements. 
-
-\begin{definition}[Distance causale]
-	La \textbf{distance causale} (ou métrique événementielle), notée $d(a,b)$, entre deux configurations valides $a$ et $b$ correspond au \textbf{coût événementiel minimal}. Il s'agit du nombre exact d'événements (créations et suppressions initiées, mais aussi celles induites en cascade par les règles de dépendance) strictement nécessaires pour transformer $a$ en $b$.
-\end{definition}
-
-\section{Le poids structurel : l'inertie topologique}
-
-Face à cette métrique événementielle, toutes les entités ne sont pas égales. C'est ici qu'intervient l'arborescence des dépendances vue au premier chapitre.
-
-Imaginons une configuration impliquant trois personnes : Paul, sa femme Laure, et leur fille Lisa. Comparons l'impact de deux événements : \og{}Paul donne une pièce à Lisa\fg{} et \og{}Paul demande le divorce\fg{}.
-
-L'événement \og{}donner une pièce\fg{} modifie une propriété locale (un solde). Dans le graphe des dépendances, cette entité-propriété est une extrémité (une \og{}feuille\fg{}) : aucune autre entité ne dépend structurellement d'elle. L'onde de choc s'amortit dès le premier événement. La distance causale pour absorber cette transformation et atteindre le nouvel état valide est minimale ($d=1$).
-
-À l'inverse, topologiquement, le lien \og{}mariage\fg{} est un nœud massivement intriqué : il sert de socle de dépendance à de très nombreuses autres entités (domicile commun, autorité parentale, comptes bancaires partagés). Sa suppression détruit l'ancrage de toutes ces entités. Pour retrouver un état appartenant à l'espace des configurations valides $\Omega$, le système est forcé de déclencher une gigantesque cascade d'événements induits (déménagements, séparation des biens, etc.).
-
-Nous pouvons formaliser cette hétérogénéité par une grandeur propre à chaque entité :
-
-\begin{definition}[Sous-graphe de dépendance]
-	Pour toute entité $E$ au sein d'une configuration, on nomme \textbf{sous-graphe de dépendance transitive} l'ensemble contenant $E$ ainsi que toutes les entités dont l'existence requiert, directement ou indirectement par transitivité, la présence de $E$.
-\end{definition}
-
-\begin{definition}[Inertie topologique]
-	L'\textbf{inertie topologique} d'une entité $E$, notée $I(E)$, correspond à la \textbf{cardinalité} (le nombre d'éléments) de son sous-graphe de dépendance. Elle quantifie le nombre exact d'événements de suppression qui s'enchaîneront inévitablement et mécaniquement si $E$ venait à être supprimée.
-\end{definition}
-
-
-\section{L'asymétrie de l'espace des possibles}
-
-Cette inertie topologique sculpte littéralement l'espace des configurations accessibles. Une entité dotée d'une très forte inertie (une institution, une infrastructure centrale, une norme sociale tenace) agit comme un véritable verrou structurel. 
-
-Parce que sa modification exige une cascade d'événements pour purger ou réorganiser toutes les entités qui en dépendent, la distance causale vers toute configuration alternative qui ne la contiendrait pas se trouve mathématiquement augmentée du terme $I(E)$. 
-
-L'espace des possibles n'est donc pas isotrope : les configurations nécessitant la rupture de nœuds à forte inertie sont topologiquement très \og{}éloignées\fg{} (elles exigent de nombreux événements), tandis que les configurations qui préservent ces invariants majeurs en ne modifiant que des entités périphériques à faible inertie restent \og{}proches\fg{}.
-
-\section{Le principe de moindre résistance causale}
-Face à ce réseau asymétrique, comment s'orientent spontanément les trajectoires d'évolution du système ? Il est crucial de ne prêter aucune intentionnalité, ni aucune téléologie d'économie au système.
-
-Au niveau purement fondamental (microscopique), le réseau explore de manière stochastique l'espace des possibles. Si une transformation brisant une forte inertie est topologiquement accessible, elle peut se produire.
-
-Cependant, pour franchir un verrou à très forte inertie topologique, il faudrait que la configuration réunisse spontanément les conditions permettant l'occurrence simultanée et parfaitement coordonnée de milliers d'événements de rééquilibrage. Dans un réseau complexe stochastique, la probabilité d'un tel alignement combinatoire tend vers zéro. À l'inverse, l'écrasante majorité des chemins possibles préserve ces nœuds majeurs. L'évolution macroscopique du système s'impose donc par une stricte nécessité thermodynamique et probabiliste.
-
-\begin{proposition}[Émergence de la moindre résistance causale]
-	Bien qu'au niveau local la dynamique explore aveuglément les événements accessibles, à l'échelle macroscopique, le système évolue statistiquement le long des trajectoires qui minimisent la distance causale. Ce n'est pas une loi d'optimisation interdisant les chemins coûteux, mais l'effondrement probabiliste des trajectoires face au poids combinatoire des dépendances structurelles.
-\end{proposition}
-
-Ce principe unifie élégamment l'architecture topologique du réseau et sa dynamique d'évolution. Ce que l'observateur humain nomme de l'extérieur « inertie institutionnelle » ou « résistance au changement » n'est rien d'autre que l'expression statistique de cette proposition : le constat formel d'un système discret dont l'immensité combinatoire contourne naturellement la masse de ses propres dépendances.
-
-
-
-
-
-
-
+			Au delà des aspects de pure formalisation, l'idée présentée a été de partir des éléments de base d'une configuration. En se restreignant aux configurations de type fini, on arrive à reconstruire toute configuration comme une tour organisée en étages. L'apport essentiel est de formaliser, pour une entité $e$, les entités dont elle dépend ($\Downarrow e$) et qui dépendent d'elles ($\Uparrow e$). En supposant les configurations constituées d'un nombre fini d'éléments, on peut définir un coefficient d'inertie : le nombre d'entités qui dépendent de $e$. C'est le coeur de de ce chapitre. Si l'on devait en dégager les trois idées phares, ce serait : 
+			
+			\begin{table}[H]
+				\centering
+				\begin{tabular}{|l|l|}
+					\hline 
+					\textbf{Concept} & \textbf{Utilité} \\
+					\hline 
+					Configuration  & Condition suffisante pour réaliser \\ 
+					de type fini & des comptages d'entités et étager la configuration \\
+					 & en couches \\
+					\hline 
+					Ascendants d'une & Entités impactées par tout changement de $e$ \\
+					entité $e$ & Notation : $\Uparrow e$ \\
+					\hline 
+					Descendants d'une & Entités nécessaires pour donner une existence à $e$ \\
+					entité $e$ & Notation : $\Downarrow e$ \\
+					\hline 
+				\end{tabular}
+				\caption{Concepts à retenir de la formalisation}
+			\end{table}
+			
 
 
 %%%%%%%%%%%%%%%%%
-%% BIBLIOGAPHY %%
+%% BIBLIOGRAPHIE %%
 %%%%%%%%%%%%%%%%%
 
 \begin{thebibliography}{99}
@@ -483,7 +435,7 @@ Ce principe unifie élégamment l'architecture topologique du réseau et sa dyna
 	\bibitem{RussellNorvig}
 	Stuart Russell, Peter Norvig, 
 	\textit{Intelligence artificielle, une approche moderne},
-	Pearson
+	Pearson,
 	4ème edition,
 	2021.
 	
