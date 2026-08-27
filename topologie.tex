@@ -354,34 +354,44 @@
 				\item il existe un chemin de $b$ vers $a$
 			\end{enumerate}
 			
-			La relation est évidemment transitive, ce qui munit l'ensemble des entités d'une configuration d'une relation de pré-ordre. 
+			La relation est évidemment transitive, ce qui munit l'ensemble des entités d'une configuration d'une relation d'ordre partiel. 
 			
 			\begin{definition}
 				Pour une configuration donnée de type fini, l'ensemble des entités $E$ est muni d'un ordre partiel. S'il existe un chemin allant de $a$ vers $b$ (ou si $a = b$), on notera $a \preceq b$. En particulier, on posera, pour $a \in E$, $$\Downarrow a = \{ \ z \in E \ | \ a \preceq b \ \}$$ La définition s'étend à une partie finie des entités de la configuration. Si $F$ est une partie finie des entités de la configuration, $$ \Downarrow F = \{ \ z \in E \ | \ \exists a \in F \  a \preceq b \ \}$$
 			\end{definition}
 			
-			Cette notion en particulier sera clé pour réinterpréter le concept de dépendance structurelle. Fixons deux entités $a$ et $b$ d'une configuration de type fini. Les deux notions suivantes sont équivalentes : 
-			\begin{itemize}
-				\item $a \preceq b$
-				\item $b$ est une dépendance structurelle de $a$
-			\end{itemize}
+			Cette notion en particulier sera clé pour réinterpréter le concept de dépendance structurelle. Prenons une configuration $C$ et une entité $a$. Si l'on postule que $a$ a besoin de \textit{tous} les éléments de $\Downarrow a$ pour exister, on a une forme d'instabilité totale. Prenons ce diagramme: 
 			
-			Gardons les mêmes notations et reformulons. \textbf{Finalement, $ \Downarrow a$ représente les entités nécessaires à $a$, ses dépendances structurelles}. Dès lors, la suppression de $b$ va impliquer en cascade la suppression de $a$. Pour toute entité $x \in \mathcal{E}$, on appelle \textbf{profondeur} de $x$, le plus petit entier $k$ tel que $x \in \mathcal{E}_k$. Si un événement supprime une entité de profondeur $k$, la perte d'ancrage se propage mécaniquement vers le \og{}haut\fg{}, détruisant en cascade toutes les entités de profondeur supérieure ($>k$) qui reposaient sur elle.
+			
+			\[
+			\begin{array}{ccc}
+				a & \Longrightarrow & b \\
+				\Downarrow & & \Downarrow \\
+				c & \Longrightarrow & d
+			\end{array}
+			\]
+			
+			La suppression de $c$ n'impacte pas $a$ parce qu'il existe un autre chemin, passant par $b$ relie $a$ à $d$. Par contre, la perte de $d$ provoque la perte de $b$ et $c$, puis de $a$. Ainsi, la définition juste de la dépendance structurelle est la suivante : 
 			
 			\begin{theorem}
-				Dans une configuration de type fini, soient deux entités $a$ et $b$ telles que $a \preceq b$. Tout événement supprimant $b$ finira par provoquer la suppression de $a$. 
+				Pour une configuration de type fini $C$, comprenant l'entité $a$, les conditions suivantes sont équivalentes : 
+				\begin{enumerate}
+					\item $b$ est une dépendance structurelle de $a$
+					\item tous les chemins partant de $a$ vers la base de la configuration passent par $b$. 
+					\item la destruction de $b$ provoque en cascade la destruction de $a$
+				\end{enumerate}
 			\end{theorem}
-
-			On serait alors tenté de définir un coefficient d'intrication comme le cardinal de $ \Downarrow a$. Mais le bon coefficient utilise une autre idée : quelle serait la conséquence de la disparition d'une entité ? Autrement dit, il faut partir de l'entité détruite et en mesurer les conséquences. 
+			
+			Ainsi, la définition amène à poser la question dans l'autre sens : quelle serait la conséquence de la disparition d'une entité ? Autrement dit, il faut partir de l'entité détruite et en mesurer les conséquences. 
 			
 			\begin{definition}
-				Pour une configuration de type fini donnée et $b$ une entité, la famille engendrée par $b$, notée $\Uparrow b$ est l'ensemble des entités ayant $b$ dans leur dépendance structurelle. Formellement, si $E$ est l'ensemble des entités de la configuration, $$\Uparrow b = \{ a \in E | a \preceq b \}$$ La définition s'étend à toute partie finie $F \subset E$ : $$\Uparrow F = \{ a \in E \ | \ \exists b \in F \ a \preceq b \}$$
-			\end{definition} 
+				Soit $C$ une configuration de type fini fixée. Les dépendances structurelles d'une entité $a$ ou d'une famille finie $F$ d'entités sont l'ensemble des entités $b$ pour lesquelles tout chemin allant de $a$ à la base de la configuration passe aussi par $b$. On le note $\mathcal{D}(a)$.  
+			\end{definition}
 			
-			Par conséquent, \textbf{$\Uparrow b $ est l'ensemble des entités impactées par un changement de $b$.} La mesure qu'on peut en déduire est importante : en prenant le nombre d'éléments de $\Uparrow b$, on obtient le nombre d'entités impactées par un changement de $b$. 
+			Cette façon de considérer la configuration nous amène à mesurer les conséquences de la suppression d'une entité en cascade. L'importance d'une entité devrait donc être liée au nombre d'entités impactées. C'est la notion d'inertie topologique. 
 			
 			\begin{definition}[Inertie topologique]
-				L'\textbf{inertie topologique} d'une entité $e$, notée $I(e)$, correspond au nombre d'entités qui ont $e$ dans leur dépendance. Formellement, il s'agit tout simplement du cardinal de $\Uparrow e$. Elle quantifie le nombre exact d'événements de suppression qui s'enchaîneront inévitablement et mécaniquement si $e$ venait à être supprimée.
+				L'\textbf{inertie topologique} d'une entité $e$, notée $I(e)$, correspond au nombre d'entités qui ont $e$ dans leur dépendance. Formellement, il s'agit tout simplement du cardinal de $\mathcal{D}(e)$. Elle quantifie le nombre exact d'événements de suppression qui s'enchaîneront inévitablement et mécaniquement si $e$ venait à être supprimée.
 			\end{definition}
 
 
@@ -402,40 +412,13 @@
 			
 		\section{Résumé du modèle choisi}
 		
-			Au delà des aspects de pure formalisation, l'idée présentée a été de partir des éléments de base d'une configuration. En se restreignant aux configurations de type fini, on arrive à reconstruire toute configuration comme une tour organisée en étages. L'apport essentiel est de formaliser, pour une entité $e$, les entités dont elle dépend ($\Downarrow e$) et qui dépendent d'elles ($\Uparrow e$). En supposant les configurations constituées d'un nombre fini d'éléments, on peut définir un coefficient d'inertie : le nombre d'entités qui dépendent de $e$. C'est le coeur de de ce chapitre. Si l'on devait en dégager les trois idées phares, ce serait : 
-			
-			\begin{table}[H]
-				\centering
-				\begin{tabular}{|l|l|}
-					\hline 
-					\textbf{Concept} & \textbf{Utilité} \\
-					\hline 
-					Configuration  & Condition suffisante pour réaliser \\ 
-					de type fini & des comptages d'entités et étager la configuration \\
-					 & en couches \\
-					\hline 
-					Ascendants d'une & Entités impactées par tout changement de $e$ \\
-					entité $e$ & Notation : $\Uparrow e$ \\
-					\hline 
-					Descendants d'une & Entités nécessaires pour donner une existence à $e$ \\
-					entité $e$ & Notation : $\Downarrow e$ \\
-					\hline 
-				\end{tabular}
-				\caption{Concepts à retenir de la formalisation}
-			\end{table}
-			
+			Au delà des aspects de pure formalisation, l'idée présentée a été de partir des éléments de base d'une configuration. En se restreignant aux configurations de type fini, on arrive à reconstruire toute configuration comme une tour organisée en étages. L'apport essentiel est de formaliser, pour une entité $e$, les entités qui dépendent d'elles ($\mathcal{D}(e)$). En supposant les configurations constituées d'un nombre fini d'éléments, on peut définir un coefficient d'inertie : le nombre d'entités qui dépendent de $e$. C'est le coeur de de ce chapitre. 
+
+			La mécanique se généralise très bien à tout ensemble partiellement ordonné. Une chaine étant fixée, la question est de savoir la conséquence d'une rupture dans la chaine. Cette formalisation par les ensembles ordonnés nous amène à un modèle tourné vers une théorie des dépendances causale et structurelle. Ce n'est pas le propos de ce texte, mais se retrouver en terrain théorique connu présente un avantage certain pour développer la théorie dans la suite. 
+	
+	
 
 
-			La mécanique se généralise très bien à tout ensemble partiellement ordonné. Une chaine étant fixée, la question est de savoir la conséquence d'une rupture dans la chaine. 
-			
-	
-	\chapter{La mécanique causale}
-	
-		Intuitivement, à notre niveau, nous comprenons qu'il existe des choix plus faciles et moins structurants que d'autres. Cette approche, à notre échelle, se base sur les résultats et calculent le chemin menant à ce résultat. Notre ontologie se structure suivant l'exact opposé : une configuration permet une série de transformations. Pas d'intention, pas de principe de moindre action, rien de plus, à un moment donné, qu'une série de transformations possibles. 
-		
-		\section{Un exemple introductif}
-		
-		Dans le cas le plus simple, une seule transformation est possible depuis une configuration. Elle advient, et il n'y a aucun mystère. A présent, envisageons l'autre cas : il existe plusieurs transformations acceptables, c'est à dire amenant à une configuration viable. Comme elles sont possibles, elles ont une probabilité non nulle d'être atteintes. La valeur exacte n'a aucune espèce d'importance, elle est simplement comprise entre $0$ et $1$ strictement. Prenons deux configurations, disons $C$ et $C'$, et soit $k$ leur distance causale, c'est à dire le minimum d'événements à appliquer à $C$ pour obtenir $C'$. Pour l'exemple, supposons que l'on ait, pour chaque événement, une probabilité $p$. Le modèle est simpliste, nous en convenons. Mais la probabilité de passer de $C$ à $C'$ devient de l'ordre de $p^k$ en supposant l'unicité des chemins. Autrement dit, sur un $k$ grand, la transformation est très peu probable. \textbf{Plus la distance causale entre deux configurations est élevée, plus faible est la probabilité de l'atteindre}. 
 
 %%%%%%%%%%%%%%%%%
 %% BIBLIOGRAPHIE %%
