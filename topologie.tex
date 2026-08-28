@@ -162,10 +162,12 @@
 	
 	\chapter{Les propriétés de l'ontologie de base}
 	
-	Notre réflexion nous amène au point suivant : \textbf{des entités sont organisées en configurations. Or, il en existe plusieurs, de sorte qu'une configuration se transforme en une autre en combinant des événements compatibles avec la configuration actuelle}. Dans ce chapitre, nous parlerons de deux propriétés découlant des définitions : 
+	Notre réflexion nous amène au point suivant : \textbf{des entités sont organisées en configurations. Or, il en existe plusieurs, de sorte qu'une configuration se transforme en une autre en combinant des événements compatibles avec la configuration actuelle}. Dans ce chapitre, nous parlerons de quatre propriétés découlant des définitions : 
 	\begin{enumerate}
 		\item l'émergence d'entités comme événement. 
 		\item les impacts croisés entre les configurations et les dynamiques de transformation. 
+		\item les mécaniques de résilience, comment une configuration maintient ses propriétés 
+		\item les logiques d'attracteurs, au sens de transformations diverses qui convergent vers une même configuration. 
 	\end{enumerate}
 	
 	\section{L'émergence}
@@ -176,7 +178,7 @@
 			Une entité est dite émergente lorsqu'elle impacte les transformations du système, et que cette capacité d'action demeure invariante face au renouvellement de ses constituants.
 		\end{definition}
 		
-		On ne peut exiger moins : sans voiture, pas d'embouteillage. Le facteur explicatif n'est ni l'identité des composants, ni ces composants pris isolément. C'est la présence des composants dans leur globalité qui créé le phénomène. 
+		On ne peut exiger moins : sans voiture, pas d'embouteillage. Le facteur explicatif n'est ni l'identité des composants, ni ces composants pris isolément. C'est la présence des composants dans leur globalité qui crée le phénomène. 
 	
 	
 	\section{La co-évolution : une nécessité structurelle}
@@ -197,7 +199,26 @@
 		\end{enumerate}
 		
 		Dans cette ontologie, il n'existe donc aucun décor fixe et passif dans lequel s'agiteraient des composants autonomes. Les entités et la configuration globale ne font pas qu'évoluer en parallèle : elles \textbf{co-évoluent} intrinsèquement.
-
+		
+	\section{La résilience dilue la dépendance structurelle}
+	
+		Imaginons un village isolé dans une vallée. Une route principale le traverse, largement suffisante en l'état. Une entreprise florissante, attirée par la promesse d'un espace énorme pour ses hangars, s'y installe. La route devient le goulot d'étranglement du dispositif. La mairie, disposant d'impôts nouveaux et de subventions généreuses, améliore le dispositif routier en construisant plusieurs nouvelles routes pour desservir mieux la zone. Si notre récit est une version accélérée d'un projet d'urbanisation, le principe reste le même en situation réelle. Un quartier s'agrandit, de nouvelles modalités d'accès sont nécessaires puisque l'infrastructure courante ne saurait convenir. Dans ce cas particulier, il y a une intention, une volonté politique, qui guide les transformations. Mais, en général, la notion de dépendance structurelle se maintient même sans volonté du système. La résilience, sa faculté à ne pas avoir de chemin critique, est aussi une caractéristique potentiellement universelle. 
+	
+		Si, dans une configuration, une entité constitue une dépendance structurelle forte, elle devient ce qu'on peut appeler un \textit{single point of failure} : sa disparition provoque en cascade l'effondrement d'une partie de la configuration. Cette notion est proche d'un chemin critique, incontournable, dans la configuration. Cette fragilité du système est souvent compensée par des liens nouveaux reliant des entités autrement que le long de ces chemins critiques. \textbf{La résilience se manifeste par la création de nouveaux liens pour réduire les dépendances structurelles.}
+		
+	\section{Les attracteurs}
+		Ce serait une erreur de considérer que des transformations différentes donnent des configurations différentes. Imaginons une zone particulièrement inondable. Quel que soit le lieu proche où il pleut, le ruissellement des eaux finit dans cette zone là : elle est en bas de toutes les pentes. Cette image illustre la notion d'attracteur. Si l'on voit les configurations comme des états et les transformations comme des liens, un attracteur se caractérise comme une configuration : 
+		\begin{enumerate}
+			\item destination de nombreuses transformations. La plupart des chemins de transformation mènent au même état final
+			\item source de très peu de transformations. Un attracteur attire très facilement mais il est très difficile d'en réchapper. 
+		\end{enumerate}
+		
+		\begin{definition}
+			Un attracteur est une configuration (respectivement une entité) qui dispose de très nombreuses transformations (respectivement liens) qui y mènent et très peu de transformations (respectivement liens) qui peuvent le quitter. Il se caractérise par la propriété de mener à lui facilement mais de ne quasiment pas pouvoir en partir. 
+		\end{definition}
+		
+		En termes de graphe, ce serait un nœud avec un degré entrant énorme et très peu de liens sortants. Cette mécanique d'attraction s'observe aussi bien au niveau global (pour les configurations) qu'au niveau local (pour les entités d'une configuration).
+		
 		
 	\section{Cas pratique : les réseaux sociaux}
 		
@@ -243,9 +264,11 @@
 		\paragraph{La manipulation comme attaque topologique.} 
 		Sous cet angle, qu'est-ce qu'une campagne de manipulation artificielle (bots, \textit{slopaganda}) ? Ce n'est pas qu'une question sémantique : c'est le forçage volontaire de la boucle de co-évolution.
 		
-		L'attaquant injecte massivement de fausses entités et génère des événements factices. Son but n'est pas d'influencer ses propres bots, mais de modifier artificiellement les propriétés du contenu manipulé (son score). L'algorithme du réseau social réagit alors de manière prévisible : croyant à un intérêt organique, il crée de nouveaux \textbf{liens de visibilité} pointant vers ce contenu pour des milliers d'utilisateurs réels. 
+		L'attaquant injecte massivement de fausses entités et génère des événements factices. Son but n'est pas d'influencer ses propres bots, mais de modifier artificiellement les propriétés du contenu manipulé (son score). L'algorithme du réseau social réagit alors de manière prévisible : croyant à un intérêt organique, il crée de nouveaux \textbf{liens de visibilité} pointant vers ce contenu pour des milliers d'utilisateurs réels. \textbf{C'est bien forcer la visibilité d'un contenu en le transformant en attracteur}. Les autres servent de passerelle vers ce qui constitue le vrai message. 
 		
 		L'attaquant a ainsi \og{}tordu\fg{} l'espace des possibles pour forcer l'accessibilité de son contenu. L'accès à une information nuancée devient un état inatteignable car l'espace topologique local de la victime est saturé. Une fois que ce contenu infecte la topologie organique et s'auto-entretient, le phénomène devient une \textbf{entité émergente} à part entière (la fameuse \og{}chambre d'écho\fg{}).
+		
+		L'attaquant prend en compte la réponse de la plateforme : il anticipe le bannissement de comptes en disposant d'une base large de faux comptes et en les activant au fur et à mesure. Aucun relai de l'information n'est en soi essentiel, c'est le nombre qui fait la manipulation topologique. Dès lors, la mécanique des faux comptes organise une forme de résilience : aucun bannissement pris unitairement ne met en péril l'attaque en elle-même. 
 		
 		\paragraph{Les limites du modèle discret : le saut vers le continu.}
 		Jusqu'ici, notre ontologie décrit parfaitement la mécanique réelle du réseau. Cependant, ce premier niveau d'analyse pose une mécanique strictement discrète et structurelle (nœud par nœud, événement par événement). 
@@ -319,7 +342,7 @@
 					\item \textbf{Niveau $n+1$ (La stratification) :} Supposons l'ensemble cumulé $\mathcal{E}_n$ connu. On définit $\mathcal{L}_{n+1}$ comme l'ensemble des nouveaux liens (graphes ou hypergraphes) dont toutes les composantes ou extrémités appartiennent strictement à $\mathcal{E}_n$. L'ensemble des entités de niveau $n+1$ s'enrichit alors de ces nouveaux liens :
 					$$ \mathcal{E}_{n+1} = \mathcal{E}_n \cup \mathcal{L}_{n+1} $$
 				\end{enumerate}
-				La structure global de la configuration est la limite de cette hiérarchie : 
+				La structure globale de la configuration est la limite de cette hiérarchie : 
 				$$ \mathcal{E} = \bigcup_{n=0}^{\infty} \mathcal{E}_n $$
 			\end{definition}
 			
