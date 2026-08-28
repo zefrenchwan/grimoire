@@ -141,19 +141,47 @@
 				\end{itemize}
 			\end{definition}
 			
-	
-		\section{La notion de causalité : la dépendance structurelle}
-		
-		Prenons un exemple introductif : un chauffeur imprudent jette un mégot par la fenêtre, et celui-ci provoque un incendie de forêt très étendu. La chaîne causale est claire : le mégot a déclenché un feu, le feu s'est propagé partout où la sécheresse des arbres permettait la propagation des flammes, jusqu'à disparaître faute de ressources ou de zones favorables à proximité. Ainsi, une transformation a amorcé l'incendie depuis une configuration favorable, et il s'est propagé de proche en proche. 
-		
-		Quel est, au-delà de l'exemple, le mécanisme formel à l'œuvre pour qu'une entité se maintienne dans une configuration ? Nous avons établi qu'une entité peut être un objet, un lien ou une propriété. Or, un lien ne peut exister sans les entités qu'il connecte. Si l'un des objets disparaît, le lien n'a plus de point d'ancrage. De même, une propriété n'existe que rattachée à son objet. La disparition de l'ancrage d'une entité entraine mécaniquement l'effondrement de l'entité. Il n'y a donc pas  de loi extérieure qui autoriserait ou interdirait la présence d'une entité, cette nécessité dicte une causalité purement topologique. C'est ce que nous appellerons la \textbf{dépendance structurelle}.
-		
-		\begin{definition}
-			Une \textbf{dépendance structurelle} est la relation de nécessité existentielle entre deux entités. L'existence d'une entité $B$ dépend structurellement d'une entité $A$ si la présence de $B$ requiert intrinsèquement celle de $A$ dans la configuration.
+		\section{La notion de dépendance structurelle}
 			
-			La \textbf{chaîne causale} initiée par un événement est la séquence ininterrompue d'événements (créations ou suppressions) induits mécaniquement et de proche en proche par la résolution de ces dépendances structurelles. Le cas de l'effondrement en cascade par perte d'ancrage en est un cas particulier.
-		\end{definition}
+			Il n'y a pas de raison, a priori, de postuler que toutes les transformations soient réversibles, qu'un aller retour entre deux configurations soit toujours possible. Certaines transformations sont irréversibles à notre échelle : la mort, une rupture de branche d'un arbre, apprendre une information, etc. Donnons nous une configuration et imaginons une transformation élémentaire : un lien se rompt. Deux cas se produisent : 
+			\begin{itemize}
+				\item la rupture du lien est sans aucune conséquence sur la configuration : elle reste viable, les deux nouveaux morceaux sont parfaitement autonomes. La transformation qui recrée le lien est exactement duale. Dans ce cas là, la rupture de lien est totalement symétrique : son inverse est possible, le lien recréé serait identique au précédent. 
+				\item la rupture de lien n'est pas symétrique. Soit la transformation inverse n'est pas possible, soit elle n'a pas les mêmes propriétés, soit la configuration obtenue change en cascade du fait des caractéristiques des liens. 
+			\end{itemize}
+			
+			Une première idée serait de parler de réversibilité au niveau des transformations. Pour une configuration $C$ donnée, une transformation de $C$ vers $C'$ est dite symétrique si elle admet un inverse allant de $C'$ vers $C$. Il y a rupture de symétrie quand une configuration $C'$ est accessible depuis $C$ mais pas de $C'$ vers $C$. Cette notion cache un piège : le nombre d'événements nécessaire dans un sens n'est pas forcément le même dans l'autre. Ainsi, la symétrie globale cache en réalité une asymétrie des événements. Il nous faut donc porter le concept de symétrie uniquement au niveau des événements. Une première remarque est que tous sont, a priori, symétriques : 
+			
+			\begin{table}[H]
+				\centering
+				\begin{tabular}{|l|l|}
+					\hline 
+					\textbf{Événement} & \textbf{Événement symétrique} \\
+					\hline 
+					Créer un lien & Supprimer un lien \\
+					\hline 
+					Créer une entité & Supprimer une entité \\
+					\hline 
+					Supprimer une propriété & Créer une propriété \\
+					\hline 
+					Changer une valeur de propriété & Remettre la valeur de propriété \\
+					\hline 
+				\end{tabular}
+				\caption{Symétrie des événements}
+			\end{table}
+			
+			Nous postulons que le mécanisme unique qui implique une rupture de symétrie est la notion de dépendance structurelle. 
+					
+			\begin{definition}
+				Une \textbf{dépendance structurelle} est la relation de nécessité existentielle entre deux entités. L'existence d'une entité $B$ dépend structurellement d'une entité $A$ si la présence de $B$ requiert intrinsèquement celle de $A$ dans la configuration.
+			\end{definition}
+			
+			Prenons alors une configuration et deux entités, $A$ et $B$, de sorte que $A$ dépende structurellement de $B$. Par définition, la notion de dépendance structurelle a une conséquence très concrète : l'événement de suppression de $B$ doit entrainer la suppression de $A$. Dans une chaine de dépendance, on parle d'effondrement en cascade. De même, il peut se produire une création de nouvelles entités par l'absence d'une autre. Par exemple, la propagation d'une attaque informatique dans un réseau peut se poursuivre quand les programmes de contrôle (antivirus, par exemple) ont été désactivés. 
 				
+			
+			\begin{definition}	
+				La \textbf{chaîne causale} initiée par un événement est la séquence ininterrompue d'événements (créations ou suppressions) induits mécaniquement et de proche en proche par la résolution de ces dépendances structurelles. Le cas de l'effondrement en cascade par perte d'ancrage en est un cas particulier.
+			\end{definition}
+			
 		
 	\section{Résumé}
 	
@@ -162,12 +190,13 @@
 	
 	\chapter{Les propriétés de l'ontologie de base}
 	
-	Notre réflexion nous amène au point suivant : \textbf{des entités sont organisées en configurations. Or, il en existe plusieurs, de sorte qu'une configuration se transforme en une autre en combinant des événements compatibles avec la configuration actuelle}. Dans ce chapitre, nous parlerons de quatre propriétés découlant des définitions : 
+	Notre réflexion nous amène au point suivant : \textbf{des entités sont organisées en configurations. Or, il en existe plusieurs, de sorte qu'une configuration se transforme en une autre en combinant des événements compatibles avec la configuration actuelle}. Dans ce chapitre, nous parlerons de cinq propriétés découlant des définitions : 
 	\begin{enumerate}
 		\item l'émergence d'entités comme événement. 
 		\item les impacts croisés entre les configurations et les dynamiques de transformation. 
 		\item les mécaniques de résilience, comment une configuration maintient ses propriétés 
 		\item les logiques d'attracteurs, au sens de transformations diverses qui convergent vers une même configuration. 
+		\item l'apparition de la flèche du temps comme conséquence du modèle, en particulier de la notion de dépendance causale 
 	\end{enumerate}
 	
 	\section{L'émergence}
@@ -219,6 +248,22 @@
 		
 		En termes de graphe, ce serait un nœud avec un degré entrant énorme et très peu de liens sortants. Cette mécanique d'attraction s'observe aussi bien au niveau global (pour les configurations) qu'au niveau local (pour les entités d'une configuration).
 		
+		
+	\section{L'émergence de la flèche du temps}
+	
+		Dans la section 1.6, nous avons établi que les événements fondamentaux sont unitairement symétriques, mais que le postulat de dépendance structurelle introduit une brisure de cette symétrie originelle. À l'échelle d'une configuration globale, cette asymétrie locale se propage pour donner naissance à une propriété macroscopique inéluctable : l'irréversibilité, perçue usuellement comme la flèche du temps.
+		
+		Imaginons un instant une configuration dépourvue de dépendances structurelles (uniquement constituée d'entités de base autonomes). Dans ce système, l'espace des transformations est isotrope : le volume combinatoire pour assembler un agencement éphémère est identique à celui pour le défaire. La dynamique s'apparente à une marche aléatoire symétrique, sans direction privilégiée. Le système est fondamentalement réversible.
+		
+		Cependant, dès lors que l'on applique la contrainte de dépendance structurelle, l'espace des possibles (l'accessibilité) se déforme radicalement :
+		\begin{enumerate}
+			\item \textbf{L'édification est unitaire et ascendante :} La création d'une entité de niveau supérieur exige un chemin étroit, conditionné par la présence préalable de ses ancrages. Il s'agit d'un processus cumulatif, laborieux et séquentiel.
+			\item \textbf{L'effondrement est multiplicatif et descendant :} À l'inverse, l'effondrement en cascade donne à la suppression un effet de levier causal massif. La perte d'une seule entité fondatrice entraîne mécaniquement la rupture de toute la chaîne causale qui en dépend.
+		\end{enumerate}
+		
+		Dès lors, le volume des chemins topologiques menant à la fragmentation du système est combinatoirement écrasant par rapport aux chemins menant à sa structuration. L'état fragmenté agit alors comme un \textbf{attracteur universel} (au sens de la section 2.4) : la topologie du système "tombe" vers la désorganisation simplement parce que les chemins d'accessibilité menant à cet état sont immensément plus nombreux.
+		
+		Dans notre ontologie, la flèche du temps n'est donc pas imposée par une loi thermodynamique extérieure ni par un espace probabilisé. Elle est l'émergence purement géométrique de cette asymétrie combinatoire, conséquence macroscopique directe de notre postulat sur la nécessité existentielle des liens.	
 		
 	\section{Cas pratique : les réseaux sociaux}
 		
@@ -432,6 +477,11 @@
 			\begin{definition}[Distance d'édition]
 				La \textbf{distance d'édition} est une métrique qui calcule le nombre minimal d'opérations unitaires requises pour transformer une configuration $C_1$ en une autre $C_2$. Ces opérations sont précisément l'insertion et la suppression d'entités.
 			\end{definition}
+			
+			\paragraph{Conséquence : la signature mathématique de la flèche du temps.} 
+			Le formalisme que nous venons de poser offre la mesure quantitative exacte de la rupture de symétrie et de l'irréversibilité macroscopique abordées précédemment. Si l'on considère une entité $e$ possédant une certaine inertie topologique $I(e) > 0$, la distance d'édition pour construire cette branche nécessite une succession stricte et ordonnée d'au moins $1 + I(e)$ événements de création. À l'inverse, l'asymétrie de la dépendance structurelle implique qu'un \textit{unique} événement de suppression sur $e$ engendre mécaniquement $1 + I(e)$ événements de destruction via la chaîne causale. 
+			
+			C'est cette disproportion radicale dans la métrique de la distance d'édition — un "coût" de création combinatoire laborieux face à un redoutable effet de levier de destruction — qui caractérise mathématiquement la flèche du temps au sein des systèmes de type fini.
 			
 		\section{Résumé du modèle choisi}
 		
