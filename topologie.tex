@@ -472,8 +472,7 @@
 			Le formalisme que nous venons de poser offre la mesure quantitative exacte de la rupture de symétrie et de l'irréversibilité macroscopique abordées précédemment. Si l'on considère une entité $e$ possédant une certaine inertie topologique $I(e) > 0$, la distance d'édition pour construire cette branche nécessite une succession stricte et ordonnée d'au moins $1 + I(e)$ événements de création. À l'inverse, l'asymétrie de la dépendance structurelle implique qu'un \textit{unique} événement de suppression sur $e$ engendre mécaniquement $1 + I(e)$ événements de destruction via la chaîne causale. 
 			
 			C'est cette disproportion radicale dans la métrique de la distance d'édition — un "coût" de création combinatoire laborieux face à un redoutable effet de levier de destruction — qui caractérise mathématiquement la flèche du temps au sein des systèmes de type fini.
-			
-			
+					
 			
 		\section{Résumé du modèle choisi}
 		
@@ -481,48 +480,62 @@
 
 			La mécanique se généralise très bien à tout ensemble partiellement ordonné. Une chaine étant fixée, la question est de savoir la conséquence d'une rupture dans la chaine. Cette formalisation par les ensembles ordonnés nous amène à un modèle tourné vers une théorie des dépendances causale et structurelle. Ce n'est pas le propos de ce texte, mais se retrouver en terrain théorique connu présente un avantage certain pour développer la théorie dans la suite. 
 	
-	\chapter{De la sémantique à la topologie}
+	\chapter{Les logiques de crise}
 	
-	L'ontologie exprime, au fond, une logique d'entités liées entre elles (la configuration) qui évolue par des événements élémentaires (création ou suppression d'entités). Son cadre d'application est alors extrêmement général : les réseaux sociaux constituent, par leur structure, une application naturelle, mais absolument pas la seule. Des chapitres précédents, nous retenons une rupture de symétrie entre les conséquences désastreuses d'une perte d'entité centrale (à forte inertie) et sa difficile reconstruction. 
+	L'ontologie exprime, au fond, une logique d'entités liées entre elles (la configuration) qui évolue par des événements élémentaires (création ou suppression d'entités). Son cadre d'application est alors extrêmement général : les réseaux sociaux constituent, par leur structure, une application naturelle, mais absolument pas la seule. Des chapitres précédents, nous retenons une rupture de symétrie entre les conséquences désastreuses d'une perte d'entité centrale (à forte inertie) et sa difficile reconstruction. Cette asymétrie permet de donner une approche topologique aux mécanismes de crise. 
 	
-	\section{Analyse des vulnérabilités d'une configuration}
-	Ce constat permet deux usages : offensif en isolant et menaçant ces entités critiques, et contre-offensif en auditant un système et en le protégeant ou améliorant sa résilience. La méthode est la suivante : 
+	\section{Une explication physique des crises}
+	
+	Donnons-nous une configuration comme état initial. La logique de crise se réinterprète comme le forçage d'une transformation menant à une nouvelle configuration avec une forte distance d'édition. Dit autrement, une transformation a provoqué une réorganisation massive des entités. Posée ainsi, une crise perd toute connotation morale, et se laisse étudier comme un phénomène physique et purement topologique. 
+
+	\subsection*{La dépendance structurelle comme cause primaire de crise}
+	Cette approche amène naturellement à considérer le rôle privilégié de l'asymétrie des liens et de la dépendance structurelle. Ce postulat trouve une validation mathématique majeure dans les travaux de Liu, Slotine et Barabási sur la contrôlabilité des réseaux complexes \cite{Controlability}. En traduisant leur problématique dans notre ontologie, l'étude cherche à identifier le nombre minimal d'entités (les \textit{driver nodes}) sur lesquelles imposer des événements initiaux pour forcer l'accessibilité du système vers n'importe quelle configuration cible. Leurs résultats apportent deux conclusions contre-intuitives mais particulièrement importantes dans les dynamiques de crises : 
+
 	\begin{enumerate}
-		\item \textbf{formaliser le problème comme un graphe et décomposer le système dans une configuration correcte}. On essaiera de retenir le minimum d'entités pertinentes. Les liens, dans ce cas, ont besoin d'être annotés pour donner aux analystes une sémantique, une représentation mentale de ce que représente le lien. 
-		\item \textbf{isoler les entités les plus structurantes}. Certaines ont une propriété supplémentaire : une action dessus implique une cascade de transformations (disons, pour l'exemple, un système autonome de freinage comporte un bug et déclenche de manière inopinée le blocage complet des roues de la voiture). L'élément important pour un audit est de lier l'importance de l'entité avec sa résistance aux différents types d'événements. En particulier, quelles transformations renforcent ou affaiblissent  ces liens, et comment augmenter la résilience globale du système. 
-		\item \textbf{définir les méthodes d'activation des vulnérabilités}. une fois que l'analyse des entités et des liens est terminée, la question est de déduire les événements visant les liens les plus critiques et les plus vulnérables pour maximisant un effet ciseau. Il s'agit d'établir la suite causale permettant d'atteindre ces liens, l'impact sur le système des événements, et comment le système réagit. 
-		\item \textbf{définir les conséquences des transformations possibles}. L'analyse ne s'arrête pas à un plan offensif ou une méthode de mitigation. L'impact d'une entité se pense sur tout un système. Ainsi, la faillite d'une banque ne saurait constituer un simple fait comme en atteste la crise des subprimes de 2008. 
+		\item \textbf{La décorrélation entre visibilité et inertie topologique :} L'intuition sociologique classique voudrait que les entités les plus connectées (les \textit{hubs}) soient les moteurs du changement. L'étude démontre le contraire. Les \textit{hubs} disposent de liens souvent redondants ; leur voisinage dense favorise la résilience de la configuration en offrant des chemins alternatifs. Leur dépendance structurelle est diluée. Ainsi, altérer un \textit{hub} engendre rarement une chaîne causale inéluctable. Les véritables entités motrices --- celles dont la disparition ou l'altération maximise l'inertie topologique $I(e)$ --- sont souvent situées en périphérie. Bien que faiblement connectées, elles agissent comme des points de dépendance structurelle exclusifs (des goulets d'étranglement causaux). Induire une crise ne consiste donc pas à frapper le centre visible du système, mais à déclencher un événement sur ces entités-racines, laissant l'effet de levier de la chaîne causale propager le bouleversement.
+		\item \textbf{L'immunité structurelle par l'hétérogénéité :} Les réseaux très denses et homogènes sont faciles à contrôler via un nombre réduit d'entités. En revanche, les configurations clairsemées et hétérogènes (l'architecture typique des réseaux sociaux humains) opposent une barrière topologique majeure au contrôle. Pour forcer la co-évolution de leur état global, il est mathématiquement impératif de générer des événements simultanés sur une multitude d'entités périphériques indépendantes (parfois plus de 80\% des nœuds). Sociologiquement, cela signifie qu'un groupe social est structurellement immunisé contre le contrôle centralisé : la distance d'édition pour lui imposer un attracteur unique est rédhibitoire. C'est également la raison géométrique pour laquelle la manipulation topologique (cf. section 2.6) nécessite des fermes de bots agissant en masse à la périphérie, plutôt que la simple subversion d'une entité centrale.
 	\end{enumerate}
 	
-	\subsection{D'un système à une formalisation par graphes}
+	\subsection*{L'analogie avec la physique des matériaux}
 	
-		La question est relativement bien cernée, nous n'allons pas la reproduire ici. Nous allons apporter deux points, l'un relatif à la question de l'accès à l'information, l'autre relatif au modèle de graphe utilisé. 
-		
-		\subsubsection*{Une analyse transforme des sources en information}
-		La configuration réelle d'un système étant rarement observable dans son intégralité, l'analyste doit déduire la topologie à partir d'informations parcellaires, ce qui rend l'analyse purement sémantique encore plus sujette à caution. Les limites doivent être documentées, et idéalement, l'analyste doit être inclus dans son propre modèle (comme une entité). 
-		
-		\subsubsection*{Quel modèle de graphe utiliser ?}
-		
-		L'idée la plus évidente consiste à prendre un graphe valué : 
-		\begin{itemize}
-			\item les noeuds sont les objets principaux du système
-			\item les liens sont les relations entre les objets
-			\item les valeurs attestent d'une sémantique, rendant les comportements des objets plus ou moins prévisibles. Ce peut être "frère", "proche de", "en opposition avec", etc. 
-		\end{itemize}
-		
-		Cet outil est souvent suffisant, extrêmement présent comme base de formalisation en OSINT (open source intelligence). Il souffre cependant de plusieurs défauts: 
-		\begin{itemize}
-			\item l'absence d'historique, de durée de vie de la relation. 
-			\item les relations plus complexes ne sont pas traitées, et les liens sur les liens ne sont pas possibles. Or, en fonction du sujet, le lien lui même peut être la source de la vulnérabilité. Par exemple, si une personne est mariée et en relation extra-conjugale, ces deux liens seront probablement exploités comme vulnérabilité sur la personne
-		\end{itemize}
-		
-		Nous proposons une autre méthode de formalisation des entités. Une entité a une durée de vie, elle se décrit comme une fonction liant des rôles (frère, collègue, etc) à d'autres entités. Par exemple, on passera de Collègue(Pierre, Paul) à Entité(sémantique="Collègue", validité=depuis 2025,sujet=Pierre, objet=Paul). 
-		
-	\subsection{Définir les propriétés du graphe}
+	Les entités de type liens constituent un des principaux facteurs explicatifs de la structure d'un système. L'analogie avec la physique des matériaux amène à considérer un système stable soumis à une force mécanique progressive pour comprendre comment les liens se disloquent. Elle a ses limites, évidemment, mais nous proposons de les utiliser pour avoir au moins un vocabulaire, une représentation, des mécanismes qui pourraient s'appliquer. Au niveau global, le système connait d'abord une réversibilité complète : les liens tiennent et reviendront à leur état initial à l'arrêt de la transformation. Ensuite, le système reste intègre, mais des liens commencent à se disloquer, rendant la transformation irréversible. Au delà d'un seuil, un phénomène de striction se produit : une zone devient plus fine, moins dense, et le matériau se disloque. Les matériaux sont alors classés en selon le comportement de rupture : 
+	\begin{itemize}
+		\item ductiles : longue phase élastique. Une observation montre des signes repérables de rupture imminente. 
+		\item fragiles : la rupture est quasi immédiate (le verre est l'exemple type), quasiment pas de déformation plastique
+		\item élastomère : certains caoutchoucs connaissent une déformation géante et non linéaire.
+	\end{itemize}
 	
-	\subsection{Exploiter les propriétés du graphe}
+	Au delà des détails physiques, la typologie en trois phases parait bien adaptée à une extrapolation : 
 	
-	\subsection{Mener une étude d'impact sur les transformations}
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{|l|l|}
+			\hline 
+			\textbf{Domaine} & \textbf{Réaction du système} \\
+			\hline 
+			Élastique & Le système réagit comme un ressort et retrouve \\
+			 & sa configuration initiale à l'arrêt de la transformation \\
+			\hline 
+			Plastique & Certains liens se disloquent, le système ne retrouvera plus \\
+			 & sa configuration initiale à l'arrêt de la transformation . \\
+			 & Il devient plus dur et plus résistant en réaction à la transformation \\
+			\hline 
+			Rupture & La déformation n'est plus homogène. Une partie du système \\
+			 & concentre les contraintes et deviendra le point de rupture \\ 
+			\hline 
+		\end{tabular}
+		\caption{Comportement d'un système soumis à une force progressive}
+	\end{table}	
+	
+	Donnons une heuristique mathématique, une formule qui vise à illustrer la solidité locale d'un lien. On appelle \textbf{indice de rupture} au temps $t$ la valeur : 
+	$$\displaystyle{I_r(t) = \frac{\text{Pression(t)}}{\text{Capacité(t)}}}$$
+	
+	La capacité peut elle-même s'exprimer comme fonction d'une solidité structurelle initiale $S_0$ et d'une adaptation progressive, différence entre un taux de régénération et un taux de dégradation. Cette formalisation est, répétons le, un concept plus qu'une notion physique absolue. Mais elle fait apparaitre deux facteurs clé pour comprendre une crise : 
+	\begin{itemize}
+		\item un facteur intrinsèque de solidité, totalement structurel
+		\item un facteur dynamique de régénération compensant la pression subie. On peut l'interpréter comme l'effort d'homéostasie du système
+	\end{itemize}
+
 	
 		
 
@@ -539,6 +552,12 @@
 	Pearson,
 	4ème edition,
 	2021.
+	
+	\bibitem{Controlability}
+	Yang-Yu Liu, Jean-Jacques Slotine et Albert-László Barabási, 
+	\textit{Controllability of complex networks},
+	Nature, 
+	2011.
 	
 \end{thebibliography}
 
