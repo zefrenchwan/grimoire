@@ -536,6 +536,32 @@
 		\item un facteur dynamique de régénération compensant la pression subie. On peut l'interpréter comme l'effort d'homéostasie du système
 	\end{itemize}
 
+
+	L'interprétation au niveau du lien de l'indice est la plus naturelle et calculable. Mais elle peut s'extrapoler au niveau de la configuration comme heuristique qualitative. Dans tous les cas, la lecture est la suivante : 
+	
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{|l|l|}
+			\hline 
+			\textbf{Valeurs prises} & \textbf{Interprétation} \\
+			\hline 
+			Proches de $0$ & Zone élastique : le système connait un stress faible \\
+			 & et peut revenir à sa configuration initiale \\
+			\hline 
+			Proches de $1$ & Zone de risque maximal : le risque de rupture est très élevé \\
+			(par valeurs inférieures) & mais l'événement ne s'est pas encore produit \\
+		   \hline 
+		   $1$ (ou au delà) & Le lien est mécaniquement rompu : la capacité \\
+		    & a été dépassée, provoquant l'événement \\
+		    &  (et probablement ses conséquences) \\
+		   \hline 
+		\end{tabular}
+		\caption{Interprétation qualitative de l'indice de rupture}
+	\end{table}
+
+	\subsection*{L'effet ciseau}
+	
+	La vulnérabilité d'une configuration se fonde sur l'asymétrie de la dépendance structurelle : les entités dont le changement provoque un réordonnancement profond du système. Si nous rassemblons les concepts vus précédemment, \textbf{les entités les plus critiques sont souvent situés à la base du système, avec une inertie importante, et dans les goulots d'étranglement de la configuration. Leur destruction rappelle le phénomène de striction évoqué plus haut. Le système en crise va s'effondrer le long de ces chemins en particulier.} La définition de l'indice de rupture nous amène à chercher en priorité les liens soumis à une forte pression et une capacité faible (soit qu'elle soit inhérente au lien, soit que le lien se dégrade rapidement). \textbf{Nous appelons effet ciseau, dans ce contexte, cet effondrement de la capacité du lien et l'augmentation de la pression sur le lien.}
 	
 		
 
