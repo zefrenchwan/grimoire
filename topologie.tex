@@ -322,7 +322,11 @@
 	
 
 
-	\chapter{Interlude : les mathématiques des graphes}
+	\chapter{Interlude : la formalisation du modèle}
+	
+	Nous visons une représentation suffisamment formalisée pour expliquer des comportements autrement qu'en faisant appel à l'intuition uniquement. Le modèle que nous proposons utilise des notions sur les graphes, que nous résumons à grands traits ici. Ensuite, notre construction mathématique nous amènera à traiter les configurations d'un certain type :  celles ayant un nombre fini d'entités (le cas canonique en pratique). L'approche permet de donner un sens précis à la notion de dépendance structurelle. Cette notion est la frontière entre les systèmes réversibles (sur lesquels le temps n'a pas d'effet) et ceux présentant une forme de causalité. 
+	
+	\section{Les graphes et hypergraphes}
 	
 		Un graphe est la donnée d'un ensemble de sommets ($S$) reliés par des liens ($L$). Les graphes non orientés ne distinguent pas le lien $a \rightarrow b$ de $b \rightarrow a$, alors que les graphes orientés oui. Les graphes valués ajoutent une information sur chaque lien. Par exemple, la distance entre les villes complète les liens. Les définitions varient, mais nous retenons celle-ci : 
 		
@@ -330,35 +334,21 @@
 			Un graphe est la donnée de deux ensembles, $S$ et $L$. Chaque lien est la donnée d'une source (le point de départ) et d'une destination (le point d'arrivée), donc deux fonctions $s,d : L \rightarrow S$. Si le graphe est valué par un ensemble $V$ , on a de plus une fonction $v : L \rightarrow V$. On sait en particulier décider si deux nœuds et deux liens sont égaux. 
 		\end{definition}
 		
-		La définition d'un graphe implique que le lien ait une source et une destination. Autrement dit, un lien ne peut coder qu'une relation binaire, telle que Aime(sujet, complément), laissant de côté les autres, comme par exemple Enseigner(professeur, matière, classe). Une méthode pour retrouver cette expressivité consiste à se ramener à des relations binaires en créant des couples, tels que Enseigne(Enseignant de matière, classe). Une autre méthode consiste à utiliser les \textbf{hypergraphes}. 
+		La définition d'un graphe implique que le lien soit une relation binaire, sur deux éléments. Cette contrainte peut être levée, dans le cas non orienté, avec la notion d'hypergraphes. 
+		
 		
 		\begin{definition}
 			Un hypergraphe est la donnée de deux ensembles, $S$ et $H$. L'ensemble $S$ représente les sommets des hypergraphes (comme les graphes). Pour les arêtes, un hypergraphe n'est pas orienté. On ne prend donc pas un lien entre deux éléments, mais entre un nombre fini d'éléments. Dès lors, $H$ est la donnée de parties finies de $S$. 
 		\end{definition}
 		
-		\section{Les parcours de graphe}
+		\subsection*{Les parcours de graphe}
 		
-			Partons d'un graphe orienté $G = (S,L)$ et d'un nœud $n \in S$. Comme tout lien a un sens, on peut imaginer un parcours de graphe comme un passage d'un nœud à un autre suivant l'orientation du lien. Ainsi, un parcours de graphe consiste à se donner un noeud initial et à suivre le graphe tant qu'il est possible de le faire. L'algorithme général consiste à trouver les noeuds atteignables depuis sa position courante, et suivre un des liens disponibles (c'est à dire l'emprunter dans un sens compatible avec sa définition). On peut alors rencontrer des \textbf{cycles}, c'est à dire des chemins qui reviennent sur un nœud déjà visité. Le cycle le plus simple est $a \rightarrow b \rightarrow a$. 
-			
-			
-		\section{Les DAG}
+		Partons d'un graphe orienté $G = (S,L)$ et d'un nœud $n \in S$. Comme tout lien a un sens, on peut imaginer un parcours de graphe comme un passage d'un nœud à un autre suivant l'orientation du lien. Ainsi, un parcours de graphe consiste à se donner un noeud initial et à suivre le graphe tant qu'il est possible de le faire. L'algorithme général consiste à trouver les noeuds atteignables depuis sa position courante, et suivre un des liens disponibles (c'est à dire l'emprunter dans un sens compatible avec sa définition). On peut alors rencontrer des \textbf{cycles}, c'est à dire des chemins qui reviennent sur un nœud déjà visité. Le cycle le plus simple est $a \rightarrow b \rightarrow a$. 
 		
-			Prenons un graphe orienté sans cycle. C'est par définition un DAG : directed acyclic graph. Pour un nœud $a$, sa composante fortement connexe est l'ensemble des nœuds qu'on peut parcourir depuis ce nœud. S'il existe un parcours allant d'un nœud $a$ au nœud $b$, on peut compter le nombre de liens parcourus (et attention, il peut exister plusieurs chemins). Dans l'absolu, la hauteur d'un nœud est la longueur du plus long chemin arrivant à un noeud terminal (dont il ne part aucun lien). 
 		
-		\section{La réification de graphes}
-			On aimerait par contre réifier des liens, c'est à dire avoir des liens dont la source ou la destination est lui même un lien. Par exemple, $$Sait(source=Jean, destination=Aime(source=Paul,destination = lait))$$ Ce n'est normalement pas possible si on prend la définition d'un graphe, mais nous allons détailler comment produire un graphe réifiable à partir d'un autre graphe. Deux méthodes existent : 
-			\begin{enumerate}
-				\item La source et la destination peuvent être un lien comme un sommet. Dit autrement, la méthode consiste à changer la signature de $s$ et $d$. Si on prend l'union disjointe $\mathcal{A} = S \bigcup L$ (pour ne pas confondre sommet et lien), on passe de $s,d : L \rightarrow S$ à $s,d : L \rightarrow \mathcal{A}$. L'avantage de la méthode est sa simplicité à ce stade. Mais on perd tout l'attirail théorique des graphes. 
-				\item Les liens et les sommets deviennent des nœuds d'un second graphe. Ils constituent la couche sémantique du nouveau graphe, et on utilise des liens formels, sans sémantique. Ainsi, partant de $G$, on pose $\mathcal{A} = S \bigcup L$ pour les sommets et $\mathcal{E}$ pour ces liens formels, donc deux fonctions $\sigma,\delta : \mathcal{E} \rightarrow \mathcal{A}$. Le lien $l \in L$ défini par $(s,d)(l) = (a,b)$ devient un noeud $l' \in \mathcal{A}$ tel que $(\sigma,\delta)(l') = (s,d)(l)$. On passe donc de $a \xrightarrow{l} b$ à $a \xleftarrow{\sigma} l \xrightarrow{\delta} b$.
-			\end{enumerate}
-			
-			Si nous le poussons jusqu'au bout, ce second concept amènerait à une proposition sémantique intéressante pour inclure une couche sémantique, donc au niveau pratique de l'usage de l'outil par un observateur. Par exemple, Aime(Lucas, Marie) devient Aime(sujet=Lucas, objet=Marie)\footnote{Objet de la relation, évidemment}, permettant de porter tout type de relation : Enseigne(sujet=Enseignant, objet =cours, complément circonstanciel de temps=le lundi). L'approche par contre serait trompeuse d'un point de vue ontologique : elle est liée à la description du monde par un observateur. Nous y reviendrons. 
-			
-
-
-	\chapter{La formalisation du modèle}
-	
-		Nous visons une représentation suffisamment formalisée pour expliquer des comportements autrement qu'en faisant appel à l'intuition uniquement. 
+		\subsection*{Les DAG}
+		
+		Prenons un graphe orienté sans cycle. C'est par définition un DAG : directed acyclic graph. Pour un nœud $a$, sa composante fortement connexe est l'ensemble des nœuds qu'on peut parcourir depuis ce nœud. S'il existe un parcours allant d'un nœud $a$ au nœud $b$, on peut compter le nombre de liens parcourus (et attention, il peut exister plusieurs chemins). Dans l'absolu, la hauteur d'un nœud est la longueur du plus long chemin arrivant à un noeud terminal (dont il ne part aucun lien). 
 		
 		\section{Une construction des configurations}
 		
@@ -483,14 +473,58 @@
 			
 			C'est cette disproportion radicale dans la métrique de la distance d'édition — un "coût" de création combinatoire laborieux face à un redoutable effet de levier de destruction — qui caractérise mathématiquement la flèche du temps au sein des systèmes de type fini.
 			
+			
+			
 		\section{Résumé du modèle choisi}
 		
-			Au delà des aspects de pure formalisation, l'idée présentée a été de partir des éléments de base d'une configuration. En se restreignant aux configurations de type fini, on arrive à reconstruire toute configuration comme une tour organisée en étages. L'apport essentiel est de formaliser, pour une entité $e$, les entités qui dépendent d'elles ($\mathcal{D}(e)$). En supposant les configurations constituées d'un nombre fini d'éléments, on peut définir un coefficient d'inertie : le nombre d'entités qui dépendent de $e$. C'est le coeur de de ce chapitre. 
+			Au delà des aspects de pure formalisation, l'idée présentée a été de partir des éléments de base d'une configuration. En se restreignant aux configurations de type fini, on arrive à reconstruire toute configuration comme une tour organisée en étages. L'apport essentiel est de formaliser, pour une entité $e$, les entités qui dépendent d'elles ($\mathcal{D}(e)$). En supposant les configurations constituées d'un nombre fini d'éléments, on peut définir un coefficient d'inertie : le nombre d'entités qui dépendent de $e$. C'est le cœur de de ce chapitre. Il explique une forme de causalité par une rupture de symétrie. S'il est beaucoup plus facile de détruire en cascade des liens que d'en construire de nouveaux, les transformations ont un sens : on ne peut pas refaire ce qui a été défait. 
 
 			La mécanique se généralise très bien à tout ensemble partiellement ordonné. Une chaine étant fixée, la question est de savoir la conséquence d'une rupture dans la chaine. Cette formalisation par les ensembles ordonnés nous amène à un modèle tourné vers une théorie des dépendances causale et structurelle. Ce n'est pas le propos de ce texte, mais se retrouver en terrain théorique connu présente un avantage certain pour développer la théorie dans la suite. 
 	
+	\chapter{De la sémantique à la topologie}
 	
-
+	L'ontologie exprime, au fond, une logique d'entités liées entre elles (la configuration) qui évolue par des événements élémentaires (création ou suppression d'entités). Son cadre d'application est alors extrêmement général : les réseaux sociaux constituent, par leur structure, une application naturelle, mais absolument pas la seule. Des chapitres précédents, nous retenons une rupture de symétrie entre les conséquences désastreuses d'une perte d'entité centrale (à forte inertie) et sa difficile reconstruction. 
+	
+	\section{Analyse des vulnérabilités d'une configuration}
+	Ce constat permet deux usages : offensif en isolant et menaçant ces entités critiques, et contre-offensif en auditant un système et en le protégeant ou améliorant sa résilience. La méthode est la suivante : 
+	\begin{enumerate}
+		\item \textbf{formaliser le problème comme un graphe et décomposer le système dans une configuration correcte}. On essaiera de retenir le minimum d'entités pertinentes. Les liens, dans ce cas, ont besoin d'être annotés pour donner aux analystes une sémantique, une représentation mentale de ce que représente le lien. 
+		\item \textbf{isoler les entités les plus structurantes}. Certaines ont une propriété supplémentaire : une action dessus implique une cascade de transformations (disons, pour l'exemple, un système autonome de freinage comporte un bug et déclenche de manière inopinée le blocage complet des roues de la voiture). L'élément important pour un audit est de lier l'importance de l'entité avec sa résistance aux différents types d'événements. En particulier, quelles transformations renforcent ou affaiblissent  ces liens, et comment augmenter la résilience globale du système. 
+		\item \textbf{définir les méthodes d'activation des vulnérabilités}. une fois que l'analyse des entités et des liens est terminée, la question est de déduire les événements visant les liens les plus critiques et les plus vulnérables pour maximisant un effet ciseau. Il s'agit d'établir la suite causale permettant d'atteindre ces liens, l'impact sur le système des événements, et comment le système réagit. 
+		\item \textbf{définir les conséquences des transformations possibles}. L'analyse ne s'arrête pas à un plan offensif ou une méthode de mitigation. L'impact d'une entité se pense sur tout un système. Ainsi, la faillite d'une banque ne saurait constituer un simple fait comme en atteste la crise des subprimes de 2008. 
+	\end{enumerate}
+	
+	\subsection{D'un système à une formalisation par graphes}
+	
+		La question est relativement bien cernée, nous n'allons pas la reproduire ici. Nous allons apporter deux points, l'un relatif à la question de l'accès à l'information, l'autre relatif au modèle de graphe utilisé. 
+		
+		\subsubsection*{Une analyse transforme des sources en information}
+		La configuration réelle d'un système étant rarement observable dans son intégralité, l'analyste doit déduire la topologie à partir d'informations parcellaires, ce qui rend l'analyse purement sémantique encore plus sujette à caution. Les limites doivent être documentées, et idéalement, l'analyste doit être inclus dans son propre modèle (comme une entité). 
+		
+		\subsubsection*{Quel modèle de graphe utiliser ?}
+		
+		L'idée la plus évidente consiste à prendre un graphe valué : 
+		\begin{itemize}
+			\item les noeuds sont les objets principaux du système
+			\item les liens sont les relations entre les objets
+			\item les valeurs attestent d'une sémantique, rendant les comportements des objets plus ou moins prévisibles. Ce peut être "frère", "proche de", "en opposition avec", etc. 
+		\end{itemize}
+		
+		Cet outil est souvent suffisant, extrêmement présent comme base de formalisation en OSINT (open source intelligence). Il souffre cependant de plusieurs défauts: 
+		\begin{itemize}
+			\item l'absence d'historique, de durée de vie de la relation. 
+			\item les relations plus complexes ne sont pas traitées, et les liens sur les liens ne sont pas possibles. Or, en fonction du sujet, le lien lui même peut être la source de la vulnérabilité. Par exemple, si une personne est mariée et en relation extra-conjugale, ces deux liens seront probablement exploités comme vulnérabilité sur la personne
+		\end{itemize}
+		
+		Nous proposons une autre méthode de formalisation des entités. Une entité a une durée de vie, elle se décrit comme une fonction liant des rôles (frère, collègue, etc) à d'autres entités. Par exemple, on passera de Collègue(Pierre, Paul) à Entité(sémantique="Collègue", validité=depuis 2025,sujet=Pierre, objet=Paul). 
+		
+	\subsection{Définir les propriétés du graphe}
+	
+	\subsection{Exploiter les propriétés du graphe}
+	
+	\subsection{Mener une étude d'impact sur les transformations}
+	
+		
 
 
 %%%%%%%%%%%%%%%%%
