@@ -415,7 +415,7 @@
 			La relation est évidemment transitive, ce qui munit l'ensemble des entités d'une configuration d'une relation d'ordre partiel. 
 			
 			\begin{definition}
-				Pour une configuration donnée de type fini, l'ensemble des entités $E$ est muni d'un ordre partiel. S'il existe un chemin allant de $a$ vers $b$ (ou si $a = b$), on notera $a \preceq b$. En particulier, on posera, pour $a \in E$, $$\Downarrow a = \{ \ z \in E \ | \ a \preceq b \ \}$$ La définition s'étend à une partie finie des entités de la configuration. Si $F$ est une partie finie des entités de la configuration, $$ \Downarrow F = \{ \ z \in E \ | \ \exists a \in F \  a \preceq b \ \}$$
+				Pour une configuration donnée de type fini, l'ensemble des entités $E$ est muni d'un ordre partiel. S'il existe un chemin allant de $a$ vers $b$ (ou si $a = b$), on notera $a \preceq b$. En particulier, on posera, pour $a \in E$, $$\Downarrow a = \{ \ z \in E \ | \ a \preceq z \ \}$$ La définition s'étend à une partie finie des entités de la configuration. Si $F$ est une partie finie des entités de la configuration, $$ \Downarrow F = \{ \ z \in E \ | \ \exists a \in F \  a \preceq z \ \}$$
 			\end{definition}
 			
 			Cette notion en particulier sera clé pour réinterpréter le concept de dépendance structurelle. Prenons une configuration $C$ et une entité $a$. Si l'on postule que $a$ a besoin de \textit{tous} les éléments de $\Downarrow a$ pour exister, on a une forme d'instabilité totale. Prenons ce diagramme: 
@@ -492,17 +492,16 @@
 	Cette approche amène naturellement à considérer le rôle privilégié de l'asymétrie des liens et de la dépendance structurelle. Ce postulat trouve une validation mathématique majeure dans les travaux de Liu, Slotine et Barabási sur la contrôlabilité des réseaux complexes \cite{Controlability}. En traduisant leur problématique dans notre ontologie, l'étude cherche à identifier le nombre minimal d'entités (les \textit{driver nodes}) sur lesquelles imposer des événements initiaux pour forcer l'accessibilité du système vers n'importe quelle configuration cible. Leurs résultats apportent deux conclusions contre-intuitives mais particulièrement importantes dans les dynamiques de crises : 
 
 	\begin{enumerate}
-		\item \textbf{La décorrélation entre visibilité et inertie topologique :} L'intuition sociologique classique voudrait que les entités les plus connectées (les \textit{hubs}) soient les moteurs du changement. L'étude démontre le contraire. Les \textit{hubs} disposent de liens souvent redondants ; leur voisinage dense favorise la résilience de la configuration en offrant des chemins alternatifs. Leur dépendance structurelle est diluée. Ainsi, altérer un \textit{hub} engendre rarement une chaîne causale inéluctable. Les véritables entités motrices --- celles dont la disparition ou l'altération maximise l'inertie topologique $I(e)$ --- sont souvent situées en périphérie. Bien que faiblement connectées, elles agissent comme des points de dépendance structurelle exclusifs (des goulets d'étranglement causaux). Induire une crise ne consiste donc pas à frapper le centre visible du système, mais à déclencher un événement sur ces entités-racines, laissant l'effet de levier de la chaîne causale propager le bouleversement.
+		\item \textbf{La décorrélation entre visibilité et inertie topologique :} L'intuition sociologique classique voudrait que les entités les plus connectées (les \textit{hubs}) soient les moteurs du changement. L'étude démontre le contraire. Les \textit{hubs} disposent de liens souvent redondants ; leur voisinage dense favorise la résilience de la configuration en offrant des chemins alternatifs. Leur dépendance structurelle est diluée. Ainsi, altérer un \textit{hub} engendre rarement une chaîne causale inéluctable. Les véritables entités motrices --- celles dont la disparition ou l'altération maximise l'inertie topologique $I(e)$ --- sont souvent situées aux niveaux les plus fondamentaux, près des entités de base. Bien que faiblement connectées, elles agissent comme des points de dépendance structurelle exclusifs (des goulets d'étranglement causaux). Induire une crise ne consiste donc pas à frapper le centre visible du système, mais à déclencher un événement sur ces entités-racines, laissant l'effet de levier de la chaîne causale propager le bouleversement.
 		\item \textbf{L'immunité structurelle par l'hétérogénéité :} Les réseaux très denses et homogènes sont faciles à contrôler via un nombre réduit d'entités. En revanche, les configurations clairsemées et hétérogènes (l'architecture typique des réseaux sociaux humains) opposent une barrière topologique majeure au contrôle. Pour forcer la co-évolution de leur état global, il est mathématiquement impératif de générer des événements simultanés sur une multitude d'entités périphériques indépendantes (parfois plus de 80\% des nœuds). Sociologiquement, cela signifie qu'un groupe social est structurellement immunisé contre le contrôle centralisé : la distance d'édition pour lui imposer un attracteur unique est rédhibitoire. C'est également la raison géométrique pour laquelle la manipulation topologique (cf. section 2.6) nécessite des fermes de bots agissant en masse à la périphérie, plutôt que la simple subversion d'une entité centrale.
 	\end{enumerate}
 	
 	\subsection*{L'analogie avec la physique des matériaux}
 	
-	Les entités de type liens constituent un des principaux facteurs explicatifs de la structure d'un système. L'analogie avec la physique des matériaux amène à considérer un système stable soumis à une force mécanique progressive pour comprendre comment les liens se disloquent. Elle a ses limites, évidemment, mais nous proposons de les utiliser pour avoir au moins un vocabulaire, une représentation, des mécanismes qui pourraient s'appliquer. Au niveau global, le système connait d'abord une réversibilité complète : les liens tiennent et reviendront à leur état initial à l'arrêt de la transformation. Ensuite, le système reste intègre, mais des liens commencent à se disloquer, rendant la transformation irréversible. Au delà d'un seuil, un phénomène de striction se produit : une zone devient plus fine, moins dense, et le matériau se disloque. Les matériaux sont alors classés en selon le comportement de rupture : 
+	Les entités de type liens constituent un des principaux facteurs explicatifs de la structure d'un système. L'analogie avec la physique des matériaux amène à considérer un système stable soumis à une force mécanique progressive pour comprendre comment les liens se disloquent. Elle a ses limites, évidemment, mais nous proposons de les utiliser pour avoir au moins un vocabulaire, une représentation, des mécanismes qui pourraient s'appliquer. Au niveau global, le système connait d'abord une réversibilité complète : les liens tiennent et reviendront à leur état initial à l'arrêt de la transformation. Ensuite, le système reste intègre, mais des liens commencent à se disloquer, rendant la transformation irréversible. Au delà d'un seuil, un phénomène de striction se produit : une zone devient plus fine, moins dense, et le matériau se disloque. Les matériaux sont alors classés selon le comportement de rupture. Nous en retiendrons deux : 
 	\begin{itemize}
 		\item ductiles : longue phase élastique. Une observation montre des signes repérables de rupture imminente. 
 		\item fragiles : la rupture est quasi immédiate (le verre est l'exemple type), quasiment pas de déformation plastique
-		\item élastomère : certains caoutchoucs connaissent une déformation géante et non linéaire.
 	\end{itemize}
 	
 	Au delà des détails physiques, la typologie en trois phases parait bien adaptée à une extrapolation : 
@@ -529,8 +528,13 @@
 	
 	Donnons une heuristique mathématique, une formule qui vise à illustrer la solidité locale d'un lien. On appelle \textbf{indice de rupture} au temps $t$ la valeur : 
 	$$\displaystyle{I_r(t) = \frac{\text{Pression(t)}}{\text{Capacité(t)}}}$$
+	Avant tout, un exemple : une alliance politique entre deux chefs de partis pour regrouper les votes lors d'une échéance importante. La capacité du lien représente la solidité de l'alliance (soit intrinsèque, soit renforcée par des gestes politiques forts). La pression représente le stress pouvant casser le lien (des divergences de vision, des responsables clés faisant sécession). Plus généralement, nous donnons les définitions suivantes : 
+	\begin{enumerate}
+		\item \textbf{La pression} correspond au volume, à la densité et à la fréquence des événements concentrés sur ce lien ou ses dépendances pour le détruire
+		\item \textbf{La capacité} correspond à tous les facteurs permettant de contrebalancer la dégradation du lien suite à la pression subie. Ce sont tous les événements visant à garder ou renforcer la qualité du lien
+	\end{enumerate}
 	
-	La capacité peut elle-même s'exprimer comme fonction d'une solidité structurelle initiale $S_0$ et d'une adaptation progressive, différence entre un taux de régénération et un taux de dégradation. Cette formalisation est, répétons le, un concept plus qu'une notion physique absolue. Mais elle fait apparaitre deux facteurs clé pour comprendre une crise : 
+	La capacité peut elle-même s'exprimer comme fonction d'une solidité structurelle initiale $S_0$ et d'une adaptation progressive, différence entre un taux de régénération et un taux de dégradation. Cette formalisation est, répétons le, un concept plus qu'une notion physique absolue. Mais elle fait apparaitre deux facteurs clés pour comprendre une crise : 
 	\begin{itemize}
 		\item un facteur intrinsèque de solidité, totalement structurel
 		\item un facteur dynamique de régénération compensant la pression subie. On peut l'interpréter comme l'effort d'homéostasie du système
@@ -571,6 +575,35 @@
 	
 	La vulnérabilité d'une configuration se fonde sur l'asymétrie de la dépendance structurelle : les entités dont le changement provoque un réordonnancement profond du système. Si nous rassemblons les concepts vus précédemment, \textbf{les entités les plus critiques sont souvent situés à la base du système, avec une inertie importante, et dans les goulots d'étranglement de la configuration. Leur destruction rappelle le phénomène de striction évoqué plus haut. Le système en crise va s'effondrer le long de ces chemins en particulier.} La définition de l'indice de rupture nous amène à chercher en priorité les liens soumis à une forte pression et une capacité faible (soit qu'elle soit inhérente au lien, soit que le lien se dégrade rapidement). \textbf{Nous appelons effet ciseau, dans ce contexte, cet effondrement de la capacité du lien et l'augmentation de la pression sur le lien.}
 	
+	\section{L'obsolescence de la sémantique : anatomie d'une attaque topologique}
+	
+	Cette explication physique des crises permet de nous affranchir de leur charge sémantique. 
+	La confirmation pratique nous vient de l'étude de Giuliano Da Empoli sur les logiques utilisées par les \og{}ingénieurs du chaos\fg{}. Les redoutables stratégies d'influence observées empiriquement par le sociologue trouvent, au travers de notre ontologie, une explication mathématique et structurelle.
+	\vspace{0.5cm}
+
+	Jusqu'à récemment, la défense des configurations démocratiques sur les réseaux sociaux reposait sur ce que nous appellerons le \og{}filtre sémantique\fg{} : modération de contenu, \textit{fact-checking}, détection algorithmique de discours haineux. Dans les termes de notre ontologie, cette approche consiste à analyser la \textit{propriété} d'une entité isolée (le message) pour en évaluer la véracité ou l'intention. Or, l'ingénieur du chaos ne cherche pas à convaincre par la rhétorique (la sémantique), il vise à modifier l'accessibilité du système (la topologie). Dans ce cadre, la valeur de vérité du contenu n'a aucune importance : qu'il soit vrai, faux ou absurde, le message n'est qu'un prétexte destiné à générer un événement (une interaction) pour contraindre l'algorithme à modifier l'architecture des liens. L'avenir de l'influence ne réside plus dans la persuasion sémantique, mais bien dans la \textbf{manipulation topologique} : altérer l'architecture des liens pour restreindre ou forcer l'espace des possibles d'une cible.
+	
+	\subsection*{Le déroulement de la crise informationnelle}
+	
+	Si l'on reprend la dynamique d'une crise définie précédemment, l'ingénierie du chaos suit un cheminement précis qui exploite à son avantage l'asymétrie de notre modèle :
+	
+	\paragraph{1. Phase élastique : ciblage périphérique.}
+	L'attaquant ne vise pas les entités centrales (médias traditionnels, institutions publiques), car leur forte connectivité dilue leur dépendance structurelle et assure leur résilience (cf. section 4.1). Par le biais du micro-ciblage psychométrique, il cartographie la configuration pour identifier des nœuds périphériques (\textit{driver nodes}) : des individus souvent isolés, porteurs de biais, de peurs ou de colères très spécifiques. À ce stade, la structure globale tient, mais des vulnérabilités locales sont exploitées et mises sous tension de manière ciblée.
+	
+	\paragraph{2. Phase plastique : l'effet ciseau en action.}
+	L'attaquant injecte massivement des événements (publications, publicités ciblées) agissant comme de purs déclencheurs émotionnels. L'effet ciseau s'enclenche alors : 
+	\begin{itemize}
+		\item La \textit{pression} sur les entités ciblées augmente brutalement par la saturation du flux d'interactions.
+		\item La \textit{capacité} des liens d'ancrage transversaux (confiance envers la science, les médias, les institutions) se dégrade inexorablement.
+	\end{itemize}
+	L'indice de rupture de ces liens approche la valeur critique. Surtout, la dynamique de co-évolution de la plateforme (cf. section 2.6) aggrave cette déformation : pour maximiser le temps d'attention, l'algorithme coupe les liens de visibilité vers le consensus et relie massivement ces entités périphériques indignées les unes aux autres. 
+	
+	\paragraph{3. Rupture et émergence d'attracteurs.}
+	Sous l'effet ciseau, les derniers liens structurels reliant ces individus au reste de la société finissent par céder. Le système subit une striction irréversible : une partie du réseau se détache pour former une chambre d'écho hermétique, un nouvel \textbf{attracteur topologique}. Pour les entités enfermées dans cet attracteur, l'accès à une information factuelle ou contradictoire n'est techniquement plus \textit{accessible}. L'inertie topologique du sous-groupe polarisé devient telle que la crise éclate au grand jour.
+	
+	\vspace{0.5cm}
+	En définitive, vouloir contrer ces manipulations par le \textit{fact-checking} sémantique, c'est s'épuiser sur le sens des mots pendant que l'adversaire reconfigure le champ de bataille. En forçant la rupture des dépendances structurelles, les ingénieurs du chaos démontrent de façon empirique que la sémantique est impuissante une fois la topologie contrôlée. L'enjeu de la résilience d'un système n'est donc plus de garantir la vérité absolue de chaque donnée, mais de protéger l'intégrité géométrique de l'architecture qui la transporte.
+
 %%%%%%%%%%%%%%%%%
 %% BIBLIOGRAPHIE %%
 %%%%%%%%%%%%%%%%%
@@ -589,6 +622,12 @@
 	\textit{Controllability of complex networks},
 	Nature, 
 	2011.
+	
+	\bibitem{DaEmpoli2019}
+	Giuliano da Empoli,
+	\textit{Les Ingénieurs du chaos},
+	JC Lattès,
+	2019.
 	
 \end{thebibliography}
 
