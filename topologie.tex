@@ -586,6 +586,20 @@
 	
 	L'indice de rupture ayant franchi son seuil critique, la dislocation de ces liens d'ancrage a provoqué un effondrement en cascade de leur référentiel d'origine. C'est ici que l'asymétrie fondamentale de notre modèle — à l'origine de la flèche du temps — prend tout son sens sociétal : détruire l'ancrage d'un citoyen par la peur nécessite une distance d'édition très faible (quelques événements bien ciblés suffisent), tandis qu'inverser la transformation pour le sortir de ce nouvel attracteur exige une combinatoire d'événements topologiquement hors de portée des institutions. La crise démocratique n'apparaît alors plus comme un simple basculement d'opinion, mais comme la conséquence géométrique d'un forçage asymétrique de la structure.
 	
+	\subsection*{L'usage de l'IA pour l'automatisation de l'attaque}
+	
+	\textbf{Cette sous-section propose une analyse du risque de mauvais usage de l'ontologie. Elle ne constitue pas un mode d'emploi offensif. Au contraire, elle vise à alerter quant au risque de \textit{dual-use} de l'ontologie}.
+	
+	\vspace{0.5cm}
+	
+	Le niveau d'abstraction élevé est en fait un atout pour un attaquant souhaitant automatiser l'audit de vulnérabilité. Les IA génératives utilisent, à date, des mécanismes sémantiques de vérification du risque de la demande : le NLP et le RLHF basé sur des exemples annotés manuellement. En reformulant l'attaque topologique comme un problème de graphes abstrait, un attaquant est en mesure de contourner ces mécanismes de protection : 
+	\begin{enumerate}
+		\item \textbf{pour une raison statistique} (\og{}out of distribution generalization failure\fg{}). La demande est tellement spécifique qu'aucune base d'apprentissage annotée ne contient des reformulations du problème et l'évaluation humaine de ce risque. Très simplement, reformuler le problème en évitant les mots clés offensifs suffit. 
+		\item parce que les modèles actuels analysent encore beaucoup au sens littéral. Ce sont les vulnérabilités connues sous les noms d'\textit{obfuscation inter-domaines} ou de \textit{jailbreak métaphorique} : l'analyse de la dangerosité des analogies et métaphores n'est pas poussée jusqu'à la détection de la finalité réelle. 
+		\item l'usage d'un modèle théorique exigeant créé, en l'état, une forme de \og{}surcharge cognitive\fg{} qui déporte l'effort sur les calculs et la résolution de problème plus que sur l'évaluation de la dangerosité finale. Ce sont les concept de \textit{jailbreak logique ou symbolique}. La définition d'indicateurs tels que l'indice de rupture accentue le phénomène. 
+	\end{enumerate}
+
+	
 	
 %%%%%%%%%%%%%%%%%
 %% BIBLIOGRAPHIE %%
