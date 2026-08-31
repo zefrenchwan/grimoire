@@ -20,11 +20,12 @@
 	\maketitle
 	
 	\begin{abstract}
-		Ce document synthétise plusieurs recherches personnelles sur les réseaux sociaux. En 2025, un premier POC part d''un modèle de crise et en fait un outil automatique offensif en guerre informationnelle. La version défensive apparait quelques mois plus tard, dans un formalisme encore timide autour de champs informationnels. Ensuite, le rôle de l'observateur est raffiné. Texte après texte, les formalismes bougent mais l'idée reste : \textbf{L'algorithme dit à l'attention comment circuler ; l'engagement dit à l'algorithme comment courber l'espace}. Un réseau social est un espace, avec une topologie spécifique, et dynamique. L'analogie physique parait fondamentale, bien au delà du hasard. C'est ce que propose ce texte : un pont entre des domaines différents, une ontologie partagée, une logique physique des crises et des supports d'informations. 
+		Ce document synthétise plusieurs recherches personnelles sur les réseaux sociaux. En 2025, un premier POC part d''un modèle de crise et en fait un outil automatique offensif en guerre informationnelle. La version défensive apparait quelques mois plus tard, dans un formalisme encore timide autour de champs informationnels. Ensuite, le rôle de l'observateur est raffiné. Texte après texte, les formalismes bougent mais l'idée reste : \textbf{L'algorithme dit à l'attention comment circuler ; l'engagement dit à l'algorithme comment courber l'espace. Autre point clé : la quantité conservée est la capacité d'attention humaine}. Un réseau social est un espace, avec une topologie spécifique, et dynamique. L'analogie physique parait fondamentale, bien au delà du hasard. C'est ce que propose ce texte : un pont entre des domaines différents, une ontologie partagée, une logique physique des crises et des supports d'informations. 
 	\end{abstract}
 
 	\tableofcontents
 	
+	\part{La méthode entité - événements}
 	
 	\chapter{L'ontologie de base}
 	
@@ -487,7 +488,7 @@
 			La mécanique se généralise très bien à tout ensemble partiellement ordonné. Une chaine étant fixée, la question est de savoir la conséquence d'une rupture dans la chaine. Cette formalisation par les ensembles ordonnés nous amène à un modèle tourné vers une théorie des dépendances causale et structurelle. Ce n'est pas le propos de ce texte, mais se retrouver en terrain théorique connu présente un avantage certain pour développer la théorie dans la suite. 
 	
 	\chapter{Les logiques de crise}
-	
+		
 	L'ontologie exprime, au fond, une logique d'entités liées entre elles (la configuration) qui évolue par des événements élémentaires (création ou suppression d'entités). Son cadre d'application est alors extrêmement général : les réseaux sociaux constituent, par leur structure, une application naturelle, mais absolument pas la seule. Des chapitres précédents, nous retenons une rupture de symétrie entre les conséquences désastreuses d'une perte d'entité centrale (à forte inertie) et sa difficile reconstruction. Cette asymétrie permet de donner une approche topologique aux mécanismes de crise. 
 	
 	\section{Une explication physique des crises}
@@ -605,8 +606,54 @@
 		\item l'usage d'un modèle théorique exigeant créé, en l'état, une forme de \og{}surcharge cognitive\fg{} qui déporte l'effort sur les calculs et la résolution de problème plus que sur l'évaluation de la dangerosité finale. Ce sont les concept de \textit{jailbreak logique ou symbolique}. La définition d'indicateurs tels que l'indice de rupture accentue le phénomène. 
 	\end{enumerate}
 
+
+	\part{Les logiques locales}
 	
 	
+	\chapter{L'approche phénoménologique}
+	
+	Si nous reprenons la logique d'un réseau social, il y a une asymétrie totale entre l'utilisateur et les outils capables d'actions systémiques sur le réseau (que nous appellerons l'Algorithme) : 
+	
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{|l|l|l|}
+			\hline 
+			\textbf{Concept} & \textbf{Utilisateur} & \textbf{Algorithme} \\
+			\hline 
+			Visibilité & Voisinage immédiat  & Globale (tout le graphe) \\
+			\hline 
+			Contenu & Les contenus proposés & Tous les contenus \\
+			& ou trouvables par requêtes & (y compris non visibles) \\
+			\hline 
+			Engagement & Relations locales  & L'ensemble des engagements \\
+			& et récentes & de tous les utilisateurs \\
+			& (parfois uniquement agrégé) & sur tous les contenus \\
+			\hline 
+			Actions & Afficher un contenu & Modifier les contenus visibles \\
+			& ou chercher un contenu & pour tous les utilisateurs \\
+			\hline 
+		\end{tabular}
+		\caption{Exemples d'asymétrie entre l'utilisateur et l'algorithme} 
+	\end{table}
+	
+	Le point de vue que nous avons exposé jusqu'ici est global : les configurations et transformations sont supposées connues dans leur intégralité. Dans ce référentiel, l'Algorithme est omnipotent : il peut non seulement tout savoir, mais aussi contrôler les transformations. Que reste-t-il à notre utilisateur ? Plutôt que de n'adresser que la question des réseaux sociaux (qui constituent un cas extrême d'asymétrie), nous allons proposer une approche phénoménologique complète. Plutôt que de parler d'utilisateur ou d'observateur, nous utiliserons la notion d'acteur. 
+	
+	\section{L'acteur agit avec une vision partielle du système} 
+	
+	Dans la plupart des systèmes complexes (politiques, sociaux, physiques), il n'existe pas d'acteur omniscient planant au-dessus de la mêlée. L'acteur est intriqué \textit{dans} le système. Cette approche permet de clarifier le rôle de l'acteur par rapport au système : 
+	\begin{enumerate}
+		\item \textbf{son identité}. Ainsi, quand on parle de telle personne, on lui attache une série d'événements dont on se remémore, une chaine causale le caractérisant lui. De même, un pays n'est pas un état en nombre d'habitants et en position géographique, mais tout un ensemble social et culturel lié à son évolution. \textbf{Nous la définirons comme un invariant au fil des transformations, un sous graphe stable sur une longue période perçue}. 
+		\item \textbf{ses capacités de raisonnement et mémoire}. Nous avons la capacité d'avoir une représentation des systèmes avec lesquels on interagit, ce qui nous permet d'ajuster nos comportements en fonction de stratégies personnelles. Notamment, nous avons une capacité de décrire les événements qu'on a perçu et d'en tenir compte. En particulier, lorsque nous échangeons sur un système, nous parlons en fait d'entités partagées, de transformations dont nous avons connaissance. L'universalité des définitions (au langage près) définit un vocabulaire commun. A priori, nous sommes d'accord sur les faits (la réalité) mais pas leur interprétation (la réalité de la réalité). 
+		\item \textbf{sa relation au système}. Il ne peut capter que ce qui relève de son voisinage, au sens des messages dont il fait sens sur le monde. Ce peut être la lecture d'une actualité, une perception directe d'un phénomène, une représentation mentale qui a un impact sur son comportement, etc. Cet acteur n'a accès qu'à une fraction de la configuration globale : son \og{}graphe-monde\fg{}. Que ce soit un changement interne ou un événement perçu, nous prenons une approche du temps aristotélicienne : le temps est relatif à chaque entité, un tick intervient à chaque changement. Ainsi, à chaque \textit{tick}, l'acteur agit en fonction de ce qu'il perçoit, générant des événements locaux. En retour, les dépendances structurelles du système mettent à jour son voisinage. \textbf{L'acteur et son horizon local se co-construisent en permanence}.
+	\end{enumerate}
+	
+	Cette définition pourrait laisser penser que nous ne proposons rien de plus qu'un modèle d'agent tel qu'exposé dans les premiers chapitres de \cite{RussellNorvig}. Il n'en est rien, \textbf{la question que nous posons dans cette partie est la co-évolution d'un acteur et son environnement. Le cas du réseau social est extrême : l'environnement s'adapte à l'acteur à chaque tick, non seulement sur la base de son propre comportement, mais en tenant compte de tous les utilisateurs (passés et présents). Réciproquement, les utilisateurs informent le réseau par leur engagement, alimentant le système de décision de l'Algorithme}. 
+	
+	\section{Les modélisations possibles pour l'observateur}
+	
+	Dès lors qu'un observateur utilise un modèle du système, il dispose d'un attirail théorique conséquent : probabilités, référentiel, etc. Nous insistons cependant sur la part de subjectivité de ces méthodes, incompatibles avec une solution ontologique. 
+	
+
 %%%%%%%%%%%%%%%%%
 %% BIBLIOGRAPHIE %%
 %%%%%%%%%%%%%%%%%
