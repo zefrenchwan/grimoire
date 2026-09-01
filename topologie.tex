@@ -605,6 +605,22 @@
 		\item parce que les modèles actuels analysent encore beaucoup au sens littéral. Ce sont les vulnérabilités connues sous les noms d'\textit{obfuscation inter-domaines} ou de \textit{jailbreak métaphorique} : l'analyse de la dangerosité des analogies et métaphores n'est pas poussée jusqu'à la détection de la finalité réelle. 
 		\item l'usage d'un modèle théorique exigeant créé, en l'état, une forme de \og{}surcharge cognitive\fg{} qui déporte l'effort sur les calculs et la résolution de problème plus que sur l'évaluation de la dangerosité finale. Ce sont les concept de \textit{jailbreak logique ou symbolique}. La définition d'indicateurs tels que l'indice de rupture accentue le phénomène. 
 	\end{enumerate}
+	
+	\subsection*{L'exploitation offensive de l'indice de rupture}
+	
+	À première vue, l'indice de rupture ne semble pas exploitable directement. Expliquons-le dans un contexte de désinformation, en tirant les leçons d'une manipulation électorale telle que décrite dans \cite{Wylie2020} pour Cambridge Analytica. L'idée est de considérer qu'un homme politique donné doit gagner une élection, en prenant un avantage dans son propre camp et en décourageant le vote dans le camp adverse. La segmentation des votants fait apparaître deux profils intéressants : 
+	\begin{itemize}
+		\item dans le camp de l'homme politique, des profils demandant à ce qu'on partage leurs mots, leurs problématiques. Au-delà des grands discours, il faut les aider. 
+		\item dans le camp opposé, cette même supposée déconnexion du politique en général va être exploitée pour décourager un segment spécifique d'aller voter (avec le narratif \og{}à quoi bon ?\fg{}).
+	\end{itemize}
+	
+	La grille de lecture se fonde alors sur l'image d'un homme providentiel comprenant réellement son peuple. Il y a rupture structurelle entre un candidat et le peuple quand ce dernier n'est plus représenté. Dès lors, l'instrumentalisation asymétrique de la pression et de la capacité s'ensuit pour provoquer un véritable \textbf{effet ciseau} : 
+	\begin{itemize}
+		\item \textbf{Maximiser la pression (sur le camp adverse) :} il s'agit de ternir l'image d'intégrité des candidats. La capacité de la cible à reconstruire ce lien de confiance se heurte à deux obstacles. D'abord, une asymétrie de la \textbf{distance d'édition} : comment leur permettre de prouver un événement qui n'a pas eu lieu ? La preuve est combinatoirement bien plus dure (et coûteuse en événements) à produire que l'attaque. Ensuite, l'exploitation de \textbf{l'effet d'accoutumance} : les accusations sont tellement outrancières qu'elles paraissent négligeables. La cible institutionnelle n'alloue donc aucune ressource à sa défense, laissant l'indice de rupture franchir son seuil critique.
+		\item \textbf{Surgonfler la capacité (dans son propre camp) :} le maintien du lien entre le candidat attaquant et l'électorat cible se base sur l'exploitation d'une analyse sémantique poussée. Utiliser les mêmes termes, les mêmes concepts, exprimer et adresser les mêmes attentes permet de consolider artificiellement ce lien. Ce mimétisme transforme la candidature en un \textbf{attracteur} ultra-résilient face aux éventuelles pressions extérieures.
+	\end{itemize}
+
+
 
 
 	\part{Les logiques locales}
@@ -638,7 +654,7 @@
 	
 	Le point de vue que nous avons exposé jusqu'ici est global : les configurations et transformations sont supposées connues dans leur intégralité. Dans ce référentiel, l'Algorithme est omnipotent : il peut non seulement tout savoir, mais aussi contrôler les transformations. Que reste-t-il à notre utilisateur ? Plutôt que de n'adresser que la question des réseaux sociaux (qui constituent un cas extrême d'asymétrie), nous allons proposer une approche phénoménologique complète. Plutôt que de parler d'utilisateur ou d'observateur, nous utiliserons la notion d'acteur. 
 	
-	\section{L'acteur agit avec une vision partielle du système} 
+	\section{L'acteur : entité durable et active du système} 
 	
 	Dans la plupart des systèmes complexes (politiques, sociaux, physiques), il n'existe pas d'acteur omniscient planant au-dessus de la mêlée. L'acteur est intriqué \textit{dans} le système. Cette approche permet de clarifier le rôle de l'acteur par rapport au système : 
 	\begin{enumerate}
@@ -647,11 +663,8 @@
 		\item \textbf{sa relation au système}. Il ne peut capter que ce qui relève de son voisinage, au sens des messages dont il fait sens sur le monde. Ce peut être la lecture d'une actualité, une perception directe d'un phénomène, une représentation mentale qui a un impact sur son comportement, etc. Cet acteur n'a accès qu'à une fraction de la configuration globale : son \og{}graphe-monde\fg{}. Que ce soit un changement interne ou un événement perçu, nous prenons une approche du temps aristotélicienne : le temps est relatif à chaque entité, un tick intervient à chaque changement. Ainsi, à chaque \textit{tick}, l'acteur agit en fonction de ce qu'il perçoit, générant des événements locaux. En retour, les dépendances structurelles du système mettent à jour son voisinage. \textbf{L'acteur et son horizon local se co-construisent en permanence}.
 	\end{enumerate}
 	
-	Cette définition pourrait laisser penser que nous ne proposons rien de plus qu'un modèle d'agent tel qu'exposé dans les premiers chapitres de \cite{RussellNorvig}. Il n'en est rien, \textbf{la question que nous posons dans cette partie est la co-évolution d'un acteur et son environnement. Le cas du réseau social est extrême : l'environnement s'adapte à l'acteur à chaque tick, non seulement sur la base de son propre comportement, mais en tenant compte de tous les utilisateurs (passés et présents). Réciproquement, les utilisateurs informent le réseau par leur engagement, alimentant le système de décision de l'Algorithme}. 
-	
-	\section{Les modélisations possibles pour l'observateur}
-	
-	Dès lors qu'un observateur utilise un modèle du système, il dispose d'un attirail théorique conséquent : probabilités, référentiel, etc. Nous insistons cependant sur la part de subjectivité de ces méthodes, incompatibles avec une solution ontologique. 
+	\paragraph{Le coeur du problème : la co-évoltion.} Cette définition pourrait laisser penser que nous ne proposons rien de plus qu'un modèle d'agent tel qu'exposé dans les premiers chapitres de \cite{RussellNorvig}. Il n'en est rien, \textbf{la question que nous posons dans cette partie est la co-évolution d'un acteur et son environnement. Le cas du réseau social est extrême : l'environnement s'adapte à l'acteur à chaque tick, non seulement sur la base de son propre comportement, mais en tenant compte de tous les utilisateurs (passés et présents). Réciproquement, les utilisateurs informent le réseau par leur engagement, alimentant le système de décision de l'Algorithme}. 
+
 	
 
 %%%%%%%%%%%%%%%%%
