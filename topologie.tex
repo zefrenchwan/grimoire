@@ -11,6 +11,7 @@
 \usepackage{float}
 
 \newtheorem{definition}{Définition}[section]
+\newtheorem{postulat}{Postulat}[section]
 \newtheorem{theorem}{Théorème}[section]
 \newtheorem{proposition}{Proposition}[section]
 \newtheorem{corollary}{Corollaire}[theorem]
@@ -20,7 +21,7 @@
 	\maketitle
 	
 	\begin{abstract}
-		Ce document synthétise plusieurs recherches personnelles sur les réseaux sociaux. En 2025, un premier POC part d'un modèle de crise et en fait un outil automatique offensif en guerre informationnelle. La version défensive apparait quelques mois plus tard, dans un formalisme encore timide autour de champs informationnels. Ensuite, le rôle de l'observateur est raffiné. Texte après texte, les formalismes bougent mais l'idée reste : \textbf{L'algorithme dit à l'attention comment circuler ; l'engagement dit à l'algorithme comment courber l'espace. Autre point clé : la quantité conservée est la capacité d'attention humaine}. Cette approche, dont la formulation fait penser à une théorie physique des réseaux, est la limite du point de vue d'un utilisateur, c'est lui qui suit une sorte de géodésique de moindre effort cognitif. Ce point de vue, bien qu'important, est une approche phénoménologique et ne retranscrit pas la logique profonde, discrète et relationnelle des réseaux sociaux. Aussi, nous passerons à la version continue dans un second temps. Notre première partie sera une modélisation générale, une ontologie plus globale que les réseaux sociaux. Elle nous permettra de déduire des applications pratiques plus étendues, notamment une logique de crise complète. 
+		Ce document synthétise plusieurs recherches personnelles sur les réseaux sociaux : leur structure, leur usage, leur utilisation politique et leur vulnérabilité inhérente à la production automatique de contenu. En 2025, un premier travail atteste de la capacité à produire et diffuser de la désinformation. La version défensive apparait quelques mois plus tard, dans un formalisme encore timide autour de champs informationnels. Ensuite, le rôle de l'observateur est raffiné. Texte après texte, les formalismes bougent mais l'idée reste : \textbf{L'algorithme dit à l'attention comment circuler ; l'engagement dit à l'algorithme comment courber l'espace. Autre point clé : la quantité conservée est la capacité d'attention humaine}. Cette approche, dont la formulation fait penser à une théorie physique des réseaux, est la limite du point de vue d'un utilisateur, c'est lui qui suit une sorte de géodésique de moindre effort cognitif. Ce point de vue, bien qu'important, est une approche phénoménologique et ne retranscrit pas la logique profonde, discrète et relationnelle des réseaux sociaux. Aussi, nous passerons à la version continue dans un second temps. Notre première partie sera une modélisation générale, une ontologie plus globale que les réseaux sociaux. Elle nous permettra de déduire des applications pratiques plus étendues, notamment une logique de crise complète. 
 	\end{abstract}
 
 	\tableofcontents
@@ -94,9 +95,9 @@
 	
 	Cependant, la notion d'entité mérite qu'on s'y attarde. Si nous nous contentons de ce qui est, d'en établir l'inventaire comme une simple collection d'objets isolés, nous perdons toute la richesse des relations. Devons-nous alors postuler l'existence d'une \textit{structure} fondamentale, extérieure et de nature différente aux entités elles-mêmes, ou considérer que les relations sont elles-mêmes des entités ? Si nous appliquons rigoureusement notre définition de l'entité comme \textit{invariant d'une transformation}, la réponse s'impose. Considérons un lien qui unit deux composants (un contrat, une force physique, une alliance politique). Si ces composants subissent des transformations internes, mais que leur lien perdure, ce lien se comporte alors comme un invariant. Dès lors, ontologiquement, une relation possède elle-même le statut d'entité. Très pragmatiquement, nous reformulons de la manière suivante : \textbf{si la chose peut changer le résultat d'une transformation, c'est une entité}. Ainsi, elle peut être un pur objet, une relation, ou les deux. 
 	
-	\section{Les notions de base}
+	\section{Les notions d'entité et événements}
 	
-	Une ontologie fondationnelle décrit le monde tel qu'il est, à savoir qu'\textbf{il existe quelque chose qui continue de changer}. Dès lors, nous structurons cette information de la manière suivante : 
+	Résumons les éléments conceptuels qui sont apparus jusqu'à présent. Une ontologie fondationnelle décrit le monde tel qu'il est, à savoir qu'\textbf{il existe quelque chose qui continue de changer}. Dès lors, nous structurons cette information de la manière suivante : 
 	
 	\begin{table}[H]
 		\centering
@@ -115,101 +116,78 @@
 		\end{tabular}
 	\end{table}
 	
+	
 	\section{Comment utiliser cette ontologie ?} 
-	
-		Nous avons tenté d'appliquer la logique du rasoir d'Ockam pour mettre en œuvre le nombre le plus réduit de concepts. Reste la question de l'usage pratique, de la prise en main de notre ontologie. Cette section se propose de reformuler nos concepts pour en donner une définition plus applicable, en tous cas, nous l'espérons, plus intuitive. Nous revenons donc sur les constituants de notre approche : les entités et les événements. 
-		
-		
-		\subsection*{Une définition pratique des entités}
-		
-			Nous sommes habitués aux modèles de graphes, qui séparent les entités et les liens. Par exemple, le mariage est un lien entre deux personnes. Si le modèle a ses avantages, il n'est pas pertinent à ce stade, il est trop centré sur une représentation mentale utile à l'analyse. Fondamentalement, une entité est définie comme un invariant de transformations. Dès lors, ce qui agrège des entités en configurations se comprend sous l'angle des événements. Sans aucune contrainte, n'importe quelle configuration est possible depuis une autre puisque toute transformation est permise. Ce n'est pas ce qu'on observe. Tout lien entre entités va imposer des contraintes sur les événements possibles. Donc, \textbf{tout lien est une limitation des futurs possibles}. Il a des préconditions : on ne peut pas appliquer une force à une idée. Il implique, par sa présence ou son absence, une contrainte au réseau global, à la configuration. Elle est celle-ci et pas une autre. En résumé, si des entités se lient, elles perdent la capacité d'évoluer de manière totalement indépendante. Leurs devenirs sont intriqués. Le lien n'est que la loi locale qui interdit certaines transformations. Il n'a aucune sémantique propre au-delà des contraintes d'accessibilité qu'il impose.
-			
-			
-			
-			Nous allons à présent montrer qu'une propriété d'une entité est aussi une entité. Revenons en au cœur de notre postulat : l'entité est ce qui constitue un système et qui résiste à certaines transformations, et ces transformations changent ce système. Un lien peut se maintenir entre deux transformations, ce qui nous a amené précédemment à voir un lien comme une entité. Prenons à présent les caractéristiques des entités. Par exemple, une masse ou une charge électrique, un genre pour une personne, un solde de compte. Notre définition s'applique également : une propriété est une entité parce qu'elle est aussi un invariant transformationnel. Par exemple, un déplacement ne modifie pas une masse, un solde se conserve si l'on change de banque. 
-			
-			
-			A présent, assemblons les résultats intermédiaires. Nous obtenons une version plus pratique de la notion d'entité : 
-			
-			\begin{definition}
-				Une entité est soit un constituant du système, soit un lien entre entités, soit une propriété des constituants du système. 
-			\end{definition}
-		
-		\subsection*{Une définition pratique des événements}
-		
-			Toute la question de la transformation est portée par la notion d'accessibilité, ce qu'un système accepte comme possibles changements. Notre définition des entités nous amène à une caractérisation pratique des événements. 
-			
-			\begin{definition}
-				Un événement est la création ou la suppression d'une entité, nommément : 
-				\begin{itemize}
-					\item la création ou la suppression d'une entité comme objet
-					\item la création ou la suppression de liens entre entités
-					\item la création ou la suppression des propriétés des entités (dont la composition forme un changement de propriétés de l'entité). Notons que ces logiques de propriétés s'appliquent aussi aux liens. 
-				\end{itemize}
-			\end{definition}
-			
-					
-			Si l'on examine un à un les types d'événements, on constate une forme de symétrie : 
-			
-			\begin{table}[H]
-				\centering
-				\begin{tabular}{|l|l|}
-					\hline 
-					\textbf{Événement} & \textbf{Événement symétrique} \\
-					\hline 
-					Créer un lien & Supprimer un lien \\
-					\hline 
-					Créer une entité & Supprimer une entité \\
-					\hline 
-					Créer une propriété & Supprimer une propriété \\
-					\hline 
-				\end{tabular}
-				\caption{Symétrie des événements}
-			\end{table}
-			
-			Cette forme de dualité (un événement de création a un dual de suppression) nous amènera à caractériser des événements réversibles et déduire une notion de flèche du temps. 
-			
-		\section{La notion de chaine causale}
-		
-			Un lien est, rappelons le, une limitation des possibles. Prenons donc un système dans une configuration donnée. Au fur et à mesure des événements, des entités se créent, d'autres disparaissent. Par exemple, un réseau informatique transcontinental change, ajoutant des machines et des connexions réseaux, perdant les anciennes au fur et à mesure. Cette logique de remplacements successifs maintient les propriétés du réseau, jusqu'au jour où un câble spécifique, qui n'a jamais été remplacé, s'effrite et se coupe. Les deux continents se retrouvent isolés l'un de l'autre. Dès lors, aucune des machines d'un côté ne peut échanger avec celles de l'autre. La disparition de ce câble là est un événement unique, mais qui provoque une rupture d'un invariant du système : la perte de sa connexité. Le terme consacré est la \textbf{transition de phase}. Celle-ci se caractérise par une reconfiguration complète : de nombreux événements s'enchainent pour passer (création ou suppression d'entités en cascade) induites par cet événement initial. La différence entre les deux situations n'est pas l'événement en soi : le même câble, devenu inopérant, entraine avec lui tout le système, ou rien ne se passe de plus s'il n'était plus utile ou redondé. \textbf{La différence est la chaine de causalité, ou le nombre de configurations accessibles depuis cet événement}. 
-			
-			\begin{definition}
-				On appelle \textbf{chaine causale} l'ensemble des événements accessibles depuis un événement possible sur une entité, toute chose égale par ailleurs. La chaine causale d'un événement peut se résumer à un statut quo (aucun autre événement en cascade) ou à un ensemble beaucoup plus important d'événements résultant du premier. De manière très pragmatique, la chaine causale d'un événement est l'ensemble des événements qui en résultent, toutes choses égales par ailleurs.  
-			\end{definition}
-			
-			Cette technique empirique de la causalité est un facteur explicatif de l'importance d'un événement. En fonction de la configuration, le même événement sur la même entité peut amener une reconfiguration complète ou être sans autre effet.
-					
 
-	\section{Les mathématiques de la transformation}
+	Nous avons tenté d'appliquer la logique du rasoir d'Ockham pour mettre en œuvre le nombre le plus réduit de concepts. Reste la question de l'usage pratique, de la prise en main de notre ontologie. Cette section se propose de reformuler nos concepts pour en donner une définition plus applicable, en tous cas, nous l'espérons, plus intuitive. Nous revenons donc sur les constituants de notre approche : les entités et les événements. 
 	
-		Prenons un peu de hauteur sur le modèle. Nous avons fait jouer aux graphes un rôle prépondérant. Cette partie propose une autre approche, plus générale, du problème. On se donne un ensemble $\bar{\mathcal{C}}$ des configurations possibles du système, ainsi qu'un prédicat $\rho$ qui détermine si une configuration est acceptable. Dès lors, cet invariant, $\rho$, induit une partie de $\mathcal{C}$ qui restreint aux configurations acceptables : $$\mathcal{C} = \{ c \in \bar{\mathcal{C}} \ | \ \rho(c) \}$$
-		Soit donc $\mathcal{T}$ toutes les transformations possibles, c'est à dire les fonctions de $\bar{\mathcal{C}}$ dans $\bar{\mathcal{C}}$. Une transformation $f$ est alors valide si $\rho(c) \implies \rho(f(c))$. De plus, on attache un coût $f$, sous forme d'entier, c'est  à dire le nombre d'actions unitaires nécessaires. 
+	
+	\subsection*{Une définition pratique des entités}
+	
+		Nous sommes habitués aux modèles de graphes, qui séparent les entités et les liens. Par exemple, le mariage est un lien entre deux personnes. Si le modèle a ses avantages, il n'est pas pertinent à ce stade, il est trop centré sur une représentation mentale utile à l'analyse. Fondamentalement, une entité est définie comme un invariant de transformations. Dès lors, ce qui agrège des entités en configurations se comprend sous l'angle des événements. Sans aucune contrainte, n'importe quelle configuration est possible depuis une autre puisque toute transformation est permise. Ce n'est pas ce qu'on observe. Tout lien entre entités va imposer des contraintes sur les événements possibles. Donc, \textbf{tout lien est une limitation des futurs possibles}. Il a des préconditions : on ne peut pas appliquer une force à une idée. Il implique, par sa présence ou son absence, une contrainte au réseau global, à la configuration. Elle est celle-ci et pas une autre. En résumé, si des entités se lient, elles perdent la capacité d'évoluer de manière totalement indépendante. Leurs devenirs sont intriqués. Le lien n'est que la loi locale qui interdit certaines transformations. Il n'a aucune sémantique propre au-delà des contraintes d'accessibilité qu'il impose.
+		
+		
+		
+		Nous allons à présent montrer qu'une propriété d'une entité est aussi une entité. Revenons en au cœur de notre postulat : l'entité est ce qui constitue un système et qui résiste à certaines transformations, et ces transformations changent ce système. Un lien peut se maintenir entre deux transformations, ce qui nous a amené précédemment à voir un lien comme une entité. Prenons à présent les caractéristiques des entités. Par exemple, une masse ou une charge électrique, un genre pour une personne, un solde de compte. Notre définition s'applique également : une propriété est une entité parce qu'elle est aussi un invariant transformationnel. Par exemple, un déplacement ne modifie pas une masse, un solde se conserve si l'on change de banque. 
+		
+		
+		A présent, assemblons les résultats intermédiaires. Nous obtenons une version plus pratique de la notion d'entité : 
 		
 		\begin{definition}
-			Un coût associe un entier $n \in \mathbb{N}$ à une transformation valide (passant d'une configuration valide à une autre valide). Une transformation est dite \textbf{unitaire} si son cout est 1. Une transformation $t$ valide passant de $c$ à $c'$ est réversible si elle est unitaire, si la transformation allant de $c'$ à $c$ est également valide et unitaire. 
+			Une entité est soit un constituant du système, soit un lien entre entités, soit une propriété des constituants du système. 
 		\end{definition}
-		
-		On a appliqué cette logique aux graphes en isolant les événements comme transformations unitaires. C'est alors l'occasion de mesurer une distance entre deux configurations comme le nombre minimum de transformations unitaires qu'il suffit d'appliquer pour passer de l'une à l'autre. La notion de distance, cependant, mérite qu'on s'y attarde, du fait de l'inégalité triangulaire qui n'est pas une évidence. 
+	
+	\subsection*{Une définition pratique des événements}
+	
+		Toute la question de la transformation est portée par la notion d'accessibilité, ce qu'un système accepte comme possibles changements. Notre définition des entités nous amène à une caractérisation pratique des événements. 
 		
 		\begin{definition}
-			Pour deux configurations données $c$ et $c'$, on appelle écart d'édition le nombre de transformations unitaires minimal à appliquer pour passer de $c$ à $c'$. Par définition, l'écart entre deux configurations identiques est $0$. Les autres propriétés de distance (réflexivité et inégalité triangulaire) ne sont pas nécessairement remplies dans le cas général. 
+			Un événement est la création ou la suppression d'une entité, nommément : 
+			\begin{itemize}
+				\item la création ou la suppression d'une entité comme objet
+				\item la création ou la suppression de liens entre entités
+				\item la création ou la suppression des propriétés des entités (dont la composition forme un changement de propriétés de l'entité). Notons que ces logiques de propriétés s'appliquent aussi aux liens. 
+			\end{itemize}
 		\end{definition}
 		
-		
-		
-		La notion de chaine causale s'extrapole dès lors qu'on a une rupture de symétrie : une transformation non réversible. 
-		
-		\begin{definition}
-			Toute transformation unitaire $t$ passant de $c$ à $c'$ telle que le passage de $c'$ à $c$ ne soit pas valide ou à un coût supérieur est dite non symétrique. Une rupture de symétrie dans une configuration est une transformation non symétrique. Une configuration est non symétrique si elle admet une transformation non symétrique. 
-		\end{definition}
-		
-		A présent, isolons deux types fondamentaux de rupture de symétrie. Imaginons un barrage qui cède (effondrement) et l'introduction d'un patient $0$ atteint d'une grave maladie extrêmement contagieuse. Aucun des deux événements n'est symétrique. 
+				
+		Si l'on examine un à un les types d'événements, on constate une forme de symétrie : 
 		
 		\begin{table}[H]
 			\centering
 			\begin{tabular}{|l|l|}
 				\hline 
-				\textbf{Type} & \textbf{Nature de la rupture de symétrie} \\
+				\textbf{Événement} & \textbf{Événement symétrique} \\
+				\hline 
+				Créer un lien & Supprimer un lien \\
+				\hline 
+				Créer une entité & Supprimer une entité \\
+				\hline 
+				Créer une propriété & Supprimer une propriété \\
+				\hline 
+			\end{tabular}
+			\caption{Symétrie des événements}
+		\end{table}
+		
+		Cette forme de dualité (un événement de création a un dual de suppression) nous amènera à caractériser des événements réversibles et déduire une notion de flèche du temps. 
+		
+	\section{La notion de chaine causale}
+	
+	
+		Un lien est, rappelons le, une limitation des possibles. Prenons donc un système dans une configuration donnée. Au fur et à mesure des événements, des entités se créent, d'autres disparaissent. Par exemple, un réseau informatique transcontinental change, ajoutant des machines et des connexions réseaux, perdant les anciennes au fur et à mesure. Cette logique de remplacements successifs maintient les propriétés du réseau, jusqu'au jour où un câble spécifique, qui n'a jamais été remplacé, s'effrite et se coupe. Les deux continents se retrouvent isolés l'un de l'autre. Dès lors, aucune des machines d'un côté ne peut échanger avec celles de l'autre. La disparition de ce câble là est un événement unique, mais qui provoque une rupture d'une caractéristique attendue du système : la perte de sa connexité. Le terme consacré est la \textbf{défaillance en cascade}. Celle-ci se caractérise par une reconfiguration complète : de nombreux événements s'enchainent pour passer (création ou suppression d'entités en cascade) induites par cet événement initial. La différence entre les deux situations n'est pas l'événement en soi : le même câble, devenu inopérant, entraine avec lui tout le système, ou rien ne se passe de plus s'il n'était plus utile ou redondé. \textbf{La différence est la chaine de causalité, ou le nombre de configurations accessibles depuis cet événement}. 
+		
+		
+		\begin{definition}
+			On appelle chaîne causale la séquence des événements secondaires inéluctablement induits par un événement initial, jusqu'à ce que le système retrouve une configuration valide. La longueur de cette chaîne définit l'inertie de l'événement. 
+		\end{definition}
+		
+		Cette technique empirique de la causalité est un facteur explicatif de l'importance d'un événement. En fonction de la configuration, le même événement sur la même entité peut amener une reconfiguration complète ou être sans autre effet. Cette notion présente deux cas particuliers majeurs. Imaginons un barrage qui cède (effondrement) et l'introduction d'un patient $0$ atteint d'une grave maladie extrêmement contagieuse. Aucun des deux événements n'est symétrique, les deux changent profondément la configuration, mais pas de la même manière. 
+		
+		\begin{table}[H]
+			\centering
+			\begin{tabular}{|l|l|}
+				\hline 
+				\textbf{Type} & \textbf{Facteur d'irréversibilité} \\
 				\hline 
 				Effondrement & Un lien perdu provoque un effondrement. \\
 				& Un lien créé (son dual) n'a pas de conséquence en cascade \\
@@ -227,164 +205,156 @@
 			\item \textbf{soustractive} : l'événement de suppression de l'entité amène une \og{}relaxation d'un système\fg{} qui supprime toutes les entités qui en dépendaient. Récréer l'entité initiale ne permet pas le retour à la configuration initiale. 
 			\item \textbf{additive} : l'événement d'ajout d'une entité provoque l'arrivée en cascade de nouvelles entités. Supprimer l'entité initiale ne permet pas non plus le retour à la normale (feu de forêt, épidémie)
 		\end{itemize}	
-
-		Ainsi, par définition, les épidémies s'expliquent par une rupture de symétrie additive (une entité créée implique de nombreux nouveaux événements), et les effondrements par une rupture de symétrie soustractive (une perte d'entité en entraine de nombreuses autres). 
+		
+		
+		Donc, par définition, les épidémies s'expliquent par une rupture de symétrie additive (une entité créée implique de nombreux nouveaux événements), et les effondrements par une rupture de symétrie soustractive (une perte d'entité en entraine de nombreuses autres). 
 		
 		\begin{definition}
 			Une entité $e$ est dite critique si l'événement de sa suppression n'est pas symétrique et provoque un effondrement du système. Si l'entité $b$ disparaît en cascade quand $a$ disparaît, on dira que $b$ dépend structurellement de $a$. On appelle \textbf{inertie} de $e$ le nombre d'événements de suppression qui s'enchaînent inévitablement si $e$ est supprimée de la configuration.
 		\end{definition}
+		
+
+
+	\section{Les mathématiques de la transformation}
+
+		Prenons un peu de hauteur sur le modèle. Nous avons fait jouer aux graphes un rôle prépondérant. Cette partie propose une autre approche, plus générale, du problème. On se donne un ensemble $\bar{\mathcal{C}}$ des configurations possibles du système, ainsi qu'un prédicat $\rho$ qui détermine si une configuration est acceptable. Dès lors, cet invariant, $\rho$, induit une partie de $\mathcal{C}$ qui restreint aux configurations acceptables : $$\mathcal{C} = \{ c \in \bar{\mathcal{C}} \ | \ \rho(c) \}$$
+		Soit donc $\mathcal{T}$ toutes les transformations possibles, c'est à dire les fonctions de $\bar{\mathcal{C}}$ dans $\bar{\mathcal{C}}$. Une transformation $f$ est alors valide si $\rho(c) \implies \rho(f(c))$. 
+		
+		A ce niveau là, nous avons une logique d'invariant, de configurations et de transformations. Notre hypothèse fondamentale consiste à considérer que les transformations possibles sont une combinaison de transformations élémentaires. Dans le cas du graphe, il s'agissait des événements. A ce niveau de généralité, nous devons le postuler. 
+		
+		\begin{postulat}[Postulat de famille engendrant les transformations]
+			Pour tout système, il existe une famille de transformations unitaires, élémentaires, telle que : 
+			\begin{itemize}
+				\item toute transformation est la combinaison finie de ces transformations unitaires.
+				\item toute transformation valide est la combinaison finie de transformations unitaires valides. 
+			\end{itemize} 
+			
+			Il n'est pas nécessaire que la famille des transformations soit finie, ou que les transformations unitaires forment un ensemble fini. On impose juste l'équivalent d'une famille génératrice et une composition finie. 
+		\end{postulat}
+
+		On peut alors attacher un coût à une transformation $f$, sous forme d'entier, c'est  à dire le nombre d'actions unitaires nécessaires. 
+		
+		\begin{definition}
+			Un coût associe un entier $n \in \mathbb{N}$ à une transformation valide (passant d'une configuration valide à une autre valide). Une transformation unitaire a un coût de $1$. Une transformation est la composée finie de transformations unitaires. La décomposition n'est pas nécessairement unique. Nous prenons le coût de la transformation comme le nombre minimal de transformations unitaires nécessaires pour produire la transformation. 
+		\end{definition}
+		
+		C'est alors l'occasion de mesurer une distance entre deux configurations comme le nombre minimum de transformations unitaires qu'il suffit d'appliquer pour passer de l'une à l'autre. La notion de distance, cependant, serait a priori inadaptée : on ne sait pas en général assurer la symétrie ou l'inégalité triangulaire. Ce qui nous amène à une notion d'écart pour ne pas parler de distance. 
+		
+		\begin{definition}
+			Pour deux configurations données $c$ et $c'$, on appelle écart d'édition le nombre de transformations unitaires minimal à appliquer pour passer de $c$ à $c'$. Par définition, l'écart entre deux configurations identiques est $0$. 
+		\end{definition}
+		
+		Nous avons tous les outils conceptuels pour parler de la notion d'irréversibilité. Ce qui a distingué l'inertie des événements est au fond le coût théorique de revenir à la configuration initiale. 
+		
+		\begin{definition}
+			Toute transformation unitaire $t$ passant de $c$ à $c'$ telle que le passage de $c'$ à $c$ ne soit pas valide ou à un coût supérieur est dite irréversible. 
+		\end{definition}
+		
+		Cette définition nous permet de proposer une description du modèle, avec ce niveau de généralité, comme un graphe valué. Les sommets sont les configurations et l'indication de leur validité (ou simplement les configurations valides). Pour les liens, plusieurs options sont possibles : 
+		\begin{itemize}
+			\item \textbf{les liens sont les transformations unitaires}. La représentation permet de montrer les chemins, de comparer les degrés entrants et sortants, etc. C'est une vision locale. Le graphe peut tout à fait être cyclique pour les transformations réversibles. 
+			\item \textbf{les liens assemblent les transformations tant qu'il n'y a qu'une possibilité}. La valeur du lien n'est plus seulement une transformation, mais aussi son coût. C'est cette représentation que nous retiendrons. 
+		\end{itemize}
+		
+		Ainsi, nous terminons avec un ensemble $\bar{\mathcal{C}}$ et le prédicat $\rho$, ainsi qu'une fonction $\nu : \bar{\mathcal{C}} \rightarrow \mathfrak{P}(\mathcal{T} \times \mathbb{N})$ donnant les transformations accessibles à chaque configuration et leur cout en transformations unitaires. Il liste, en théorie, les états possibles du système et comment y parvenir. Les conditions de viabilité s'appliquent, de sorte qu'on peut modifier légèrement la définition pour rester dans $\mathcal{C}$. L'information essentielle étant de savoir comment transformer et à quel coût (quitte à tester avec $\rho$ ensuite).
+		
+		\begin{definition}
+			Étant donné un système, une description ontologique consiste à lister ses configurations $\bar{\mathcal{C}}$, le prédicat de validité $\rho$, les transformations $\mathcal{T}$ et leur cout en transformations élémentaires. Dès lors, le résultat produit un graphe, dit \textbf{représentation canonique}, liant les configurations entre elles par des couples de transformations et leur cout. 
+		\end{definition}
+				
+		Cette vue permet de bénéficier de toutes les méthodes d'analyse de graphe.
+		
+		\begin{itemize}
+			\item \textbf{L'attracteur (ponctuel ou sous-graphe)} : c'est une configuration qui présente de très nombreux arcs entrants et quasiment aucun arc sortant. Le système y est "capturé" car la majorité des transformations mène irrémédiablement vers ce macro-état. Par exemple, imaginons un été sans pluie et une plaine couverte d'arbres secs. Quel que soit le point de départ du feu dans la zone, il se propagera et finira par consumer toute la zone. Autrement dit, les chaînes causales convergent toutes vers l'attracteur final de la forêt calcinée.
+			
+			\item \textbf{Le point d'articulation} : bien que le terme de \og{}goulot d'étranglement\fg{} offre une intuition visuelle, les termes consacrés en théorie des graphes sont le \textit{point d'articulation} (un nœud dont la suppression scinde le réseau) ou l'\textit{isthme} (pour une arête). Dans l'espace des configurations, il est fréquent que le passage d'un sous-ensemble d'états stables à un macro-état d'effondrement soit contraint par un très faible nombre de configurations intermédiaires obligatoires. L'identification de cette \og{}coupure topologique\fg{} offre une assise structurelle à la résilience systémique : il est illusoire de vouloir interdire la combinatoire infinie des événements menant à la crise. Il suffit, en revanche, d'isoler ce point d'articulation invalide. Le graphe canonique s'en trouve déconnecté, isolant structurellement l'attracteur d'effondrement, qui devient dès lors inaccessible.
+			
+			\item \textbf{L'asymétrie combinatoire (et la flèche du temps)} : l'écart d'édition entre deux configurations n'est pas symétrique. Le passage de $c$ à $c'$ peut résulter d'un événement unique libérant une chaîne causale (coût unitaire de $1$). Le retour de $c'$ vers $c$ requiert, à l'inverse, un enchaînement précis de $N$ événements reconstructifs. Plus $N$ est grand, plus se forme un obstacle purement combinatoire. Depuis la configuration $c'$, l'arbre des configurations accessibles diverge de manière exponentielle : à chaque étape de la reconstruction, de multiples autres événements valides s'offrent au système. L'unique trajectoire permettant de retrouver l'état initial devient statistiquement inaccessible face à la divergence exponentielle des chemins possibles. L'irréversibilité est donc une propriété purement combinatoire liée au volume de l'espace des possibles.
+			
+			\item \textbf{La contrôlabilité structurelle par entités directrices} : dans leurs travaux fondateurs, Liu, Slotine et Barabási \cite{Controlability} démontrent qu'il est possible de piloter intégralement la dynamique d'un réseau complexe en n'agissant que sur un sous-ensemble restreint de composants, appelés \og{}nœuds directeurs\fg{} (\textit{driver nodes}). Dans notre ontologie, ce théorème illustre remarquablement l'absence d'agentivité du système. Piloter la représentation canonique ne consiste nullement à offrir une trajectoire de facilité que le réseau \og{}choisirait\fg{} de suivre. L'opération, menée par un acteur externe, consiste à imposer délibérément des événements sur ces seules entités directrices. La chaîne causale s'active alors mécaniquement de proche en proche, contraignant le système global à converger vers la configuration visée par le contrôleur.
+		\end{itemize}
+
 
 	\section{Résumé}
 	
 		Des objets ayant des propriétés tissent des liens entre eux, nous parlons d'entités. Ces entités évoluent parce que leur état s'agence avec ceux de leurs voisins pour entrainer un événement spécifique. Cet événement va changer localement l'état des entités, qui peuvent, à leur tour, provoquer de nouveaux événements. Voilà l'ontologie que nous proposons : entités, localité, interdépendance état - événement. 
 		
 		
-		Le système évolue en respectant des invariants fondamentaux : ils contraignent les configurations et les transformations. Les événements peuvent être directement admis par la configuration en cours (coût unitaire) ou provoquer une profonde reconfiguration pour rester dans un état acceptable, c'est à dire appliquer $n$ événements induits pour respecter de nouveau l'invariant. L'événement reste unitaire, mais il ouvre une série d'événements possibles plus ou moins large : sa \textbf{chaine causale}. Ce n'est pas que le système ait une quelconque forme d'instinct de préservation, c'est un enchainement local induit par la présence ou non d'entités autour des entités en transformation (cascade d'événements). La \textbf{flèche du temps} découle de cette rupture de symétrie. 
-	
-	
-	\chapter{Les propriétés de l'ontologie de base}
-	
-	Notre réflexion nous amène au point suivant : \textbf{des entités sont organisées en configurations. Or, il en existe plusieurs, de sorte qu'une configuration se transforme en une autre en combinant des événements compatibles avec la configuration actuelle. L'invariant fondamental, ce qui dicte la logique des transformations, reste une condition générale de viabilité}. Dans ce chapitre, nous parlerons de cinq propriétés découlant des définitions : 
-	\begin{enumerate}
-		\item l'émergence d'entités comme événement. 
-		\item les impacts croisés entre les configurations et les dynamiques de transformation. 
-		\item les mécaniques de résilience, comment une configuration maintient ses propriétés 
-		\item les logiques d'attracteurs, au sens de transformations diverses qui convergent vers une même configuration. 
-		\item l'apparition de la flèche du temps comme conséquence du modèle, en particulier de la notion de dépendance causale 
-	\end{enumerate}
-	
-	\section{L'émergence}
-	
-		Imaginons la situation suivante : un embouteillage se forme sur une autoroute, les voitures ralentissent et passent au compte goutte. C'est un phénomène émergent. En effet, l'embouteillage n'est pas constitué des voitures en elles mêmes car elles se renouvellent. C'est une entité à part ayant un impact réel sur les voitures présentes à ce moment là. L'entité existe, elle ne se réduit pas à ses constituants, elle a un impact réel sur les états possibles. 
-		
-		\begin{definition}
-			Une entité est dite émergente lorsqu'elle impacte les transformations du système, et que cette capacité d'action demeure invariante face au renouvellement de ses constituants.
-		\end{definition}
-		
-		On ne peut exiger moins : sans voiture, pas d'embouteillage. Le facteur explicatif n'est ni l'identité des composants, ni ces composants pris isolément. C'est la présence des composants dans leur globalité qui crée le phénomène. 
-	
-	
-	\section{La co-évolution : une nécessité structurelle}
-	
-		Imaginons une situation dans laquelle les configurations s'enchaînent selon des lois fixes et immuables. Il n'y a alors pas de co-évolution, mais simplement l'application continue de transformations unilatérales. C'est, par exemple, le paradigme de la mécanique newtonienne : telle loi implique telle conséquence sur le système, dans un cadre absolu. Ce n'est pas une loi générale. On observe une dynamique de co-évolution au sein d'une entreprise : la direction définit une stratégie, cette stratégie donne lieu à des actions et à des retours du terrain, qui sont à leur tour intégrés pour redéfinir la stratégie. Un site de rencontre va ajuster ses recommandations en fonction des retours des utilisateurs actifs. 
-		
-		\begin{definition}
-			La co-évolution caractérise l'interdépendance profonde entre la dynamique et la configuration d'un système. Elle apparaît lorsque la configuration dicte aux entités quelles transformations sont possibles, et que la réalisation effective de ces transformations réorganise, en retour, ladite configuration. 
-		\end{definition}
-		
-		Or, il s'avère que notre ontologie ne postule pas cette propriété \textit{a priori} : elle la fait émerger naturellement comme la conséquence logique et directe de nos définitions fondamentales : 
-		
-		\begin{enumerate}
-			\item Nous avons établi que \textbf{tout lien est une limitation des futurs possibles}. À un instant donné, la configuration (l'agencement des entités, incluant leurs liens) sculpte donc l'espace des événements \textit{accessibles}. En d'autres termes, \textbf{la configuration contraint la dynamique.}
-			\item À l'inverse, lorsqu'une transformation se réalise, elle consiste précisément en une série d'événements, c'est-à-dire en la création ou en la suppression d'entités (objets, propriétés, liens). Dès lors, \textbf{la dynamique modifie la configuration.}
-		\end{enumerate}
-		
-		Dans cette ontologie, il n'existe donc aucun décor fixe et passif dans lequel s'agiteraient des composants autonomes. Les entités et la configuration globale ne font pas qu'évoluer en parallèle : elles \textbf{co-évoluent} intrinsèquement.
-		
-	\section{La résilience dilue la dépendance structurelle}
-	
-		Imaginons un village isolé dans une vallée. Une route principale le traverse, largement suffisante en l'état. Une entreprise florissante, attirée par la promesse d'un espace énorme pour ses hangars, s'y installe. La route devient le goulot d'étranglement du dispositif. La mairie, disposant d'impôts nouveaux et de subventions généreuses, améliore le dispositif routier en construisant plusieurs nouvelles routes pour desservir mieux la zone. Si notre récit est une version accélérée d'un projet d'urbanisation, le principe reste le même en situation réelle. Un quartier s'agrandit, de nouvelles modalités d'accès sont nécessaires puisque l'infrastructure courante ne saurait convenir. Dans ce cas particulier, il y a une intention, une volonté politique, qui guide les transformations. Mais, en général, la notion de dépendance structurelle se maintient même sans volonté du système. La résilience, sa faculté à ne pas avoir de chemin critique, est aussi une caractéristique potentiellement universelle. 
-	
-		Si, dans une configuration, une entité constitue une dépendance structurelle forte, elle devient ce qu'on peut appeler un \textit{single point of failure} : sa disparition provoque en cascade l'effondrement d'une partie de la configuration. Cette notion est proche d'un chemin critique, incontournable, dans la configuration. Cette fragilité du système est souvent compensée par des liens nouveaux reliant des entités autrement que le long de ces chemins critiques. \textbf{La résilience se manifeste par la création de nouveaux liens pour réduire les dépendances structurelles.}
-		
-	\section{Les attracteurs}
-		Ce serait une erreur de considérer que des transformations différentes donnent des configurations différentes. Imaginons une zone particulièrement inondable. Quel que soit le lieu proche où il pleut, le ruissellement des eaux finit dans cette zone là : elle est en bas de toutes les pentes. Cette image illustre la notion d'attracteur. Si l'on voit les configurations comme des états et les transformations comme des liens, un attracteur se caractérise comme une configuration : 
-		\begin{enumerate}
-			\item destination de nombreuses transformations. La plupart des chemins de transformation mènent au même état final
-			\item source de très peu de transformations. Un attracteur attire très facilement mais il est très difficile d'en réchapper. 
-		\end{enumerate}
-		
-		\begin{definition}
-			Un attracteur est une configuration (respectivement une entité) qui dispose de très nombreuses transformations (respectivement liens) qui y mènent et très peu de transformations (respectivement liens) qui peuvent le quitter. Il se caractérise par la propriété de mener à lui facilement mais de ne quasiment pas pouvoir en partir. 
-		\end{definition}
-		
-		En termes de graphe, ce serait un nœud avec un degré entrant énorme et très peu de liens sortants. Cette mécanique d'attraction s'observe aussi bien au niveau global (pour les configurations) qu'au niveau local (pour les entités d'une configuration).
-		
-		
-	\section{L'émergence de la flèche du temps}
-	
-		A la fin du précédent chapitre, nous avons établi que les événements fondamentaux sont unitairement symétriques, mais que le postulat de dépendance structurelle introduit une brisure de cette symétrie originelle. À l'échelle d'une configuration globale, cette asymétrie locale se propage pour donner naissance à une propriété macroscopique inéluctable : l'irréversibilité, perçue usuellement comme la flèche du temps.
-		
-		Imaginons un instant une configuration dépourvue de dépendances structurelles (uniquement constituée d'entités de base autonomes). Dans ce système, l'espace des transformations est isotrope : le volume combinatoire pour assembler un agencement éphémère est identique à celui pour le défaire. La dynamique s'apparente à une marche aléatoire symétrique, sans direction privilégiée. Le système est fondamentalement réversible.
-		
-		Cependant, dès lors que l'on applique la contrainte de dépendance structurelle, l'espace des possibles (l'accessibilité) se déforme radicalement :
-		\begin{enumerate}
-			\item \textbf{L'édification est unitaire et ascendante :} La création d'une entité de niveau supérieur exige un chemin étroit, conditionné par la présence préalable de ses ancrages. Il s'agit d'un processus cumulatif, laborieux et séquentiel.
-			\item \textbf{L'effondrement est multiplicatif et descendant :} À l'inverse, l'effondrement en cascade donne à la suppression un effet de levier causal massif. La perte d'une seule entité fondatrice entraîne mécaniquement la rupture de toute la chaîne causale qui en dépend.
-		\end{enumerate}
-		
-		Dès lors, le volume des chemins topologiques menant à la fragmentation du système est combinatoirement écrasant par rapport aux chemins menant à sa structuration. L'état fragmenté agit alors comme un \textbf{attracteur universel} (au sens de la section 2.4) : la topologie du système "tombe" vers la désorganisation simplement parce que les chemins d'accessibilité menant à cet état sont immensément plus nombreux.
-		
-		Dans notre ontologie, la flèche du temps n'est donc pas imposée par une loi thermodynamique extérieure ni par un espace probabilisé. Elle est l'émergence purement géométrique de cette asymétrie combinatoire, conséquence macroscopique directe de notre postulat sur la nécessité existentielle des liens.	
-		
-	\section{Cas pratique : les réseaux sociaux}
-		
-		
-		Afin de donner un usage pratique de l'ontologie que nous proposons, nous allons l'appliquer à la modélisation d'un réseau social. Nous supposons disposer des droits d'un administrateur dudit réseau social (nous rendant omniscients sur la configuration). Notre but est de répondre à une question d'apparence algorithmique ou éditoriale : les tentatives de manipulation.
-		
-		\paragraph{La problématique de la manipulation des contenus.} La question se pose en ces termes : du contenu est artificiellement mis en avant pour faire taire des voix dissidentes ou donner à une cause une audience bien au-delà de ce qu'elle atteindrait organiquement. Des fermes de faux comptes génèrent des interactions en masse pour donner à un contenu une importance indue. 
+		Le système évolue en respectant des invariants fondamentaux : ils contraignent les configurations et les transformations. Les événements peuvent être directement admis par la configuration en cours (coût unitaire) ou provoquer une profonde reconfiguration pour rester dans un état acceptable, c'est à dire appliquer $n$ événements induits pour respecter de nouveau l'invariant. L'événement reste unitaire, mais il ouvre une série d'événements possibles plus ou moins large : sa \textbf{chaine causale}. Ce n'est pas que le système ait une quelconque forme d'instinct de préservation, c'est un enchainement local induit par la présence ou non d'entités autour des entités en transformation (cascade d'événements). La \textbf{flèche du temps} découle de cette irréversibilité.
 		
 		\vspace{0.5cm}
-		Au lieu de chercher des comportements statistiques suspects, nous allons modéliser ce problème comme une \textbf{anomalie topologique}. Voici la traduction du système dans notre formalisme : 
 		
-		\begin{table}[H]
-			\centering
-			\begin{tabular}{|p{3cm}|p{3cm}|p{6cm}|}
-				\hline 
-				\textbf{Concept observé} & \textbf{Statut} & \textbf{Définition dans le modèle} \\ 
-				& \textbf{ontologique} & \\
-				\hline 
-				Compte & Entité (Objet) & Nécessaire à l'attribution. Stable au fil du temps. \\
-				\hline 
-				Contenu (Post) & Entité (Objet) & Résultat d'un événement de création, devenant un composant autonome. \\
-				\hline 
-				Score  & Entité (Propriété) & État (poids ou pertinence) associé au contenu, qui perdure et influence les transformations futures. \\
-				\hline 
-				Visibilité (Feed ou \newline Recommandation) & Entité (Lien) & Sans ce lien, l'événement \og{}consulter le post\fg{} est a priori inaccessible. \\
-				\hline 
-				Publication & Événement & Création d'une entité \og{}Contenu\fg{} (objet) et d'un lien vers le compte auteur. \\
-				\hline 
-				Interaction (Like, Vue) & Événement & Modifie instantanément les entités-propriétés (scores) ou crée de nouveaux liens. \\
-				\hline 
-			\end{tabular}
-			\caption{Traduction du réseau social dans l'ontologie}
-		\end{table}
+		Qu'il nous soit permis de conclure sur une précaution qui nous paraît nécessaire : \textbf{l'illusion de l'agentivité systémique.} Il convient de dissiper ici un biais cognitif fréquent lors de l'observation des dynamiques complexes. Face à une défaillance en cascade, le vocabulaire courant laisse souvent entendre que le système \og{}réagirait\fg{}, \og{}se reconfigurerait\fg{} ou \og{}ferait le choix\fg{} d'une trajectoire pour restaurer son équilibre. Dans notre ontologie, cette vision anthropomorphique est caduque. Le système ne décide rien et n'a aucune conscience de son état global. L'invariant n'est pas un but à atteindre, mais l'expression stricte des dépendances locales. Si une entité critique disparaît, les entités qui en dépendaient structurellement perdent instantanément leurs préconditions d'existence. Elles disparaissent donc à leur tour, propageant cette invalidation de proche en proche. La chaîne causale n'est pas une stratégie de réparation exécutée par le réseau, mais la stricte actualisation mécanique d'un effondrement localisé. À l'image d'une voûte qui s'écroule lorsqu'on en retire la clé, les pierres qui tombent ne cherchent pas à rétablir un équilibre : elles tombent car elles ne sont plus soutenues. De la même manière, la défaillance en cascade s'éteint mécaniquement là où les contraintes locales cessent d'être violées. La validité n'est pas la finalité du mouvement, elle en est le simple constat d'arrêt.
 		
-		Cette lecture met en évidence l'essence de la plateforme. L'algorithme de recommandation n'est rien d'autre que le gestionnaire des règles d'accessibilité. 
 		
-		\paragraph{La co-évolution : le mécanisme central pour capter l'attention.} Un réseau social monétise certains contenus. Il a donc besoin de maximiser les audiences et leur temps de présence devant l'écran. Dès lors, les retours sur les contenus (temps de consultation, interactions) sont des éléments essentiels pour maximiser la rétention en proposant les contenus les plus intéressants pour chaque utilisateur. Donc, un réseau social est l'incarnation d'une boucle de co-évolution ininterrompue :
-		\begin{enumerate}
-			\item \textbf{La configuration contraint la dynamique :} À chaque instant, l'algorithme choisit ce qui est plus ou moins visible par l'utilisateur. Ces liens de visibilité définissent l'espace des possibles de cet utilisateur à cet instant. Même s'il est parfois possible de lancer une nouvelle recherche, l'intermédiation algorithmique lui interdit de fait l'accès à certains contenus et lui en impose d'autres. Les seuls événements possibles pour l'utilisateur sont ceux permis dans ce voisinage local.
-			\item \textbf{La dynamique modifie la configuration :} L'utilisateur interagit (événement de type \og{}like\fg{}). Cet événement modifie les propriétés des entités (le score du contenu augmente). Immédiatement, le système ingère cette altération et recalcule les règles globales : de nouveaux liens de visibilité se créent vers d'autres utilisateurs.
-		\end{enumerate}
-		
-		\paragraph{La manipulation comme attaque topologique.} 
-		Sous cet angle, qu'est-ce qu'une campagne de manipulation artificielle (bots, \textit{slopaganda}) ? Ce n'est pas qu'une question sémantique : c'est le forçage volontaire de la boucle de co-évolution.
-		
-		L'attaquant injecte massivement de fausses entités et génère des événements factices. Son but n'est pas d'influencer ses propres bots, mais de modifier artificiellement les propriétés du contenu manipulé (son score). L'algorithme du réseau social réagit alors de manière prévisible : croyant à un intérêt organique, il crée de nouveaux \textbf{liens de visibilité} pointant vers ce contenu pour des milliers d'utilisateurs réels. \textbf{C'est bien forcer la visibilité d'un contenu en le transformant en attracteur}. Les autres servent de passerelle vers ce qui constitue le vrai message. 
-		
-		L'attaquant a ainsi \og{}tordu\fg{} l'espace des possibles pour forcer l'accessibilité de son contenu. L'accès à une information nuancée devient un état inatteignable car l'espace topologique local de la victime est saturé. Une fois que ce contenu infecte la topologie organique et s'auto-entretient, le phénomène devient une \textbf{entité émergente} à part entière (la fameuse \og{}chambre d'écho\fg{}).
-		
-		L'attaquant prend en compte la réponse de la plateforme : il anticipe le bannissement de comptes en disposant d'une base large de faux comptes et en les activant au fur et à mesure. Aucun relai de l'information n'est en soi essentiel, c'est le nombre qui fait la manipulation topologique. Dès lors, la mécanique des faux comptes organise une forme de résilience : aucun bannissement pris unitairement ne met en péril l'attaque en elle-même. 
-		
-		\paragraph{Les limites du modèle discret : le saut vers le continu.}
-		Jusqu'ici, notre ontologie décrit parfaitement la mécanique réelle du réseau. Cependant, ce premier niveau d'analyse pose une mécanique strictement discrète et structurelle (nœud par nœud, événement par événement). 
-		
-		Or, dès lors que l'on s'intéresse à la viralité d'un contenu à l'échelle de millions d'entités, ou que l'on souhaite intégrer les limites biologiques des acteurs (leur capacité d'attention finie face à un flux infini), la description discrète atteint ses limites combinatoires. Tenter de décrire une vague de propagation en calculant chaque lien de visibilité éphémère devient conceptuellement et mathématiquement insoluble. Pour saisir la dynamique globale de ces propagations de masse, il devient nécessaire de procéder à un changement d'échelle : lisser cette topologie discrète pour l'appréhender de manière macroscopique. L'espace des liens devient un milieu continu, soumis à des densités, des ondes et des intensités : c'est ce que nous appellerons le \textbf{champ informationnel}. Nous y reviendrons.
+	\chapter{Cas pratique : les réseaux sociaux}
 	
-
+	
+	Afin de donner un usage pratique de l'ontologie que nous proposons, nous allons l'appliquer à la modélisation d'un réseau social. Nous supposons disposer des droits d'un administrateur dudit réseau social (nous rendant omniscients sur la configuration). Notre but est de répondre à une question d'apparence algorithmique ou éditoriale : les tentatives de manipulation.
+	
+	\paragraph{La problématique de la manipulation des contenus.} La question se pose en ces termes : du contenu est artificiellement mis en avant pour faire taire des voix dissidentes ou donner à une cause une audience bien au-delà de ce qu'elle atteindrait organiquement. Des fermes de faux comptes génèrent des interactions en masse pour donner à un contenu une importance indue. 
+	
+	\vspace{0.5cm}
+	Au lieu de chercher des comportements statistiques suspects, nous allons modéliser ce problème comme une \textbf{anomalie topologique}. Voici la traduction du système dans notre formalisme : 
+	
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{|p{3cm}|p{3cm}|p{6cm}|}
+			\hline 
+			\textbf{Concept observé} & \textbf{Statut} & \textbf{Définition dans le modèle} \\ 
+			& \textbf{ontologique} & \\
+			\hline 
+			Compte & Entité (Objet) & Nécessaire à l'attribution. Stable au fil du temps. \\
+			\hline 
+			Contenu (Post) & Entité (Objet) & Résultat d'un événement de création, devenant un composant autonome. \\
+			\hline 
+			Score  & Entité (Propriété) & État (poids ou pertinence) associé au contenu, qui perdure et influence les transformations futures. \\
+			\hline 
+			Visibilité (Feed ou \newline Recommandation) & Entité (Lien) & Sans ce lien, l'événement \og{}consulter le post\fg{} est a priori inaccessible. \\
+			\hline 
+			Publication & Événement & Création d'une entité \og{}Contenu\fg{} (objet) et d'un lien vers le compte auteur. \\
+			\hline 
+			Interaction (Like, Vue) & Événement & Modifie instantanément les entités-propriétés (scores) ou crée de nouveaux liens. \\
+			\hline 
+		\end{tabular}
+		\caption{Traduction du réseau social dans l'ontologie}
+	\end{table}
+	
+	Cette lecture met en évidence l'essence de la plateforme. L'algorithme de recommandation n'est rien d'autre que le gestionnaire des règles d'accessibilité. 
+	
+	\paragraph{La co-évolution : le mécanisme central pour capter l'attention.} Un réseau social monétise certains contenus. Il a donc besoin de maximiser les audiences et leur temps de présence devant l'écran. Dès lors, les retours sur les contenus (temps de consultation, interactions) sont des éléments essentiels pour maximiser la rétention en proposant les contenus les plus intéressants pour chaque utilisateur. Donc, un réseau social est l'incarnation d'une boucle de co-évolution ininterrompue :
+	\begin{enumerate}
+		\item \textbf{La configuration contraint la dynamique :} À chaque instant, l'algorithme choisit ce qui est plus ou moins visible par l'utilisateur. Ces liens de visibilité définissent l'espace des possibles de cet utilisateur à cet instant. Même s'il est parfois possible de lancer une nouvelle recherche, l'intermédiation algorithmique lui interdit de fait l'accès à certains contenus et lui en impose d'autres. Les seuls événements possibles pour l'utilisateur sont ceux permis dans ce voisinage local.
+		\item \textbf{La dynamique modifie la configuration :} L'utilisateur interagit (événement de type \og{}like\fg{}). Cet événement modifie les propriétés des entités (le score du contenu augmente). Immédiatement, le système ingère cette altération et recalcule les règles globales : de nouveaux liens de visibilité se créent vers d'autres utilisateurs.
+	\end{enumerate}
+	
+	\paragraph{La manipulation comme attaque topologique.} 
+	Sous cet angle, qu'est-ce qu'une campagne de manipulation artificielle (bots, \textit{slopaganda}) ? Ce n'est pas qu'une question sémantique : c'est le forçage volontaire de la boucle de co-évolution.
+	
+	L'attaquant injecte massivement de fausses entités et génère des événements factices. Son but n'est pas d'influencer ses propres bots, mais de modifier artificiellement les propriétés du contenu manipulé (son score). L'algorithme du réseau social réagit alors de manière prévisible : croyant à un intérêt organique, il crée de nouveaux \textbf{liens de visibilité} pointant vers ce contenu pour des milliers d'utilisateurs réels. \textbf{C'est bien forcer la visibilité d'un contenu en le transformant en attracteur}. Les autres servent de passerelle vers ce qui constitue le vrai message. 
+	
+	L'attaquant a ainsi \og{}tordu\fg{} l'espace des possibles pour forcer l'accessibilité de son contenu. L'accès à une information nuancée devient un état inatteignable car l'espace topologique local de la victime est saturé. Une fois que ce contenu infecte la topologie organique et s'auto-entretient, le phénomène devient une \textbf{entité émergente} à part entière (la fameuse \og{}chambre d'écho\fg{}).
+	
+	L'attaquant prend en compte la réponse de la plateforme : il anticipe le bannissement de comptes en disposant d'une base large de faux comptes et en les activant au fur et à mesure. Aucun relai de l'information n'est en soi essentiel, c'est le nombre qui fait la manipulation topologique. Dès lors, la mécanique des faux comptes organise une forme de résilience : aucun bannissement pris unitairement ne met en péril l'attaque en elle-même. 
+	
+	\paragraph{Les limites du modèle discret : le saut vers le continu.}
+	Jusqu'ici, notre ontologie décrit parfaitement la mécanique réelle du réseau. Cependant, ce premier niveau d'analyse pose une mécanique strictement discrète et structurelle (nœud par nœud, événement par événement). 
+	
+	Or, dès lors que l'on s'intéresse à la viralité d'un contenu à l'échelle de millions d'entités, ou que l'on souhaite intégrer les limites biologiques des acteurs (leur capacité d'attention finie face à un flux infini), la description discrète atteint ses limites combinatoires. Tenter de décrire une vague de propagation en calculant chaque lien de visibilité éphémère devient conceptuellement et mathématiquement insoluble. Pour saisir la dynamique globale de ces propagations de masse, il devient nécessaire de procéder à un changement d'échelle : lisser cette topologie discrète pour l'appréhender de manière macroscopique. L'espace des liens devient un milieu continu, soumis à des densités, des ondes et des intensités : c'est ce que nous appellerons le \textbf{champ informationnel}. Nous y reviendrons.
+	
+	
 	
 	\chapter{Les logiques de crise}
-		
+	
 	L'ontologie exprime, au fond, une logique d'entités liées entre elles (la configuration) qui évolue par des événements élémentaires (création ou suppression d'entités). Son cadre d'application est alors extrêmement général : les réseaux sociaux constituent, par leur structure, une application naturelle, mais absolument pas la seule. Des chapitres précédents, nous retenons une rupture de symétrie entre les conséquences désastreuses d'une perte d'entité centrale (à forte inertie) et sa difficile reconstruction. Cette asymétrie permet de donner une approche topologique aux mécanismes de crise. 
 	
 	\section{Une explication physique des crises}
 	
 	Donnons-nous une configuration comme état initial. La logique de crise se réinterprète comme le forçage d'une transformation menant à une nouvelle configuration avec une forte distance d'édition. Dit autrement, une transformation a provoqué une réorganisation massive des entités. Posée ainsi, une crise perd toute connotation morale, et se laisse étudier comme un phénomène physique et purement topologique. 
-
+	
 	\subsection*{La dépendance structurelle comme cause primaire de crise}
 	Cette approche amène naturellement à considérer le rôle privilégié de l'asymétrie des liens et de la dépendance structurelle. Ce postulat trouve une validation mathématique majeure dans les travaux de Liu, Slotine et Barabási sur la contrôlabilité des réseaux complexes \cite{Controlability}. En traduisant leur problématique dans notre ontologie, l'étude cherche à identifier le nombre minimal d'entités (les \textit{driver nodes}) sur lesquelles imposer des événements initiaux pour forcer l'accessibilité du système vers n'importe quelle configuration cible. Leurs résultats apportent deux conclusions contre-intuitives mais particulièrement importantes dans les dynamiques de crises : 
-
+	
 	\begin{enumerate}
 		\item \textbf{La décorrélation entre visibilité et inertie topologique :} L'intuition sociologique classique voudrait que les entités les plus connectées (les \textit{hubs}) soient les moteurs du changement. L'étude démontre le contraire. Les \textit{hubs} disposent de liens souvent redondants ; leur voisinage dense favorise la résilience de la configuration en offrant des chemins alternatifs. Leur dépendance structurelle est diluée. Ainsi, altérer un \textit{hub} engendre rarement une chaîne causale inéluctable. Les véritables entités motrices --- celles dont la disparition ou l'altération maximise l'inertie topologique $I(e)$ --- sont souvent situées aux niveaux les plus fondamentaux, près des entités de base. Bien que faiblement connectées, elles agissent comme des points de dépendance structurelle exclusifs (des goulets d'étranglement causaux). Induire une crise ne consiste donc pas à frapper le centre visible du système, mais à déclencher un événement sur ces entités-racines, laissant l'effet de levier de la chaîne causale propager le bouleversement.
 		\item \textbf{L'immunité structurelle par l'hétérogénéité :} Les réseaux très denses et homogènes sont faciles à contrôler via un nombre réduit d'entités. En revanche, les configurations clairsemées et hétérogènes (l'architecture typique des réseaux sociaux humains) opposent une barrière topologique majeure au contrôle. Pour forcer la co-évolution de leur état global, il est mathématiquement impératif de générer des événements simultanés sur une multitude d'entités périphériques indépendantes (parfois plus de 80\% des nœuds). Sociologiquement, cela signifie qu'un groupe social est structurellement immunisé contre le contrôle centralisé : la distance d'édition pour lui imposer un attracteur unique est rédhibitoire. C'est également la raison géométrique pour laquelle la manipulation topologique (cf. section 2.6) nécessite des fermes de bots agissant en masse à la périphérie, plutôt que la simple subversion d'une entité centrale.
@@ -407,14 +377,14 @@
 			\textbf{Domaine} & \textbf{Réaction du système} \\
 			\hline 
 			Élastique & Le système réagit comme un ressort et retrouve \\
-			 & sa configuration initiale à l'arrêt de la transformation \\
+			& sa configuration initiale à l'arrêt de la transformation \\
 			\hline 
 			Plastique & Certains liens se disloquent, le système ne retrouvera plus \\
-			 & sa configuration initiale à l'arrêt de la transformation . \\
-			 & Il devient plus dur et plus résistant en réaction à la transformation \\
+			& sa configuration initiale à l'arrêt de la transformation . \\
+			& Il devient plus dur et plus résistant en réaction à la transformation \\
 			\hline 
 			Rupture & La déformation n'est plus homogène. Une partie du système \\
-			 & concentre les contraintes et deviendra le point de rupture \\ 
+			& concentre les contraintes et deviendra le point de rupture \\ 
 			\hline 
 		\end{tabular}
 		\caption{Comportement d'un système soumis à une force progressive}
@@ -433,8 +403,8 @@
 		\item un facteur intrinsèque de solidité, totalement structurel
 		\item un facteur dynamique de régénération compensant la pression subie. On peut l'interpréter comme l'effort d'homéostasie du système
 	\end{itemize}
-
-
+	
+	
 	L'interprétation au niveau du lien de l'indice est la plus naturelle et calculable. Mais elle peut s'extrapoler au niveau de la configuration comme heuristique qualitative. Dans tous les cas, la lecture est la suivante : 
 	
 	\begin{table}[H]
@@ -444,15 +414,15 @@
 			\textbf{Valeurs prises} & \textbf{Interprétation} \\
 			\hline 
 			Proches de $0$ & Zone élastique : le système connait un stress faible \\
-			 & et peut revenir à sa configuration initiale \\
+			& et peut revenir à sa configuration initiale \\
 			\hline 
 			Proches de $1$ & Zone de risque maximal : le risque de rupture est très élevé \\
 			(par valeurs inférieures) & mais l'événement ne s'est pas encore produit \\
-		   \hline 
-		   $1$ (ou au delà) & Le lien est mécaniquement rompu : la capacité \\
-		    & a été dépassée, provoquant l'événement \\
-		    &  (et probablement ses conséquences) \\
-		   \hline 
+			\hline 
+			$1$ (ou au delà) & Le lien est mécaniquement rompu : la capacité \\
+			& a été dépassée, provoquant l'événement \\
+			&  (et probablement ses conséquences) \\
+			\hline 
 		\end{tabular}
 		\caption{Interprétation qualitative de l'indice de rupture}
 	\end{table}
@@ -463,8 +433,8 @@
 		\item un lien dégradé est une information en soi. Mais celui-ci peut se heurter à un biais cognitif humain, qui est un \textbf{effet d'accoutumance} : l'information n'est plus adressée parce qu'elle est devenue habituelle, une évidence qu'on oublie tant elle se présente. Cet effet a des conséquences notoires dans les crises, car elle ne minore la portée d'un lien dégradé et critique. 
 		\item un lien dégradé, vu comme situation en soi, n'est qu'une vision partielle d'un système. La résilience consiste à avoir au moins un chemin non dégradé, parfaitement opérationnel, entre deux entités clé d'un système. Par exemple, qu'une route de campagne soit dégradée est une information pertinente, mais on ne lui accordera pas la même importance si une solution de contournement existe à moindre cout. Le vrai problème se présente quand il s'agit de la seule route pour désservir un lieu important. 
 	\end{itemize}
-		
-
+	
+	
 	\subsection*{L'effet ciseau}
 	
 	La vulnérabilité d'une configuration se fonde sur l'asymétrie de la dépendance structurelle : les entités dont le changement provoque un réordonnancement profond du système. Si nous rassemblons les concepts vus précédemment, \textbf{les entités les plus critiques sont souvent situés à la base du système, avec une inertie importante, et dans les goulots d'étranglement de la configuration. Leur destruction rappelle le phénomène de striction évoqué plus haut. Le système en crise va s'effondrer le long de ces chemins en particulier.} La définition de l'indice de rupture nous amène à chercher en priorité les liens soumis à une forte pression et une capacité faible (soit qu'elle soit inhérente au lien, soit que le lien se dégrade rapidement). \textbf{Nous appelons effet ciseau, dans ce contexte, cet effondrement de la capacité du lien et l'augmentation de la pression sur le lien.}
@@ -506,10 +476,10 @@
 		\item \textbf{Maximiser la pression (sur le camp adverse) :} il s'agit de ternir l'image d'intégrité des candidats. La capacité de la cible à reconstruire ce lien de confiance se heurte à deux obstacles. D'abord, une asymétrie de la \textbf{distance d'édition} : comment leur permettre de prouver un événement qui n'a pas eu lieu ? La preuve est combinatoirement bien plus dure (et coûteuse en événements) à produire que l'attaque. Ensuite, l'exploitation de \textbf{l'effet d'accoutumance} : les accusations sont tellement outrancières qu'elles paraissent négligeables. La cible institutionnelle n'alloue donc aucune ressource à sa défense, laissant l'indice de rupture franchir son seuil critique.
 		\item \textbf{Surgonfler la capacité (dans son propre camp) :} le maintien du lien entre le candidat attaquant et l'électorat cible se base sur l'exploitation d'une analyse sémantique poussée. Utiliser les mêmes termes, les mêmes concepts, exprimer et adresser les mêmes attentes permet de consolider artificiellement ce lien. Ce mimétisme transforme la candidature en un \textbf{attracteur} ultra-résilient face aux éventuelles pressions extérieures.
 	\end{itemize}
-
-
-
-
+	
+	
+	
+	
 	\part{Les logiques locales}
 	
 	
@@ -551,6 +521,39 @@
 	\end{enumerate}
 	
 	\paragraph{Le coeur du problème : la co-évoltion.} Cette définition pourrait laisser penser que nous ne proposons rien de plus qu'un modèle d'agent tel qu'exposé dans les premiers chapitres de \cite{RussellNorvig}. Il n'en est rien, \textbf{la question que nous posons dans cette partie est la co-évolution d'un acteur et son environnement. Le cas du réseau social est extrême : l'environnement s'adapte à l'acteur à chaque tick, non seulement sur la base de son propre comportement, mais en tenant compte de tous les utilisateurs (passés et présents). Réciproquement, les utilisateurs informent le réseau par leur engagement, alimentant le système de décision de l'Algorithme}. 
+	
+	
+	
+	
+	\chapter{L'approche phénoménologique}
+	
+	Si nous reprenons la logique d'un réseau social, il y a une asymétrie totale entre l'utilisateur et les outils capables d'actions systémiques sur le réseau (que nous appellerons l'Algorithme) : 
+	
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{|l|l|l|}
+			\hline 
+			\textbf{Concept} & \textbf{Utilisateur} & \textbf{Algorithme} \\
+			\hline 
+			Visibilité & Voisinage immédiat  & Globale (tout le graphe) \\
+			\hline 
+			Contenu & Les contenus proposés & Tous les contenus \\
+			& ou trouvables par requêtes & (y compris non visibles) \\
+			\hline 
+			Engagement & Relations locales  & L'ensemble des engagements \\
+			& et récentes & de tous les utilisateurs \\
+			& (parfois uniquement agrégé) & sur tous les contenus \\
+			\hline 
+			Actions & Afficher un contenu & Modifier les contenus visibles \\
+			& ou chercher un contenu & pour tous les utilisateurs \\
+			\hline 
+		\end{tabular}
+		\caption{Exemples d'asymétrie entre l'utilisateur et l'algorithme} 
+	\end{table}
+	
+	Le point de vue que nous avons exposé jusqu'ici est global : les configurations et transformations sont supposées connues dans leur intégralité. Dans ce référentiel, l'Algorithme est omnipotent : il peut non seulement tout savoir, mais aussi contrôler les transformations. Que reste-t-il à notre utilisateur ? Plutôt que de n'adresser que la question des réseaux sociaux (qui constituent un cas extrême d'asymétrie), nous allons proposer une approche phénoménologique complète. Plutôt que de parler d'utilisateur ou d'observateur, nous utiliserons la notion d'acteur. 
+	
+
 
 	
 
@@ -584,6 +587,12 @@
 	\textit{Mindf*ck : Le complot Cambridge Analytica pour s'emparer de nos cerveaux},
 	JC Lattès,
 	2020.
+	
+	\bibitem{RovelliVisible}
+	Carlo Rovelli, 
+	\textit{Par delà le visible},
+	Poche Odile Jacob, 
+	2024.
 	
 \end{thebibliography}
 
