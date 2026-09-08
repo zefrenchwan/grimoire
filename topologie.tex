@@ -214,66 +214,202 @@
 		\end{definition}
 		
 
-
-	\section{Les mathématiques de la transformation}
-
+	\section{Une formalisation du modèle}
+	
+		
 		La mécanique fondamentale de l'ontologie postule une logique d'entités formant un graphe réifié et une famille d'événements (unitaires par définition) modifiant ce graphe de manière plus ou moins importante. Une mathématisation du modèle s'impose. D'abord, par volonté de dégager une logique générale, exploitable dans des domaines plus larges. Ensuite, pour bénéficier de tout le savoir faire théorique autour des systèmes complexes, de la physique, des notions sociales de graphes (attachement préférentiel, etc). 
-
+		
+		\subsection{Configurations, prédicats, transformations unitaires}
+		
 		On se donne un ensemble $\bar{\mathcal{C}}$ représentant l'ensemble des configurations possibles du système (son espace des phases), ainsi qu'un prédicat $\rho$ qui détermine si une configuration est acceptable ou viable. Dès lors, ce prédicat induit une partie de $\bar{\mathcal{C}}$ qui restreint le système à ses configurations viables :
 		
 		$$\mathcal{C} = \{ c \in \bar{\mathcal{C}} \ | \ \rho(c) \}$$
-
-
-		Soit $\mathcal{T}$ l'ensemble de toutes les transformations possibles, c'est-à-dire les fonctions de $\bar{\mathcal{C}}$ dans $\bar{\mathcal{C}}$. Une macro-transformation $f$ est dite valide si elle relie deux états $c$ et $c'$ de $\mathcal{C}$. Autrement dit, on part d'une configuration valide, la macro-transformation finit dans un état également valide : $\rho(c) \wedge \rho(f(c))$. L'ontologie proposée disposait de transformations unitaires canoniques : les événements. À ce niveau de généralité, nous ne pouvons le déduire. Ainsi, \textbf{nous postulons que toute transformation du système résulte d'une combinatoire d'événements minimaux. Soit $\mathcal{T}_u \subset \mathcal{T}$ l'ensemble de ces transformations unitaires (les événements de base)}. Par définition, l'application d'une transformation unitaire $t \in \mathcal{T}_u$ à une configuration stable $c \in \mathcal{C}$ produit une nouvelle configuration $c' = t(c)$. 
-	
 		
-		À ce stade, deux cas de figure se présentent :
+		Nous avons pris une famille de transformations unitaires $\mathcal{U}$ (les événements). Nous sommes arrivés à ce concept par des logiques de transformations, mais nous partons, pour la formalisation, dans le sens inverse : ces transformations unitaires se composent (en nombre fini) et donnent les transformations. Ainsi, on se donne, comme transformations unitaires, a priori, une famille de fonctions $$\mathcal{U} = \{ u : \bar{\mathcal{C}} \rightarrow \bar{\mathcal{C}} \}$$
+		
+		Pour une configuration $c \in \bar{\mathcal{C}}$ donnée, il existe donc des transformations unitaires applicables, disons $(u_i)_{i \in I} \subset \mathcal{U}$, ce qui revient à poser l'existence d'une fonction $$\Gamma : \bar{\mathcal{C}} \rightarrow \mathfrak{P}(\mathcal{U})$$ associant à toute configuration les transformations unitaires possibles. 
+		
+		En résumé, le passage au formalise se base sur une série de transformations unitaires accessibles à chaque configuration, et un prédicat pour les configurations valides : 
+		
+		\begin{table}[H]
+			\centering
+			\begin{tabular}{|l|l|}
+				\hline 
+				\textbf{Concept ontologique} & \textbf{Formalisation} \\
+				\hline 
+				Configuration & Configuration \\
+				\hline 
+				Événement & Transformation unitaire \\
+				\hline 
+				Entité & (Sans équivalent dans la formalisation) \\
+				\hline 
+				Configuration stable & Configuration vérifiant le prédicat \\
+				\hline 
+			\end{tabular}
+			\caption{Lien entre l'ontologie et sa formalisation}
+		\end{table}
+		
+		\subsection{La construction des chemins causaux}
+		
+		Bien que technique, cette sous partie est nécessaire pour retrouver les mécanismes de réaction en chaine. Prenons donc une configuration valide $c \in \mathcal{C}$, donc qui vérifie $\rho(c)$, et appliquons lui $u \in \Gamma(c)$. On obtient une configuration $c'$. À ce stade, deux cas de figure se présentent :
 		\begin{itemize}
 			\item $\rho(c')$ est vrai : la nouvelle configuration satisfait immédiatement les contraintes structurelles.
 			\item $\rho(c')$ est faux : la configuration est transitoire et invalide. Les dépendances structurelles rompues entraînent en cascade l'application  de nouvelles transformations unitaires, jusqu'à aboutir à une configuration valide. Cette série de transformations unitaires se propage de proche en proche jusqu'à ce qu'aucune précondition locale ne soit fausse. Le système arrive alors dans une configuration viable. 
 		\end{itemize}
 		
-		Nous pouvons alors définir formellement une macro-transformation non pas comme une simple fonction, mais comme la projection d'une trajectoire.
-		
 		\begin{definition}
-			Une \textbf{trajectoire causale} est une suite finie de configurations $(c_0, c_1, \dots, c_n)$ générée par une suite d'événements unitaires $(t_1, t_2, \dots, t_n)$ telle que :
+			On appelle chemin causal partant d'une configuration $c$ valide toute composition finie de transformations unitaires $u_1, \ldots , u_n$ telles que : 
 			\begin{itemize}
-				\item L'état initial et l'état final sont valides : $\rho(c_0)$ et $\rho(c_n)$ sont vrais.
-				\item Tous les états intermédiaires sont invalides (la cascade est en cours) : pour tout $0 < i < n$, $\rho(c_i)$ est faux.
-				\item Chaque étape découle de la précédente : pour tout $1 \le i \le n$, $c_i = t_i(c_{i-1})$.
+				\item $u_n \circ \ldots \circ u_1$ amène $c$ à une configuration viable. Autrement dit, la transformation composée $(u_n \circ \ldots \circ u_1)(c) = c'$ vérifie $\rho$. 
+				\item aucune des configurations intermédiaires $u_1(c), (u_2 \circ u_1)(c), \ldots , (u_{n-1} \circ \ldots \circ u_1)(c)$ n'est valide. 
 			\end{itemize}
-			Dès lors, une \textbf{transformation valide} $f$ est la fonction qui relie directement $c_0$ à $c_n$ telle que $f(c_0) = (t_n \circ t_{n-1} \circ \dots \circ t_1)(c_0) = c_n$.
+			
+			Dit autrement, un chemin causal est une composée de transformations unitaires partant arrivant d'une configuration viable, arrivant dans une configuration viable, et le plus court possible. La \textbf{longueur du chemin causal} est le nombre $n$, c'est à dire le nombre de transformations unitaires à composer. 
 		\end{definition}
 		
-		Ainsi, la généralisation des mécanismes décrit à la section précédente devient un postulat définissant les transformations valides comme une composée finie de transformations unitaires. Il n'y a pas, axiomatiquement, d'autre mécanique de transformation possible. 
-
-		\begin{postulat}[Postulat de génération des transformations]
-			Pour tout système, il existe une famille de transformations unitaires $\mathcal{T}_u$ telle que toute transformation valide passant d'un état $c \in \mathcal{C}$ à un état $c' \in \mathcal{C}$ peut se décomposer en une trajectoire causale finie d'événements appartenant à $\mathcal{T}_u$.
-		\end{postulat}
-
-		Il n'est pas nécessaire que les transformations unitaires forment un ensemble fini. On impose juste l'équivalent d'une famille génératrice et une composition finie. Cette formalisation permet d'attacher un coût naturel à une transformation, qui devient la mesure de la chaîne causale introduite précédemment. Cette définition ne constitue pas un coût de transition au sens d'une forme d'énergie : pas de coût unitaire, pas de poids $(\alpha_i)$ rendant compte d'une énergie nécessaire. Elle s'interprète comme un comptage d'événements, d'opérations élémentaires, pour passer d'une configuration à l'autre. 
-
-		\begin{definition}
-			Le \textbf{coût} d'une trajectoire causale est le nombre $n \in \mathbb{N}$ de transformations unitaires qui la composent. L'\textbf{écart d'édition} entre deux configurations valides $c$ et $c'$ est défini comme le coût minimal parmi toutes les trajectoires causales permettant de passer de $c$ à $c'$. Par définition, l'écart entre deux configurations identiques est de $0$.
-		\end{definition}
-
-		Cette définition nous permet de proposer une description du modèle comme un graphe valué. Les sommets sont les configurations valides $\mathcal{C}$. Les arêtes assemblent les transformations unitaires sous forme de trajectoires causales valides. Ainsi, nous terminons avec un ensemble $\bar{\mathcal{C}}$, le prédicat $\rho$, et une fonction $\nu : \mathcal{C} \rightarrow \mathfrak{P}(\mathcal{C} \times \mathbb{N})$ donnant les macro-transformations valides accessibles depuis chaque configuration stable, associées à leur coût d'épuisement de la chaîne causale.
-		
-		\begin{definition}
-			Étant donné un système, une description ontologique consiste à lister ses configurations possibles $\bar{\mathcal{C}}$, le prédicat de validité $\rho$, l'ensemble des transformations $\mathcal{T}$ et leur coût d'édition minimal. Le résultat produit un graphe, dit \textbf{représentation canonique}, liant les configurations stables entre elles par des transformations valides et leur coût.
-		\end{definition}
-		
-		Cette vision macroscopique, qui consiste à dérouler l'arbre des configurations, représente l'univers des possibles du système. Elle permet de bénéficier des méthodes d'analyse de graphes pour comprendre sa dynamique globale  :
-
+		La modélisation est la suivante : partant de $c$, on applique toutes les transformations unitaires possibles. Pour chaque configuration image, si la configuration vérifie $\rho$, elle est stable, on arrête. Sinon, on applique, sur la configuration image, toutes les transformations unitaires possibles. Sur ce second niveau, on conserve les configurations valides, et pour les invalides, on continue. Formellement, on prend donc $c$ une configuration valide et on pose : 
 		\begin{itemize}
-			\item \textbf{L'asymétrie combinatoire (et la flèche du temps)} : l'écart d'édition entre deux configurations n'est pas nécessairement symétrique. Le passage de $c$ à $c'$ peut résulter d'un événement déclencheur unique ouvrant une cascade (coût unitaire de $1$). Le retour de $c'$ vers $c$ requiert, à l'inverse, un enchaînement précis de $N$ événements reconstructifs. Plus $N$ est grand, plus se forme un obstacle purement combinatoire. Depuis la configuration $c'$, l'arbre des configurations accessibles diverge de manière exponentielle. L'unique trajectoire permettant de retrouver l'état initial devient statistiquement inatteignable face à la multiplication des chemins possibles. L'irréversibilité est donc une propriété strictement mécanique liée au volume de l'espace des possibles.
-			
-			\item \textbf{Le point d'articulation} : bien que le terme de \og{}goulot d'étranglement\fg{} offre une intuition visuelle, les termes consacrés en théorie des graphes sont le \textit{point d'articulation} (un nœud dont la suppression scinde le réseau) ou l'\textit{isthme}. Dans l'espace des configurations, il est fréquent que le passage d'un sous-ensemble d'états stables à un macro-état d'effondrement soit contraint par un très faible nombre de configurations intermédiaires obligatoires. L'identification de cette \og{}coupure topologique\fg{} offre une assise structurelle à la résilience systémique : il est illusoire de vouloir interdire la combinatoire infinie des événements menant à la crise. Il suffit, en revanche, de rendre inaccessible ce point d'articulation pour déconnecter structurellement le graphe canonique de l'état de crise.
-			
-			\item \textbf{L'attracteur (ponctuel ou sous-graphe)} : c'est une région de la représentation canonique qui présente de très nombreux arcs entrants et quasiment aucun arc sortant. La majorité des trajectoires causales convergent inéluctablement vers ce macro-état, non par une quelconque finalité ou "volonté" du système, mais en raison de la structure asymétrique des coûts d'édition locaux. Par exemple, imaginons un été sans pluie et une plaine couverte d'arbres secs. Quel que soit le point de départ exact du feu, les cascades successives d'événements convergent inéluctablement vers ce même attracteur final de l'épuisement des entités combustibles (la forêt calcinée).
+			\item $\gamma_0 = \{ c \}$ est l'ensemble des configurations accessibles à partir de $c$ en $0$ étape.
+			\item $\gamma_1 = \{ (u,u(c)) \ | \ c \in \gamma_0 \}$ est l'ensemble des configurations accessibles à partir de $c$ en $1$ étape et le chemin (ici une seule transformation) pour y parvenir. $v_1 = \{ (u,u(c)) \in \gamma_1 \ | \ \rho(u(c))  \}$ est l'ensemble des configurations valides obtenues en une étape à partir de $c$. Dès lors, $\gamma_1 - v_1$ ne contient que les configurations invalides obtenues en une transformation unitaire. 
+			\item $\gamma_{n+1} = \{ (u \circ v, (u \circ v)(c') \ | \ c' \in \gamma_n - v_n \ \wedge \ u \in \Gamma(c') \}$ représente toutes les configurations accessibles depuis les configurations instables précédentes, $v_{n+1}$ étant la sous partie de $\gamma_{n+1}$ restreinte aux configurations valides. 
+			\item Pour ne garder que les composées de transformations unitaires finissant par être valide, il suffit de passer à la limite, donc de prendre l'union des $v_i$ produits au fur et à mesure. 
+		\end{itemize}
+		
+		\begin{proposition}
+			Pour une configuration valide $c \in \mathcal{C}$, la méthode précédente fournit l'ensemble des chemins causaux atteignables en un nombre fini de transformations unitaires. 
+		\end{proposition}
+		
+		Une autre façon de comprendre comment obtenir cet ensemble consiste à considérer une exploration en largeur depuis $c$ qui s'arrête sur les configurations viables. On part de $c$, on cherche son voisinage direct, c'est à dire les transformations unitaires possibles depuis $c$. Pour chaque lien, on applique la transformation unitaire. Si la configuration obtenue est viable, on a trouvé un chemin causal, cette configuration là n'est plus explorée. Sinon, on continue l'exploration depuis cette configuration là (en largeur). 
+		
+		\begin{corollary}
+			Étant donnée une configuration $c$ valide, soit $\nu(c)$ l'ensemble des chemins causaux partant de $c$. $\nu$ induit une unique fonction associant à $c$ l'ensemble des configurations viables accessibles depuis $c$. Pour chaque configuration accessible $c'$, le minimum des longueurs des chemins allant de $c$ à $c'$ est parfaitement défini (car $\mathbb{N}$ est bien ordonné). 
+		\end{corollary}
+	
+		La construction depuis $\nu$ fonctionne comme suit. Pour une configuration valides $c$, les chemins causaux partant de $c$ formalisent toutes les transformations valides possibles. En particulier, pour toute configuration accessible $c'$, l'ensemble $\mathcal{L}(c,c')$ est par définition tous les chemins causaux reliant $c$ à $c'$. Il est non vide par définition. L'ensemble des longueurs des chemins qu'il contient est non vide, bien ordonné, donc admet un élément minimal. Mais l'intérêt principal du corollaire est de fournir une mesure de l'écart entre ces configurations. 
+		
+		\begin{definition}
+			Pour deux configurations viables $a$ et $b$, l'écart de $a$ vers $b$ $e(a,b)$ est la longueur du chemin causal le plus court partant de $a$ et allant vers $b$. On dira que $b$ est inaccessible depuis $a$ si un tel chemin n'existe pas. Par définition, $e(a,a) = 0$. 
+		\end{definition}
+	
+
+		\subsection{La représentation canonique du système}
+		
+		Pour une configuration valides $c$, les chemins causaux partant de $c$ formalisent toutes les transformations valides possibles. On pose alors $\mathcal{T}(c)$ la donnée des chemins causaux partant de $c$. Pour un élément $t$ de $\mathcal{T}(c)$, la configuration $c' = t(c)$ est valide par définition, et elle est atteignable en, au plus, la longueur de $t$ (peut être un autre chemin est il meilleur ?). Nous avons donc une structure mathématique complète formalisant le système : 
+		\begin{itemize}
+			\item $\bar{\mathcal{C}}$ et $\rho$ définissent les configurations possibles et celles viables ($\mathcal{C}$). 
+			\item les transformations unitaires possibles forment un ensemble $\mathcal{U}$. Pour toute configuration $c$, on dispose de $\Gamma(c)$ donnant les transformations s'appliquant à $c$
+			\item pour une configuration viable, on déduit $\mathcal{T}$ une fonction donnant les composées de transformations unitaires amenant à une autre configuration viable. \textbf{Il y a plusieurs chemins causaux à partir d'une même configuration}. 
 		\end{itemize}
 		
 		
+		
+		
+		
+		
+		\section{Les mathématiques de la transformation}
+		
+		
+		
+		La mécanique fondamentale de l'ontologie postule une logique d'entités formant un graphe réifié et une famille d'événements (unitaires par définition) modifiant ce graphe de manière plus ou moins importante. Une mathématisation du modèle s'impose. D'abord, par volonté de dégager une logique générale, exploitable dans des domaines plus larges. Ensuite, pour bénéficier de tout le savoir faire théorique autour des systèmes complexes, de la physique, des notions sociales de graphes (attachement préférentiel, etc). 
+		
+		
+		
+		On se donne un ensemble $\bar{\mathcal{C}}$ représentant l'ensemble des configurations possibles du système (son espace des phases), ainsi qu'un prédicat $\rho$ qui détermine si une configuration est acceptable ou viable. Dès lors, ce prédicat induit une partie de $\bar{\mathcal{C}}$ qui restreint le système à ses configurations viables :
+		
+		
+		$$\mathcal{C} = \{ c \in \bar{\mathcal{C}} \ | \ \rho(c) \}$$
+		
+		
+		
+		
+		
+		Soit $\mathcal{T}$ l'ensemble de toutes les transformations possibles, c'est-à-dire les fonctions de $\bar{\mathcal{C}}$ dans $\bar{\mathcal{C}}$. Une macro-transformation $f$ est dite valide si elle relie deux états $c$ et $c'$ de $\mathcal{C}$. Autrement dit, on part d'une configuration valide, la macro-transformation finit dans un état également valide : $\rho(c) \wedge \rho(f(c))$. L'ontologie proposée disposait de transformations unitaires canoniques : les événements. À ce niveau de généralité, nous ne pouvons le déduire. Ainsi, \textbf{nous postulons que toute transformation du système résulte d'une combinatoire d'événements minimaux. Soit $\mathcal{T}_u \subset \mathcal{T}$ l'ensemble de ces transformations unitaires (les événements de base)}. Par définition, l'application d'une transformation unitaire $t \in \mathcal{T}_u$ à une configuration stable $c \in \mathcal{C}$ produit une nouvelle configuration $c' = t(c)$. 
+		
+		
+		
+		À ce stade, deux cas de figure se présentent :
+		
+		\begin{itemize}
+			
+			\item $\rho(c')$ est vrai : la nouvelle configuration satisfait immédiatement les contraintes structurelles.
+			
+			\item $\rho(c')$ est faux : la configuration est transitoire et invalide. Les dépendances structurelles rompues entraînent en cascade l'application  de nouvelles transformations unitaires, jusqu'à aboutir à une configuration valide. Cette série de transformations unitaires se propage de proche en proche jusqu'à ce qu'aucune précondition locale ne soit fausse. Le système arrive alors dans une configuration viable. 
+			
+		\end{itemize}
+		
+		
+		Nous pouvons alors définir formellement une macro-transformation non pas comme une simple fonction, mais comme la projection d'une trajectoire.
+		
+		
+		\begin{definition}
+			
+			Une \textbf{trajectoire causale} est une suite finie de configurations $(c_0, c_1, \dots, c_n)$ générée par une suite d'événements unitaires $(t_1, t_2, \dots, t_n)$ telle que :
+			
+			\begin{itemize}
+				
+				\item L'état initial et l'état final sont valides : $\rho(c_0)$ et $\rho(c_n)$ sont vrais.
+				
+				\item Tous les états intermédiaires sont invalides (la cascade est en cours) : pour tout $0 < i < n$, $\rho(c_i)$ est faux.
+				
+				\item Chaque étape découle de la précédente : pour tout $1 \le i \le n$, $c_i = t_i(c_{i-1})$.
+				
+			\end{itemize}
+			
+			Dès lors, une \textbf{transformation valide} $f$ est la fonction qui relie directement $c_0$ à $c_n$ telle que $f(c_0) = (t_n \circ t_{n-1} \circ \dots \circ t_1)(c_0) = c_n$.
+			
+		\end{definition}
+		
+		
+		Ainsi, la généralisation des mécanismes décrit à la section précédente devient un postulat définissant les transformations valides comme une composée finie de transformations unitaires. Il n'y a pas, axiomatiquement, d'autre mécanique de transformation possible. 
+		
+		
+		
+		\begin{postulat}[Postulat de génération des transformations]
+			
+			Pour tout système, il existe une famille de transformations unitaires $\mathcal{T}_u$ telle que toute transformation valide passant d'un état $c \in \mathcal{C}$ à un état $c' \in \mathcal{C}$ peut se décomposer en une trajectoire causale finie d'événements appartenant à $\mathcal{T}_u$.
+			
+		\end{postulat}
+		
+		
+		
+		Il n'est pas nécessaire que les transformations unitaires forment un ensemble fini. On impose juste l'équivalent d'une famille génératrice et une composition finie. Cette formalisation permet d'attacher un coût naturel à une transformation, qui devient la mesure de la chaîne causale introduite précédemment. Cette définition ne constitue pas un coût de transition au sens d'une forme d'énergie : pas de coût unitaire, pas de poids $(\alpha_i)$ rendant compte d'une énergie nécessaire. Elle s'interprète comme un comptage d'événements, d'opérations élémentaires, pour passer d'une configuration à l'autre. 
+		
+		
+		
+		\begin{definition}
+			
+			Le \textbf{coût} d'une trajectoire causale est le nombre $n \in \mathbb{N}$ de transformations unitaires qui la composent. L'\textbf{écart d'édition} entre deux configurations valides $c$ et $c'$ est défini comme le coût minimal parmi toutes les trajectoires causales permettant de passer de $c$ à $c'$. Par définition, l'écart entre deux configurations identiques est de $0$.
+			
+		\end{definition}
+		
+		
+		
+		Cette définition nous permet de proposer une description du modèle comme un graphe valué. Les sommets sont les configurations valides $\mathcal{C}$. Les arêtes assemblent les transformations unitaires sous forme de trajectoires causales valides. Ainsi, nous terminons avec un ensemble $\bar{\mathcal{C}}$, le prédicat $\rho$, et une fonction $\nu : \mathcal{C} \rightarrow \mathfrak{P}(\mathcal{C} \times \mathbb{N})$ donnant les macro-transformations valides accessibles depuis chaque configuration stable, associées à leur coût d'épuisement de la chaîne causale.
+		
+		
+		\begin{definition}
+			
+			Étant donné un système, une description ontologique consiste à lister ses configurations possibles $\bar{\mathcal{C}}$, le prédicat de validité $\rho$, l'ensemble des transformations $\mathcal{T}$ et leur coût d'édition minimal. Le résultat produit un graphe, dit \textbf{représentation canonique}, liant les configurations stables entre elles par des transformations valides et leur coût.
+			
+		\end{definition}
+		
+		
+		Cette vision macroscopique, qui consiste à dérouler l'arbre des configurations, représente l'univers des possibles du système. Elle permet de bénéficier des méthodes d'analyse de graphes pour comprendre sa dynamique globale  :
+		
+		
+		
+		\begin{itemize}
+			
+			\item \textbf{L'asymétrie combinatoire (et la flèche du temps)} : l'écart d'édition entre deux configurations n'est pas nécessairement symétrique. Le passage de $c$ à $c'$ peut résulter d'un événement déclencheur unique ouvrant une cascade (coût unitaire de $1$). Le retour de $c'$ vers $c$ requiert, à l'inverse, un enchaînement précis de $N$ événements reconstructifs. Plus $N$ est grand, plus se forme un obstacle purement combinatoire. Depuis la configuration $c'$, l'arbre des configurations accessibles diverge de manière exponentielle. L'unique trajectoire permettant de retrouver l'état initial devient statistiquement inatteignable face à la multiplication des chemins possibles. L'irréversibilité est donc une propriété strictement mécanique liée au volume de l'espace des possibles.
+			
+			
+			\item \textbf{Le point d'articulation} : bien que le terme de \og{}goulot d'étranglement\fg{} offre une intuition visuelle, les termes consacrés en théorie des graphes sont le \textit{point d'articulation} (un nœud dont la suppression scinde le réseau) ou l'\textit{isthme}. Dans l'espace des configurations, il est fréquent que le passage d'un sous-ensemble d'états stables à un macro-état d'effondrement soit contraint par un très faible nombre de configurations intermédiaires obligatoires. L'identification de cette \og{}coupure topologique\fg{} offre une assise structurelle à la résilience systémique : il est illusoire de vouloir interdire la combinatoire infinie des événements menant à la crise. Il suffit, en revanche, de rendre inaccessible ce point d'articulation pour déconnecter structurellement le graphe canonique de l'état de crise.
+			
+			
+			\item \textbf{L'attracteur (ponctuel ou sous-graphe)} : c'est une région de la représentation canonique qui présente de très nombreux arcs entrants et quasiment aucun arc sortant. La majorité des trajectoires causales convergent inéluctablement vers ce macro-état, non par une quelconque finalité ou "volonté" du système, mais en raison de la structure asymétrique des coûts d'édition locaux. Par exemple, imaginons un été sans pluie et une plaine couverte d'arbres secs. Quel que soit le point de départ exact du feu, les cascades successives d'événements convergent inéluctablement vers ce même attracteur final de l'épuisement des entités combustibles (la forêt calcinée).
+			
+		\end{itemize}
+
 
 	\section{Résumé}
 	
