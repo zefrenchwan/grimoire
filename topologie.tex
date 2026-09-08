@@ -217,74 +217,74 @@
 
 	\section{Les mathématiques de la transformation}
 
-		Prenons un peu de hauteur sur le modèle. Nous avons fait jouer aux graphes un rôle prépondérant. Cette partie propose une autre approche, plus générale, du problème. On se donne un ensemble $\bar{\mathcal{C}}$ des configurations possibles du système, ainsi qu'un prédicat $\rho$ qui détermine si une configuration est acceptable. Dès lors, cet invariant, $\rho$, induit une partie de $\mathcal{C}$ qui restreint aux configurations acceptables : $$\mathcal{C} = \{ c \in \bar{\mathcal{C}} \ | \ \rho(c) \}$$
-		Soit donc $\mathcal{T}$ toutes les transformations possibles, c'est à dire les fonctions de $\bar{\mathcal{C}}$ dans $\bar{\mathcal{C}}$. Une transformation $f$ est alors valide si $\rho(c) \implies \rho(f(c))$. 
+		La mécanique fondamentale de l'ontologie postule une logique d'entités formant un graphe réifié et une famille d'événements (unitaires par définition) modifiant ce graphe de manière plus ou moins importante. Une mathématisation du modèle s'impose. D'abord, par volonté de dégager une logique générale, exploitable dans des domaines plus larges. Ensuite, pour bénéficier de tout le savoir faire théorique autour des systèmes complexes, de la physique, des notions sociales de graphes (attachement préférentiel, etc). 
+
+		On se donne un ensemble $\bar{\mathcal{C}}$ représentant l'ensemble des configurations possibles du système (son espace des phases), ainsi qu'un prédicat $\rho$ qui détermine si une configuration est acceptable ou viable. Dès lors, ce prédicat induit une partie de $\bar{\mathcal{C}}$ qui restreint le système à ses configurations viables :
 		
-		A ce niveau là, nous avons une logique d'invariant, de configurations et de transformations. Notre hypothèse fondamentale consiste à considérer que les transformations possibles sont une combinaison de transformations élémentaires. Dans le cas du graphe, il s'agissait des événements. A ce niveau de généralité, nous devons le postuler. 
+		$$\mathcal{C} = \{ c \in \bar{\mathcal{C}} \ | \ \rho(c) \}$$
+
+
+		Soit $\mathcal{T}$ l'ensemble de toutes les transformations possibles, c'est-à-dire les fonctions de $\bar{\mathcal{C}}$ dans $\bar{\mathcal{C}}$. Une macro-transformation $f$ est dite valide si elle relie deux états $c$ et $c'$ de $\mathcal{C}$. Autrement dit, on part d'une configuration valide, la macro-transformation finit dans un état également valide : $\rho(c) \wedge \rho(f(c))$. L'ontologie proposée disposait de transformations unitaires canoniques : les événements. À ce niveau de généralité, nous ne pouvons le déduire. Ainsi, \textbf{nous postulons que toute transformation du système résulte d'une combinatoire d'événements minimaux. Soit $\mathcal{T}_u \subset \mathcal{T}$ l'ensemble de ces transformations unitaires (les événements de base)}. Par définition, l'application d'une transformation unitaire $t \in \mathcal{T}_u$ à une configuration stable $c \in \mathcal{C}$ produit une nouvelle configuration $c' = t(c)$. 
+	
 		
-		\begin{postulat}[Postulat de famille engendrant les transformations]
-			Pour tout système, il existe une famille de transformations unitaires, élémentaires, telle que : 
+		À ce stade, deux cas de figure se présentent :
+		\begin{itemize}
+			\item $\rho(c')$ est vrai : la nouvelle configuration satisfait immédiatement les contraintes structurelles.
+			\item $\rho(c')$ est faux : la configuration est transitoire et invalide. Les dépendances structurelles rompues entraînent en cascade l'application  de nouvelles transformations unitaires, jusqu'à aboutir à une configuration valide. Cette série de transformations unitaires se propage de proche en proche jusqu'à ce qu'aucune précondition locale ne soit fausse. Le système arrive alors dans une configuration viable. 
+		\end{itemize}
+		
+		Nous pouvons alors définir formellement une macro-transformation non pas comme une simple fonction, mais comme la projection d'une trajectoire.
+		
+		\begin{definition}
+			Une \textbf{trajectoire causale} est une suite finie de configurations $(c_0, c_1, \dots, c_n)$ générée par une suite d'événements unitaires $(t_1, t_2, \dots, t_n)$ telle que :
 			\begin{itemize}
-				\item toute transformation est la combinaison finie de ces transformations unitaires.
-				\item toute transformation valide est la combinaison finie de transformations unitaires valides. 
-			\end{itemize} 
-			
-			Il n'est pas nécessaire que la famille des transformations soit finie, ou que les transformations unitaires forment un ensemble fini. On impose juste l'équivalent d'une famille génératrice et une composition finie. 
+				\item L'état initial et l'état final sont valides : $\rho(c_0)$ et $\rho(c_n)$ sont vrais.
+				\item Tous les états intermédiaires sont invalides (la cascade est en cours) : pour tout $0 < i < n$, $\rho(c_i)$ est faux.
+				\item Chaque étape découle de la précédente : pour tout $1 \le i \le n$, $c_i = t_i(c_{i-1})$.
+			\end{itemize}
+			Dès lors, une \textbf{transformation valide} $f$ est la fonction qui relie directement $c_0$ à $c_n$ telle que $f(c_0) = (t_n \circ t_{n-1} \circ \dots \circ t_1)(c_0) = c_n$.
+		\end{definition}
+		
+		Ainsi, la généralisation des mécanismes décrit à la section précédente devient un postulat définissant les transformations valides comme une composée finie de transformations unitaires. Il n'y a pas, axiomatiquement, d'autre mécanique de transformation possible. 
+
+		\begin{postulat}[Postulat de génération des transformations]
+			Pour tout système, il existe une famille de transformations unitaires $\mathcal{T}_u$ telle que toute transformation valide passant d'un état $c \in \mathcal{C}$ à un état $c' \in \mathcal{C}$ peut se décomposer en une trajectoire causale finie d'événements appartenant à $\mathcal{T}_u$.
 		\end{postulat}
 
-		On peut alors attacher un coût à une transformation $f$, sous forme d'entier, c'est  à dire le nombre d'actions unitaires nécessaires. 
-		
-		\begin{definition}
-			Un coût associe un entier $n \in \mathbb{N}$ à une transformation valide (passant d'une configuration valide à une autre valide). Une transformation unitaire a un coût de $1$. Une transformation est la composée finie de transformations unitaires. La décomposition n'est pas nécessairement unique. Nous prenons le coût de la transformation comme le nombre minimal de transformations unitaires nécessaires pour produire la transformation. 
-		\end{definition}
-		
-		C'est alors l'occasion de mesurer une distance entre deux configurations comme le nombre minimum de transformations unitaires qu'il suffit d'appliquer pour passer de l'une à l'autre. La notion de distance, cependant, serait a priori inadaptée : on ne sait pas en général assurer la symétrie ou l'inégalité triangulaire. Ce qui nous amène à une notion d'écart pour ne pas parler de distance. 
-		
-		\begin{definition}
-			Pour deux configurations données $c$ et $c'$, on appelle écart d'édition le nombre de transformations unitaires minimal à appliquer pour passer de $c$ à $c'$. Par définition, l'écart entre deux configurations identiques est $0$. 
-		\end{definition}
-		
-		Nous avons tous les outils conceptuels pour parler de la notion d'irréversibilité. Ce qui a distingué l'inertie des événements est au fond le coût théorique de revenir à la configuration initiale. 
-		
-		\begin{definition}
-			Toute transformation unitaire $t$ passant de $c$ à $c'$ telle que le passage de $c'$ à $c$ ne soit pas valide ou à un coût supérieur est dite irréversible. 
-		\end{definition}
-		
-		Cette définition nous permet de proposer une description du modèle, avec ce niveau de généralité, comme un graphe valué. Les sommets sont les configurations et l'indication de leur validité (ou simplement les configurations valides). Pour les liens, plusieurs options sont possibles : 
-		\begin{itemize}
-			\item \textbf{les liens sont les transformations unitaires}. La représentation permet de montrer les chemins, de comparer les degrés entrants et sortants, etc. C'est une vision locale. Le graphe peut tout à fait être cyclique pour les transformations réversibles. 
-			\item \textbf{les liens assemblent les transformations tant qu'il n'y a qu'une possibilité}. La valeur du lien n'est plus seulement une transformation, mais aussi son coût. C'est cette représentation que nous retiendrons. 
-		\end{itemize}
-		
-		Ainsi, nous terminons avec un ensemble $\bar{\mathcal{C}}$ et le prédicat $\rho$, ainsi qu'une fonction $\nu : \bar{\mathcal{C}} \rightarrow \mathfrak{P}(\mathcal{T} \times \mathbb{N})$ donnant les transformations accessibles à chaque configuration et leur cout en transformations unitaires. Il liste, en théorie, les états possibles du système et comment y parvenir. Les conditions de viabilité s'appliquent, de sorte qu'on peut modifier légèrement la définition pour rester dans $\mathcal{C}$. L'information essentielle étant de savoir comment transformer et à quel coût (quitte à tester avec $\rho$ ensuite).
-		
-		\begin{definition}
-			Étant donné un système, une description ontologique consiste à lister ses configurations $\bar{\mathcal{C}}$, le prédicat de validité $\rho$, les transformations $\mathcal{T}$ et leur cout en transformations élémentaires. Dès lors, le résultat produit un graphe, dit \textbf{représentation canonique}, liant les configurations entre elles par des couples de transformations et leur cout. 
-		\end{definition}
-				
-		Cette vue permet de bénéficier de toutes les méthodes d'analyse de graphe.
-		
-		\begin{itemize}
-			\item \textbf{L'attracteur (ponctuel ou sous-graphe)} : c'est une configuration qui présente de très nombreux arcs entrants et quasiment aucun arc sortant. Le système y est "capturé" car la majorité des transformations mène irrémédiablement vers ce macro-état. Par exemple, imaginons un été sans pluie et une plaine couverte d'arbres secs. Quel que soit le point de départ du feu dans la zone, il se propagera et finira par consumer toute la zone. Autrement dit, les chaînes causales convergent toutes vers l'attracteur final de la forêt calcinée.
-			
-			\item \textbf{Le point d'articulation} : bien que le terme de \og{}goulot d'étranglement\fg{} offre une intuition visuelle, les termes consacrés en théorie des graphes sont le \textit{point d'articulation} (un nœud dont la suppression scinde le réseau) ou l'\textit{isthme} (pour une arête). Dans l'espace des configurations, il est fréquent que le passage d'un sous-ensemble d'états stables à un macro-état d'effondrement soit contraint par un très faible nombre de configurations intermédiaires obligatoires. L'identification de cette \og{}coupure topologique\fg{} offre une assise structurelle à la résilience systémique : il est illusoire de vouloir interdire la combinatoire infinie des événements menant à la crise. Il suffit, en revanche, d'isoler ce point d'articulation invalide. Le graphe canonique s'en trouve déconnecté, isolant structurellement l'attracteur d'effondrement, qui devient dès lors inaccessible.
-			
-			\item \textbf{L'asymétrie combinatoire (et la flèche du temps)} : l'écart d'édition entre deux configurations n'est pas symétrique. Le passage de $c$ à $c'$ peut résulter d'un événement unique libérant une chaîne causale (coût unitaire de $1$). Le retour de $c'$ vers $c$ requiert, à l'inverse, un enchaînement précis de $N$ événements reconstructifs. Plus $N$ est grand, plus se forme un obstacle purement combinatoire. Depuis la configuration $c'$, l'arbre des configurations accessibles diverge de manière exponentielle : à chaque étape de la reconstruction, de multiples autres événements valides s'offrent au système. L'unique trajectoire permettant de retrouver l'état initial devient statistiquement inaccessible face à la divergence exponentielle des chemins possibles. L'irréversibilité est donc une propriété purement combinatoire liée au volume de l'espace des possibles.
-			
-			\item \textbf{La contrôlabilité structurelle par entités directrices} : dans leurs travaux fondateurs, Liu, Slotine et Barabási \cite{Controlability} démontrent qu'il est possible de piloter intégralement la dynamique d'un réseau complexe en n'agissant que sur un sous-ensemble restreint de composants, appelés \og{}nœuds directeurs\fg{} (\textit{driver nodes}). Dans notre ontologie, ce théorème illustre remarquablement l'absence d'agentivité du système. Piloter la représentation canonique ne consiste nullement à offrir une trajectoire de facilité que le réseau \og{}choisirait\fg{} de suivre. L'opération, menée par un acteur externe, consiste à imposer délibérément des événements sur ces seules entités directrices. La chaîne causale s'active alors mécaniquement de proche en proche, contraignant le système global à converger vers la configuration visée par le contrôleur.
-		\end{itemize}
+		Il n'est pas nécessaire que les transformations unitaires forment un ensemble fini. On impose juste l'équivalent d'une famille génératrice et une composition finie. Cette formalisation permet d'attacher un coût naturel à une transformation, qui devient la mesure de la chaîne causale introduite précédemment. Cette définition ne constitue pas un coût de transition au sens d'une forme d'énergie : pas de coût unitaire, pas de poids $(\alpha_i)$ rendant compte d'une énergie nécessaire. Elle s'interprète comme un comptage d'événements, d'opérations élémentaires, pour passer d'une configuration à l'autre. 
 
+		\begin{definition}
+			Le \textbf{coût} d'une trajectoire causale est le nombre $n \in \mathbb{N}$ de transformations unitaires qui la composent. L'\textbf{écart d'édition} entre deux configurations valides $c$ et $c'$ est défini comme le coût minimal parmi toutes les trajectoires causales permettant de passer de $c$ à $c'$. Par définition, l'écart entre deux configurations identiques est de $0$.
+		\end{definition}
+
+		Cette définition nous permet de proposer une description du modèle comme un graphe valué. Les sommets sont les configurations valides $\mathcal{C}$. Les arêtes assemblent les transformations unitaires sous forme de trajectoires causales valides. Ainsi, nous terminons avec un ensemble $\bar{\mathcal{C}}$, le prédicat $\rho$, et une fonction $\nu : \mathcal{C} \rightarrow \mathfrak{P}(\mathcal{C} \times \mathbb{N})$ donnant les macro-transformations valides accessibles depuis chaque configuration stable, associées à leur coût d'épuisement de la chaîne causale.
+		
+		\begin{definition}
+			Étant donné un système, une description ontologique consiste à lister ses configurations possibles $\bar{\mathcal{C}}$, le prédicat de validité $\rho$, l'ensemble des transformations $\mathcal{T}$ et leur coût d'édition minimal. Le résultat produit un graphe, dit \textbf{représentation canonique}, liant les configurations stables entre elles par des transformations valides et leur coût.
+		\end{definition}
+		
+		Cette vision macroscopique, qui consiste à dérouler l'arbre des configurations, représente l'univers des possibles du système. Elle permet de bénéficier des méthodes d'analyse de graphes pour comprendre sa dynamique globale  :
+
+		\begin{itemize}
+			\item \textbf{L'asymétrie combinatoire (et la flèche du temps)} : l'écart d'édition entre deux configurations n'est pas nécessairement symétrique. Le passage de $c$ à $c'$ peut résulter d'un événement déclencheur unique ouvrant une cascade (coût unitaire de $1$). Le retour de $c'$ vers $c$ requiert, à l'inverse, un enchaînement précis de $N$ événements reconstructifs. Plus $N$ est grand, plus se forme un obstacle purement combinatoire. Depuis la configuration $c'$, l'arbre des configurations accessibles diverge de manière exponentielle. L'unique trajectoire permettant de retrouver l'état initial devient statistiquement inatteignable face à la multiplication des chemins possibles. L'irréversibilité est donc une propriété strictement mécanique liée au volume de l'espace des possibles.
+			
+			\item \textbf{Le point d'articulation} : bien que le terme de \og{}goulot d'étranglement\fg{} offre une intuition visuelle, les termes consacrés en théorie des graphes sont le \textit{point d'articulation} (un nœud dont la suppression scinde le réseau) ou l'\textit{isthme}. Dans l'espace des configurations, il est fréquent que le passage d'un sous-ensemble d'états stables à un macro-état d'effondrement soit contraint par un très faible nombre de configurations intermédiaires obligatoires. L'identification de cette \og{}coupure topologique\fg{} offre une assise structurelle à la résilience systémique : il est illusoire de vouloir interdire la combinatoire infinie des événements menant à la crise. Il suffit, en revanche, de rendre inaccessible ce point d'articulation pour déconnecter structurellement le graphe canonique de l'état de crise.
+			
+			\item \textbf{L'attracteur (ponctuel ou sous-graphe)} : c'est une région de la représentation canonique qui présente de très nombreux arcs entrants et quasiment aucun arc sortant. La majorité des trajectoires causales convergent inéluctablement vers ce macro-état, non par une quelconque finalité ou "volonté" du système, mais en raison de la structure asymétrique des coûts d'édition locaux. Par exemple, imaginons un été sans pluie et une plaine couverte d'arbres secs. Quel que soit le point de départ exact du feu, les cascades successives d'événements convergent inéluctablement vers ce même attracteur final de l'épuisement des entités combustibles (la forêt calcinée).
+		\end{itemize}
+		
+		
 
 	\section{Résumé}
 	
 		Des objets ayant des propriétés tissent des liens entre eux, nous parlons d'entités. Ces entités évoluent parce que leur état s'agence avec ceux de leurs voisins pour entrainer un événement spécifique. Cet événement va changer localement l'état des entités, qui peuvent, à leur tour, provoquer de nouveaux événements. Voilà l'ontologie que nous proposons : entités, localité, interdépendance état - événement. 
 		
 		
-		Le système évolue en respectant des invariants fondamentaux : ils contraignent les configurations et les transformations. Les événements peuvent être directement admis par la configuration en cours (coût unitaire) ou provoquer une profonde reconfiguration pour rester dans un état acceptable, c'est à dire appliquer $n$ événements induits pour respecter de nouveau l'invariant. L'événement reste unitaire, mais il ouvre une série d'événements possibles plus ou moins large : sa \textbf{chaine causale}. Ce n'est pas que le système ait une quelconque forme d'instinct de préservation, c'est un enchainement local induit par la présence ou non d'entités autour des entités en transformation (cascade d'événements). La \textbf{flèche du temps} découle de cette irréversibilité.
+		Le système évolue en respectant des contraintes fondamentales : elles contraignent les configurations et les transformations. Les événements peuvent être directement admis par la configuration en cours (coût unitaire) ou provoquer une profonde reconfiguration pour rester dans un état acceptable, c'est à dire appliquer $n$ événements induits pour respecter de nouveau l'invariant. L'événement reste unitaire, mais il ouvre une série d'événements possibles plus ou moins large : sa \textbf{chaine causale}. Ce n'est pas que le système ait une quelconque forme d'instinct de préservation, c'est un enchainement local induit par la présence ou non d'entités autour des entités en transformation (cascade d'événements). La \textbf{flèche du temps} découle de cette irréversibilité.
 		
 		\vspace{0.5cm}
 		
-		Qu'il nous soit permis de conclure sur une précaution qui nous paraît nécessaire : \textbf{l'illusion de l'agentivité systémique.} Il convient de dissiper ici un biais cognitif fréquent lors de l'observation des dynamiques complexes. Face à une défaillance en cascade, le vocabulaire courant laisse souvent entendre que le système \og{}réagirait\fg{}, \og{}se reconfigurerait\fg{} ou \og{}ferait le choix\fg{} d'une trajectoire pour restaurer son équilibre. Dans notre ontologie, cette vision anthropomorphique est caduque. Le système ne décide rien et n'a aucune conscience de son état global. L'invariant n'est pas un but à atteindre, mais l'expression stricte des dépendances locales. Si une entité critique disparaît, les entités qui en dépendaient structurellement perdent instantanément leurs préconditions d'existence. Elles disparaissent donc à leur tour, propageant cette invalidation de proche en proche. La chaîne causale n'est pas une stratégie de réparation exécutée par le réseau, mais la stricte actualisation mécanique d'un effondrement localisé. À l'image d'une voûte qui s'écroule lorsqu'on en retire la clé, les pierres qui tombent ne cherchent pas à rétablir un équilibre : elles tombent car elles ne sont plus soutenues. De la même manière, la défaillance en cascade s'éteint mécaniquement là où les contraintes locales cessent d'être violées. La validité n'est pas la finalité du mouvement, elle en est le simple constat d'arrêt.
+		Qu'il nous soit permis de conclure sur une précaution qui nous paraît nécessaire : \textbf{l'illusion de l'agentivité systémique.} Il convient de dissiper ici un biais cognitif fréquent lors de l'observation des dynamiques complexes. Face à une défaillance en cascade, le vocabulaire courant laisse souvent entendre que le système \og{}réagirait\fg{}, \og{}se reconfigurerait\fg{} ou \og{}ferait le choix\fg{} d'une trajectoire pour restaurer son équilibre. Dans notre ontologie, cette vision anthropomorphique est caduque. Le système ne décide rien et n'a aucune conscience de son état global. Le prédicat qui définit son domaine de validité n'est pas un but à atteindre, mais l'expression stricte des dépendances locales. Si une entité critique disparaît, les entités qui en dépendaient structurellement perdent instantanément leurs préconditions d'existence. Elles disparaissent donc à leur tour, propageant cette invalidation de proche en proche. La chaîne causale n'est pas une stratégie de réparation exécutée par le réseau, mais la stricte actualisation mécanique d'un effondrement localisé. La validité n'est pas la finalité du mouvement, elle en est le simple constat d'arrêt.
 		
 		
 	\chapter{Cas pratique : les réseaux sociaux}
@@ -322,14 +322,14 @@
 	
 	Cette lecture met en évidence l'essence de la plateforme. L'algorithme de recommandation n'est rien d'autre que le gestionnaire des règles d'accessibilité. 
 	
-	\paragraph{La co-évolution : le mécanisme central pour capter l'attention.} Un réseau social monétise certains contenus. Il a donc besoin de maximiser les audiences et leur temps de présence devant l'écran. Dès lors, les retours sur les contenus (temps de consultation, interactions) sont des éléments essentiels pour maximiser la rétention en proposant les contenus les plus intéressants pour chaque utilisateur. Donc, un réseau social est l'incarnation d'une boucle de co-évolution ininterrompue :
+	\paragraph{La rétroaction : le mécanisme central pour capter l'attention.} Un réseau social monétise certains contenus. Il a donc besoin de maximiser les audiences et leur temps de présence devant l'écran. Dès lors, les retours sur les contenus (temps de consultation, interactions) sont des éléments essentiels pour maximiser la rétention en proposant les contenus les plus intéressants pour chaque utilisateur. Donc, un réseau social est l'incarnation d'une boucle de rétroaction ininterrompue :
 	\begin{enumerate}
 		\item \textbf{La configuration contraint la dynamique :} À chaque instant, l'algorithme choisit ce qui est plus ou moins visible par l'utilisateur. Ces liens de visibilité définissent l'espace des possibles de cet utilisateur à cet instant. Même s'il est parfois possible de lancer une nouvelle recherche, l'intermédiation algorithmique lui interdit de fait l'accès à certains contenus et lui en impose d'autres. Les seuls événements possibles pour l'utilisateur sont ceux permis dans ce voisinage local.
 		\item \textbf{La dynamique modifie la configuration :} L'utilisateur interagit (événement de type \og{}like\fg{}). Cet événement modifie les propriétés des entités (le score du contenu augmente). Immédiatement, le système ingère cette altération et recalcule les règles globales : de nouveaux liens de visibilité se créent vers d'autres utilisateurs.
 	\end{enumerate}
 	
 	\paragraph{La manipulation comme attaque topologique.} 
-	Sous cet angle, qu'est-ce qu'une campagne de manipulation artificielle (bots, \textit{slopaganda}) ? Ce n'est pas qu'une question sémantique : c'est le forçage volontaire de la boucle de co-évolution.
+	Sous cet angle, qu'est-ce qu'une campagne de manipulation artificielle (bots, \textit{slopaganda}) ? Ce n'est pas qu'une question sémantique : c'est l'exploitation offensive de la boucle de rétroaction, le forçage de nouvelles entités de manière non organique. 
 	
 	L'attaquant injecte massivement de fausses entités et génère des événements factices. Son but n'est pas d'influencer ses propres bots, mais de modifier artificiellement les propriétés du contenu manipulé (son score). L'algorithme du réseau social réagit alors de manière prévisible : croyant à un intérêt organique, il crée de nouveaux \textbf{liens de visibilité} pointant vers ce contenu pour des milliers d'utilisateurs réels. \textbf{C'est bien forcer la visibilité d'un contenu en le transformant en attracteur}. Les autres servent de passerelle vers ce qui constitue le vrai message. 
 	
